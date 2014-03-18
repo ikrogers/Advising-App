@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Pragprog Books Online Store</title>
+		<%= stylesheet_link_tag "application", media: "all",
+		"data-turbolinks-track" => true %>
+		<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+		<%= csrf_meta_tags %>
+	</head>
+	<body class="<%= controller.controller_name %>">
+		<div id="banner">
+			<%= image_tag("vsu.JPG") %>
+			<%= @page_title || "VSU Advising" %>
+		</div>
+		<div id="columns">
+
+			<div id="side">
+				<div id="links">
+					Log In Please
+				</div>
+				<ul>
+
+					<%= button_to "Log In", sessions_new_path(), method: :get %>
+
+				</ul>
+				</br>
+				</br>
+				<div id="links">
+					Register
+				</div>
+			</div>
+
+		</div>
+		
+		
+		<div id="main">
+			<div id="news">
+				Welcome!
+			</div>
+			<div class="item">
+				<%= image_tag("cat1.jpg", :size => "50%") %>
+			</div>
+			<div class="item">
+				<%= image_tag("cat2.jpg", :size => "200x200") %>
+			</div>
+			<div class="item">
+				<%= image_tag("cat3.jpg", :size => "200x200") %>
+			</div>
+			<div class="item">
+				<%= image_tag("cat4.gif", :size => "200x200") %>
+			</div>
+		</div>
+		</div>
+		</div>
+	</body>
+</html>
