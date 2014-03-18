@@ -1,6 +1,9 @@
 Advising::Application.routes.draw do
+  resources :courses
+
   get "student/index"
   get 'admin' => 'admin#index'
+  get 'advisor' => 'advisor#index'
   get 'student' => 'student#index'
   controller :sessions do
     get 'login' => :new

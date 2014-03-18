@@ -6,8 +6,11 @@ class SessionsController < ApplicationController
     user = User.find_by(name: params[:name])
     if user and user.authenticate(params[:password])
       session[:user_id] = user.id
-      if user.classification == "Advisor"
+      case user.classification
+      when "Admin"
         redirect_to admin_url
+      when "Advisor"
+        redirect_to advisor_url
       else
         redirect_to student_url
       end
