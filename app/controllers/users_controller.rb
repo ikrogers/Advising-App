@@ -25,10 +25,10 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-    @u = User.find_by_id(session[:user_id])
-    if @u.classification == "Advisor"
+    @currentuser = User.find_by_id(session[:user_id])
+    if @currentuser.classification == "Advisor"
       @user.classification = "Student"
-      @user.advisor = @u.name
+      @user.advisor = @currentuser.name
     end
     respond_to do |format|
       if @user.save

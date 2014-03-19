@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140318070439) do
+ActiveRecord::Schema.define(version: 20140319032439) do
 
   create_table "courses", force: true do |t|
     t.string   "name"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20140318070439) do
     t.string   "mi"
     t.string   "lname"
     t.decimal  "gpa"
-    t.integer  "advisor"
+    t.string   "advisor"
   end
 
 end
