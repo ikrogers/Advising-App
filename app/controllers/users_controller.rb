@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
+    @user.classification = "Student"
   end
 
   # GET /users/1/edit
@@ -24,7 +25,11 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-
+    @u = User.find_by_id(session[:user_id])
+    if @u.classification == "Advisor"
+      @user.classification = "Student"
+      @user.advisor = @u.name
+    end
     respond_to do |format|
       if @user.save
         format.html { redirect_to users_url, notice: "User #{@user.name} was successfully created." }
