@@ -15,7 +15,6 @@ Advising::Application.routes.draw do
   get "sessions/create"
   get "sessions/destroy"
   resources :users
-  get 'users/newstudent' => 'users#newstudent'
 
 
   

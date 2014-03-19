@@ -3,7 +3,9 @@
 	<%= notice %>
 </p>
 <% end %>
-<h1>Listing users</h1>
+<% @user = User.find_by_id(session[:user_id]) %>
+
+<h1>Welcome <%= @user.name%></h1>
 
 <table>
 	<thead>
@@ -28,12 +30,7 @@
 </table>
 
 <br>
-<% @user = User.find_by_id(session[:user_id]) %>
-<% if (@user.classification == "Admin") %>
 <%= link_to 'New User', new_user_path %>
-<% else %>
-<%= link_to 'New User', users_newstudent_path()  %>
-<% end%>
 
 <% if (@user.classification == "Admin") %>
 <%= link_to 'Back', admin_path() %>
