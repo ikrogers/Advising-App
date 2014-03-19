@@ -18,6 +18,10 @@ Advising::Application.routes.draw do
   resources :users
 
   get "advising/index"
+  
+  resources :users do
+    resources :courses
+  end
 
   root 'advising#index', as: 'advising'
 # The priority is based upon order of creation: first created -> highest priority.

@@ -30,6 +30,15 @@
 <br>
 
 <%= link_to 'New User', new_user_path %>
-<%= %>
-<%= link_to 'Back', :back %>
+<% @user = User.find_by_id(session[:user_id]) %>
+<% if (@user.classification == "Admin") %>
+<%= link_to 'Back', admin_path() %>
+<% else %>
+<%= link_to 'Back', advisor_path()  %>
+<% end%>
+
+
+
+
+
 
