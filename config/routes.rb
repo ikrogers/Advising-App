@@ -10,14 +10,14 @@ Advising::Application.routes.draw do
     post 'login' => :create
     delete 'logout' => :destroy
   end
-  
   get "admin/index"
   get "sessions/new"
   get "sessions/create"
   get "sessions/destroy"
   resources :users
+  get 'users/newstudent' => 'users#newstudent'
 
-  get "advising/index"
+
   
   resources :users do
     resources :courses

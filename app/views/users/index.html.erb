@@ -28,9 +28,13 @@
 </table>
 
 <br>
-
-<%= link_to 'New User', new_user_path %>
 <% @user = User.find_by_id(session[:user_id]) %>
+<% if (@user.classification == "Admin") %>
+<%= link_to 'New User', new_user_path %>
+<% else %>
+<%= link_to 'New User', users_newstudent_path()  %>
+<% end%>
+
 <% if (@user.classification == "Admin") %>
 <%= link_to 'Back', admin_path() %>
 <% else %>
