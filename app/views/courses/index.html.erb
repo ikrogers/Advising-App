@@ -1,5 +1,6 @@
-<h1>Listing courses</h1>
 <% @currentuser = User.find_by_id(session[:user_id]) %>
+
+<h1>Listing courses for <%= @currentuser.name %> </h1>
 <table>
 	<thead>
 		<tr>
@@ -14,6 +15,7 @@
 
 	<tbody>
 		<% @courses.each do |course| %>
+		<%if course.studentid == @currentuser.id %>
 		<tr>
 			<td><%= course.name %></td>
 			<td><%= course.hours %></td>
@@ -22,6 +24,7 @@
 			<td><%= link_to 'Edit', edit_course_path(course) %></td>
 			<td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 		</tr>
+		<%end%>
 		<% end %>
 	</tbody>
 </table>
