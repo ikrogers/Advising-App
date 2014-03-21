@@ -29,6 +29,7 @@ class CoursesController < ApplicationController
     if @currentuser.classification == "Student"
       @course.studentid = @currentuser.id
     end
+
     respond_to do |format|
       if @course.save
         format.html { redirect_to @course, notice: 'Course was successfully created.' }
