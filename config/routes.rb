@@ -1,4 +1,6 @@
 Advising::Application.routes.draw do
+  resources :courselists
+
   resources :courses
 
   get "student/index"
@@ -10,14 +12,17 @@ Advising::Application.routes.draw do
     post 'login' => :create
     delete 'logout' => :destroy
   end
-  
   get "admin/index"
   get "sessions/new"
   get "sessions/create"
   get "sessions/destroy"
   resources :users
 
-  get "advising/index"
+
+  
+  resources :users do
+    resources :courses
+  end
 
   root 'advising#index', as: 'advising'
 # The priority is based upon order of creation: first created -> highest priority.

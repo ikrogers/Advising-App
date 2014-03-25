@@ -1,6 +1,77 @@
-<h1>Editing user</h1>
+
+<% @currentuser = User.find_by_id(session[:user_id]) %>
+<% @courses = Course.all %>
+<h1>Editing user: <%= @user.name%></h1>
+<h1>You are: <%= @currentuser.name%></h1>
+
+
+<% if @currentuser.classification == "Advisor" %>
 
 <%= render 'form' %>
+<h3>COURSES:</h3>
+<table>
+	<th>Name</th>
+	<th>Hours</th>
+	<th>Prereq</th>
+	<% @courses.each do |course| %>
+	<%if course.studentid == @user.id %>
+	<tr>
+		<td><%= course.name %></td>
+		<td><%= course.hours %></td>
+		<td><%= course.prereq %></td>
+	</tr>
+	<%end%>
+	<%end%>
+</table>
+<% end %>
+<% if @currentuser.classification == "Admin" %>
+<%= render 'form' %>
 
+<%if @user.classification == "Advisor"%>
+<table>
+<h3>STUDENTS:</h3>
+
+<th>Name</th>
+<% @users.each do |user| %>
+		<% if (user.advisor == @user.name) %>
+		<tr>
+			<td><%= user.name %></td>
+			<td><%= link_to 'Show', user %></td>
+			<td><%= link_to 'Edit', edit_user_path(user) %></td>
+			<td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		</tr>
+		<% end %>
+		<% end %>
+		</table>
+<%end%>
+
+<%if @user.classification == "Student"%>
+<h3>COURSES:</h3>
+<table>
+	<th>Name</th>
+	<th>Hours</th>
+	<th>Prereq</th>
+	<% @courses.each do |course| %>
+	<%if course.studentid == @user.id %>
+	<tr>
+		<td><%= course.name %></td>
+		<td><%= course.hours %></td>
+		<td><%= course.prereq %></td>
+		
+	</tr>
+	<%end%>
+	<%end%>
+	<%end%>
+</table>
+<% end %>
+
+</br>
 <%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<%case @currentuser.classification%>
+<%      when "Admin"%>
+<%= link_to 'Back', admin_path() %>
+<%      when "Advisor"%>
+<%= link_to 'Back', advisor_path() %>
+<%     else%>
+<%= link_to 'Back', student_path() %>
+<%     end%>

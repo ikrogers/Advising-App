@@ -1,32 +1,77 @@
-<h1>Listing courses</h1>
+<% @currentuser = User.find_by_id(session[:user_id]) %>
 
+<h1>Listing courses for <%= @currentuser.name %> </h1>
 <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Hours</th>
-      <th>Prereq</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Hours</th>
+			<th>Prereq</th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+	</thead>
 
-  <tbody>
-    <% @courses.each do |course| %>
-      <tr>
-        <td><%= course.name %></td>
-        <td><%= course.hours %></td>
-        <td><%= course.prereq %></td>
-        <td><%= link_to 'Show', course %></td>
-        <td><%= link_to 'Edit', edit_course_path(course) %></td>
-        <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+	<tbody>
+	<% if @currentuser.classification == "Student" %>
+
+		<% @courses.each do |course| %>
+			<%if course.studentid == @currentuser.id %>
+			<tr>
+				<td><%= course.name %></td>
+				<td><%= course.hours %></td>
+				<td><%= course.prereq %></td>
+				<td><%= link_to 'Show', course %></td>
+				<td><%= link_to 'Edit(Delete this using IF for student TO DO)', edit_course_path(course) %></td> 
+				<td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			</tr>
+			<%end%>
+			<% end %>
+		<%else%>
+		<% @courses.each do |course| %>
+		<tr>
+			<td><%= course.name %></td>
+			<td><%= course.hours %></td>
+			<td><%= course.prereq %></td>
+			<td><%= link_to 'Show', course %></td>
+			<td><%= link_to 'Edit(Delete this using IF for student TO DO)', edit_course_path(course) %></td> 
+			<td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		</tr>
+		<%end%>
+		<%end%>
+	</tbody>
+</table>
+<br>
+<table>
+	<th>Course ID</th>
+	<th>Prereq</th>
+	<th>Description</th>
+	<% @courselist = Courselist.all %>
+	<% @courselist.each do |list| %>
+		<% @courses.each do |course| %>
+			<% if course.name != list.name%>
+			<tr>
+				<td><%= list.name %></td>
+				<td><%= list.prereq %></td>
+				<td><%= list.description %><td>
+					<% break %>
+			</tr>
+			<% end %>
+			
+		<% end %>
+	
+	<% end %>
 </table>
 
 <br>
 
 <%= link_to 'New Course', new_course_path %>
-<%= link_to 'Back', :back %>
+<%case @currentuser.classification%>
+<%      when "Admin"%>
+<%= link_to 'Back', admin_path() %>
+<%      when "Advisor"%>
+<%= link_to 'Back', advisor_path() %>
+<%     else%>
+<%= link_to 'Back', student_path() %>
+<%     end%>

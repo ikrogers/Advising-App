@@ -25,6 +25,10 @@ class CoursesController < ApplicationController
   # POST /courses.json
   def create
     @course = Course.new(course_params)
+  @currentuser = User.find_by_id(session[:user_id])
+    if @currentuser.classification == "Student"
+      @course.studentid = @currentuser.id
+    end
 
     respond_to do |format|
       if @course.save
