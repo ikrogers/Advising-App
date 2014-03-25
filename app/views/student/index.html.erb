@@ -2,7 +2,7 @@
 <% @user = User.find_by_id(session[:user_id]) %>
 
 <h1>Welcome <%= @user.name%></h1>
-<p>
+
     <%= button_to 'Logout', logout_path, method: :delete %>
 </p>
 <p>

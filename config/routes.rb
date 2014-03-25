@@ -1,4 +1,6 @@
 Advising::Application.routes.draw do
+  resources :courselists
+
   resources :courses
 
   get "student/index"
