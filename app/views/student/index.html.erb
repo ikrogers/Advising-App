@@ -2,22 +2,7 @@
 <% @user = User.find_by_id(session[:user_id]) %>
 
 <h1>Welcome <%= @user.name%></h1>
-<% if @user.classification == "Student" %>
-		<table>
-			<th>Course ID</th>
-			<th>Prereq</th>
-			<th>Description</th>
-			<% @courselist = Courselist.all %>
-			<% @courselist.each do |list| %>
-			<tr>
-				<td><%= list.name %></td>
-				<td><%= list.prereq %></td>
-				<td><%= list.description %><td>
-			</tr>
-			<% end %>
-		</table>
-<%end%>
-<p>
+
     <%= button_to 'Logout', logout_path, method: :delete %>
 </p>
 <p>
