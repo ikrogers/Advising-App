@@ -49,18 +49,19 @@
 	<th>Description</th>
 	<% @courselist = Courselist.all %>
 	<% @courselist.each do |list| %>
+	<% @match = 0 %>
 		<% @courses.each do |course| %>
-			<% if course.name != list.name%>
+			<% if course.name == list.name%>
+			<% @match = 1 %>
+			<% end %>
+		<% end %>
+		<% if @match == 0 %>
 			<tr>
 				<td><%= list.name %></td>
 				<td><%= list.prereq %></td>
 				<td><%= list.description %><td>
-					<% break %>
 			</tr>
-			<% end %>
-			
 		<% end %>
-	
 	<% end %>
 </table>
 
