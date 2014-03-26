@@ -11,9 +11,6 @@ class CoursesController < ApplicationController
   def show
   end
   
-  def sendcourses
-    @course = Course.all
-  end
 
   # GET /courses/new
   def new
