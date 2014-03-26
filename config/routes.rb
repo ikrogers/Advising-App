@@ -18,7 +18,7 @@ Advising::Application.routes.draw do
   get "sessions/destroy"
   resources :users
 
-
+get 'courses/sendcourses'
   
   resources :users do
     resources :courses
