@@ -6,35 +6,24 @@
 
 <% @filter_course_array = result %>
 
+
+
 <br>
 <div>
 <table>
+	<th>Available</th>
+	<th></th>
+	<th>Selections</th>
+
+
 	<tr>
 		<td> <%= select_tag "list[]", options_for_select(@filter_course_array), :multiple=>true %> </td>
 		<td> <%= button_tag "Add"%>
 		<br>
 		<%= button_tag "Remove"%> </td>
-		<td> <% @courselist = Courselist.all %>
 		<td> <%= select_tag "list[]", :multiple=>true %> </td>
 	</tr>
-
-
-
-
-
-
-
-
-		<% @courselist.each do |list| %>
-		<% @match = 0 %>
-		<% @courses.each do |course| %>
-		<% if course.name == list.name%>
-		<% @match = 1 %>
-		<% end %>
-		<% end %>
-		<% if @match == 0 %> <option><%= list.name %></option> <% end %>
-		<% end %>
-
+	
 
 </table>
 </div>
