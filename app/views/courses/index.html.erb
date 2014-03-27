@@ -41,45 +41,12 @@
 		<%end%>
 		<%end%>
 	</tbody>
-</table>
-<br>
-<table>
-	<tr>
-		<td>
-			<select name="Courses" multiple="multiple" style="width:100px;height:300px">
-				<option></option>
-			</select>
-		</td>
-		<td>
-			<button name="addbtn" style="width:120px;height:40px">Add</button>
-			</br>
-			</br>
-			</br>
-			<button name="removebtn" style="width:120px;height:40px">Remove</button>
-		</td>
-		<td>
-			<select name="Choices" multiple="multiple" style="width:100px;height:300px">
-				<% @courselist = Courselist.all %>
-				<% @courselist.each do |list| %>
-				<% @match = 0 %>
-					<% @courses.each do |course| %>
-						<% if course.name == list.name%>
-						<% @match = 1 %>
-						<% end %>
-					<% end %>
-					<% if @match == 0 %>
-						<option><%= list.name %></option>
-					<% end %>
-				<% end %>
-			</select>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<input name="Appointment" type="text" />
-		</td>
-	</tr>
-</table>
+	
+<div>
+<%= render 'sendcoursesform' %>
+</div>
+
+
 <br>
 
 <%= link_to 'New Course', new_course_path %>

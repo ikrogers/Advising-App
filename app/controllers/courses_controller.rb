@@ -1,6 +1,5 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
-
   # GET /courses
   # GET /courses.json
   def index
@@ -11,6 +10,7 @@ class CoursesController < ApplicationController
   # GET /courses/1.json
   def show
   end
+  
 
   # GET /courses/new
   def new
@@ -25,7 +25,7 @@ class CoursesController < ApplicationController
   # POST /courses.json
   def create
     @course = Course.new(course_params)
-  @currentuser = User.find_by_id(session[:user_id])
+    @currentuser = User.find_by_id(session[:user_id])
     if @currentuser.classification == "Student"
       @course.studentid = @currentuser.id
     end
@@ -64,6 +64,7 @@ class CoursesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

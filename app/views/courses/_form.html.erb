@@ -10,7 +10,21 @@
       </ul>
     </div>
   <% end %>
-
+  <% @courses = Course.all %>
+	<select name="Choices" multiple="multiple" style="width:100px;height:300px">
+			<% @courselist = Courselist.all %>
+			<% @courselist.each do |list| %>
+			<% @match = 0 %>
+			<% @courses.each do |course| %>
+			<% if course.name == list.name%>
+			<% @match = 1 %>
+			<% end %>
+			<% end %>
+			<% if @match == 0 %>
+			<option><%= list.name %></option>
+			<% end %>
+			<% end %>
+	</select>
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>

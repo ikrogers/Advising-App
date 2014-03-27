@@ -18,11 +18,12 @@ Advising::Application.routes.draw do
   get "sessions/destroy"
   resources :users
 
-
+get 'courses/sendcourses'
   
   resources :users do
     resources :courses
   end
+  
 
   root 'advising#index', as: 'advising'
 # The priority is based upon order of creation: first created -> highest priority.
