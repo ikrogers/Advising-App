@@ -1,0 +1,54 @@
+<% @courselist = Courselist.all() %>
+<% @currentuser = User.find_by_id(session[:user_id]) %>
+<% @sql = "SELECT CL.name  FROM courselists CL EXCEPT SELECT C.name FROM courses C where C.studentid = #{@currentuser.id}" %>
+<% result = ActiveRecord::Base.connection.raw_connection.prepare(@sql) %>
+<% result.execute() %>
+
+<% @filter_course_array = result %>
+<html>
+<head>
+    <title>Advising</title>
+</head>
+<body class="container">
+<div>
+<table>
+	<tr>
+		<td> <%= select_tag "list", options_for_select(@filter_course_array), :multiple=>true %> </td>
+	</tr>
+	<tr><br></tr>
+	<tr>
+		<td>		
+			<button type="submit" class="btn btn-default btn-md btn-block" >Submit data</button>
+		</td>
+	</tr>
+</table>
+</div>
+<script>
+    $(function () {
+        $('#list')
+                .bootstrapDualListbox({
+                    bootstrap2Compatible: false,
+                    moveAllLabel: 'MOVE ALL',
+                    removeAllLabel: 'REMOVE ALL',
+                    moveSelectedLabel: 'MOVE SELECTED',
+                    removeSelectedLabel: 'REMOVE SELECTED',
+                    filterPlaceHolder: 'FILTER',
+                    filterSelected: '2',
+                    filterNonSelected: '1',
+                    moveOnSelect: true,
+                    preserveSelectionOnMove: 'all',
+                    helperSelectNamePostfix: '_myhelper',
+                    selectedListLabel: 'Your Choices',
+                    nonSelectedListLabel: 'Available Classes'
+                })
+                .bootstrapDualListbox('setMoveAllLabel', 'Choose all')
+                .bootstrapDualListbox('setRemoveAllLabel', 'Reset choices')
+                .bootstrapDualListbox('setSelectedFilter', undefined)
+                .bootstrapDualListbox('setNonSelectedFilter', undefined)
+                .bootstrapDualListbox('refresh')
+                
+    });
+          
+</script>
+<br>
+</body>

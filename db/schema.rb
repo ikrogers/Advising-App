@@ -10,7 +10,8 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
-ord::Schema.define(version: 20140322235010) do
+
+ActiveRecord::Schema.define(version: 20140325211829) do
 
   create_table "courselists", force: true do |t|
     t.string "name"
@@ -25,6 +26,8 @@ ord::Schema.define(version: 20140322235010) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "studentid"
+    t.integer  "choices"
+    t.string   "message"
   end
 
   create_table "users", force: true do |t|
@@ -38,6 +41,7 @@ ord::Schema.define(version: 20140322235010) do
     t.string   "lname"
     t.decimal  "gpa"
     t.string   "advisor"
+    t.datetime "appointmentDate"
   end
 
 end

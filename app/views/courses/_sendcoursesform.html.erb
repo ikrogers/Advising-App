@@ -1,45 +1,9 @@
-<% @courselist = Courselist.all %>
-<% @currentuser = User.find_by_id(session[:user_id]) %>
-<% 	@coursesunselectedsql = "SELECT CL.name, CL.name  FROM courselists CL EXCEPT SELECT C.name, C.name FROM courses C where C.studentid = #{@currentuser.id}";
-	@coursesselectedsql = "SELECT C.name, C.name FROM courses C where C.studentid = #{@currentuser.id}"
-	
-	#@addbuttonsql = "INSERT INTO courses (id, name hours, prereq,foreign_key_id,choices_id,choices,messages) VALUES ()#{results[0], #{results[1], #{results[2], #{results[3], #{results[4], #{results[5], #{results[6], #{results[7])}";
 
 
 
-%>
-
-<% unselected = ActiveRecord::Base.connection.raw_connection.prepare(@coursesunselectedsql) %>
-<% unselected.execute() %>
-
-<% selected = ActiveRecord::Base.connection.raw_connection.prepare(@coursesselectedsql) %>
-<% selected.execute() %>
-
-<% @filter_course_array = unselected %>
-<% @course_array = selected %>
-
-
-
+<%= render 'bootstrap_dual_list'%>
 <br>
-<div>
-<table>
-	<th>Available</th>
-	<th></th>
-	<th>Selections</th>
 
-
-	<tr>
-		<td> <%= select_tag 'toAdd' , options_for_select(@filter_course_array), :multiple=>false %> </td>
-		
-		<td> <%= button_to "Add", {:controller => :courses, :action => 'addCourse'} %>
-		<br>
-		<%= button_tag "Remove"%> </td>
-		<td> <%= select_tag 'toRemove' , options_for_select(@course_array), :multiple=>false %> </td>
-	</tr>
-	
-
-</table>
-</div>
 	<br>
 	<div>
 		<%= label_tag "Appoitment"%>
@@ -52,6 +16,3 @@
 		<br>
 		<%= text_area_tag "Message"%>
 	</div>
-<% 	unselected.close;
-	selected.close;
- %>
