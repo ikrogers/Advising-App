@@ -55,7 +55,10 @@
     	var c = document.getElementById("list");
     	for( var i = 0; i < c.options.length; i++){
     		if(c.options[i].selected)
-    			str = str + c.options[i].value + " ";
+    			<% @currentuser = User.find_by_id(session[:user_id]) %>
+    			<% @testcourse = Courselist.find_by_name("CS1301") %>
+				var testcourse = <%= Courselist.find_by_name("CS1301") %>
+    			<% Course.create!(name: @testcourse.name, hours: @testcourse.hours, prereq: @testcourse.prereq, studentid: @currentuser.id) %>
     	}
     	alert(str);
     };
