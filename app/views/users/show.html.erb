@@ -1,0 +1,52 @@
+<p id="notice">
+	<%= notice %>
+</p>
+<% @courses = Course.all %>
+
+
+<p>
+	<strong>Name:</strong>
+	<%= @user.name %>
+</p>
+<p>
+	<strong>Type:</strong>
+	<%= @user.classification %>
+</p>
+
+<% if @user.classification == "Student" %>
+<table>
+	<th>Name</th>
+	<th>Hours</th>
+	<th>Prereq</th>
+	<% @courses.each do |course| %>
+	<%if course.studentid == @user.id %>
+	<tr>
+		<td><%= course.name %></td>
+		<td><%= course.hours %></td>
+		<td><%= course.prereq %></td>
+		<td><%= link_to 'Show', course %></td>
+		<td><%= link_to 'Edit', edit_course_path(course) %></td>
+		<td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	</tr>
+	<%end%>
+	<%end%>
+</table>
+<%end%>
+
+<% if @user.classification == "Advisor" %>
+<table>
+<th>Name</th>
+<% @users.each do |user| %>
+		<% if (user.advisor == @user.name) %>
+		<tr>
+			<td><%= user.name %></td>
+			<td><%= link_to 'Show', user %></td>
+			<td><%= link_to 'Edit', edit_user_path(user) %></td>
+			<td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		</tr>
+		<% end %>
+		<% end %>
+</table>
+<%end%>
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

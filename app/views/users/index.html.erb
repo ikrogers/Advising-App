@@ -1,0 +1,60 @@
+<% if notice %>
+<p id="notice">
+	<%= notice %>
+</p>
+<% end %>
+<% @currentuser = User.find_by_id(session[:user_id]) %>
+
+<h1>Welcome <%= @currentuser.name%></h1>
+
+<table>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+	</thead>
+
+	<tbody>
+		
+		<% if @currentuser.classification == "Advisor"%>
+		<% @users.each do |user| %>
+		<% if (user.advisor == @currentuser.name) %>
+		<tr>
+			<td><%= user.name %></td>
+			<td><%= link_to 'Show', user %></td>
+			<td><%= link_to 'Edit', edit_user_path(user) %></td>
+			<td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		</tr>
+		<% end %>
+		<% end %>
+		<% end %>
+		
+		<% if @currentuser.classification == "Admin"%>
+		<% @users.each do |user| %>
+		<tr>
+			<td><%= user.name %></td>
+			<td><%= link_to 'Show', user %></td>
+			<td><%= link_to 'Edit', edit_user_path(user) %></td>
+			<td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		</tr>
+		<% end %>
+		<% end %>
+	</tbody>
+</table>
+
+<br>
+<%= link_to 'New User', new_user_path %>
+<% if (@currentuser.classification == "Admin") %>
+<%= link_to 'Back', admin_path() %>
+<% else %>
+<%= link_to 'Back', advisor_path()  %>
+<% end%>
+
+
+
+
+
+

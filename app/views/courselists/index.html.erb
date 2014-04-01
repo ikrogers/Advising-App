@@ -1,0 +1,31 @@
+<h1>Listing courselists</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Prereq</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @courselists.each do |courselist| %>
+      <tr>
+        <td><%= courselist.name %></td>
+        <td><%= courselist.prereq %></td>
+        <td><%= courselist.description %></td>
+        <td><%= link_to 'Show', courselist %></td>
+        <td><%= link_to 'Edit', edit_courselist_path(courselist) %></td>
+        <td><%= link_to 'Destroy', courselist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Courselist', new_courselist_path %>

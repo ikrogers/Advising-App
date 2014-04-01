@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @courselist.name %>
+</p>
+
+<p>
+  <strong>Prereq:</strong>
+  <%= @courselist.prereq %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @courselist.description %>
+</p>
+
+<%= link_to 'Edit', edit_courselist_path(@courselist) %> |
+<%= link_to 'Back', courselists_path %>
