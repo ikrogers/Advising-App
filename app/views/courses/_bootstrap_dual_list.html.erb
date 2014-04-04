@@ -1,3 +1,6 @@
+
+
+
 <% @courselist = Courselist.all() %>
 <% @currentuser = User.find_by_id(session[:user_id]) %>
 <% @sql = "SELECT CL.name  FROM courselists CL EXCEPT SELECT C.name FROM courses C where C.studentid = #{@currentuser.id}" %>
@@ -5,25 +8,75 @@
 <% result.execute() %>
 
 <% @filter_course_array = result %>
-<html>
-<head>
-    <title>Advising</title>
-</head>
-<body class="container">
-<div>
-<table>
-	<tr>
-		<td> <%= select_tag "list", options_for_select(@filter_course_array), :multiple=>true %> </td>
-	</tr>
-	<tr><br></tr>
-	<tr>
-		<td>		
-			<button type="submit" class="btn btn-default btn-md btn-block" >Submit data</button>
-		</td>
-	</tr>
-</table>
-</div>
+
+
+
+
+<% @ccc =  Courselist.all%>
+
+
+<%= form_tag("/getcourse", :method => "post", :id => "contactForm") do %>
+    <%=  select_tag "list", options_for_select(@filter_course_array), :multiple=>true %> <br/>
+  </br>
+    <%= submit_tag "Send" %>
+<% end %>
+<div id="result">grgdgdg</div>
+
+
 <script>
+
+function loop()
+	{
+		
+		var list = document.getElementById('bootstrap-duallistbox-selected-list_list[]');
+		var array = "";
+		for(var i = 0; i < list.options.length; ++i){
+			//if(list.options[i].selected)
+				array+=","+list.options[i].value;
+				
+		}//end for
+		 //window.open("localhost:3000//controller/courses."+
+		
+		return array;
+	}
+
+
+$("#contactForm").submit(function(event) {
+
+
+
+	/* stop form from submitting normally */
+	event.preventDefault();
+
+	/* clear result div */
+	$("#result").html('');
+	
+
+	/* get values from elements on the page: */
+	var values = loop();
+	/* Send the data using post and put the results in a div */
+	$.ajax({
+		url: "/getcourse",
+		type: "post",
+		data: {param1:values},
+		success: function(data, textStatus, xhr){
+		      alert("data: " + values);
+		      $("#result").html(data);
+		},
+
+		error:function(){
+			$("#result").html('there is error while submit');
+		}
+	});
+});
+</script>
+
+
+
+<script>
+
+ 
+ 
     $(function () {
         $('#list')
                 .bootstrapDualListbox({
@@ -48,7 +101,9 @@
                 .bootstrapDualListbox('refresh')
                 
     });
+
           
 </script>
+
 <br>
 </body>

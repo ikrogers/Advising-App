@@ -1,6 +1,6 @@
 Advising::Application.routes.draw do
   resources :courselists
-
+  post 'getcourse' => 'courses#getcourse'
   resources :courses
 
   get "student/index"
@@ -18,7 +18,7 @@ Advising::Application.routes.draw do
   get "sessions/destroy"
   resources :users
 
-get 'courses/sendcourses'
+
   
   resources :users do
     resources :courses
@@ -26,6 +26,11 @@ get 'courses/sendcourses'
   
 
   root 'advising#index', as: 'advising'
+  
+  
+  
+  
+
 # The priority is based upon order of creation: first created -> highest priority.
 # See how all your routes lay out with "rake routes".
 

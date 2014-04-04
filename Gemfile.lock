@@ -142,6 +142,7 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-sass
   coffee-rails (~> 4.0.0)
+  execjs
   high_voltage
   jbuilder (~> 1.2)
   jquery-rails

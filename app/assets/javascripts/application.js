@@ -9,14 +9,14 @@
 //
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
-//
+// 
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
 
-;(function ($, window, document, undefined) {
+(function ($, window, document, undefined) {
   var pluginName = 'bootstrapDualListbox',
     defaults = {
       bootstrap2Compatible: false,
@@ -1298,7 +1298,7 @@
         '   <label></label>' +
         '   <span class="info-container">' +
         '     <span class="info"></span>' +
-        '     <button type="button" class="btn clear2 pull-right"></button>' +
+        //'     <button type="button" class="btn clear2 pull-right"></button>' +
         '   </span>' +
         '   <input class="filter" type="text">' +
         '   <div class="btn-group buttons">' +
@@ -1656,4 +1656,10 @@
   };
 
 })(jQuery, window, document);
+
+
+
+
+
+
 

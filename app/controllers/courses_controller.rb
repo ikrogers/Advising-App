@@ -4,11 +4,30 @@ class CoursesController < ApplicationController
   # GET /courses.json
   def index
     @courses = Course.all
+     
+  end
+
+  def getcourse
+     name = params[:param1]
+    @student = Course.new
+    @student.name = name
+    
+    respond_to do |format|
+      if @student.save
+        format.html { redirect_to @student, notice: "class " }
+        format.json { render :json => { :name => "class "+name }}
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @student.errors, status: :unprocessable_entity }
+      end
+    end
+   
   end
 
   # GET /courses/1
   # GET /courses/1.json
   def show
+     
   end
   
 
@@ -20,6 +39,8 @@ class CoursesController < ApplicationController
   # GET /courses/1/edit
   def edit
   end
+  
+  
 
   # POST /courses
   # POST /courses.json
@@ -74,6 +95,6 @@ class CoursesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_params
-      params.require(:course).permit(:name, :hours, :prereq)
+      #params.require(:course).permit(:name, :hours, :prereq)
     end
 end
