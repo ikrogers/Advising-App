@@ -8,18 +8,20 @@ class CoursesController < ApplicationController
   end
 
   def getcourse
-     name = params[:param1]
-    @student = Course.new
-    @student.name = name
+    @currentuser = User.find_by_id(session[:user_id])
+     @name = params[:param1]
+     
+     @name.each do |c|
+        @student = Course.create(name: c, hours: 4, choices: @currentuser.id)  
+     end
+    flash[:notice] = "You choices have been submitted"
     
     respond_to do |format|
-      if @student.save
-        format.html { redirect_to @student, notice: "class " }
-        format.json { render :json => { :name => "class "+name }}
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @student.errors, status: :unprocessable_entity }
-      end
+      
+        format.html { redirect_to @student, notice: "You choices have been submitted" }
+        format.json { render :json => { :name => "class "+@name }}
+
+    
     end
    
   end

@@ -29,10 +29,10 @@ function loop()
 	{
 		
 		var list = document.getElementById('bootstrap-duallistbox-selected-list_list[]');
-		var array = "";
+		var array = new Array();
 		for(var i = 0; i < list.options.length; ++i){
 			//if(list.options[i].selected)
-				array+=","+list.options[i].value;
+				array[i] = list.options[i].value;
 				
 		}//end for
 		 //window.open("localhost:3000//controller/courses."+
