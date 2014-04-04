@@ -10,10 +10,12 @@ class CoursesController < ApplicationController
   def getcourse
     @currentuser = User.find_by_id(session[:user_id])
     
-    if @currentuser.flag == "false"
-      
-    @currentuser.update_attributes(:flag => "true")
+    
     @name = params[:param1]
+          if @currentuser.flag == "false"
+
+        @currentuser.update_attributes(:flag => "true")
+
     @allcourses = Courselist.all
     @allcourses.each do |all|
       @name.each do |c|
@@ -31,6 +33,13 @@ class CoursesController < ApplicationController
 
     end #end of format
     end #end of flag if
+    
+    respond_to do |format|
+
+      format.html { redirect_to student_index_path, notice: "You have already submitted, please wait for your advisors response" }
+      format.json { render :json => { :name => "class "+@name }}
+
+    end #end of format
   end #end of method
 
   # GET /courses/1

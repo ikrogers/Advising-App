@@ -14,13 +14,26 @@
 
 <% @ccc =  Courselist.all%>
 
-
+<div id="result">
 <%= form_tag("/getcourse", :method => "post", :id => "contactForm") do %>
     <%=  select_tag "list", options_for_select(@filter_course_array), :multiple=>true %> <br/>
   </br>
+  <br>
+	<div>
+		<%= label_tag "Appoitment"%>
+		<br>
+		<%= text_field_tag "Appoitment"%>
+	</div>
+<br>
+	<div>
+		<%= label_tag "Message"%>
+		<br>
+		<%= text_area_tag "Message"%>
+	</div>
+
     <%= submit_tag "Send" %>
 <% end %>
-<div id="result">grgdgdg</div>
+grgdgdg</div>
 
 
 <script>
@@ -49,7 +62,7 @@ $("#contactForm").submit(function(event) {
 	event.preventDefault();
 
 	/* clear result div */
-	$("#result").html('');
+	
 	
 
 	/* get values from elements on the page: */
@@ -61,6 +74,7 @@ $("#contactForm").submit(function(event) {
 		data: {param1:values},
 		success: function(data, textStatus, xhr){
 		      alert("data: " + values);
+		      $("#result").html('');
 		      $("#result").html(data);
 		},
 
