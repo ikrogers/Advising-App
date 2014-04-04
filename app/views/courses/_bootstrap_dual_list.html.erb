@@ -3,10 +3,10 @@
 
 <% @courselist = Courselist.all() %>
 <% @currentuser = User.find_by_id(session[:user_id]) %>
-<% @sql = "SELECT CL.name  FROM courselists CL EXCEPT SELECT C.name FROM courses C where C.studentid = #{@currentuser.id}" %>
+<% @sql = "SELECT CL.name FROM courselists CL EXCEPT SELECT C.name FROM courses C WHERE C.studentid = #{@currentuser.id} AND WHERE " %>
 <% result = ActiveRecord::Base.connection.raw_connection.prepare(@sql) %>
 <% result.execute() %>
-
+$ 
 <% @filter_course_array = result %>
 
 
