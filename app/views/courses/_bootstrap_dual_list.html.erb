@@ -3,10 +3,10 @@
 
 <% @courselist = Courselist.all() %>
 <% @currentuser = User.find_by_id(session[:user_id]) %>
-<% @sql = "SELECT CL.name FROM courselists CL EXCEPT SELECT C.name FROM courses C WHERE C.studentid = #{@currentuser.id} AND WHERE " %>
+<% @sql = "SELECT CL.name FROM courselists CL EXCEPT SELECT C.name FROM courses C WHERE C.studentid = #{@currentuser.id} " %>
 <% result = ActiveRecord::Base.connection.raw_connection.prepare(@sql) %>
 <% result.execute() %>
-$ 
+ 
 <% @filter_course_array = result %>
 
 
@@ -62,7 +62,7 @@ $("#contactForm").submit(function(event) {
 	event.preventDefault();
 
 	/* clear result div */
-			      $("#result").html('');
+	$("#result").html('');
 
 	
 
@@ -74,8 +74,9 @@ $("#contactForm").submit(function(event) {
 		type: "post",
 		data: {param1:values},
 		success: function(data, textStatus, xhr){
-		      alert("data: " + values);
-		      $("#result").html(data);
+		      alert("Courses submitted successfully!");
+		      $("#result").html();
+		      location.reload();
 		},
 
 		error:function(){
