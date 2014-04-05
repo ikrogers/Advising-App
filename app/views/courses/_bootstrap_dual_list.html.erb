@@ -3,11 +3,14 @@
 
 <% @courselist = Courselist.all() %>
 <% @currentuser = User.find_by_id(session[:user_id]) %>
-<% @sql = "SELECT CL.name FROM courselists CL EXCEPT SELECT C.name FROM courses C WHERE (C.studentid = #{@currentuser.id} OR C.studentid = -1) EXCEPT SELECT DISTINCT X.name FROM courselists X, courses C WHERE  X.prereq NOT IN(SELECT  CC.name FROM courses CC WHERE (CC.studentid = #{@currentuser.id} OR CC.studentid = -1))" %>
-<% result = ActiveRecord::Base.connection.raw_connection.prepare(@sql) %>
+<% @sql1 = "SELECT CL.name, CL.hours FROM courselists CL EXCEPT SELECT C.name, C.hours FROM courses C WHERE (C.studentid = #{@currentuser.id} OR C.studentid = -1) EXCEPT SELECT DISTINCT X.name, X.hours FROM courselists X, courses C WHERE  X.prereq NOT IN(SELECT  CC.name FROM courses CC WHERE (CC.studentid = #{@currentuser.id} OR CC.studentid = -1))" %>
+<% @sql2 = "SELECT CL.name, CL.hours FROM courses CL WHERE CL.studentid = #{@currentuser.id}" %>
+<% result = ActiveRecord::Base.connection.raw_connection.prepare(@sql1) %>
 <% result.execute() %>
- 
+<% result2 = ActiveRecord::Base.connection.raw_connection.prepare(@sql2) %>
+<% result2.execute() %>
 <% @filter_course_array = result %>
+<% @second = result2 %>
 
 
 
@@ -15,7 +18,8 @@
 <% @ccc =  Courselist.all%>
 <table>
 <%= form_tag("/getcourse", :method => "post", :id => "contactForm") do %>
-    <%=  select_tag "list", options_for_select(@filter_course_array), :multiple=>true %> <br/>
+    <%=  select_tag "list", options_for_select(@filter_course_array), :multiple=>true %>
+    <%=  select_tag "list", options_for_select(@second), :multiple=>true %> <br/>
   </br>
   <br>
 	<div>
