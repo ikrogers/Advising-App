@@ -3,7 +3,7 @@
 
 <% @courselist = Courselist.all() %>
 <% @currentuser = User.find_by_id(session[:user_id]) %>
-<% @sql = "SELECT CL.name FROM courselists CL EXCEPT SELECT C.name FROM courses C WHERE C.studentid = #{@currentuser.id} " %>
+<% @sql = "SELECT CL.name FROM courselists CL EXCEPT SELECT C.name FROM courses C WHERE C.studentid = #{@currentuser.id} EXCEPT SELECT DISTINCT X.name FROM courselists X, courses C WHERE  X.prereq NOT IN(SELECT  CC.name FROM courses CC WHERE CC.studentid = #{@currentuser.id}) " %>
 <% result = ActiveRecord::Base.connection.raw_connection.prepare(@sql) %>
 <% result.execute() %>
  
