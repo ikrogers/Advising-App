@@ -13,6 +13,9 @@ User.create!(name: 'student2', password: 'student2', password_confirmation: 'stu
 User.create!(name: 'student3', password: 'student3', password_confirmation: 'student3', classification: "Student", advisor: "adv2", flag: "false")
 User.create!(name: 'student4', password: 'student4', password_confirmation: 'student4', classification: "Student", advisor: "adv2", flag: "false")
 
+#default course.  DO NOT REMOVE!
+Course.create!(name: "CS000", hours: 0, studentid: -1)
+
 Course.create!(name: "CS1010", hours: 4, studentid: 4)
 Course.create!(name: "CS1301", hours: 4, studentid: 4)
 Course.create!(name: "CS1302", hours: 4, prereq: "CS1301", studentid: 4)
