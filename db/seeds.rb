@@ -8,10 +8,13 @@
 User.create!(name: 'admin', password: 'admin', password_confirmation: 'admin', classification: "Admin")
 User.create!(name: 'adv1', password: 'adv1', password_confirmation: 'adv1', classification: "Advisor")
 User.create!(name: 'adv2', password: 'adv2', password_confirmation: 'adv2', classification: "Advisor")
-User.create!(name: 'student1', password: 'student1', password_confirmation: 'student1', classification: "Student", advisor: "adv1")
-User.create!(name: 'student2', password: 'student2', password_confirmation: 'student2', classification: "Student", advisor: "adv1")
-User.create!(name: 'student3', password: 'student3', password_confirmation: 'student3', classification: "Student", advisor: "adv2")
-User.create!(name: 'student4', password: 'student4', password_confirmation: 'student4', classification: "Student", advisor: "adv2")
+User.create!(name: 'student1', password: 'student1', password_confirmation: 'student1', classification: "Student", advisor: "adv1", flag: "false")
+User.create!(name: 'student2', password: 'student2', password_confirmation: 'student2', classification: "Student", advisor: "adv1", flag: "false")
+User.create!(name: 'student3', password: 'student3', password_confirmation: 'student3', classification: "Student", advisor: "adv2", flag: "false")
+User.create!(name: 'student4', password: 'student4', password_confirmation: 'student4', classification: "Student", advisor: "adv2", flag: "false")
+
+#default course.  DO NOT REMOVE!
+Course.create!(name: "CS000", hours: 0, studentid: -1)
 
 Course.create!(name: "CS1010", hours: 4, studentid: 4)
 Course.create!(name: "CS1301", hours: 4, studentid: 4)

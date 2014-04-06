@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    
   end
 
   # GET /users/1
@@ -32,6 +33,7 @@ class UsersController < ApplicationController
     if @currentuser.classification == "Advisor"
       @user.classification = "Student"
       @user.advisor = @currentuser.name
+      @user.flag = "false"
     end
     respond_to do |format|
       if @user.save

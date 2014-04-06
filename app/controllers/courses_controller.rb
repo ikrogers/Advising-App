@@ -4,13 +4,39 @@ class CoursesController < ApplicationController
   # GET /courses.json
   def index
     @courses = Course.all
+
   end
+
+  def getcourse
+    @currentuser = User.find_by_id(session[:user_id])
+    
+    
+    @name = params[:param1]
+    @message = params[:param2]
+    @appointment = params[:param3]
+    @currentuser.update_attributes( :message => @message)
+
+    @allcourses = Courselist.all
+    @allcourses.each do |all|
+      @name.each do |c|
+        if all.name == c
+          @student = Course.create!(name: all.name, prereq: all.prereq, hours: 4, choice: @currentuser.id)
+        end
+      end
+    end #end of allcourses loop
+    respond_to do |format|
+
+      format.html { redirect_to @student, notice: "You choices have been submitted" }
+      format.json { render :json => { :name => "class "+@name }}
+
+    end #end of format
+  end #end of method
 
   # GET /courses/1
   # GET /courses/1.json
   def show
+
   end
-  
 
   # GET /courses/new
   def new
@@ -27,7 +53,7 @@ class CoursesController < ApplicationController
     @course = Course.new(course_params)
     @currentuser = User.find_by_id(session[:user_id])
     if @currentuser.classification == "Student"
-      @course.studentid = @currentuser.id
+    @course.studentid = @currentuser.id
     end
 
     respond_to do |format|
@@ -65,15 +91,15 @@ class CoursesController < ApplicationController
     end
   end
 
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_course
-      @course = Course.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def course_params
-      params.require(:course).permit(:name, :hours, :prereq)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_course
+    @course = Course.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def course_params
+    #params.require(:course).permit(:name, :hours, :prereq)
+  end
 end

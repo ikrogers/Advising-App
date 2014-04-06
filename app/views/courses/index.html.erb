@@ -23,9 +23,8 @@
 				<td><%= course.name %></td>
 				<td><%= course.hours %></td>
 				<td><%= course.prereq %></td>
-				<td><%= link_to 'Show', course %></td>
-				<td><%= link_to 'Edit(Delete this using IF for student TO DO)', edit_course_path(course) %></td>
-				<td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+				<td><%= link_to 'Show', course, :class => ('btn btn-success btn-md') %></td>
+				<td><%= link_to 'Destroy', course,:class => ('btn btn-danger btn-md') , method: :delete, data: { confirm: 'Are you sure?' } %></td>
 			</tr>
 			<%end%>
 			<% end %>
@@ -35,7 +34,8 @@
 				<td><%= course.name %></td>
 				<td><%= course.hours %></td>
 				<td><%= course.prereq %></td>
-				<td><%= link_to 'Show', course %></td>
+				<td><%= link_to 'Show', course, :class => "btn btn-default btn-md btn-block" %> </td>
+					
 				<td><%= link_to 'Edit(Delete this using IF for student TO DO)', edit_course_path(course) %></td>
 				<td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 			</tr>

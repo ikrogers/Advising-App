@@ -1,29 +1,96 @@
+
+
+
 <% @courselist = Courselist.all() %>
 <% @currentuser = User.find_by_id(session[:user_id]) %>
-<% @sql = "SELECT CL.name  FROM courselists CL EXCEPT SELECT C.name FROM courses C where C.studentid = #{@currentuser.id}" %>
+<% @sql = "SELECT CL.name FROM courselists CL EXCEPT SELECT C.name FROM courses C WHERE (C.studentid = #{@currentuser.id} OR C.studentid = -1) EXCEPT SELECT DISTINCT X.name FROM courselists X, courses C WHERE  X.prereq NOT IN(SELECT  CC.name FROM courses CC WHERE (CC.studentid = #{@currentuser.id} OR CC.studentid = -1))" %>
 <% result = ActiveRecord::Base.connection.raw_connection.prepare(@sql) %>
 <% result.execute() %>
-
+ 
 <% @filter_course_array = result %>
-<html>
-<head>
-    <title>Advising</title>
-</head>
-<body class="container">
-<div>
+
+
+
+
+<% @ccc =  Courselist.all%>
 <table>
-	<tr>
-		<td> <%= select_tag "list", options_for_select(@filter_course_array), :multiple=>true %> </td>
-	</tr>
-	<tr><br></tr>
-	<tr>
-		<td>		
-			<button type="submit" class="btn btn-default btn-md btn-block" onclick="submit()">Submit data</button>
-		</td>
-	</tr>
-</table>
+<%= form_tag("/getcourse", :method => "post", :id => "contactForm") do %>
+    <%=  select_tag "list", options_for_select(@filter_course_array), :multiple=>true %> <br/>
+  </br>
+  <br>
+	<div>
+		<%= label_tag "Appoitment"%>
+		<br>
+		<%= text_field_tag "appt"%>
+	</div>
+<br>
+	<div>
+		<%= label_tag "Message"%>
+		<br>
+		<%= text_area_tag "msg"%>
+	</div>
+    <%= submit_tag "Send", :class => "btn btn-default btn-block" %>
+<% end %>
+<div id="result">
 </div>
+</table>
+
 <script>
+
+function loop()
+	{
+		
+		var list = document.getElementById('bootstrap-duallistbox-selected-list_list[]');
+		var array = new Array();
+		for(var i = 0; i < list.options.length; ++i){
+			//if(list.options[i].selected)
+				array[i] = list.options[i].value;
+				
+		}//end for
+		 //window.open("localhost:3000//controller/courses."+
+		
+		return array;
+	}
+
+
+$("#contactForm").submit(function(event) {
+
+
+
+	/* stop form from submitting normally */
+	event.preventDefault();
+
+	/* clear result div */
+	$("#result").html('');
+
+	var msg = document.getElementById("msg").value;
+	var appt = document.getElementById("appt").value;
+	/* get values from elements on the page: */
+	var values = loop();
+	/* Send the data using post and put the results in a div */
+	$.ajax({
+		url: "/getcourse",
+		type: "post",
+		data: {param1:values; param2:msg; param3:appt},
+		success: function(data, textStatus, xhr){
+		      alert("Courses submitted successfully!");
+		      $("#result").html();
+		      location.reload(true);
+		},
+
+		error:function(){
+			$("#result").html('there is error while submit');
+		}
+	});
+});
+</script>
+
+
+
+<script>
+
+ 
+ 
     $(function () {
         $('#list')
                 .bootstrapDualListbox({
@@ -48,20 +115,9 @@
                 .bootstrapDualListbox('refresh')
                 
     });
+
+          
 </script>
-<script>
-	function submit(){
-		var str = "";
-    	var c = document.getElementById("list");
-    	for( var i = 0; i < c.options.length; i++){
-    		if(c.options[i].selected)
-    			<% @currentuser = User.find_by_id(session[:user_id]) %>
-    			<% @testcourse = Courselist.find_by_name("CS1301") %>
-				var testcourse = <%= Courselist.find_by_name("CS1301") %>
-    			<% Course.create!(name: @testcourse.name, hours: @testcourse.hours, prereq: @testcourse.prereq, studentid: @currentuser.id) %>
-    	}
-    	alert(str);
-    };
-</script>
+
 <br>
 </body>
