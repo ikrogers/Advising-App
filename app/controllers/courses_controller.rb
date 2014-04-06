@@ -18,7 +18,7 @@ class CoursesController < ApplicationController
     @allcourses.each do |all|
       @name.each do |c|
         if all.name == c
-          @student = Course.create(name: all.name, prereq: all.prereq, hours: 4, studentid:@currentuser.id, choice: @currentuser.id)
+          @student = Course.create(name: all.name, prereq: all.prereq, hours: all.hours, studentid:@currentuser.id, choice: @currentuser.id)
         end
       end
     end #end of allcourses loop
