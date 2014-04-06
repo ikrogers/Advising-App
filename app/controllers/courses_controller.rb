@@ -16,20 +16,24 @@ class CoursesController < ApplicationController
     @starttime = params[:starttime]
     @endtime = params[:endtime]
 
-
-
+    @currentuser.update_attribute(:message, @message)
+    @currentuser.update_attribute(:appts, @starttime)
+    @currentuser.update_attribute(:appte, @endtime)
     @allcourses = Courselist.all
+    
     @allcourses.each do |all|
       @name.each do |c|
         if all.name == c
-          @student = Course.create(name: all.name, prereq: all.prereq, hours: all.hours, studentid:@currentuser.id, choice: @currentuser.id)
+          @student = Course.create(name: all.name, prereq: all.prereq, hours: all.hours, choice: @currentuser.id)
         end
       end
     end #end of allcourses loop
+
+
     respond_to do |format|
 
       format.html { redirect_to @student, notice: "You choices have been submitted" }
-      format.json { render :json => { :name => "class "+@name, :message=>@message, :starttime => @starttime, :endtime=>@endtime }}
+      format.json { render :json => { :name => "class "+@name, :message => @message, :starttime => @starttime, :endtime => @endtime }}
 
     end #end of format
   end #end of method

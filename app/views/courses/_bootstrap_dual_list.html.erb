@@ -18,21 +18,36 @@
 	<div>
 		<%= label_tag "Appoitment Start"%>
 		<br>
-		<%= text_field_tag(:appts)%>
-		<br>
+		<%= text_field_tag(:appts) %>
+		<br> 
 		<%= label_tag "Appoitment Start"%>
 		<br>
-		<%= text_field_tag(:appte)%>
+		<%= text_field_tag(:appte) %>
 	</div>
 	<br>
 	<div>
 		<%= label_tag "Message"%>
 		<br>
-		<%= text_area_tag "Message"%>
+		<%= text_area_tag "Message" %>
 	</div>
-	<%= submit_tag "Send", :class => "btn btn-default btn-block" %>
+	<div><%= submit_tag "Send", :class => "btn btn-default btn-block" %></div>
 	<% end %>
-
+<tr>
+	<%if @currentuser.message != nil%>
+	 <label>Your submitted message is: </label>
+	 <br>
+	 <textarea readonly><%= @currentuser.message%></textarea>
+	 <%end%>
+	 <br>
+	 <br>
+	 <%if @currentuser.appts != nil && @currentuser.appte != nil%>
+	 <label>Your appointment times are: </label>
+	 <br>
+	 <label>From: <%= @currentuser.appts%></label>
+	 <br>
+	 <label>To: <%= @currentuser.appte%></label>
+	 <%end%>
+</tr>
 </table>
 
 <script>
@@ -63,9 +78,9 @@
 	$("#result").html('');
 	/* get values from elements on the page: */
 	var values=loop();
-	var message = document.getElementById('Message').text;
-	var endtime = document.getElementById('appte').text;
-	var starttime = document.getElementById('appts').text;
+	var message = document.getElementById('Message').value;
+	var endtime = document.getElementById('appte').value;
+	var starttime = document.getElementById('appts').value;
 	/* Send the data using post and put the results in a div */
 	$.ajax({
 	url:"/getcourse",type:"post",
