@@ -20,7 +20,7 @@ class CoursesController < ApplicationController
     @currentuser.update_attribute(:appts, @starttime)
     @currentuser.update_attribute(:appte, @endtime)
     @allcourses = Courselist.all
-    
+    if @name != nil
     @allcourses.each do |all|
       @name.each do |c|
         if all.name == c
@@ -28,12 +28,12 @@ class CoursesController < ApplicationController
         end
       end
     end #end of allcourses loop
-
+    end #end if
 
     respond_to do |format|
 
       format.html { redirect_to @student, notice: "You choices have been submitted" }
-      format.json { render :json => { :name => "class "+@name, :message => @message, :starttime => @starttime, :endtime => @endtime }}
+      format.json { render :json => { :name => @name, :message => @message, :starttime => @starttime, :endtime => @endtime }}
 
     end #end of format
   end #end of method
