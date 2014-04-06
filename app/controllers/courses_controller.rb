@@ -12,8 +12,11 @@ class CoursesController < ApplicationController
     
     
     @name = params[:param1]
-
-
+    if(@currentuser.classification == 'Student')
+      @currentuser.flag = 'true'
+    end
+    #consider adding else for setting flag to false, indicating advisor/admin made change to allow re-registration?
+    
     @allcourses = Courselist.all
     @allcourses.each do |all|
       @name.each do |c|

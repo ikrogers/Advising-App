@@ -14,24 +14,24 @@
 
 <% @ccc =  Courselist.all%>
 <table>
-<%= form_tag("/getcourse", :method => "post", :id => "contactForm") do %>
-    <%=  select_tag "list", options_for_select(@filter_course_array), :multiple=>true %> <br/>
+<%= form_tag('/getcourse', :method => 'post', :id => 'contactForm') do %>
+    <%=  select_tag 'list', options_for_select(@filter_course_array), :multiple=>true %> <br/>
   </br>
   <br>
 	<div>
-		<%= label_tag "Appoitment"%>
+		<%= label_tag 'Appoitment'%>
 		<br>
-		<%= text_field_tag "Appoitment"%>
+		<%= text_field_tag 'Appoitment'%>
 	</div>
 <br>
 	<div>
-		<%= label_tag "Message"%>
+		<%= label_tag 'Message'%>
 		<br>
-		<%= text_area_tag "Message"%>
+		<%= text_area_tag 'Message'%>
 	</div>
-    <%= submit_tag "Send", :class => "btn btn-default btn-block" %>
+    <%= submit_tag 'Send', :class => 'btn btn-default btn-block' %>
 <% end %>
-<div id="result">
+<div id='result'>
 grgdgdg</div>
 </table>
 

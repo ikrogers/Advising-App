@@ -2,14 +2,14 @@
 <% @user = User.find_by_id(session[:user_id]) %>
 
 <h1>Welcome <%= @user.name%></h1>
-<div class="item">
-	<%= button_to "Manage Users", users_path(), method: :get %>
+<div class='item'>
+	<%= button_to 'Manage Users', users_path(), method: :get %>
 </div>
 <p>
 	<%= button_to 'Logout', logout_path, method: :delete %>
 
 </p>
 
-<div class="item">
-	<%= image_tag("cat5.jpg", :size => "500x500") %>
+<div class='item'>
+	<%= image_tag('cat5.jpg', :size => '500x500') %>
 </div>

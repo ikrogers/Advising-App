@@ -24,6 +24,10 @@ class UsersController < ApplicationController
         @users = User.all
 
   end
+  
+  def flag
+    @user.flag = 'lifted'
+  end
 
   # POST /users
   # POST /users.json
