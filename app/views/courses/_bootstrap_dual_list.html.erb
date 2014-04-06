@@ -1,6 +1,3 @@
-
-
-
 <% @courselist = Courselist.all() %>
 <% @currentuser = User.find_by_id(session[:user_id]) %>
 <% @sql1 = "SELECT CL.name, CL.hours FROM courselists CL EXCEPT SELECT C.name, C.hours FROM courses C WHERE (C.studentid = #{@currentuser.id} OR C.studentid = -1) EXCEPT SELECT DISTINCT X.name, X.hours FROM courselists X, courses C WHERE  X.prereq NOT IN(SELECT  CC.name FROM courses CC WHERE (CC.studentid = #{@currentuser.id} OR CC.studentid = -1))" %>
@@ -12,113 +9,84 @@
 <% @filter_course_array = result %>
 <% @second = result2 %>
 
-
-
-
 <% @ccc =  Courselist.all%>
 <table>
-<%= form_tag("/getcourse", :method => "post", :id => "contactForm") do %>
-    <%=  select_tag "list", options_for_select(@filter_course_array), :multiple=>true %>
-  </br>
-  <br>
+	<%= form_tag("/getcourse", :method => "post", :id => "contactForm") do %>
+	<%= select_tag "list", options_for_select(@filter_course_array), :multiple=>true %>
+	</br>
+	<br>
 	<div>
-		<%= label_tag "Appoitment"%>
+		<%= label_tag "Appoitment Start"%>
 		<br>
-		<%= text_field_tag "Appoitment"%>
+		<%= text_field_tag(:appts)%>
+		<br>
+		<%= label_tag "Appoitment Start"%>
+		<br>
+		<%= text_field_tag(:appte)%>
 	</div>
-<br>
+	<br>
 	<div>
 		<%= label_tag "Message"%>
 		<br>
 		<%= text_area_tag "Message"%>
 	</div>
-    <%= submit_tag "Send", :class => "btn btn-default btn-block" %>
-<% end %>
-<div id="result">
-grgdgdg</div>
+	<%= submit_tag "Send", :class => "btn btn-default btn-block" %>
+	<% end %>
+
 </table>
 
 <script>
+ $('#appts').datetimepicker({
+    format: 'yyyy-mm-dd hh:ii'
+    
+})
+ $('#appte').datetimepicker({
+    format: 'yyyy-mm-dd hh:ii'
+});
 
-function loop()
-	{
-		
-		var list = document.getElementById('bootstrap-duallistbox-selected-list_list[]');
-		var array = new Array();
-		for(var i = 0; i < list.options.length; ++i){
-			//if(list.options[i].selected)
-				array[i] = list.options[i].text;
-				
-		}//end for
-		 //window.open("localhost:3000//controller/courses."+
-		
-		return array;
+
+
+	function loop() {
+	var list=document.getElementById('bootstrap-duallistbox-selected-list_list[]');
+	var array=new Array();
+	for(var i=0;i<list.options.length;++i) {
+	//if(list.options[i].selected)
+	array[i]=list.options[i].text;
+	}//end for
+	//window.open("localhost:3000//controller/courses."+
+	return array;
 	}
-
-
-$("#contactForm").submit(function(event) {
-
-
-
+	$("#contactForm").submit(function(event) {
 	/* stop form from submitting normally */
 	event.preventDefault();
-
 	/* clear result div */
 	$("#result").html('');
-
-	
-
 	/* get values from elements on the page: */
-	var values = loop();
+	var values=loop();
+	var message = document.getElementById('Message').text;
+	var endtime = document.getElementById('appte').text;
+	var starttime = document.getElementById('appts').text;
 	/* Send the data using post and put the results in a div */
 	$.ajax({
-		url: "/getcourse",
-		type: "post",
-		data: {param1:values},
-		success: function(data, textStatus, xhr){
-		      alert("Courses submitted successfully!");
-		      $("#result").html();
-		      location.reload(true);
-		},
-
-		error:function(){
-			$("#result").html('there is error while submit');
-		}
+	url:"/getcourse",type:"post",
+	data: {param1:values, message:message, starttime:starttime, endtime:endtime},
+	success: function(data,textStatus,xhr) {
+	alert("Courses submitted successfully!");
+	$("#result").html();
+	location.reload(true);
+	},error: function() {
+	$("#result").html('there is error while submit');
+	}
 	});
-});
+	});
 </script>
 
-
-
 <script>
-
- 
- 
-    $(function () {
-        $('#list')
-                .bootstrapDualListbox({
-                    bootstrap2Compatible: false,
-                    moveAllLabel: 'MOVE ALL',
-                    removeAllLabel: 'REMOVE ALL',
-                    moveSelectedLabel: 'MOVE SELECTED',
-                    removeSelectedLabel: 'REMOVE SELECTED',
-                    filterPlaceHolder: 'FILTER',
-                    filterSelected: '2',
-                    filterNonSelected: '1',
-                    moveOnSelect: false,
-                    preserveSelectionOnMove: 'all',
-                    helperSelectNamePostfix: '_myhelper',
-                    selectedListLabel: 'Your Choices',
-                    nonSelectedListLabel: 'Available Classes'
-                })
-                .bootstrapDualListbox('setRemoveAllLabel', 'Reset choices')
-                .bootstrapDualListbox('setSelectedFilter', undefined)
-                .bootstrapDualListbox('setNonSelectedFilter', undefined)
-                .bootstrapDualListbox('refresh')
-                
-    });
-
-          
+	$(function() {
+	$('#list').bootstrapDualListbox({
+	bootstrap2Compatible:false,moveAllLabel:'MOVE ALL',removeAllLabel:'REMOVE ALL',moveSelectedLabel:'MOVE SELECTED',removeSelectedLabel:'REMOVE SELECTED',filterPlaceHolder:'FILTER',filterSelected:'2',filterNonSelected:'1',moveOnSelect:false,preserveSelectionOnMove:'all',helperSelectNamePostfix:'_myhelper',selectedListLabel:'Your Choices',nonSelectedListLabel:'Available Classes'
+	}).bootstrapDualListbox('setRemoveAllLabel','Reset choices').bootstrapDualListbox('setSelectedFilter',undefined).bootstrapDualListbox('setNonSelectedFilter',undefined).bootstrapDualListbox('refresh')
+	});
 </script>
 
 <br>

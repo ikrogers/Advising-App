@@ -12,6 +12,10 @@ class CoursesController < ApplicationController
     
     
     @name = params[:param1]
+    @message = params[:message]
+    @starttime = params[:starttime]
+    @endtime = params[:endtime]
+
 
 
     @allcourses = Courselist.all
@@ -25,7 +29,7 @@ class CoursesController < ApplicationController
     respond_to do |format|
 
       format.html { redirect_to @student, notice: "You choices have been submitted" }
-      format.json { render :json => { :name => "class "+@name }}
+      format.json { render :json => { :name => "class "+@name, :message=>@message, :starttime => @starttime, :endtime=>@endtime }}
 
     end #end of format
   end #end of method
