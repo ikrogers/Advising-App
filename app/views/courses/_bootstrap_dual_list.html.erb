@@ -11,10 +11,15 @@
 
 <% @ccc =  Courselist.all%>
 <table>
-	<%= form_tag("/getcourse", :method => "post", :id => "contactForm") do %>
+	<%= form_tag("/getcourse", :method => "post", :id => "courseupdate") do %>
 	<%= select_tag "list", options_for_select(@filter_course_array), :multiple=>true %>
 	</br>
+	<div><%= submit_tag "Send Courses", :class => "btn btn-default btn-block" %></div>
+	<% end %>
+	
 	<br>
+	
+	<%= form_tag("/contactf", :method => "post", :id => "contactForm") do %>
 	<div>
 		<%= label_tag "Appoitment Start"%>
 		<br>
@@ -30,11 +35,11 @@
 		<br>
 		<%= text_area_tag "Message" %>
 	</div>
-	<div><%= submit_tag "Send", :class => "btn btn-default btn-block" %></div>
+	<div><%= submit_tag "Send Contact Information", :class => "btn btn-default btn-block" %></div>
 	<% end %>
 <tr>
-	<%if @currentuser.message != nil%>
-	 <label>Your submitted message is: </label>
+	<%if @currentuser.message != ""%>
+	 <label>Submitted message:</label>
 	 <br>
 	 <textarea readonly><%= @currentuser.message%></textarea>
 	 <%end%>
@@ -49,8 +54,10 @@
 	 <%end%>
 </tr>
 </table>
-
 <script>
+
+
+
  $('#appts').datetimepicker({
     format: 'yyyy-mm-dd hh:ii'
     
@@ -60,10 +67,36 @@
 });
 
 
+	$("#contactForm").submit(function(event) {
+	/* stop form from submitting normally */
+	event.preventDefault();
+	/* clear result div */
+	/* get values from elements on the page: */
+	var message = document.getElementById('Message').value;
+	var endtime = document.getElementById('appte').value;
+	var starttime = document.getElementById('appts').value;
+	/* Send the data using post and put the results in a div */
+	$.ajax({
+	url:"/contactf",
+	type:"post",
+	data: {message:message, starttime:starttime, endtime:endtime},
+	success: function(data,textStatus,xhr) {
+	alert("Contact info updated successfully!");
+	location.reload(true);
+	},error: function() {
+		alert("Error");
+	}
+	});
+	});
+</script>
+<script>
+
+
+
 
 	function loop() {
-	var list=document.getElementById('bootstrap-duallistbox-selected-list_list[]');
-	var array=new Array();
+		var list=document.getElementById('bootstrap-duallistbox-selected-list_list[]');
+		var array=new Array();
 	for(var i=0;i<list.options.length;++i) {
 	//if(list.options[i].selected)
 	array[i]=list.options[i].text;
@@ -71,30 +104,31 @@
 	//window.open("localhost:3000//controller/courses."+
 	return array;
 	}
-	$("#contactForm").submit(function(event) {
+	
+	$("#courseupdate").submit(function(event) {
 	/* stop form from submitting normally */
 	event.preventDefault();
 	/* clear result div */
-	$("#result").html('');
 	/* get values from elements on the page: */
 	var values=loop();
-	var message = document.getElementById('Message').value;
-	var endtime = document.getElementById('appte').value;
-	var starttime = document.getElementById('appts').value;
 	/* Send the data using post and put the results in a div */
 	$.ajax({
 	url:"/getcourse",type:"post",
-	data: {param1:values, message:message, starttime:starttime, endtime:endtime},
+	data: {param1:values},
 	success: function(data,textStatus,xhr) {
 	alert("Courses submitted successfully!");
-	$("#result").html();
 	location.reload(true);
 	},error: function() {
-	$("#result").html('there is error while submit');
+				alert("You must select some courses");
+
 	}
 	});
 	});
+	
+		
 </script>
+
+
 
 <script>
 	$(function() {

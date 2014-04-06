@@ -6,19 +6,34 @@ class CoursesController < ApplicationController
     @courses = Course.all
 
   end
+      
+  def contactf
+    @currentuser = User.find_by_id(session[:user_id])
+    @message = params[:message]
+    @appte  = params[:endtime]
+    @appts = params[:starttime]
+    
+    
+    @currentuser.update_attribute(:message, @message)
+        @currentuser.update_attribute(:appts, @appts)
+   @currentuser.update_attribute(:appte, @appte)
+
+     respond_to do |format|
+
+      format.html { redirect_to courses_path, notice: "You choices have been submitted" }
+      format.json { render :json => { :message => @message, :starttime => @appts, :endtime => @appte }}
+
+    end #end of format
+    
+    
+  end
 
   def getcourse
     @currentuser = User.find_by_id(session[:user_id])
     
     
     @name = params[:param1]
-    @message = params[:message]
-    @starttime = params[:starttime]
-    @endtime = params[:endtime]
-
-    @currentuser.update_attribute(:message, @message)
-    @currentuser.update_attribute(:appts, @starttime)
-    @currentuser.update_attribute(:appte, @endtime)
+    
     @allcourses = Courselist.all
     if @name != nil
     @allcourses.each do |all|
@@ -33,7 +48,7 @@ class CoursesController < ApplicationController
     respond_to do |format|
 
       format.html { redirect_to @student, notice: "You choices have been submitted" }
-      format.json { render :json => { :name => @name, :message => @message, :starttime => @starttime, :endtime => @endtime }}
+      format.json { render :json => { :name => @name }}
 
     end #end of format
   end #end of method
