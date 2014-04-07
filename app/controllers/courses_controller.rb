@@ -33,13 +33,11 @@ class CoursesController < ApplicationController
     
     
     @name = params[:param1]
-<<<<<<< HEAD
     if(@currentuser.classification == 'Student')
       @currentuser.flag = 'true'
     end
     #consider adding else for setting flag to false, indicating advisor/admin made change to allow re-registration?
-=======
->>>>>>> cfba9d14c8dde1000c20760c340180dcc0186030
+
     
     @allcourses = Courselist.all
     if @name != nil
