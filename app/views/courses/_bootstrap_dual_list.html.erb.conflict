@@ -11,6 +11,16 @@
 
 <% @ccc =  Courselist.all%>
 <table>
+<<<<<<< HEAD
+<%= form_tag('/getcourse', :method => 'post', :id => 'contactForm') do %>
+    <%=  select_tag 'list', options_for_select(@filter_course_array), :multiple=>true %> <br/>
+  </br>
+  <br>
+	<div>
+		<%= label_tag 'Appoitment'%>
+		<br>
+		<%= text_field_tag 'Appoitment'%>
+=======
 	<%= form_tag("/getcourse", :method => "post", :id => "courseupdate") do %>
 	<%= select_tag "list", options_for_select(@filter_course_array), :multiple=>true %>
 	</br>
@@ -28,11 +38,20 @@
 		<%= label_tag "Appoitment Start"%>
 		<br>
 		<%= text_field_tag(:appte) %>
+>>>>>>> cfba9d14c8dde1000c20760c340180dcc0186030
 	</div>
 	<br>
 	<div>
-		<%= label_tag "Message"%>
+		<%= label_tag 'Message'%>
 		<br>
+<<<<<<< HEAD
+		<%= text_area_tag 'Message'%>
+	</div>
+    <%= submit_tag 'Send', :class => 'btn btn-default btn-block' %>
+<% end %>
+<div id='result'>
+grgdgdg</div>
+=======
 		<%= text_area_tag "Message" %>
 	</div>
 	<div><%= submit_tag "Send Contact Information", :class => "btn btn-default btn-block" %></div>
@@ -53,6 +72,7 @@
 	 <label>To: <%= @currentuser.appte%></label>
 	 <%end%>
 </tr>
+>>>>>>> cfba9d14c8dde1000c20760c340180dcc0186030
 </table>
 <script>
 
