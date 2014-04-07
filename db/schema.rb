@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20140406202012) do
     t.string   "lname"
     t.decimal  "gpa"
     t.string   "advisor"
+    t.datetime "appointmentDate"
     t.string   "message"
     t.string   "flag"
     t.datetime "appts"
