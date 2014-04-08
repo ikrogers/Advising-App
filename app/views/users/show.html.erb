@@ -50,7 +50,7 @@ COURSES REQUESTED:
 	</tr>
 	<%end%>
 	<%end%>
-	<%= button_tag 'APPROVE',  method: :liftFlag %>
+	<%= button_to 'APPROVE', users_path(@user.id), method: :get%>
 	<%= button_tag 'DENY'%>
 </table>
 <%end%>

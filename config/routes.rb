@@ -18,10 +18,12 @@ Advising::Application.routes.draw do
   get "sessions/create"
   get "sessions/destroy"
   resources :users
+  post 'liftFlag' => 'users#liftFlag'
+  get 'liftFlag' => 'users#liftFlag'
 
-  controller :courses do
-    get 'liftFlag' => :liftFlag
-    get 'Lift Flag' => :liftFlag
+  controller :users do
+    post 'liftFlag' => :liftFlag
+    get  'liftFlag' => :liftFlag
   end
   
   resources :users do

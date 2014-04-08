@@ -28,11 +28,7 @@ class CoursesController < ApplicationController
     
   end
 
-  def liftFlag
-    @currentuser = User.find_by_id(session[:user_id])
-    @user.flag = 'advised'
-    format.html { redirect_to @currentuser, notice: "#{user.name}'s flag has been lifted." }
-  end
+
 
   def getcourse
     @currentuser = User.find_by_id(session[:user_id])
@@ -67,7 +63,7 @@ class CoursesController < ApplicationController
   # GET /courses/1
   # GET /courses/1.json
   def show
-
+    
   end
 
   # GET /courses/new

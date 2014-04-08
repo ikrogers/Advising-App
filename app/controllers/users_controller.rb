@@ -25,8 +25,11 @@ class UsersController < ApplicationController
 
   end
   
-  def flag
-    @user.flag = 'lifted'
+  def liftFlag
+    @currentuser = User.find_by_id(session[:user_id])
+    @user = params[:id]
+    @user.flag = 'advised'
+    format.html { redirect_to users_url, notice: "#{user.name}'s flag has been lifted." }
   end
 
   # POST /users
