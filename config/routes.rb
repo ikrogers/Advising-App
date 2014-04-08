@@ -19,7 +19,10 @@ Advising::Application.routes.draw do
   get "sessions/destroy"
   resources :users
 
-
+  controller :courses do
+    get 'liftFlag' => :liftFlag
+    get 'Lift Flag' => :liftFlag
+  end
   
   resources :users do
     resources :courses
