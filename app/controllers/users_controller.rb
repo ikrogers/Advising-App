@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  respond_to :json
   # GET /users
   # GET /users.json
   def index
@@ -27,9 +28,18 @@ class UsersController < ApplicationController
   
   def liftFlag
     @currentuser = User.find_by_id(session[:user_id])
-    @user = params[:id]
+    @user = User.find_by_id(params[:id])
     @user.flag = 'advised'
-    format.html { redirect_to users_url, notice: "#{user.name}'s flag has been lifted." }
+    respond_to do |format|
+      if @user.save
+          format.html { redirect_to users_url, notice: "User #{@user.name}'s flag has been lifted"}
+          format.json { render action: 'show', status: :updated, location: @user }
+        
+      else
+        format.html { render action: 'show' }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # POST /users
