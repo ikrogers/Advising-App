@@ -34,8 +34,8 @@ class CoursesController < ApplicationController
     
     
     @name = params[:param1]
-    if(@currentuser.classification == 'Student')
-      @currentuser.flag = 'true'
+    if @currentuser.classification == 'Student'
+    @currentuser.update_attribute(:flag , 'true')
     end
     #consider adding else for setting flag to false, indicating advisor/admin made change to allow re-registration?
 
@@ -53,7 +53,7 @@ class CoursesController < ApplicationController
 
     respond_to do |format|
 
-      format.html { redirect_to courses_path(@currentuser.id), notice: "#{@currentuser.flag}" }
+      format.html { redirect_to courses_path(@currentuser.id), notice: "Courses updated" }
       format.json { render :json => { :name => @name }}
 
     end #end of format

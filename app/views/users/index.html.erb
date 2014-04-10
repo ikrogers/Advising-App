@@ -50,6 +50,7 @@
 		<% end %>
 		<% end %>
 		</td>
+		</tbody>
 		<th>Denied Students</th>
 		<td>
 		<% @users.each do |user| %>
@@ -64,7 +65,8 @@
 		<% end %>
 		<% end %>
 		</td>
-		
+		</tbody>
+		<tbody>
 		<th>Advised Students</th>
 		<td>
 		<% @users.each do |user| %>
@@ -79,7 +81,7 @@
 		<% end %>
 		<% end %>
 		</td>
-		
+		</tbody>
 		<% end %>
 		
 		<% if @currentuser.classification == "Admin"%>
