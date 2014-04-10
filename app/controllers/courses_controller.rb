@@ -53,7 +53,7 @@ class CoursesController < ApplicationController
 
     respond_to do |format|
 
-      format.html { redirect_to courses_path(@currentuser.id), notice: "Your course choices have been submitted successfully" }
+      format.html { redirect_to courses_path(@currentuser.id), notice: "#{@currentuser.flag}" }
       format.json { render :json => { :name => @name }}
 
     end #end of format

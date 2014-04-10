@@ -17,15 +17,15 @@
 	<tbody>
 		
 		<% if @currentuser.classification == 'Advisor'%>
-		<th>Students with submissions</th>
+		<th>Students with Submissions</th>
 		<td>
 		<% @users.each do |user| %>
 		
 		<% if (user.advisor == @currentuser.name && user.flag == 'true') %>
 		<tr>
 			<td><%= user.name %></td>
-			<td><%= link_to 'APPROVE', liftFlag_path(user, :id => user.id), method: :get, remote:  true%></td>
-			<td><%= link_to 'DENY', denyFlag_path(user, :id => user.id), method: :get, remote:  true%></td>
+			<td><%= link_to 'APPROVE', liftFlag_path(user, :id => user.id), method: :get%></td>
+			<td><%= link_to 'DENY', denyFlag_path(user, :id => user.id), method: :get%></td>
 			<td><%= link_to 'Show', user,:class => 'btn btn-default btn-md btn-block' %></td>
 			<td><%= link_to 'Edit', edit_user_path(user),:class => 'btn btn-default btn-md btn-block' %></td>
 			<td><%= link_to 'Destroy', user,:class => 'btn btn-default btn-md btn-block', method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -35,7 +35,7 @@
 		</td>
 		</tbody>
 		<tbody>
-		<th>Other students</th>
+		<th>Unadvised Students</th>
 		<td>
 		<% @users.each do |user| %>
 		
@@ -50,6 +50,36 @@
 		<% end %>
 		<% end %>
 		</td>
+		<th>Denied Students</th>
+		<td>
+		<% @users.each do |user| %>
+		<% if (user.advisor == @currentuser.name && user.flag == 'denied') %>
+		<tr>
+			<td><%= user.name %></td>
+			<td><%= link_to 'APPROVE', liftFlag_path(user, :id => user.id), method: :get%></td>
+			<td><%= link_to 'Show', user,:class => 'btn btn-default btn-md btn-block' %></td>
+			<td><%= link_to 'Edit', edit_user_path(user),:class => 'btn btn-default btn-md btn-block' %></td>
+			<td><%= link_to 'Destroy', user,:class => 'btn btn-default btn-md btn-block', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		</tr>
+		<% end %>
+		<% end %>
+		</td>
+		
+		<th>Advised Students</th>
+		<td>
+		<% @users.each do |user| %>
+		<% if (user.advisor == @currentuser.name && user.flag == 'advised') %>
+		<tr>
+			<td><%= user.name %></td>
+			<td><%= link_to 'DENY', denyFlag_path(user, :id => user.id), method: :get%></td>
+			<td><%= link_to 'Show', user,:class => 'btn btn-default btn-md btn-block' %></td>
+			<td><%= link_to 'Edit', edit_user_path(user),:class => 'btn btn-default btn-md btn-block' %></td>
+			<td><%= link_to 'Destroy', user,:class => 'btn btn-default btn-md btn-block', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		</tr>
+		<% end %>
+		<% end %>
+		</td>
+		
 		<% end %>
 		
 		<% if @currentuser.classification == "Admin"%>
