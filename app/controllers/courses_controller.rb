@@ -27,11 +27,18 @@ class CoursesController < ApplicationController
     
   end
 
+
+
   def getcourse
     @currentuser = User.find_by_id(session[:user_id])
     
     
     @name = params[:param1]
+    if(@currentuser.classification == 'Student')
+      @currentuser.flag = 'true'
+    end
+    #consider adding else for setting flag to false, indicating advisor/admin made change to allow re-registration?
+
     
     @allcourses = Courselist.all
     if @name != nil
@@ -55,7 +62,7 @@ class CoursesController < ApplicationController
   # GET /courses/1
   # GET /courses/1.json
   def show
-
+    
   end
 
   # GET /courses/new
