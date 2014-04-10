@@ -89,7 +89,8 @@
 	type:"post",
 	data: {message:message, starttime:starttime, endtime:endtime},
 	success: function(data,textStatus,xhr) {
-history.go(0);   			
+		alert("Contact updated successfully");
+		history.go(0);   			
 	},error: function() {
 		alert("Something went wrong...");
 	}
@@ -125,10 +126,8 @@ history.go(0);
 	url:"/getcourse",type:"post",
 	data: {param1:values},
 	success: function(data,textStatus,xhr) {
-		
-			alert("Courses submitted successfully!");
-	    	 location.reload(true);
-
+			alert("Courses update successfully");
+			history.go(0);   
 	},error: function() {
 				alert("Something went wrong...");
 	}

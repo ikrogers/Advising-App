@@ -18,11 +18,13 @@ class CoursesController < ApplicationController
     @currentuser.update_attribute(:appts, @appts)
     @currentuser.update_attribute(:appte, @appte)
      respond_to do |format|
+      flash[:notice] = "kashgdkashgdlfashgflkasdf"
 
       format.html { redirect_to courses_path(@currentuser.id), notice: "Appointment information has been submitted successfully"}
       format.json { render :json => { :redirect => courses_url(@currentuser.id),:message => @message, :starttime => @appts, :endtime => @appte }, notice: "Appointment information has been submitted successfully"}
 
     end #end of format
+    
   end
 
   def getcourse
