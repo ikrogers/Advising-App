@@ -28,6 +28,13 @@
 			</tr>
 			<%end%>
 			<% end %>
+			</tbody>
+			</div>
+			<div>
+				<br>
+				<%= render 'sendcoursesform' %>
+			</div>
+			
 			<%else%>
 			<% @courses.each do |course| %>
 			<tr>
@@ -43,10 +50,7 @@
 			<%end%>
 		</tbody>
 </div>
-<div>
-	<br>
-	<%= render 'sendcoursesform' %>
-</div>
+
 
 <br>
 

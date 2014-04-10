@@ -1,6 +1,7 @@
 Advising::Application.routes.draw do
   resources :courselists
   post 'getcourse' => 'courses#getcourse'
+  post 'contactf' => 'courses#contactf'
   resources :courses
 
   get "student/index"

@@ -1,122 +1,141 @@
-
-
-
 <% @courselist = Courselist.all() %>
 <% @currentuser = User.find_by_id(session[:user_id]) %>
-<% @sql = "SELECT CL.name FROM courselists CL EXCEPT SELECT C.name FROM courses C WHERE (C.studentid = #{@currentuser.id} OR C.studentid = -1) EXCEPT SELECT DISTINCT X.name FROM courselists X, courses C WHERE  X.prereq NOT IN(SELECT  CC.name FROM courses CC WHERE (CC.studentid = #{@currentuser.id} OR CC.studentid = -1))" %>
-<% result = ActiveRecord::Base.connection.raw_connection.prepare(@sql) %>
+<% @sql1 = "SELECT CL.name, CL.hours FROM courselists CL EXCEPT SELECT C.name, C.hours FROM courses C WHERE (C.studentid = #{@currentuser.id} OR C.studentid = -1) EXCEPT SELECT DISTINCT X.name, X.hours FROM courselists X, courses C WHERE  X.prereq NOT IN(SELECT  CC.name FROM courses CC WHERE (CC.studentid = #{@currentuser.id} OR CC.studentid = -1))" %>
+<% @sql2 = "SELECT CL.name, CL.hours FROM courses CL WHERE CL.studentid = #{@currentuser.id}" %>
+<% result = ActiveRecord::Base.connection.raw_connection.prepare(@sql1) %>
 <% result.execute() %>
- 
+<% result2 = ActiveRecord::Base.connection.raw_connection.prepare(@sql2) %>
+<% result2.execute() %>
 <% @filter_course_array = result %>
-
-
-
+<% @second = result2 %>
 
 <% @ccc =  Courselist.all%>
 <table>
-<%= form_tag("/getcourse", :method => "post", :id => "contactForm") do %>
-    <%=  select_tag "list", options_for_select(@filter_course_array), :multiple=>true %> <br/>
-  </br>
-  <br>
+	<%= form_tag("/getcourse", :method => "post", :id => "courseupdate") do %>
+	<%= select_tag "list", options_for_select(@filter_course_array), :multiple=>true %>
+	</br>
+	<div><%= submit_tag "Send Courses", :class => "btn btn-default btn-block" %></div>
+	<% end %>
+	
+	<br>
+	
+	<%= form_tag("/contactf", :method => "post", :id => "contactForm") do %>
 	<div>
-		<%= label_tag "Appoitment"%>
+		<%= label_tag "Appoitment Start"%>
 		<br>
-		<%= text_field_tag "appt"%>
+		<%= text_field_tag(:appts) %>
+		<br> 
+		<%= label_tag "Appoitment Start"%>
+		<br>
+		<%= text_field_tag(:appte) %>
 	</div>
-<br>
+	<br>
 	<div>
 		<%= label_tag "Message"%>
 		<br>
-		<%= text_area_tag "msg"%>
+		<%= text_area_tag "Message" %>
 	</div>
-    <%= submit_tag "Send", :class => "btn btn-default btn-block" %>
-<% end %>
-<div id="result">
-</div>
+	<div><%= submit_tag "Send Contact Information", :class => "btn btn-default btn-block" %></div>
+	<% end %>
+<tr>
+	<%if @currentuser.message != ""%>
+	 <label>Submitted message:</label>
+	 <br>
+	 <textarea readonly><%= @currentuser.message%></textarea>
+	 <%end%>
+	 <br>
+	 <br>
+	 <%if @currentuser.appts != nil && @currentuser.appte != nil%>
+	 <label>Your appointment times are: </label>
+	 <br>
+	 <label>From: <%= @currentuser.appts%></label>
+	 <br>
+	 <label>To: <%= @currentuser.appte%></label>
+	 <%end%>
+</tr>
 </table>
-
 <script>
 
-function loop()
-	{
-		
-		var list = document.getElementById('bootstrap-duallistbox-selected-list_list[]');
-		var array = new Array();
-		for(var i = 0; i < list.options.length; ++i){
-			//if(list.options[i].selected)
-				array[i] = list.options[i].value;
-				
-		}//end for
-		 //window.open("localhost:3000//controller/courses."+
-		
-		return array;
-	}
 
 
-$("#contactForm").submit(function(event) {
+ $('#appts').datetimepicker({
+    format: 'yyyy-mm-dd hh:ii'
+    
+})
+ $('#appte').datetimepicker({
+    format: 'yyyy-mm-dd hh:ii'
+});
 
 
-
+	$("#contactForm").submit(function(event) {
 	/* stop form from submitting normally */
 	event.preventDefault();
-
 	/* clear result div */
-	$("#result").html('');
-
-	var msg = document.getElementById("msg").value;
-	var appt = document.getElementById("appt").value;
 	/* get values from elements on the page: */
-	var values = loop();
+	var message = document.getElementById('Message').value;
+	var endtime = document.getElementById('appte').value;
+	var starttime = document.getElementById('appts').value;
 	/* Send the data using post and put the results in a div */
 	$.ajax({
-		url: "/getcourse",
-		type: "post",
-		data: {param1:values; param2:msg; param3:appt},
-		success: function(data, textStatus, xhr){
-		      alert("Courses submitted successfully!");
-		      $("#result").html();
-		      location.reload(true);
-		},
-
-		error:function(){
-			$("#result").html('there is error while submit');
-		}
+	url:"/contactf",
+	type:"post",
+	data: {message:message, starttime:starttime, endtime:endtime},
+	success: function(data,textStatus,xhr) {
+	alert("Contact info updated successfully!");
+	location.reload(true);
+	},error: function() {
+		alert("Error");
+	}
 	});
-});
+	});
+</script>
+<script>
+
+
+
+
+	function loop() {
+		var list=document.getElementById('bootstrap-duallistbox-selected-list_list[]');
+		var array=new Array();
+	for(var i=0;i<list.options.length;++i) {
+	//if(list.options[i].selected)
+	array[i]=list.options[i].text;
+	}//end for
+	//window.open("localhost:3000//controller/courses."+
+	return array;
+	}
+	
+	$("#courseupdate").submit(function(event) {
+	/* stop form from submitting normally */
+	event.preventDefault();
+	/* clear result div */
+	/* get values from elements on the page: */
+	var values=loop();
+	/* Send the data using post and put the results in a div */
+	$.ajax({
+	url:"/getcourse",type:"post",
+	data: {param1:values},
+	success: function(data,textStatus,xhr) {
+	alert("Courses submitted successfully!");
+	location.reload(true);
+	},error: function() {
+				alert("You must select some courses");
+
+	}
+	});
+	});
+	
+		
 </script>
 
 
 
 <script>
-
- 
- 
-    $(function () {
-        $('#list')
-                .bootstrapDualListbox({
-                    bootstrap2Compatible: false,
-                    moveAllLabel: 'MOVE ALL',
-                    removeAllLabel: 'REMOVE ALL',
-                    moveSelectedLabel: 'MOVE SELECTED',
-                    removeSelectedLabel: 'REMOVE SELECTED',
-                    filterPlaceHolder: 'FILTER',
-                    filterSelected: '2',
-                    filterNonSelected: '1',
-                    moveOnSelect: true,
-                    preserveSelectionOnMove: 'all',
-                    helperSelectNamePostfix: '_myhelper',
-                    selectedListLabel: 'Your Choices',
-                    nonSelectedListLabel: 'Available Classes'
-                })
-                .bootstrapDualListbox('setMoveAllLabel', 'Choose all')
-                .bootstrapDualListbox('setRemoveAllLabel', 'Reset choices')
-                .bootstrapDualListbox('setSelectedFilter', undefined)
-                .bootstrapDualListbox('setNonSelectedFilter', undefined)
-                .bootstrapDualListbox('refresh')
-                
-    });
-
-          
+	$(function() {
+	$('#list').bootstrapDualListbox({
+	bootstrap2Compatible:false,moveAllLabel:'MOVE ALL',removeAllLabel:'REMOVE ALL',moveSelectedLabel:'MOVE SELECTED',removeSelectedLabel:'REMOVE SELECTED',filterPlaceHolder:'FILTER',filterSelected:'2',filterNonSelected:'1',moveOnSelect:false,preserveSelectionOnMove:'all',helperSelectNamePostfix:'_myhelper',selectedListLabel:'Your Choices',nonSelectedListLabel:'Available Classes'
+	}).bootstrapDualListbox('setRemoveAllLabel','Reset choices').bootstrapDualListbox('setSelectedFilter',undefined).bootstrapDualListbox('setNonSelectedFilter',undefined).bootstrapDualListbox('refresh')
+	});
 </script>
 
 <br>
