@@ -28,16 +28,6 @@
 			</tr>
 			<%end%>
 			<% end %>
-<<<<<<< HEAD
-=======
-			</tbody>
-			</div>
-			<div>
-				<br>
-				<%= render 'sendcoursesform' %>
-			</div>
->>>>>>> chris
-			
 			<%else%>
 			<% @courses.each do |course| %>
 			<tr>
@@ -53,7 +43,6 @@
 			<%end%>
 		</tbody>
 </div>
-<<<<<<< HEAD
 <div>
 	<br>
 	<%= render 'sendcoursesform' %>
@@ -65,15 +54,6 @@
 <%case @currentuser.classification%>
 <%      when "Admin"%>
 <%= link_to 'New Course', new_course_path %>
-=======
-
-
-<br>
-
-<%= link_to 'New Course', new_course_path %>
-<%case @currentuser.classification%>
-<%      when "Admin"%>
->>>>>>> chris
 <%= link_to 'Back', admin_path() %>
 <%      when "Advisor"%>
 <%= link_to 'Back', advisor_path() %>

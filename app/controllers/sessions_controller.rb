@@ -1,20 +1,5 @@
 class SessionsController < ApplicationController
-<<<<<<< HEAD
   def new
-=======
-  skip_before_action :authorize
-  def new
-    if User.find_by(id: session[:user_id])
-      case User.find_by(id: session[:user_id]).classification
-      when "Admin"
-        redirect_to admin_url
-      when "Advisor"
-        redirect_to advisor_url
-      else
-        redirect_to student_url
-      end
-    end
->>>>>>> chris
   end
 
   def create

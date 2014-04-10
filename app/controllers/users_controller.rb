@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  respond_to :json
   # GET /users
   # GET /users.json
   def index
@@ -24,38 +23,6 @@ class UsersController < ApplicationController
   def edit
         @users = User.all
 
-  end
-  
-  def liftFlag
-    @currentuser = User.find_by_id(session[:user_id])
-    @user = User.find_by_id(params[:id])
-    @user.flag = 'advised'
-    
-    #if @user.save
-    #  respond_with(@currentuser, :location => users_url);
-    #end
-    
-      if @user.save
-        redirect_to users_url
-        
-      end
-    
-  end
-
-  def denyFlag
-    @currentuser = User.find_by_id(session[:user_id])
-    @user = User.find_by_id(params[:id])
-    @user.flag = 'denied'
-    
-    #if @user.save
-    #  respond_with(@currentuser, :location => users_url);
-    #end
-    
-      if @user.save
-        redirect_to users_url
-        
-      end
-    
   end
 
   # POST /users
