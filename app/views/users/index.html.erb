@@ -71,7 +71,7 @@
 		<% if (user.advisor == @currentuser.name && user.flag == 'advised') %>
 		<tr>
 			<td><%= user.name %></td>
-			<td><%= link_to 'DENY', denyFlag_path(user, :id => user.id), method: :get%></td>
+			<td><%= link_to 'DENY', denyFlag_path(user, :id => user.id),:class => 'btn btn-default btn-md btn-block', method: :get%></td>
 			<td><%= link_to 'Show', user,:class => 'btn btn-default btn-md btn-block' %></td>
 			<td><%= link_to 'Edit', edit_user_path(user),:class => 'btn btn-default btn-md btn-block' %></td>
 			<td><%= link_to 'Destroy', user,:class => 'btn btn-default btn-md btn-block', method: :delete, data: { confirm: 'Are you sure?' } %></td>
