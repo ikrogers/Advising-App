@@ -12,7 +12,11 @@ gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
 gem 'quiet_assets'
 gem 'rails_layout'
 end
+<<<<<<< HEAD
 gem 'thin'
+=======
+
+>>>>>>> chris
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 

@@ -5,6 +5,7 @@ Advising::Application.routes.draw do
   post 'contactf' => 'courses#contactf'
   get 'contactf' => 'courses#contactf'
 
+  post 'contactf' => 'courses#contactf'
   resources :courses
 
   get "student/index"
@@ -32,7 +33,8 @@ Advising::Application.routes.draw do
     post 'denyFlag' => :denyFlag
     get  'denyFlag' => :denyFlag
   end
-  
+
+
   resources :users do
     resources :courses
   end

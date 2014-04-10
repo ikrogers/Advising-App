@@ -13,6 +13,7 @@ class CoursesController < ApplicationController
     @appte  = params[:endtime]
     @appts = params[:starttime]
     
+<<<<<<< HEAD
     @currentuser.update_attribute(:message, @message)
     
     @currentuser.update_attribute(:appts, @appts)
@@ -29,16 +30,36 @@ class CoursesController < ApplicationController
 
 
 
+=======
+    
+    @currentuser.update_attribute(:message, @message)
+        @currentuser.update_attribute(:appts, @appts)
+   @currentuser.update_attribute(:appte, @appte)
+
+     respond_to do |format|
+
+      format.html { redirect_to courses_path, notice: "You choices have been submitted" }
+      format.json { render :json => { :message => @message, :starttime => @appts, :endtime => @appte }}
+
+    end #end of format
+    
+    
+  end
+
+>>>>>>> chris
   def getcourse
     @currentuser = User.find_by_id(session[:user_id])
     
     
     @name = params[:param1]
+<<<<<<< HEAD
     if(@currentuser.classification == 'Student')
       @currentuser.flag = 'true'
     end
     #consider adding else for setting flag to false, indicating advisor/admin made change to allow re-registration?
 
+=======
+>>>>>>> chris
     
     @allcourses = Courselist.all
     if @name != nil
@@ -53,7 +74,11 @@ class CoursesController < ApplicationController
 
     respond_to do |format|
 
+<<<<<<< HEAD
       format.html { redirect_to courses_path(@currentuser.id), notice: "#{@currentuser.flag}" }
+=======
+      format.html { redirect_to @student, notice: "You choices have been submitted" }
+>>>>>>> chris
       format.json { render :json => { :name => @name }}
 
     end #end of format
@@ -62,7 +87,11 @@ class CoursesController < ApplicationController
   # GET /courses/1
   # GET /courses/1.json
   def show
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> chris
   end
 
   # GET /courses/new

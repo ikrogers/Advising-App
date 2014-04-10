@@ -14,6 +14,7 @@
 </p>
 
 <% if @user.classification == 'Student' %>
+<% if @user.classification == "Student" %
 COURSES TAKEN/COMPLETE
 <table>
 	<th>Name</th>
@@ -28,6 +29,10 @@ COURSES TAKEN/COMPLETE
 		<td><%= link_to 'Show', course,:class => 'btn btn-default btn-md btn-block' %></td>
 		<td><%= link_to 'Edit', edit_course_path(course),:class => 'btn btn-default btn-md btn-block' %></td>
 		<td><%= link_to 'Destroy', course,:class => 'btn btn-default btn-md btn-block', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		<td><%= link_to 'Show', course,:class => "btn btn-default btn-md btn-block" %></td>
+		<td><%= link_to 'Edit', edit_course_path(course),:class => "btn btn-default btn-md btn-block" %></td>
+		<td><%= link_to 'Destroy', course,:class => "btn btn-default btn-md btn-block", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
 	</tr>
 	<%end%>
 	<%end%>
@@ -54,6 +59,19 @@ COURSES REQUESTED:
 <%end%>
 
 <% if @user.classification == 'Advisor' %>
+		<td><%= link_to 'Show', course,:class => "btn btn-default btn-md btn-block" %></td>
+		<td><%= link_to 'Edit', edit_course_path(course),:class => "btn btn-default btn-md btn-block" %></td>
+		<td><%= link_to 'Destroy', course,:class => "btn btn-default btn-md btn-block", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	</tr>
+	<%end%>
+	<%end%>
+	<%= button_tag "APPROVE"%>
+	<%= button_tag "DENY"%>
+</table>
+<%end%>
+
+<% if @user.classification == "Advisor" %>
+
 <table>
 <th>Name</th>
 <% @users.each do |user| %>
@@ -63,6 +81,9 @@ COURSES REQUESTED:
 			<td><%= link_to 'Show', user, :class => 'btn btn-default btn-md btn-block' %></td>
 			<td><%= link_to 'Edit', edit_user_path(user), :class => 'btn btn-default btn-md btn-block' %></td>
 			<td><%= link_to 'Destroy', user, :class => 'btn btn-default btn-md btn-block', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			<td><%= link_to 'Show', user, :class => "btn btn-default btn-md btn-block" %></td>
+			<td><%= link_to 'Edit', edit_user_path(user), :class => "btn btn-default btn-md btn-block" %></td>
+			<td><%= link_to 'Destroy', user, :class => "btn btn-default btn-md btn-block", method: :delete, data: { confirm: 'Are you sure?' } %></td>
 		</tr>
 		<% end %>
 		<% end %>
