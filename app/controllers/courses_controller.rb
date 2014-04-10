@@ -13,19 +13,16 @@ class CoursesController < ApplicationController
     @appte  = params[:endtime]
     @appts = params[:starttime]
     
-    
     @currentuser.update_attribute(:message, @message)
-        @currentuser.update_attribute(:appts, @appts)
-   @currentuser.update_attribute(:appte, @appte)
-
+    
+    @currentuser.update_attribute(:appts, @appts)
+    @currentuser.update_attribute(:appte, @appte)
      respond_to do |format|
 
-      format.html { redirect_to courses_path, notice: "You choices have been submitted" }
-      format.json { render :json => { :message => @message, :starttime => @appts, :endtime => @appte }}
+      format.html { redirect_to courses_path(@currentuser.id), notice: "Appointment information has been submitted successfully"}
+      format.json { render :json => { :redirect => courses_url(@currentuser.id),:message => @message, :starttime => @appts, :endtime => @appte }, notice: "Appointment information has been submitted successfully"}
 
     end #end of format
-    
-    
   end
 
   def getcourse
@@ -47,7 +44,7 @@ class CoursesController < ApplicationController
 
     respond_to do |format|
 
-      format.html { redirect_to @student, notice: "You choices have been submitted" }
+      format.html { redirect_to courses_path(@currentuser.id), notice: "Your course choices have been submitted successfully" }
       format.json { render :json => { :name => @name }}
 
     end #end of format
