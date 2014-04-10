@@ -30,16 +30,32 @@ class UsersController < ApplicationController
     @currentuser = User.find_by_id(session[:user_id])
     @user = User.find_by_id(params[:id])
     @user.flag = 'advised'
-    respond_to do |format|
+    
+    #if @user.save
+    #  respond_with(@currentuser, :location => users_url);
+    #end
+    
       if @user.save
-          format.html { redirect_to users_url, notice: "User #{@user.name}'s flag has been lifted"}
-          format.json { render action: 'show', status: :updated, location: @user }
+        redirect_to users_url
         
-      else
-        format.html { render action: 'show' }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
-    end
+    
+  end
+
+  def denyFlag
+    @currentuser = User.find_by_id(session[:user_id])
+    @user = User.find_by_id(params[:id])
+    @user.flag = 'denied'
+    
+    #if @user.save
+    #  respond_with(@currentuser, :location => users_url);
+    #end
+    
+      if @user.save
+        redirect_to users_url
+        
+      end
+    
   end
 
   # POST /users
