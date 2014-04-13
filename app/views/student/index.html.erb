@@ -6,7 +6,43 @@
     <%= button_to 'Logout', logout_path, method: :delete %>
 </p>
 <p>
-    <%= button_to 'View/Add/Drop', courses_path(@user.id), method: :get %>
+	<% if @user.flag != 'true' || @user.flag != 'advised' %>
+		<h2>Courses to register for</h2>
+    	<% @courses.each do |course| %>
+			<%if course.studentid == @user.id && course.completed == 'registered'%>
+			<tr>
+				<td><%= course.name %></td>
+				<td><%= course.hours %></td>
+				<td><%= course.prereq %></td>
+			</tr>
+			<% end %>
+		<%end%>
+		</br>
+		<h2>Courses completed</h2>
+    	<% @courses.each do |course| %>
+			<%if course.studentid == @user.id && course.completed == 'completed''%>
+			<tr>
+				<td><%= course.name %></td>
+				<td><%= course.hours %></td>
+				<td><%= course.prereq %></td>
+			</tr>
+			<% end %>
+		<%end%>
+    	
+    	<% @courses.each do |course| %>
+			<%if course.studentid == @user.id && course.completed == 'complete'%>
+			<tr>
+				<td><%= course.name %></td>
+				<td><%= course.hours %></td>
+				<td><%= course.prereq %></td>
+			</tr>
+			<% end %>
+		<%end%>
+	<%else if @user.flag == 'false'%>
+		<%= button_to 'Create schedule', courses_path(@user.id), method: :get %>
+	<%else if @user.flag == 'denied'%>
+		<%= button_to 'Resubmit Schedule', courses_path(@user.id), method: :get %>
+	<%end%>
 </p>
 <div class="item">
 	<%= image_tag("cat6.jpg", :size => "500x500") %>
