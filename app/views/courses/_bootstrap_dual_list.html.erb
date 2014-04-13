@@ -11,12 +11,13 @@
 
 <% @ccc =  Courselist.all%>
 <table>
+	<div id="listb">
 	<%= form_tag("/getcourse", :method => "post", :id => "courseupdate") do %>
 	<%= select_tag "list", options_for_select(@filter_course_array), :multiple=>true %>
 	</br>
 	<div><%= submit_tag "Send Courses", :class => "btn btn-default btn-block" %></div>
 	<% end %>
-	
+	</div>
 	<br>
 	
 	<%= form_tag("/contactf", :method => "post", :id => "contactForm") do %>
@@ -35,7 +36,7 @@
 		<br>
 		<%= text_area_tag "Message" %>
 	</div>
-	<div><%= submit_tag "Send Contact Information", :class => "btn btn-default btn-block" %></div>
+	<div><%= submit_tag "Send Contact Information", :class => "btn btn-default btn-block"%></div>
 	<% end %>
 <tr>
 	<%if @currentuser.message != ""%>
@@ -54,10 +55,9 @@
 	 <%end%>
 </tr>
 </table>
+
 <script>
-
-
-
+	
  $('#appts').datetimepicker({
     format: 'yyyy-mm-dd hh:ii'
     
@@ -65,6 +65,13 @@
  $('#appte').datetimepicker({
     format: 'yyyy-mm-dd hh:ii'
 });
+	
+	
+</script>
+<script>
+
+
+
 
 
 	$("#contactForm").submit(function(event) {
@@ -75,18 +82,21 @@
 	var message = document.getElementById('Message').value;
 	var endtime = document.getElementById('appte').value;
 	var starttime = document.getElementById('appts').value;
+	
 	/* Send the data using post and put the results in a div */
 	$.ajax({
 	url:"/contactf",
 	type:"post",
 	data: {message:message, starttime:starttime, endtime:endtime},
 	success: function(data,textStatus,xhr) {
-	alert("Contact info updated successfully!");
-	location.reload(true);
+		alert("Contact updated successfully");
+		history.go(0);   			
 	},error: function() {
-		alert("Error");
+		alert("Something went wrong...");
 	}
+	
 	});
+	
 	});
 </script>
 <script>
@@ -116,11 +126,10 @@
 	url:"/getcourse",type:"post",
 	data: {param1:values},
 	success: function(data,textStatus,xhr) {
-	alert("Courses submitted successfully!");
-	location.reload(true);
+			alert("Courses update successfully");
+			history.go(0);   
 	},error: function() {
-				alert("You must select some courses");
-
+				alert("Something went wrong...");
 	}
 	});
 	});

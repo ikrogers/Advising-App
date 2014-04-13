@@ -28,6 +28,7 @@
 			</tr>
 			<%end%>
 			<% end %>
+			
 			<%else%>
 			<% @courses.each do |course| %>
 			<tr>
@@ -39,7 +40,7 @@
 				<td><%= link_to 'Edit(Delete this using IF for student TO DO)', edit_course_path(course) %></td>
 				<td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 			</tr>
-			<%end%>
+			<%end%>			
 			<%end%>
 		</tbody>
 </div>
@@ -50,9 +51,10 @@
 
 <br>
 
-<%= link_to 'New Course', new_course_path %>
+
 <%case @currentuser.classification%>
 <%      when "Admin"%>
+<%= link_to 'New Course', new_course_path %>
 <%= link_to 'Back', admin_path() %>
 <%      when "Advisor"%>
 <%= link_to 'Back', advisor_path() %>
