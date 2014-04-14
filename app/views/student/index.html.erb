@@ -4,9 +4,15 @@
 <h1>Welcome <%= @user.name%></h1>
 
     <%= button_to 'Logout', logout_path, method: :delete %>
+    </br>
+    <%= button_to 'Make an appointment', courses_path(@user.id), method: :get %>
+	<%= button_to 'Send a message', courses_path(@user.id), method: :get %>
 </p>
 <p>
-	<% if @user.flag != 'true' || @user.flag != 'advised' %>
+	<% if @user.flag == 'submitted' || @user.flag == 'advised' %>
+	
+		
+			
 		<h2>Courses to register for</h2>
     	<% @courses.each do |course| %>
 			<%if course.studentid == @user.id && course.completed == 'registered'%>
@@ -43,7 +49,7 @@
 		<%= button_to 'Create schedule', courses_path(@user.id), method: :get %>
 	
 	<%elsif @user.flag == 'denied'%>
-		<%= button_to 'Resubmit Schedule', courses_path(@user.id), method: :get %>
+		<%= button_to 'Modify Schedule', courses_path(@user.id), method: :get %>
 		
 	<%end%>
 </p>
