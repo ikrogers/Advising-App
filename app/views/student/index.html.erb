@@ -1,6 +1,6 @@
 <h1>STUDENT TESTING PAGE</h1>
 <% @user = User.find_by_id(session[:user_id]) %>
-
+<% @courses = Course.all %>
 <h1>Welcome <%= @user.name%></h1>
 
     <%= button_to 'Logout', logout_path, method: :delete %>
@@ -20,7 +20,7 @@
 		</br>
 		<h2>Courses completed</h2>
     	<% @courses.each do |course| %>
-			<%if course.studentid == @user.id && course.completed == 'completed''%>
+			<%if course.studentid == @user.id && course.completed == 'completed'%>
 			<tr>
 				<td><%= course.name %></td>
 				<td><%= course.hours %></td>
@@ -30,7 +30,7 @@
 		<%end%>
     	
     	<% @courses.each do |course| %>
-			<%if course.studentid == @user.id && course.completed == 'complete'%>
+			<%if course.studentid == @user.id && course.completed == 'completed'%>
 			<tr>
 				<td><%= course.name %></td>
 				<td><%= course.hours %></td>
@@ -38,10 +38,13 @@
 			</tr>
 			<% end %>
 		<%end%>
-	<%else if @user.flag == 'false'%>
+	
+	<%elsif @user.flag == 'false'%>
 		<%= button_to 'Create schedule', courses_path(@user.id), method: :get %>
-	<%else if @user.flag == 'denied'%>
+	
+	<%elsif @user.flag == 'denied'%>
 		<%= button_to 'Resubmit Schedule', courses_path(@user.id), method: :get %>
+		
 	<%end%>
 </p>
 <div class="item">
