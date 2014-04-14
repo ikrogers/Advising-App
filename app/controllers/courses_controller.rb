@@ -27,12 +27,13 @@ class CoursesController < ApplicationController
     
   end
 
+
+
   def getcourse
     @currentuser = User.find_by_id(session[:user_id])
     
     
     @name = params[:param1]
-
     if @currentuser.classification == 'Student'
     @currentuser.update_attribute(:flag , 'true')
     end
@@ -52,9 +53,7 @@ class CoursesController < ApplicationController
 
     respond_to do |format|
 
-
-      format.html { redirect_to courses_path(@currentuser.id), notice: "Your course choices have been submitted successfully" }
-
+      format.html { redirect_to courses_path(@currentuser.id), notice: "Courses updated" }
       format.json { render :json => { :name => @name }}
 
     end #end of format
@@ -63,7 +62,7 @@ class CoursesController < ApplicationController
   # GET /courses/1
   # GET /courses/1.json
   def show
-
+    
   end
 
   # GET /courses/new

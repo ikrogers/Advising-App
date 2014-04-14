@@ -24,13 +24,37 @@
 	<div>
 		<%= label_tag "Appoitment Start"%>
 		<br>
-		<%= text_field_tag(:appts) %>
+		<div class='col-md-5'>
+            <div class="form-group">
+                <div class='input-group date' id='appts'>
+                    <input type='text' id='start' class="form-control" />
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+                </div>
+               </div>
 		<br> 
-		<%= label_tag "Appoitment Start"%>
 		<br>
-		<%= text_field_tag(:appte) %>
+		<br>
+		<%= label_tag "Appoitment End"%>
+		<br>
+		<div class='col-md-5'>
+            <div class="form-group">
+                <div class='input-group date' id='appte'>
+                    <input type='text' id='end' class="form-control" />
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
 	</div>
 	<br>
+	<br>
+	<br>
+	
+	
+	
+	
 	<div>
 		<%= label_tag "Message"%>
 		<br>
@@ -38,6 +62,12 @@
 	</div>
 	<div><%= submit_tag "Send Contact Information", :class => "btn btn-default btn-block"%></div>
 	<% end %>
+	
+	
+	
+	
+	
+	
 <tr>
 	<%if @currentuser.message != ""%>
 	 <label>Submitted message:</label>
@@ -56,18 +86,26 @@
 </tr>
 </table>
 
-<script>
-	
- $('#appts').datetimepicker({
-    format: 'yyyy-mm-dd hh:ii'
-    
-})
- $('#appte').datetimepicker({
-    format: 'yyyy-mm-dd hh:ii'
-});
-	
-	
-</script>
+    <script type="text/javascript">
+        $(function () {
+            $('#appts').datetimepicker({
+            	useCurrent: true, 
+            	useMinutes: false,             
+    			useSeconds: false,
+            	});
+            
+            $('#appte').datetimepicker({
+            	useCurrent: true, 
+            	});
+            $("#appts").on("dp.change",function (e) {
+               $('#appte').data("DateTimePicker").setMinDate(e.date);
+            });
+            $("#appt").on("dp.change",function (e) {
+               $('#appts').data("DateTimePicker").setMaxDate(e.date);
+            });
+        });
+    </script>
+
 <script>
 
 
@@ -80,8 +118,8 @@
 	/* clear result div */
 	/* get values from elements on the page: */
 	var message = document.getElementById('Message').value;
-	var endtime = document.getElementById('appte').value;
-	var starttime = document.getElementById('appts').value;
+	var endtime = document.getElementById('appts').value;
+	var starttime = document.getElementById('appte').value;
 	
 	/* Send the data using post and put the results in a div */
 	$.ajax({

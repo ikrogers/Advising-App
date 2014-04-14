@@ -11,19 +11,15 @@
 	<thead>
 		<tr>
 			<th>Name</th>
-			<th></th>
-			<th></th>
-			<th></th>
 		</tr>
 	</thead>
 
 	<tbody>
 		
-		<% if @currentuser.classification == "Advisor"%>
+		<% if @currentuser.classification == 'Advisor'%>
+		<th>Students with Submissions</th>
+		<td>
 		<% @users.each do |user| %>
-<<<<<<< HEAD
-		<% if (user.advisor == @currentuser.name) %>
-=======
 		
 		<% if (user.advisor == @currentuser.name && user.flag == 'true') %>
 		<tr>
@@ -59,17 +55,15 @@
 		<td>
 		<% @users.each do |user| %>
 		<% if (user.advisor == @currentuser.name && user.flag == 'denied') %>
->>>>>>> david
 		<tr>
 			<td><%= user.name %></td>
-			<td><%= link_to 'Show', user,:class => "btn btn-default btn-md btn-block" %></td>
-			<td><%= link_to 'Edit', edit_user_path(user),:class => "btn btn-default btn-md btn-block" %></td>
-			<td><%= link_to 'Destroy', user,:class => "btn btn-default btn-md btn-block", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			<td><%= link_to 'APPROVE', liftFlag_path(user, :id => user.id), method: :get%></td>
+			<td><%= link_to 'Show', user,:class => 'btn btn-default btn-md btn-block' %></td>
+			<td><%= link_to 'Edit', edit_user_path(user),:class => 'btn btn-default btn-md btn-block' %></td>
+			<td><%= link_to 'Destroy', user,:class => 'btn btn-default btn-md btn-block', method: :delete, data: { confirm: 'Are you sure?' } %></td>
 		</tr>
 		<% end %>
 		<% end %>
-<<<<<<< HEAD
-=======
 		</td>
 		</tbody>
 		<tbody>
@@ -88,7 +82,6 @@
 		<% end %>
 		</td>
 		</tbody>
->>>>>>> david
 		<% end %>
 		
 		<% if @currentuser.classification == "Admin"%>
