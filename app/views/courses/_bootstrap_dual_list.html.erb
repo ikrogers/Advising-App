@@ -27,12 +27,12 @@
 		<div class='col-md-5'>
             <div class="form-group">
                 <div class='input-group date' id='appts'>
-                    <input type='text' id='start' class="form-control" />
+                    <input type='text' id='start' class="form-control"  />
                     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                     </span>
                 </div>
-                </div>
-               </div>
+             </div>
+         </div>
 		<br> 
 		<br>
 		<br>
@@ -89,13 +89,13 @@
     <script type="text/javascript">
         $(function () {
             $('#appts').datetimepicker({
-            	useCurrent: true, 
-            	useMinutes: false,             
-    			useSeconds: false,
+            	minuteStepping:0,
+            	daysOfWeekDisabled:[0,6]
             	});
             
             $('#appte').datetimepicker({
-            	useCurrent: true, 
+            	minuteStepping:0,
+            	daysOfWeekDisabled:[0,6]
             	});
             $("#appts").on("dp.change",function (e) {
                $('#appte').data("DateTimePicker").setMinDate(e.date);
