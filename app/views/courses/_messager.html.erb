@@ -1,60 +1,17 @@
-<% @courselist = Courselist.all() %>
 <% @currentuser = User.find_by_id(session[:user_id]) %>
-<% @sql1 = "SELECT CL.name, CL.hours FROM courselists CL EXCEPT SELECT C.name, C.hours FROM courses C WHERE (C.studentid = #{@currentuser.id} OR C.studentid = -1) EXCEPT SELECT DISTINCT X.name, X.hours FROM courselists X, courses C WHERE  X.prereq NOT IN(SELECT  CC.name FROM courses CC WHERE (CC.studentid = #{@currentuser.id} OR CC.studentid = -1))" %>
-<% @sql2 = "SELECT CL.name, CL.hours FROM courses CL WHERE CL.studentid = #{@currentuser.id}" %>
-<% result = ActiveRecord::Base.connection.raw_connection.prepare(@sql1) %>
-<% result.execute() %>
-<% result2 = ActiveRecord::Base.connection.raw_connection.prepare(@sql2) %>
-<% result2.execute() %>
-<% @filter_course_array = result %>
-<% @second = result2 %>
-
-<% @ccc =  Courselist.all%>
 <table>
-	<div id="listb">
-	<%= form_tag("/getcourse", :method => "post", :id => "courseupdate") do %>
-	<%= select_tag "list", options_for_select(@filter_course_array), :multiple=>true %>
-	</br>
-	<div><%= submit_tag "Send Courses", :class => "btn btn-default btn-block" %></div>
-	<% end %>
-	</div>
 	
-<<<<<<< HEAD
 	<%= form_tag("/contactf", :method => "post", :id => "contactForm") do %>
 	<div>
 		<%= label_tag "Appoitment Start"%>
 		<br>
-		<div class='col-md-5'>
-            <div class="form-group">
-                <div class='input-group date' id='appts'>
-                    <input type='text' id='start' class="form-control" />
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
-                </div>
-               </div>
+		<%= text_field_tag(:appts) %>
 		<br> 
+		<%= label_tag "Appoitment Start"%>
 		<br>
-		<br>
-		<%= label_tag "Appoitment End"%>
-		<br>
-		<div class='col-md-5'>
-            <div class="form-group">
-                <div class='input-group date' id='appte'>
-                    <input type='text' id='end' class="form-control" />
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
-            </div>
-        </div>
+		<%= text_field_tag(:appte) %>
 	</div>
 	<br>
-	<br>
-	<br>
-	
-	
-	
-	
 	<div>
 		<%= label_tag "Message"%>
 		<br>
@@ -62,12 +19,6 @@
 	</div>
 	<div><%= submit_tag "Send Contact Information", :class => "btn btn-default btn-block"%></div>
 	<% end %>
-	
-	
-	
-	
-	
-	
 <tr>
 	<%if @currentuser.message != ""%>
 	 <label>Submitted message:</label>
@@ -84,30 +35,20 @@
 	 <label>To: <%= @currentuser.appte%></label>
 	 <%end%>
 </tr>
-=======
->>>>>>> david
 </table>
 
-    <script type="text/javascript">
-        $(function () {
-            $('#appts').datetimepicker({
-            	useCurrent: true, 
-            	useMinutes: false,             
-    			useSeconds: false,
-            	});
-            
-            $('#appte').datetimepicker({
-            	useCurrent: true, 
-            	});
-            $("#appts").on("dp.change",function (e) {
-               $('#appte').data("DateTimePicker").setMinDate(e.date);
-            });
-            $("#appt").on("dp.change",function (e) {
-               $('#appts').data("DateTimePicker").setMaxDate(e.date);
-            });
-        });
-    </script>
-
+<script>
+	
+ $('#appts').datetimepicker({
+    format: 'yyyy-mm-dd hh:ii'
+    
+})
+ $('#appte').datetimepicker({
+    format: 'yyyy-mm-dd hh:ii'
+});
+	
+	
+</script>
 <script>
 
 
@@ -120,8 +61,8 @@
 	/* clear result div */
 	/* get values from elements on the page: */
 	var message = document.getElementById('Message').value;
-	var endtime = document.getElementById('appts').value;
-	var starttime = document.getElementById('appte').value;
+	var endtime = document.getElementById('appte').value;
+	var starttime = document.getElementById('appts').value;
 	
 	/* Send the data using post and put the results in a div */
 	$.ajax({
