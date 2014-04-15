@@ -21,7 +21,6 @@
 		<td>
 		<% @users.each do |user| %>
 		
-		<% if (user.advisor == @currentuser.name && user.flag == 'submitted') %>
 		<% if (user.advisor == @currentuser.name && user.flag == 'true') %>
 		<tr>
 			<td><%= user.name %></td>

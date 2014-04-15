@@ -1,57 +1,5 @@
 <h1>STUDENT TESTING PAGE</h1>
 <% @user = User.find_by_id(session[:user_id]) %>
-<% @courses = Course.all %>
-<h1>Welcome <%= @user.name%></h1>
-
-    <%= button_to 'Logout', logout_path, method: :delete %>
-    </br>
-    <%= button_to 'Make an appointment', courses_path(@user.id), method: :get %>
-	<%= button_to 'Send a message', courses_path(@user.id), method: :get %>
-</p>
-<p>
-	<% if @user.flag == 'submitted' || @user.flag == 'advised' %>
-	
-		
-			
-		<h2>Courses to register for</h2>
-    	<% @courses.each do |course| %>
-			<%if course.studentid == @user.id && course.completed == 'registered'%>
-			<tr>
-				<td><%= course.name %></td>
-				<td><%= course.hours %></td>
-				<td><%= course.prereq %></td>
-			</tr>
-			<% end %>
-		<%end%>
-		</br>
-		<h2>Courses completed</h2>
-    	<% @courses.each do |course| %>
-			<%if course.studentid == @user.id && course.completed == 'completed'%>
-			<tr>
-				<td><%= course.name %></td>
-				<td><%= course.hours %></td>
-				<td><%= course.prereq %></td>
-			</tr>
-			<% end %>
-		<%end%>
-    	
-    	<% @courses.each do |course| %>
-			<%if course.studentid == @user.id && course.completed == 'completed'%>
-			<tr>
-				<td><%= course.name %></td>
-				<td><%= course.hours %></td>
-				<td><%= course.prereq %></td>
-			</tr>
-			<% end %>
-		<%end%>
-	
-	<%elsif @user.flag == 'false'%>
-		<%= button_to 'Create schedule', courses_path(@user.id), method: :get %>
-	
-	<%elsif @user.flag == 'denied'%>
-		<%= button_to 'Modify Schedule', courses_path(@user.id), method: :get %>
-		
-	<%end%>
 
 <h1>Welcome <%= @user.name%></h1>
 

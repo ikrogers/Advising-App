@@ -35,7 +35,6 @@ class CoursesController < ApplicationController
     
     @name = params[:param1]
     if @currentuser.classification == 'Student'
-    @currentuser.update_attribute(:flag , 'submitted')
     @currentuser.update_attribute(:flag , 'true')
     end
     #consider adding else for setting flag to false, indicating advisor/admin made change to allow re-registration?
@@ -46,10 +45,7 @@ class CoursesController < ApplicationController
     @allcourses.each do |all|
       @name.each do |c|
         if all.name == c
-          @student = Course.create(name: all.name, prereq: all.prereq, hours: all.hours, choice: @currentuser.id, completed: 'Registered')
-
           @student = Course.create(name: all.name, prereq: all.prereq, hours: all.hours, choice: @currentuser.id)
-
         end
       end
     end #end of allcourses loop

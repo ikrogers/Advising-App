@@ -10,7 +10,16 @@
 <% @second = result2 %>
 
 <% @ccc =  Courselist.all%>
-<table>
+
+
+
+
+
+
+
+
+</script>
+<table class="table table-striped table-bordered table-condensed">
 	<div id="listb">
 	<%= form_tag("/getcourse", :method => "post", :id => "courseupdate") do %>
 	<%= select_tag "list", options_for_select(@filter_course_array), :multiple=>true %>
@@ -36,6 +45,17 @@
 		<br> 
 		<br>
 		<br>
+		<%= label_tag "Appoitment End"%>
+		<br>
+		<div class='col-md-5'>
+            <div class="form-group">
+                <div class='input-group date' id='appte'>
+                    <input type='text' id='end' class="form-control" />
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
 	</div>
 	<br>
 	<br>
@@ -54,7 +74,7 @@
 	
 	
 	
-	
+
 	
 	
 <tr>
@@ -79,14 +99,19 @@
         $(function () {
             $('#appts').datetimepicker({
             	minuteStepping:0,
-            	daysOfWeekDisabled:[0,6],
-            	sideBySide: true,
-            	disabledDates: [
-                        moment("09:30:26")
-                    ]
+            	daysOfWeekDisabled:[0,6]
             	});
-           
-           
+            
+            $('#appte').datetimepicker({
+            	minuteStepping:0,
+            	daysOfWeekDisabled:[0,6]
+            	});
+            $("#appts").on("dp.change",function (e) {
+               $('#appte').data("DateTimePicker").setMinDate(e.date);
+            });
+            $("#appt").on("dp.change",function (e) {
+               $('#appts').data("DateTimePicker").setMaxDate(e.date);
+            });
         });
     </script>
 
@@ -102,7 +127,7 @@
 	/* clear result div */
 	/* get values from elements on the page: */
 	var message = document.getElementById('Message').value;
-	var endtime = null;
+	var endtime = document.getElementById('appts').value;
 	var starttime = document.getElementById('appte').value;
 	
 	/* Send the data using post and put the results in a div */

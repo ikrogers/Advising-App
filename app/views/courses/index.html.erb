@@ -1,20 +1,6 @@
+
 <% @currentuser = User.find_by_id(session[:user_id]) %>
 
-<<<<<<< HEAD
-
-<div>
-	<br>
-	<%if @currentuser.flag == 'denied' || @currentuser.flag == 'false'%>
-		<%= render 'bootstrap_dual_list'%>
-	<%end%>
-</div>
-<div>
-	<br>
-	<%= render 'messager' %>
-</div>
-<br>
-
-=======
 <h1>Listing courses for <%= @currentuser.name %> </h1>
 <div>
 	<table>
@@ -43,11 +29,7 @@
 			</tr>
 			<%end%>
 			<% end %>
-			<div>
-				<br>
-				<%= render 'sendcoursesform' %>
-			</div>
-
+			
 			<%else%>
 			<% @courses.each do |course| %>
 			<tr>
@@ -55,17 +37,21 @@
 				<td><%= course.hours %></td>
 				<td><%= course.prereq %></td>
 				<td><%= link_to 'Show', course, :class => "btn btn-default btn-md btn-block" %> </td>
-
+					
 				<td><%= link_to 'Edit(Delete this using IF for student TO DO)', edit_course_path(course) %></td>
 				<td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 			</tr>
-			<%end%>
+			<%end%>			
 			<%end%>
 		</tbody>
 </div>
+<div>
+	<br>
+	<%= render 'sendcoursesform' %>
+</div>
 
 <br>
->>>>>>> dc3f9b068e5c1c3978f12d263fc052f6f9a169f8
+
 
 <%case @currentuser.classification%>
 <%      when "Admin"%>
@@ -76,3 +62,10 @@
 <%     else%>
 <%= link_to 'Back', student_path() %>
 <%     end%>
+
+
+
+<div>
+	<br>
+	<%= render 'calendar' %>
+</div>

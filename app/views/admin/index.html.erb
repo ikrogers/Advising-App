@@ -1,13 +1,12 @@
 <h1>ADMIN TEST PAGE</h1>
+<p>
+	Find me in app/views/admin/index.html.erb
+</p>
 <div class="item">
 	<%= button_to "Manage Users", users_path(), method: :get %>
 </div>
 <div>
 	<%= button_to "Manage Courses", courses_path(), method: :get %>
-	<%= button_to "Manage Records", courses_path(), method: :get %>
-</div>
-<div>
-	<%= button_to "Manage Courses", courselists_path(), method: :get%>
 </div>
 <p>
 	<%= button_to 'Logout', logout_path, method: :delete %>
