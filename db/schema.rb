@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20140414013531) do
-=======
-ActiveRecord::Schema.define(version: 20140406202012) do
->>>>>>> dc3f9b068e5c1c3978f12d263fc052f6f9a169f8
 
   create_table "courselists", force: true do |t|
     t.string  "name"
@@ -32,10 +28,7 @@ ActiveRecord::Schema.define(version: 20140406202012) do
     t.datetime "updated_at"
     t.integer  "studentid"
     t.integer  "choice"
-<<<<<<< HEAD
     t.string   "completed"
-=======
->>>>>>> dc3f9b068e5c1c3978f12d263fc052f6f9a169f8
   end
 
   create_table "users", force: true do |t|

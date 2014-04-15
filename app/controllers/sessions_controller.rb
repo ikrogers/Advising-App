@@ -1,8 +1,6 @@
 class SessionsController < ApplicationController
-<<<<<<< HEAD
   def new
-=======
-  skip_before_action :authorize
+    skip_before_action :authorize
   def new
     if User.find_by(id: session[:user_id])
       case User.find_by(id: session[:user_id]).classification
@@ -14,7 +12,6 @@ class SessionsController < ApplicationController
         redirect_to student_url
       end
     end
->>>>>>> dc3f9b068e5c1c3978f12d263fc052f6f9a169f8
   end
 
   def create
@@ -38,4 +35,5 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
  redirect_to advising_url, notice: "Logged out"
   end
+end
 end

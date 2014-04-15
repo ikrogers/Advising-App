@@ -14,14 +14,12 @@ User.create!(name: 'student3', password: 'student3', password_confirmation: 'stu
 User.create!(name: 'student4', password: 'student4', password_confirmation: 'student4', classification: "Student", advisor: "adv2", flag: "false")
 
 #default course.  DO NOT REMOVE!
-<<<<<<< HEAD
 Course.create!(name: "CS0000", hours: 0, studentid: -1, completed: 'true')
 
 Course.create!(name: "CS1010", hours: 4, studentid: 4, completed: 'true')
 Course.create!(name: "CS1301", hours: 4, studentid: 4, completed: 'true')
 Course.create!(name: "CS1302", hours: 4, prereq: "CS1301", studentid: 4, completed: 'true')
 
-=======
 Course.create!(name: "CS000", hours: 0, studentid: -1)
 
 Course.create!(name: "CS1010", hours: 4, studentid: 4)
@@ -36,7 +34,6 @@ Course.create!(name: "CSzcxcz", hours: 4, prereq: "CS1302", studentid: 7)
 Course.create!(name: "CS26zxczxczxc", hours: 4, prereq: "Cegsdf02", studentid: 7)
 Course.create!(name: "CSzxczxc620", hours: 4, prereq: "CS1dfg02", studentid: 7)
 Course.create!(name: "Czxc20", hours: 4, prereq: "CSdfg2", studentid: 6)
->>>>>>> dc3f9b068e5c1c3978f12d263fc052f6f9a169f8
 
 Courselist.create!(name: "CS1010", description: "Algorithmic Problem Solving", hours: 4)
 Courselist.create!(name: "CS1301", description: "Principles of Programming 1", hours: 4)
