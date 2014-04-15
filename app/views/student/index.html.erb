@@ -1,5 +1,6 @@
 <h1>STUDENT TESTING PAGE</h1>
 <% @user = User.find_by_id(session[:user_id]) %>
+<<<<<<< HEAD
 <% @courses = Course.all %>
 <h1>Welcome <%= @user.name%></h1>
 
@@ -52,6 +53,15 @@
 		<%= button_to 'Modify Schedule', courses_path(@user.id), method: :get %>
 		
 	<%end%>
+=======
+
+<h1>Welcome <%= @user.name%></h1>
+
+    <%= button_to 'Logout', logout_path, method: :delete %>
+</p>
+<p>
+    <%= button_to 'View/Add/Drop', courses_path(@user.id), method: :get %>
+>>>>>>> dc3f9b068e5c1c3978f12d263fc052f6f9a169f8
 </p>
 <div class="item">
 	<%= image_tag("cat6.jpg", :size => "500x500") %>

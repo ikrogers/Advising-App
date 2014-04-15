@@ -21,7 +21,11 @@
 		<td>
 		<% @users.each do |user| %>
 		
+<<<<<<< HEAD
 		<% if (user.advisor == @currentuser.name && user.flag == 'submitted') %>
+=======
+		<% if (user.advisor == @currentuser.name && user.flag == 'true') %>
+>>>>>>> dc3f9b068e5c1c3978f12d263fc052f6f9a169f8
 		<tr>
 			<td><%= user.name %></td>
 			<td><%= link_to 'APPROVE', liftFlag_path(user, :id => user.id), method: :get%></td>
