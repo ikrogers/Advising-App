@@ -1,3 +1,6 @@
+
+<% @currentuser = User.find_by_id(session[:user_id]) %>
+
 <div id="calendar"></div>
 <div id="createEventModal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="false">
     <div class="modal-header">
@@ -9,7 +12,7 @@
         <div class="control-group">
             <label class="control-label" for="inputPatient">Patient:</label>
             <div class="controls">
-                <input type="text" name="patientName" id="patientName" tyle="margin: 0 auto;" data-provide="typeahead" data-items="4" data-source="[&quot;Value 1&quot;,&quot;Value 2&quot;,&quot;Value 3&quot;]">
+                <input type="text" value=<%=@currentuser.name%> id="patientName" tyle="margin: 0 auto;" data-provide="typeahead" data-items="4" data-source="[&quot;Value 1&quot;,&quot;Value 2&quot;,&quot;Value 3&quot;]">
                   <input type="hidden" id="apptStartTime"/>
                   <input type="hidden" id="apptEndTime"/>
                   <input type="hidden" id="apptAllDay" />
