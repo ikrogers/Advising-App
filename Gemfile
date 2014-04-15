@@ -56,10 +56,6 @@ gem 'bcrypt-ruby'
 
 source 'https://rubygems.org'
 ruby '1.9.3'
-<<<<<<< HEAD
-=======
-gem 'rails', '4.0.2'
->>>>>>> dc3f9b068e5c1c3978f12d263fc052f6f9a169f8
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
