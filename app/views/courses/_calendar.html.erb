@@ -43,10 +43,9 @@ $(document).ready(function() {
       var calendar = $('#calendar').fullCalendar({
       defaultView: 'agendaWeek',
       editable: true,
-        selectable: true,
+      selectable: true,
       //header and other values
       select: function(start, end, allDay) {
-      			alert("HUE");
 
           endtime = $.fullCalendar.formatDate(end,'h:mm tt');
           starttime = $.fullCalendar.formatDate(start,'ddd, MMM d, h:mm tt');
@@ -55,12 +54,38 @@ $(document).ready(function() {
           $('#createEventModal #apptEndTime').val(end);
           $('#createEventModal #apptAllDay').val(allDay);
           $('#createEventModal #when').text(mywhen);
-			doSubmit();          
+			//doSubmit();          
+			$.ajax({
+				url:"/setAppt",type:"post",
+				data: {param1:starttime, param2:endtime},
+				success: function(data,textStatus,xhr) {
+					alert("Appointment submitted!");
+					history.go(0);   
+				},error: function() {
+					alert("Something went wrong...");
+				}
+			});
           
        }
     });
 
-  
+  $(document).submit(function(event) {
+	/* stop form from submitting normally */
+	event.preventDefault();
+	/* clear result div */
+	/* get values from elements on the page: */ 
+	/* Send the data using post and put the results in a div */
+	$.ajax({
+	url:"/setAppt",type:"post",
+	data: {param1:starttime, param2:endtime},
+	success: function(data,textStatus,xhr) {
+			alert("Appointment submitted!");
+			history.go(0);   
+	},error: function() {
+				alert("Something went wrong...");
+	}
+	});
+	});
 
   function doSubmit(){
     $("#createEventModal").modal('hide');

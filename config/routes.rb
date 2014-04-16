@@ -1,6 +1,7 @@
 Advising::Application.routes.draw do
   resources :courselists
   post 'getcourse' => 'courses#getcourse'
+  post 'setAppt' => 'courses#setAppt'
   get 'getcourse' => 'courses#getcourse'
   post 'contactf' => 'courses#contactf'
   get 'contactf' => 'courses#contactf'
