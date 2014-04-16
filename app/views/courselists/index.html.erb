@@ -1,8 +1,12 @@
 <% @currentuser = User.find_by_id(session[:user_id]) %>
 <% @courses =  Course.all%>
+      <%@total = 0%>
+      <%@takencourse = 0%>
+
 
 <% if @currentuser.classification == "Student" %>
 <h1>Major requirements progress for: <%= @currentuser.name%></h1>
+<div style="height: 400px; overflow: scroll;">
 <table class="table table-hover table-bordered">
   <thead style="background-color: #5e63ff">
     <tr>
@@ -14,8 +18,10 @@
 
   <tbody>
     <% @courselists.each do |courselist| %>
+    <%@total = @total+1%>
      <% @courses.each do |course|%>
       <%if course.studentid == @currentuser.id && courselist.name==course.name%>
+      <%@takencourse = @takencourse+1%>
          <tr style = "background-color: #51ff4f;">
            <td><%= courselist.name %></td>
            <td><%= courselist.prereq %></td>
@@ -33,6 +39,8 @@
     <% end %>
   </tbody>
 </table>
+</div>
+<p>You are <%= (@takencourse*100)/@total%>% complete with your degree!</p>
 <%end%>
 <br>
 <% if @currentuser.classification == "Admin" %>
