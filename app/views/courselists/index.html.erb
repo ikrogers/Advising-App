@@ -41,8 +41,15 @@
 </table>
 </div>
 <p>You are <%= (@takencourse*100)/@total%>% complete with your degree!</p>
-<%end%>
 <br>
+<%= link_to 'Back', student_path %>
+<%end%>
+
+
+
+
+
+
 <% if @currentuser.classification == "Admin" %>
 <h1>Manage course catalog</h1>
 <table class="table table-hover table-bordered">
