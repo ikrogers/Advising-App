@@ -4,6 +4,13 @@
 // Place all the styles related to the Advising controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#loading-indicator {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+
+
 
   body,html {
     margin: 0;

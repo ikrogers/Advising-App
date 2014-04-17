@@ -25,6 +25,6 @@ end
 
   def destroy
     session[:user_id] = nil
- redirect_to advising_url, notice: "Logged out"
+    redirect_to advising_url, notice: "Logged out"
   end
 end
