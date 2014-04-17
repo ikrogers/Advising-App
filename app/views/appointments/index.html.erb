@@ -23,39 +23,12 @@
 
 <br>
 
-<%if(@currentuser.classification == 'advisor' || @currentuser.classification == 'admin')%>
+<%if(@currentuser.classification == 'Advisor' || @currentuser.classification == 'Admin')%>
 <%= link_to 'New Appointment', new_appointment_path %>
+<%= render 'calendar'%>
 <%end%>
 
 
-
-
-
-
-<%@currentuser =  User.find_by_id(session[:user_id])%>
-<h1>Appointments for <%= @currentuser.name%></h1>
-
-<table>
-
-  <tbody>
-    <% if(@appointment != nil) %>
-      <tr>
-        <td><%= @appointment.appts %></td>
-        <td><%= @appointment.appte %></td>
-        <td><%= @appointment.advID %></td>
-        <td><%= @appointment.stuID %></td>
-        <td><%= @appointment.approved %></td>
-        <td><%= @appointment.notes %></td>
-        <td><%= link_to 'Show', @appointment %></td>
-        <td><%= link_to 'Edit', edit_appointment_path(@appointment) %></td>
-        <td><%= link_to 'Destroy', @appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <%else%>  
-    	<%= render 'calendar'%>
-    <% end %>
+    	
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'Set up an appointment', new_appointment_path %>

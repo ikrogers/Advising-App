@@ -5,10 +5,12 @@ class AppointmentsController < ApplicationController
   # GET /appointments.json
   def index
     @currentuser = User.find_by_id(session[:user_id])
-    if (@currentuser.classification == 'advisor' )
-      @appointments = Appointment.find_by_advID(@currentuser.id)
-    elsif (@currentuser.id == 'student')
-      @appointments = Appointment.find_by_stuID(@currentuser.id)
+    if (@currentuser.classification == 'Advisor' )
+      @appointments = Appointment.where("advID = ?",@currentuser.id)
+      #@appointments = Appointment.find_by_advID(@currentuser.id)
+    elsif (@currentuser.classification == 'Student')
+      @appointments = Appointment.where("stuID = ?",@currentuser.id)
+      #@appointments = Appointment.find_by_stuID(@currentuser.id)
     else#for the admin
       @appointments = Appointment.all
     end
