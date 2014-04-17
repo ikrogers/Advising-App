@@ -1,7 +1,11 @@
 Advising::Application.routes.draw do
   resources :messages
+  get 'viewMsgs' => 'users#viewMsgs'
+  
 
   resources :appointments
+  get 'viewAppts' => 'users#viewAppts'
+  post 'setAppt' => 'appointments#setAppt'
 
   resources :courselists
   post 'getcourse' => 'courses#getcourse'
@@ -27,8 +31,6 @@ Advising::Application.routes.draw do
   get "sessions/create"
   get "sessions/destroy"
   resources :users
-  get 'viewMsgs' => 'users#viewMsgs'
-  get 'viewAppts' => 'users#viewAppts'
   post 'liftFlag' => 'users#liftFlag'
   get 'liftFlag' => 'users#liftFlag'
   post 'denyFlag' => 'users#denyFlag'

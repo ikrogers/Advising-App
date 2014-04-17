@@ -49,7 +49,7 @@ class CoursesController < ApplicationController
     
     @name = params[:param1]
     if @currentuser.classification == 'Student'
-    @currentuser.update_attribute(:flag , 'true')
+    @currentuser.update_attribute(:flag , 'submitted')
     end
     #consider adding else for setting flag to false, indicating advisor/admin made change to allow re-registration?
 

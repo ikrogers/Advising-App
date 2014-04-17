@@ -1,37 +1,61 @@
-<h1>Listing appointments</h1>
+<%@currentuser =  User.find_by_id(session[:user_id])%>
+<h1>Appointments for <%= @currentuser.name%></h1>
+
 
 <table>
-  <thead>
-    <tr>
-      <th>Appts</th>
-      <th>Appte</th>
-      <th>Advid</th>
-      <th>Stuid</th>
-      <th>Approved</th>
-      <th>Notes</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+  <tbody>
+	    <% @appointments.each do |appointment| %>
+	      <tr>
+	      	
+	        <td><%= Date.parse(appointment.appts) %></td>
+	        <td><%= Date.parse(appointment.appte) %></td>
+	        <td><%= (User.find_by_id(appointment.stuID)).name %></td>
+	        <td><%= appointment.approved %></td>
+	        <td><%= appointment.notes %></td>
+	        <td><%= link_to 'Show', appointment %></td>
+	        <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
+	        <td><%= link_to 'Destroy', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	      </tr>
+	    <% end %>
+    
+  </tbody>
+</table>
+
+<br>
+
+
+<%= link_to 'New Appointment', new_appointment_path %>
+
+
+
+
+
+
+
+<%@currentuser =  User.find_by_id(session[:user_id])%>
+<h1>Appointments for <%= @currentuser.name%></h1>
+
+<table>
 
   <tbody>
-    <% @appointments.each do |appointment| %>
+    <% if(@appointment != nil) %>
       <tr>
-        <td><%= appointment.appts %></td>
-        <td><%= appointment.appte %></td>
-        <td><%= appointment.advID %></td>
-        <td><%= appointment.stuID %></td>
-        <td><%= appointment.approved %></td>
-        <td><%= appointment.notes %></td>
-        <td><%= link_to 'Show', appointment %></td>
-        <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
-        <td><%= link_to 'Destroy', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= @appointment.appts %></td>
+        <td><%= @appointment.appte %></td>
+        <td><%= @appointment.advID %></td>
+        <td><%= @appointment.stuID %></td>
+        <td><%= @appointment.approved %></td>
+        <td><%= @appointment.notes %></td>
+        <td><%= link_to 'Show', @appointment %></td>
+        <td><%= link_to 'Edit', edit_appointment_path(@appointment) %></td>
+        <td><%= link_to 'Destroy', @appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+    <%else%>  
+    	<%= render 'calendar'%>
     <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Appointment', new_appointment_path %>
+<%= link_to 'Set up an appointment', new_appointment_path %>

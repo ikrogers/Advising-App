@@ -5,8 +5,28 @@
 
     <%= button_to 'Logout', logout_path, method: :delete %>
 </p>
+<%if (@user.flag == 'false')%>
 <p>
-    <%= button_to 'View/Add/Drop', courses_path(@user.id), method: :get %>
+    <%= button_to 'Submit Schedule', courses_path(@user.id), method: :get %>
+</p>
+<%elsif (@user.flag == 'denied')%>
+<p>
+    <%= button_to 'Resubmit Schedule', courses_path(@user.id), method: :get %>
+</p>
+<%elsif (@user.flag == 'approved')%>
+<p>
+    <%= button_to 'View Approved Schedule', courses_path(@user.id), method: :get %>
+</p>
+<%elsif (@user.flag == 'submitted')%>
+<p>
+    <%= button_to 'View Submitted Schedule', courses_path(@user.id), method: :get %>
+</p>
+<%end%>
+<p>
+    <%= button_to 'Send/View Messages', messages_path(@user.id), method: :get %>
+</p>
+<p>
+    <%= button_to 'Make/View appointment', appointments_path(@user.id), method: :get %>
 </p>
 <div class="item">
 	<%= image_tag("cat6.jpg", :size => "500x500") %>

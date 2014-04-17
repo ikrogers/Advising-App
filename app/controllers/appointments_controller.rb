@@ -1,10 +1,12 @@
 class AppointmentsController < ApplicationController
   before_action :set_appointment, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /appointments
   # GET /appointments.json
   def index
+    @currentuser = User.find_by_id(session[:user_id])
     @appointments = Appointment.all
+    @appointment = Appointment.find_by_stuID(@currentuser.id)
   end
 
   # GET /appointments/1
@@ -15,6 +17,33 @@ class AppointmentsController < ApplicationController
   # GET /appointments/new
   def new
     @appointment = Appointment.new
+  end
+
+  def setAppt
+    @currentuser = User.find_by_id(session[:user_id])
+    
+    
+    @appts = params[:param1]
+    @appte = params[:param2]
+    
+    if(Appointment.count(@currentuser.id) < 1)
+      Appointment.create(appts: params[:param1], appte: params[:param2], stuID: @currentuser.id, advID: User.find_by_name(@currentuser.advisor).id, approved: 'pending' )
+      
+      respond_to do |format|
+        format.html { redirect_to :back, notice: 'Appointment set!' }
+        format.json { render :json => { :name => @name }}
+      end
+    else
+      @appointment = Appointment.find_by_stuID(@currentuser)
+      @appointment.update_attribute(:appts,@appts)
+      @appointment.update_attribute(:appte,@appte)
+      @appointment.update_attribute(:approved,'pending')
+      @appointment.save
+      respond_to do |format|
+        format.html { redirect_to :back, notice: 'Appointment updated!' }
+        format.json { render :json => { :name => @name }}
+      end
+    end
   end
 
   # GET /appointments/1/edit
