@@ -5,10 +5,36 @@ class AppointmentsController < ApplicationController
   # GET /appointments.json
   def index
     @currentuser = User.find_by_id(session[:user_id])
-    @appointments = Appointment.all
-    @appointment = Appointment.find_by_stuID(@currentuser.id)
+    if (@currentuser.classification == 'advisor' )
+      @appointments = Appointment.find_by_advID(@currentuser.id)
+    elsif (@currentuser.id == 'student')
+      @appointments = Appointment.find_by_stuID(@currentuser.id)
+    else#for the admin
+      @appointments = Appointment.all
+    end
   end
 
+  def approve
+    @appointment.update_attribute(:approved, 'approved')
+    if(@appointment.save)
+      format.html { redirect_to :back, notice: 'Appointment approved!' }
+      format.json { render :json => { :name => @name }}
+    else
+      format.html { redirect_to appointment_path, notice: 'Error completing request!' }
+      format.json { head :no_content}
+    end
+  end
+  
+  def deny
+    @appointment.update_attribute(:approved, 'denied')
+    if(@appointment.save)
+      format.html { redirect_to :back, notice: 'Appointment denied!' }
+      format.json { render :json => { :name => @name }}
+    else
+      format.html { redirect_to appointment_path, notice: 'Error completing request!' }
+      format.json { head :no_content}
+    end
+  end
   # GET /appointments/1
   # GET /appointments/1.json
   def show
