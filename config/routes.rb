@@ -1,4 +1,8 @@
 Advising::Application.routes.draw do
+  resources :messages
+
+  resources :appointments
+
   resources :courselists
   post 'getcourse' => 'courses#getcourse'
   post 'setAppt' => 'courses#setAppt'
