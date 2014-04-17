@@ -1,29 +1,49 @@
-<div class="depot_form">
-	<% if flash[:alert] %>
-	<p id="notice">
-		<%= flash[:alert] %>
-	</p>
-	<% end %>
-	<%= form_tag do %>
-	<fieldset>
-		<legend>
-			Please Log In
-		</legend>
-		<div>
-			<%= label_tag :name, 'Name:' %>
-			<%= text_field_tag :name, params[:name] %>
-		</div>
-		<div>
-			<%= label_tag :password, 'Password:' %>
-			<%= password_field_tag :password, params[:password] %>
-		</div>
-		<div>
-			<%= submit_tag "Login" %>
-		</div>
-	</fieldset>
-	<% end %>
-</div>
+
 </br>
-<div class="item">
-				<%= image_tag("cat7.jpg", :size => "700x500") %>
+<br>
+<br>
+
+<body class="bs-docs-masthead" id="content" role="main">
+	<div class="container">
+		<span class="bs-docs-booticon bs-docs-booticon-lg bs-docs-booticon-outline">Advising Center</span>
+		<!-- <h1>Bootstrap</h1> -->
+		<p class="lead">
+			Welcome! Please Log In to Continue!
+		</p>
+		<p id="action" class="lead">
+			<a href="#modal-form" class="btn btn-outline-inverse btn-block"data-toggle="modal">Log In</a>
+		</p>
+	</div>
+</body>
+
+
+
+<div id="modal-form" class="modal" tabindex="-1" role="dialog"
+aria-labelledby="myModalLabel" aria-hidden="true" style="display: 
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				
+				<h4 class="modal-title" id="myModalLabel">Log In</h4>
+			</div>
+			<div class="modal-body">
+				<div class="container">
+					<div class="row">
+							<%= render :partial => 'new' %>				
+					</div>
+					<div class="row">
+						<div class="col-md-4 col-md-offset-1">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default"
+				data-dismiss="modal">
+					HUEHUEHUEHUE
+				</button>
+				<%= link_to 'Login', sessions_create_path, :id => 'login-link' %>
+			</div>
+		</div>
+	</div>
 </div>

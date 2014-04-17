@@ -8,7 +8,7 @@ Advising::Application.routes.draw do
 
   resources :courses
 
-  get "student/index"
+  
   get 'admin' => 'admin#index'
   get 'advisor' => 'advisor#index'
   get 'student' => 'student#index'
@@ -39,7 +39,7 @@ Advising::Application.routes.draw do
   end
   
 
-  root 'advising#index', as: 'advising'
+  root 'sessions#new', as: 'advising'
   
   
   
