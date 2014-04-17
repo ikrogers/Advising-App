@@ -5,6 +5,12 @@
 <div class='item'>
 	<%= button_to 'Manage Users', users_path(), method: :get %>
 </div>
+<div class='item'>
+	<%= button_to 'View Appointments', :controller => users, :action => :viewAppts %>
+</div>
+<div class='item'>
+	<%= button_to 'View Messages', :controller => users, :action => :viewMsgs %>
+</div>
 <p>
 	<%= button_to 'Logout', logout_path, method: :delete %>
 

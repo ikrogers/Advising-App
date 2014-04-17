@@ -6,8 +6,9 @@ Advising::Application.routes.draw do
   post 'contactf' => 'courses#contactf'
   get 'contactf' => 'courses#contactf'
 
-  resources :courses
+  
 
+  resources :courses
   get "student/index"
   get 'admin' => 'admin#index'
   get 'advisor' => 'advisor#index'
@@ -22,6 +23,8 @@ Advising::Application.routes.draw do
   get "sessions/create"
   get "sessions/destroy"
   resources :users
+  get 'viewMsgs' => 'users#viewMsgs'
+  get 'viewAppts' => 'users#viewAppts'
   post 'liftFlag' => 'users#liftFlag'
   get 'liftFlag' => 'users#liftFlag'
   post 'denyFlag' => 'users#denyFlag'

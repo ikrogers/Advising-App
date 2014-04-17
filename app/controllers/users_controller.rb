@@ -26,6 +26,22 @@ class UsersController < ApplicationController
 
   end
   
+  def setAppt
+    @currentuser = User.find_by_id(session[:user_id])
+    
+    
+    @appts = params[:param1]
+    @appte = params[:param2]
+    
+    @currentuser.update_attribute(:appts, @appts)
+    @currentuser.update_attribute(:appte, @appte)
+    respond_to do |format|
+
+      format.html { redirect_to courses_path(@currentuser.id), notice: "Appointment set!" }
+      format.json { render :json => { :name => @name }}
+    end
+  end
+  
   def liftFlag
     @currentuser = User.find_by_id(session[:user_id])
     @user = User.find_by_id(params[:id])
