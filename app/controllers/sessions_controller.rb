@@ -1,17 +1,10 @@
 class SessionsController < ApplicationController
-  skip_before_action :authorize
   def new
-    if User.find_by(id: session[:user_id])
-      case User.find_by(id: session[:user_id]).classification
-      when "Admin"
-        redirect_to admin_url
-      when "Advisor"
-        redirect_to advisor_url
-      else
-        redirect_to student_url
-      end
-    end
   end
+
+def post
+  @post = Post.new
+end
 
   def create
     user = User.find_by(name: params[:name])
@@ -32,6 +25,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
- redirect_to advising_url, notice: "Logged out"
+    redirect_to advising_url, notice: "Logged out"
   end
 end
