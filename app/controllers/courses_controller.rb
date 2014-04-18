@@ -131,6 +131,12 @@ class CoursesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def testajaxjs
+    respond_to do |format|
+      format.json
+    end
+  end
 
   private
 
