@@ -5,6 +5,7 @@ Advising::Application.routes.draw do
   get 'getcourse' => 'courses#getcourse'
   post 'contactf' => 'courses#contactf'
   get 'contactf' => 'courses#contactf'
+  post 'testajaxjs' => 'courses#testajaxjs'
 
   resources :courses
 
