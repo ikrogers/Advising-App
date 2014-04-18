@@ -29,8 +29,6 @@ class CoursesController < ApplicationController
 #sets the appointment time
   def setAppt
     @currentuser = User.find_by_id(session[:user_id])
-    
-    
     @appts = params[:param1]
     @appte = params[:param2]
     

@@ -1,9 +1,12 @@
+
 <%= button_to "test", { :controller => "courses", :action => "testajaxjs" }, :remote => true %>
 <div id="ajaxdiv">
 	This should be changed after you press the above button.
 </div>
 <% @currentuser = User.find_by_id(session[:user_id]) %>
 
+
+<% @currentuser = User.find_by_id(session[:user_id]) %>
 <h1>Listing courses for <%= @currentuser.name %> </h1>
 <div>
 	<table>
