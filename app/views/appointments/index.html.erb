@@ -13,8 +13,9 @@
 	        <td><%= appointment.approved %></td>
 	        <td><%= appointment.notes %></td>
 	        <td><%= link_to 'Show', appointment %></td>
-	        <td><%= link_to 'Approve', appointment, method: :approve%></td>
-	        <td><%= link_to 'Deny', appointment, method: :deny, data: { confirm: 'Are you sure?' } %></td>
+	        <td><%= link_to 'Approve', approveApt_path(appointment, :id => appointment.id), method: :get%></td>
+	        <td><%= link_to 'Deny', denyApt_path(appointment, :id => appointment.id), method: :get, data: { confirm: 'Are you sure?' }%></td>
+	        <td><%= link_to 'Delete', deleteApt_path(appointment, :id => appointment.id),method: :get, data: { confirm: 'Are you sure?' } %></td>
 	      </tr>
 	    <% end %>
     
@@ -24,7 +25,6 @@
 <br>
 
 <%if(@currentuser.classification == 'Advisor' || @currentuser.classification == 'Admin')%>
-<%= link_to 'New Appointment', new_appointment_path %>
 <%= render 'calendar'%>
 <%end%>
 

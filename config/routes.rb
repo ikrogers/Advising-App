@@ -6,7 +6,10 @@ Advising::Application.routes.draw do
   resources :appointments
   get 'viewAppts' => 'users#viewAppts'
   post 'setAppt' => 'appointments#setAppt'
-
+  get 'denyApt' => 'appointments#deny'
+  get 'approveApt' => 'appointments#approve'
+  get 'deleteApt' => 'appointments#destroy'
+  
   resources :courselists
   post 'getcourse' => 'courses#getcourse'
   post 'setAppt' => 'courses#setAppt'

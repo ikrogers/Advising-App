@@ -17,24 +17,26 @@ class AppointmentsController < ApplicationController
   end
 
   def approve
+    @appointment = Appointment.find_by_id(params[:id])
     @appointment.update_attribute(:approved, 'approved')
     if(@appointment.save)
-      format.html { redirect_to :back, notice: 'Appointment approved!' }
-      format.json { render :json => { :name => @name }}
+        redirect_to :back
+      
     else
-      format.html { redirect_to appointment_path, notice: 'Error completing request!' }
-      format.json { head :no_content}
+        redirect_to appointment_path 
+      
     end
   end
   
   def deny
+    @appointment = Appointment.find_by_id(params[:id])
     @appointment.update_attribute(:approved, 'denied')
     if(@appointment.save)
-      format.html { redirect_to :back, notice: 'Appointment denied!' }
-      format.json { render :json => { :name => @name }}
+        redirect_to :back
+      
     else
-      format.html { redirect_to appointment_path, notice: 'Error completing request!' }
-      format.json { head :no_content}
+        redirect_to appointment_path
+      
     end
   end
   # GET /appointments/1
