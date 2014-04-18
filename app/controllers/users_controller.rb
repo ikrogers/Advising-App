@@ -26,6 +26,33 @@ class UsersController < ApplicationController
 
   end
   
+  def setAppt
+    @currentuser = User.find_by_id(session[:user_id])
+    
+    
+    @appts = params[:param1]
+    @appte = params[:param2]
+    
+    if(Appointment.count(@currentuser.id) < 1)
+      Appointment.create(appts: params[:param1], appte: params[:param2], stuID: @currentuser.id, advID: User.find_by_name(@currentuser.advisor).id, approved: 'pending' )
+      @appt.save
+      respond_to do |format|
+        format.html { redirect_to courses_path(@currentuser.id), notice: 'Appointment set!' }
+        format.json { render :json => { :name => @name }}
+      end
+    else
+      @appt = Appointment.find_by_userID(@currentuser.id)
+      @appt.update_attribute(:appts,@appts)
+      @appt.update_attribute(:appte,@appte)
+      @appt.update_attribute(:approved,'pending')
+      @appt.save
+      respond_to do |format|
+        format.html { redirect_to courses_path(@currentuser.id), notice: 'Appointment updated!' }
+        format.json { render :json => { :name => @name }}
+      end
+    end
+  end
+  
   def liftFlag
     @currentuser = User.find_by_id(session[:user_id])
     @user = User.find_by_id(params[:id])

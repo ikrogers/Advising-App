@@ -1,4 +1,15 @@
 Advising::Application.routes.draw do
+  resources :messages
+  get 'viewMsgs' => 'users#viewMsgs'
+  
+
+  resources :appointments
+  get 'viewAppts' => 'users#viewAppts'
+  post 'setAppt' => 'appointments#setAppt'
+  get 'denyApt' => 'appointments#deny'
+  get 'approveApt' => 'appointments#approve'
+  get 'deleteApt' => 'appointments#destroy'
+  
   resources :courselists
   post 'getcourse' => 'courses#getcourse'
   post 'setAppt' => 'courses#setAppt'
@@ -6,11 +17,14 @@ Advising::Application.routes.draw do
   post 'contactf' => 'courses#contactf'
   get 'contactf' => 'courses#contactf'
 
+
   post 'testajaxjs' => 'courses#testajaxjs'
 
-  resources :courses
 
   
+
+  resources :courses
+  get "student/index"
   get 'admin' => 'admin#index'
   get 'advisor' => 'advisor#index'
   get 'student' => 'student#index'
