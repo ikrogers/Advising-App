@@ -46,5 +46,4 @@ ActiveRecord::Schema.define(version: 20140406202012) do
     t.datetime "appts"
     t.datetime "appte"
   end
-
 end
