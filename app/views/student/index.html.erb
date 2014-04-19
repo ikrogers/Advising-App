@@ -1,37 +1,37 @@
+
+<div >
 <h1>STUDENT TESTING PAGE</h1>
 <% @user = User.find_by_id(session[:user_id]) %>
 
 <h1>Welcome <%= @user.name%></h1>
 
-    <%= button_to 'Logout', logout_path, method: :delete %>
+<%= button_to 'Logout',  logout_path, :class => "btn btn-outline-inverse btn-block", method: :delete %>
 </p>
 <%if (@user.flag == 'false')%>
 <p>
-    <%= button_to 'Submit Schedule', courses_path(@user.id), method: :get %>
+	<%= button_to 'Submit Schedule', courses_path(@user.id),:class => "btn btn-outline-inverse btn-block", method: :get %>
 </p>
 <%elsif (@user.flag == 'denied')%>
 <p>
-    <%= button_to 'Resubmit Schedule', courses_path(@user.id), method: :get %>
+	<%= button_to 'Resubmit Schedule', courses_path(@user.id),:class => "btn btn-outline-inverse btn-block", method: :get %>
 </p>
 <%elsif (@user.flag == 'approved')%>
 <p>
-    <%= button_to 'View Approved Schedule', courses_path(@user.id), method: :get %>
+	<%= button_to 'View Approved Schedule', courses_path(@user.id),:class => "btn btn-outline-inverse btn-block", method: :get %>
 </p>
 <%elsif (@user.flag == 'submitted')%>
 <p>
-    <%= button_to 'View Submitted Schedule', courses_path(@user.id), method: :get %>
+	<%= button_to 'View Submitted Schedule', courses_path(@user.id),:class => "btn btn-outline-inverse btn-block", method: :get %>
 </p>
 <%end%>
 <p>
-    <%= button_to 'Send/View Messages', messages_path(@user.id), method: :get %>
+	<%= button_to 'Send/View Messages', messages_path(@user.id),:class => "btn btn-outline-inverse btn-block", method: :get %>
 </p>
 <p>
-    <%= button_to 'Make/View appointment', appointments_path(@user.id), method: :get %>
+	<%= button_to 'Make/View appointment', appointments_path(@user.id),:class => "btn btn-outline-inverse btn-block", method: :get %>
 </p>
 <p>
-	
-	    <%= button_to 'Progress', courselists_path, method: :get %>
+
+	<%= button_to 'Progress', courselists_path,:class => "btn btn-outline-inverse btn-block", method: :get %>
 </p>
-<div class="item">
-	<%= image_tag("cat6.jpg", :size => "500x500") %>
 </div>

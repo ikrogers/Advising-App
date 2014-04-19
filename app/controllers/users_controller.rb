@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  layout 'menu'
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   respond_to :json
   # GET /users
