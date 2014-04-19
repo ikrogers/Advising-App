@@ -8,13 +8,14 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
-  <body>
+  <body class="bs-docs-masthead">
     <header>
     </header>
     <mainn role="main">
-    	
+    	       
        <%= render 'layouts/messages' %>
        <%= yield %>
     </mainn>
   </body>
 </html>
+
