@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(version: 20140418011245) do
     t.datetime "updated_at"
     t.integer  "studentid"
     t.integer  "choice"
-    t.string   "completed"
   end
 
   create_table "messages", force: true do |t|
