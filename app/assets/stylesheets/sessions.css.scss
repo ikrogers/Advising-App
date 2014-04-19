@@ -160,16 +160,16 @@
     background-color: #00CC00;
 background-image: -webkit-gradient(
   linear,
-  right top,
-  right bottom,
-  color-stop(0, #056B00),
-  color-stop(1, #8FFF87)
+  left top,
+  left bottom,
+  color-stop(0, #C5150B),
+  color-stop(1, #1C1C1C)
 );
-background-image: -o-linear-gradient(bottom, #056B00 0%, #8FFF87 100%);
-background-image: -moz-linear-gradient(bottom, #056B00 0%, #8FFF87 100%);
-background-image: -webkit-linear-gradient(bottom, #056B00 0%, #8FFF87 100%);
-background-image: -ms-linear-gradient(bottom, #056B00 0%, #8FFF87 100%);
-background-image: linear-gradient(to bottom, #056B00 0%, #8FFF87 100%);
+background-image: -o-linear-gradient(bottom, #C5150B 0%, #1C1C1C 100%);
+background-image: -moz-linear-gradient(bottom, #C5150B 0%, #1C1C1C 100%);
+background-image: -webkit-linear-gradient(bottom, #C5150B 0%, #1C1C1C 100%);
+background-image: -ms-linear-gradient(bottom, #C5150B 0%, #1C1C1C 100%);
+background-image: linear-gradient(to bottom, #C5150B 0%, #1C1C1C 100%);
     
     background-repeat: repeat-x;
   }
