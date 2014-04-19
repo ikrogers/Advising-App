@@ -2,7 +2,7 @@
 <% @courses =  Course.all%>
       <%@total = 0%>
       <%@takencourse = 0%>
-
+<%@flag = 0%>
 
 <% if @currentuser.classification == "Student" %>
 <h1>Major requirements progress for: <%= @currentuser.name%></h1>
@@ -21,21 +21,24 @@
     <%@total = @total+1%>
      <% @courses.each do |course|%>
       <%if course.studentid == @currentuser.id && courselist.name==course.name%>
-      <%@takencourse = @takencourse+1%>
+      	<%@takencourse = @takencourse+1%>
+     	 <%@flag = 1%>
          <tr style = "background-color: #51ff4f;">
            <td><%= courselist.name %></td>
            <td><%= courselist.prereq %></td>
            <td><%= courselist.description %></td>
-         </tr>
-      
-         	
+         </tr> 	
         <% end %>
       <% end %>
+	<%if @flag !=1 %>
        <tr style = "background-color: #ff544f;">
            <td><%= courselist.name %></td>
            <td><%= courselist.prereq %></td>
            <td><%= courselist.description %></td>
          </tr>
+         <%end%>
+              	 <%@flag = 0%>
+
     <% end %>
   </tbody>
 </table>
