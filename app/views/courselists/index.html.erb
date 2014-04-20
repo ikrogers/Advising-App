@@ -15,6 +15,7 @@
 				<th>Prereq</th>
 				<th>Hours</th>
 				<th>Description</th>
+				<th>Completion</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -24,11 +25,12 @@
 			<%if course.studentid == @currentuser.id && courselist.name==course.name%>
 			<% @takencourse = @takencourse+1%>
 			<% @flag = 1%>
-			<tr  >
+			<tr   style="background: rgba(255,255,255,0.3);">
 				<td><%= courselist.name %></td>
 				<td><%= courselist.prereq %></td>
 				<td><%= courselist.hours %></td>
 				<td><%= courselist.description %></td>
+				<td>Yes</td>
 			</tr>
 			<% end %>
 			<% end %>
@@ -38,6 +40,8 @@
 				<td><%= courselist.prereq %></td>
 				<td><%= courselist.hours %></td>
 				<td><%= courselist.description %></td>
+				<td>No</td>
+
 			</tr>
 			<%end%>
 			<% @flag = 0%>
