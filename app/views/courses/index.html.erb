@@ -8,7 +8,7 @@
 
 <% @currentuser = User.find_by_id(session[:user_id]) %>
 <h1>Listing courses for <%= @currentuser.name %> </h1>
-<div>
+<div style="height: 300px; overflow: scroll;">
 	<table>
 		<thead>
 			<tr>
@@ -44,8 +44,8 @@
 				<td><%= course.prereq %></td>
 				<td><%= link_to 'Show', course, :class => "btn btn-default btn-md btn-block" %> </td>
 					
-				<td><%= link_to 'Edit(Delete this using IF for student TO DO)', edit_course_path(course) %></td>
-				<td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+				<td><%= link_to 'Edit(Delete this using IF for student TO DO)', edit_course_path(course), :class => "btn btn-default btn-md btn-block" %></td>
+				<td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-default btn-md btn-block" %></td>
 			</tr>
 			<%end%>			
 			<%end%>
@@ -73,5 +73,4 @@
 
 <div>
 	<br>
-	<%= render 'calendar' %>
 </div>
