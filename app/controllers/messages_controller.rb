@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  layout 'menu'
+  layout 'functionalitylayout'
   before_action :set_message, only: [:show, :edit, :update, :destroy]
 
   # GET /messages

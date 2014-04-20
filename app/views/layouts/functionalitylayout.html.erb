@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Advising" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Advising" %>">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body class="bs-docs-masthead">
+    <header>
+    </header>
+    <mainn role="main">
+		<%= render 'layouts/navigation' %>
+       <%= render 'layouts/messages' %>
+       <%= yield %>
+    </mainn>
+  </body>
+</html>
+<style>
+
+h1{
+	margin-top: 60px;
+	
+}
+
+th {
+text-align: center;
+font-size: 25px;
+color: white;
+}
+
+ @media (min-width: 768px) {
+    .bs-docs-masthead {
+      padding-top: 80px;
+      padding-bottom: 10%;
+    }
+    
+.bs-docs-masthead, .bs-docs-header {
+    position: fixed;
+    padding: 30px 15px;
+    color: #cdbfe3;
+    text-align: center;
+    text-shadow: 0 3px 0 rgba(0,0,0,.1);
+   background: image-url("img.jpg") no-repeat fixed 100% 100%;
+ }
+</style>
+
