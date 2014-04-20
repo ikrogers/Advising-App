@@ -152,12 +152,12 @@
   
   
   .bs-docs-masthead, .bs-docs-header {
-    position: fixed;
+    position: relative;
     padding: 30px 15px;
     color: #cdbfe3;
     text-align: center;
     text-shadow: 0 3px 0 rgba(0,0,0,.1);
-   background: image-url("img.jpg") no-repeat fixed 100% 100%;
+  background: image-url("img.jpg") no-repeat fixed 100% 100%;
    
    
    
@@ -191,6 +191,8 @@
       width: auto
     }
   }
+
+  
   @media (min-width: 768px) {
     .bs-docs-masthead {
       padding-top: 80px;
