@@ -43,9 +43,9 @@
   </tbody>
 </table>
 </div>
-<p>You are <%= (@takencourse*100)/@total%>% complete with your degree!</p>
+<p class='lead'>You are <%= (@takencourse*100)/@total%>% complete with your degree!</p>
 <br>
-<%= link_to 'Back', student_path %>
+<%= button_to 'Back', student_path, :class=> "btn btn-outline-inverse btn-block", :method => "get"%>
 <%end%>
 
 

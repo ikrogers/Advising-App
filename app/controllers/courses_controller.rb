@@ -133,7 +133,7 @@ class CoursesController < ApplicationController
   
   def testajaxjs
     respond_to do |format|
-      format.json
+      format.js {render(partial: 'courses/testajax')}
     end
   end
 
