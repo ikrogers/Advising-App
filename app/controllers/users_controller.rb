@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
+  layout 'functionalitylayout'
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   respond_to :json
   # GET /users
   # GET /users.json
   def index
     @users = User.all
-    
   end
 
   # GET /users/1
@@ -24,6 +24,33 @@ class UsersController < ApplicationController
   def edit
         @users = User.all
 
+  end
+  
+  def setAppt
+    @currentuser = User.find_by_id(session[:user_id])
+    
+    
+    @appts = params[:param1]
+    @appte = params[:param2]
+    
+    if(Appointment.count(@currentuser.id) < 1)
+      Appointment.create(appts: params[:param1], appte: params[:param2], stuID: @currentuser.id, advID: User.find_by_name(@currentuser.advisor).id, approved: 'pending' )
+      @appt.save
+      respond_to do |format|
+        format.html { redirect_to courses_path(@currentuser.id), notice: 'Appointment set!' }
+        format.json { render :json => { :name => @name }}
+      end
+    else
+      @appt = Appointment.find_by_userID(@currentuser.id)
+      @appt.update_attribute(:appts,@appts)
+      @appt.update_attribute(:appte,@appte)
+      @appt.update_attribute(:approved,'pending')
+      @appt.save
+      respond_to do |format|
+        format.html { redirect_to courses_path(@currentuser.id), notice: 'Appointment updated!' }
+        format.json { render :json => { :name => @name }}
+      end
+    end
   end
   
   def liftFlag
@@ -112,6 +139,7 @@ class UsersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
+
     params.require(:user).permit(:name, :classification, :password, :password_confirmation, :fname, :mi, :lname)
   end
 end

@@ -1,19 +1,31 @@
-<%# navigation styled for Bootstrap 3.0 %>
+<% @currentuser = User.find_by_id(session[:user_id]) %>
+
 <nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <%= link_to 'Home', advising_path, class: 'navbar-brand' %>
-    </div>
-    <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
-        <%= render 'layouts/navigation_links' %>
-      </ul>
-    </div>
-  </div>
+
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+				<label class="navbar-brand" style="font-weight: normal" data-toggle="collapse" data-target=".navbar-collapse">Advising Center
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span></label>
+		</div>
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav">
+				<%= render 'layouts/navigation_links' %>
+			</ul>
+			<div class="navbar-header navbar-right">
+  		<p class="navbar-text">
+  		<ul><%=@currentuser.name%></ul>
+  		</p>
+  	</div>
+		</div>
+	</div>
 </nav>
+
+

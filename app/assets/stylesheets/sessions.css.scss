@@ -157,22 +157,12 @@
     color: #cdbfe3;
     text-align: center;
     text-shadow: 0 3px 0 rgba(0,0,0,.1);
-    background-color: #00CC00;
-background-image: -webkit-gradient(
-  linear,
-  right top,
-  right bottom,
-  color-stop(0, #056B00),
-  color-stop(1, #8FFF87)
-);
-background-image: -o-linear-gradient(bottom, #056B00 0%, #8FFF87 100%);
-background-image: -moz-linear-gradient(bottom, #056B00 0%, #8FFF87 100%);
-background-image: -webkit-linear-gradient(bottom, #056B00 0%, #8FFF87 100%);
-background-image: -ms-linear-gradient(bottom, #056B00 0%, #8FFF87 100%);
-background-image: linear-gradient(to bottom, #056B00 0%, #8FFF87 100%);
-    
-    background-repeat: repeat-x;
-  }
+  background: image-url("img.jpg") no-repeat fixed 100% 100%;
+   
+   
+   
+   
+}
   .bs-docs-masthead .bs-docs-booticon {
     margin: 0 auto 30px
   }
@@ -201,6 +191,8 @@ background-image: linear-gradient(to bottom, #056B00 0%, #8FFF87 100%);
       width: auto
     }
   }
+
+  
   @media (min-width: 768px) {
     .bs-docs-masthead {
       padding-top: 80px;
