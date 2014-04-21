@@ -1,3 +1,5 @@
+<% @currentuser = User.find_by_id(session[:user_id]) %>
+
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
@@ -26,6 +28,26 @@
     <%= f.label :password_confirmation %><br>
     <%= f.password_field :password_confirmation %>
   </div>
+  <br>
+  
+  <% if @currentuser.classification = 'Admin' %>
+  <div>
+  <%= f.label :advisor %>
+ <select name="Advisors" >
+			<% @advisor = User.all %>
+			<% @advisor.each do |list| %>
+			<% @match = 0 %>
+			<% if list.classification == 'Advisor'%>
+			<% @match = 1 %>
+			<% end %>
+			<% if @match == 1 %>
+			<option><%= list.name %></option>
+			<% end %>
+			<% end %>
+	</select>
+
+  </div>
+  <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>

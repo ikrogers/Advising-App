@@ -7,7 +7,13 @@
 
 
 <h1>Listing courses for <%= @currentuser.name %> </h1>
-<div>
+<br>
+	<%= render 'sendcoursesform' %>
+
+<br>
+
+
+<div style="height: 300px; overflow: scroll;">
 	<table>
 		<thead>
 			<tr>
@@ -43,8 +49,8 @@
 				<td><%= course.prereq %></td>
 				<td><%= link_to 'Show', course, :class => "btn btn-default btn-md btn-block" %> </td>
 					
-				<td><%= link_to 'Edit(Delete this using IF for student TO DO)', edit_course_path(course) %></td>
-				<td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+				<td><%= link_to 'Edit(Delete this using IF for student TO DO)', edit_course_path(course), :class => "btn btn-default btn-md btn-block" %></td>
+				<td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-default btn-md btn-block" %></td>
 			</tr>
 			<%end%>			
 			<%end%>
@@ -53,10 +59,14 @@
 <div>
 	
 	<%= render 'sendcoursesform' %>
-	<%case @currentuser.classification%>
+	
+	
+
+<%case @currentuser.classification%>
 <%      when "Admin"%>
-<%= link_to 'New Course', new_course_path,:class => "btn btn-outline-inverse btn-block" %>
-<%= link_to 'Back', admin_path(),:class => "btn btn-outline-inverse btn-block" %>
+<%= link_to 'New Course', new_course_path %>
+<%= link_to 'Add to Courselist', new_courselist_path %>
+<%= link_to 'Back', admin_path() %>
 <%      when "Advisor"%>
 <%= link_to 'Back', advisor_path(),:class => "btn btn-outline-inverse btn-block" %>
 <%     else%>
@@ -64,6 +74,6 @@
 <%     end%>
 </div>
 
-
-
-
+<div>
+	<br>
+</div>
