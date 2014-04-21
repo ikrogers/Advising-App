@@ -2,9 +2,10 @@ class MessagesController < ApplicationController
   layout 'functionalitylayout'
   before_action :set_message, only: [:show, :edit, :update, :destroy]
 
-  # GET /messages
+  # GET /messages    <%= f.select :email_provider, options_for_select => Student.find_all(:advisor => @currentuser.name) %>
   # GET /messages.json
   def index
+    @currentuser = User.find_by_id(session[:user_id])
     @messages = Message.all
   end
 
