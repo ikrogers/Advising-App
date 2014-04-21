@@ -92,6 +92,8 @@
 	</tbody>
 </table>
 
+
+
 <br>
 <%= link_to 'New User', new_user_path %>
 <% if (@currentuser.classification == "Admin") %>
@@ -99,9 +101,4 @@
 <% else %>
 <%= link_to 'Back', advisor_path()  %>
 <% end%>
-
-
-
-
-
 
