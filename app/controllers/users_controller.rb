@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  respond_to :json
   # GET /users
   # GET /users.json
   def index
     @users = User.all
+    
   end
 
   # GET /users/1
@@ -23,6 +25,37 @@ class UsersController < ApplicationController
         @users = User.all
 
   end
+  
+  def liftFlag
+    @currentuser = User.find_by_id(session[:user_id])
+    @user = User.find_by_id(params[:id])
+    @user.flag = 'advised'
+    
+    #if @user.save
+    #  respond_with(@currentuser, :location => users_url);
+    #end
+    
+      if @user.save
+        redirect_to users_url
+        
+      end
+    
+  end
+
+  def denyFlag
+    @currentuser = User.find_by_id(session[:user_id])
+    @user = User.find_by_id(params[:id])
+    @user.flag = 'denied'
+    
+    #if @user.save
+    #  respond_with(@currentuser, :location => users_url);
+    #end
+    
+      if @user.save
+        redirect_to users_url
+        
+      end
+  end
 
   # POST /users
   # POST /users.json
@@ -32,6 +65,7 @@ class UsersController < ApplicationController
     if @currentuser.classification == "Advisor"
       @user.classification = "Student"
       @user.advisor = @currentuser.name
+      @user.flag = "false"
     end
     respond_to do |format|
       if @user.save
@@ -77,6 +111,6 @@ class UsersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
-    params.require(:user).permit(:name, :classification, :password, :password_confirmation)
+    params.require(:user).permit(:name, :classification, :password, :password_confirmation, :fname, :mi, :lname)
   end
 end

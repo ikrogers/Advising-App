@@ -1,60 +1,74 @@
+<%= button_to "test", { :action => "testajaxjs" }, :remote => true %>
+<div id="ajaxdiv">
+	This should be changed after you press the above button.
+</div>
 <% @currentuser = User.find_by_id(session[:user_id]) %>
 
 <h1>Listing courses for <%= @currentuser.name %> </h1>
-<table>
-	<thead>
-		<tr>
-			<th>Name</th>
-			<th>Hours</th>
-			<th>Prereq</th>
-			<th></th>
-			<th></th>
-			<th></th>
-		</tr>
-	</thead>
+<div>
+	<table>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Hours</th>
+				<th>Prereq</th>
+				<th></th>
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
 
-	<tbody>
-	<% if @currentuser.classification == "Student" %>
+		<tbody>
+			<% if @currentuser.classification == "Student" %>
 
-		<% @courses.each do |course| %>
+			<% @courses.each do |course| %>
 			<%if course.studentid == @currentuser.id %>
 			<tr>
 				<td><%= course.name %></td>
 				<td><%= course.hours %></td>
 				<td><%= course.prereq %></td>
-				<td><%= link_to 'Show', course %></td>
-				<td><%= link_to 'Edit(Delete this using IF for student TO DO)', edit_course_path(course) %></td> 
-				<td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+				<td><%= link_to 'Show', course, :class => ('btn btn-success btn-md') %></td>
+				<td><%= link_to 'Destroy', course,:class => ('btn btn-danger btn-md') , method: :delete, data: { confirm: 'Are you sure?' } %></td>
 			</tr>
 			<%end%>
 			<% end %>
-		<%else%>
-		<% @courses.each do |course| %>
-		<tr>
-			<td><%= course.name %></td>
-			<td><%= course.hours %></td>
-			<td><%= course.prereq %></td>
-			<td><%= link_to 'Show', course %></td>
-			<td><%= link_to 'Edit(Delete this using IF for student TO DO)', edit_course_path(course) %></td> 
-			<td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-		</tr>
-		<%end%>
-		<%end%>
-	</tbody>
-	
-<div>
-<%= render 'sendcoursesform' %>
+			
+			<%else%>
+			<% @courses.each do |course| %>
+			<tr>
+				<td><%= course.name %></td>
+				<td><%= course.hours %></td>
+				<td><%= course.prereq %></td>
+				<td><%= link_to 'Show', course, :class => "btn btn-default btn-md btn-block" %> </td>
+					
+				<td><%= link_to 'Edit', edit_course_path(course) %></td>
+				<td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			</tr>
+			<%end%>			
+			<%end%>
+		</tbody>
 </div>
-
+<div>
+	<br>
+	<%= render 'sendcoursesform' %>
+</div>
 
 <br>
 
-<%= link_to 'New Course', new_course_path %>
+
 <%case @currentuser.classification%>
 <%      when "Admin"%>
+<%= link_to 'New Course', new_course_path %>
 <%= link_to 'Back', admin_path() %>
 <%      when "Advisor"%>
 <%= link_to 'Back', advisor_path() %>
 <%     else%>
 <%= link_to 'Back', student_path() %>
 <%     end%>
+
+
+
+<div>
+	<br>
+	<%= render 'calendar' %>
+</div>

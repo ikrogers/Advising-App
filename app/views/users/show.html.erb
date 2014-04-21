@@ -3,7 +3,7 @@
 </p>
 <% @courses = Course.all %>
 
-
+	<%@currentuser =  User.find_by_id(session[:user_id]) %>
 <p>
 	<strong>Name:</strong>
 	<%= @user.name %>
@@ -12,8 +12,11 @@
 	<strong>Type:</strong>
 	<%= @user.classification %>
 </p>
-
-<% if @user.classification == "Student" %>
+<td><%= link_to 'APPROVE', denyFlag_path(@user, :id => @user.id),:class => 'btn btn-default btn-md btn-block', method: :get%></td>
+		<td><%= link_to 'DENY', denyFlag_path(@user, :id => @user.id),:class => 'btn btn-default btn-md btn-block', method: :get%></td>
+		</br>
+<% if @user.classification == 'Student' %>
+COURSES TAKEN/COMPLETE
 <table>
 	<th>Name</th>
 	<th>Hours</th>
@@ -24,27 +27,50 @@
 		<td><%= course.name %></td>
 		<td><%= course.hours %></td>
 		<td><%= course.prereq %></td>
-		<td><%= link_to 'Show', course %></td>
-		<td><%= link_to 'Edit', edit_course_path(course) %></td>
-		<td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		<td><%= link_to 'Show', course,:class => 'btn btn-default btn-md btn-block' %></td>
+		<td><%= link_to 'Edit', edit_course_path(course),:class => 'btn btn-default btn-md btn-block' %></td>
+		<td><%= link_to 'Destroy', course,:class => 'btn btn-default btn-md btn-block', method: :delete, data: { confirm: 'Are you sure?' } %></td>
 	</tr>
 	<%end%>
 	<%end%>
 </table>
+<br>
+COURSES REQUESTED:
+<table>
+	<th>Name</th>
+	<th>Hours</th>
+	<th>Prereq</th>
+	<% @courses.each do |course| %>
+	<%if course.choice == @user.id %>
+	<tr>
+		<td><%= course.name %></td>
+		<td><%= course.hours %></td>
+		<td><%= course.prereq %></td>
+		<td><%= link_to 'Show', course,:class => 'btn btn-default btn-md btn-block' %></td>
+		<td><%= link_to 'Edit', edit_course_path(course),:class => 'btn btn-default btn-md btn-block' %></td>
+		<td><%= link_to 'Destroy', course,:class => 'btn btn-default btn-md btn-block', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	</tr>
+	<%end%>
+	
+	<%end%>
+</table>
 <%end%>
 
-<% if @user.classification == "Advisor" %>
+<% if @user.classification == 'Advisor' %>
 <table>
 <th>Name</th>
 <% @users.each do |user| %>
 		<% if (user.advisor == @user.name) %>
 		<tr>
 			<td><%= user.name %></td>
-			<td><%= link_to 'Show', user %></td>
-			<td><%= link_to 'Edit', edit_user_path(user) %></td>
-			<td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			<td><%= link_to 'Show', user, :class => 'btn btn-default btn-md btn-block' %></td>
+			<td><%= link_to 'Edit', edit_user_path(user), :class => 'btn btn-default btn-md btn-block' %></td>
+			<td><%= link_to 'Destroy', user, :class => 'btn btn-default btn-md btn-block', method: :delete, data: { confirm: 'Are you sure?' } %></td>
 		</tr>
+		
 		<% end %>
+		
+		
 		<% end %>
 </table>
 <%end%>

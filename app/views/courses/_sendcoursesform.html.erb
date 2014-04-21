@@ -1,41 +1,7 @@
-<% @courselist = Courselist.all %>
-<% @currentuser = User.find_by_id(session[:user_id]) %>
-<% @sql = "SELECT CL.name  FROM courselists CL EXCEPT SELECT C.name FROM courses C where C.studentid = #{@currentuser.id}" %>
-<% result = ActiveRecord::Base.connection.raw_connection.prepare(@sql) %>
-<% result.execute() %>
-
-<% @filter_course_array = result %>
 
 
 
-<br>
-<div>
-<table>
-	<th>Available</th>
-	<th></th>
-	<th>Selections</th>
+<%= render 'bootstrap_dual_list'%>
 
 
-	<tr>
-		<td> <%= select_tag "list[]", options_for_select(@filter_course_array), :multiple=>true %> </td>
-		<td> <%= button_tag "Add"%>
-		<br>
-		<%= button_tag "Remove"%> </td>
-		<td> <%= select_tag "list[]", :multiple=>true %> </td>
-	</tr>
 	
-
-</table>
-</div>
-	<br>
-	<div>
-		<%= label_tag "Appoitment"%>
-		<br>
-		<%= text_field_tag "Appoitment"%>
-	</div>
-<br>
-	<div>
-		<%= label_tag "Message"%>
-		<br>
-		<%= text_area_tag "Message"%>
-	</div>

@@ -1,9 +1,15 @@
 Advising::Application.routes.draw do
   resources :courselists
+  post 'getcourse' => 'courses#getcourse'
+  post 'setAppt' => 'courses#setAppt'
+  get 'getcourse' => 'courses#getcourse'
+  post 'contactf' => 'courses#contactf'
+  get 'contactf' => 'courses#contactf'
+
 
   resources :courses
-
-  get "student/index"
+  post 'testajaxjs' => 'courses#testajaxjs'
+  
   get 'admin' => 'admin#index'
   get 'advisor' => 'advisor#index'
   get 'student' => 'student#index'
@@ -17,15 +23,29 @@ Advising::Application.routes.draw do
   get "sessions/create"
   get "sessions/destroy"
   resources :users
+  post 'liftFlag' => 'users#liftFlag'
+  get 'liftFlag' => 'users#liftFlag'
+  post 'denyFlag' => 'users#denyFlag'
+  get 'denyFlag' => 'users#denyFlag'
 
-get 'courses/sendcourses'
+  controller :users do
+    post 'liftFlag' => :liftFlag
+    get  'liftFlag' => :liftFlag
+    post 'denyFlag' => :denyFlag
+    get  'denyFlag' => :denyFlag
+  end
   
   resources :users do
     resources :courses
   end
   
 
-  root 'advising#index', as: 'advising'
+  root 'sessions#new', as: 'advising'
+  
+  
+  
+  
+
 # The priority is based upon order of creation: first created -> highest priority.
 # See how all your routes lay out with "rake routes".
 

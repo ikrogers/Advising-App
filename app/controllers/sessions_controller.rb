@@ -2,6 +2,10 @@ class SessionsController < ApplicationController
   def new
   end
 
+def post
+  @post = Post.new
+end
+
   def create
     user = User.find_by(name: params[:name])
     if user and user.authenticate(params[:password])
@@ -21,6 +25,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
- redirect_to advising_url, notice: "Logged out"
+    redirect_to advising_url, notice: "Logged out"
   end
 end

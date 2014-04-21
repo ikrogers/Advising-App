@@ -1,0 +1,199 @@
+<% @courselist = Courselist.all() %>
+<% @currentuser = User.find_by_id(session[:user_id]) %>
+<% @sql1 = "SELECT CL.name, CL.hours FROM courselists CL EXCEPT SELECT C.name, C.hours FROM courses C WHERE (C.studentid = #{@currentuser.id} OR C.studentid = -1) EXCEPT SELECT DISTINCT X.name, X.hours FROM courselists X, courses C WHERE  X.prereq NOT IN(SELECT  CC.name FROM courses CC WHERE (CC.studentid = #{@currentuser.id} OR CC.studentid = -1))" %>
+<% @sql2 = "SELECT CL.name, CL.hours FROM courses CL WHERE CL.studentid = #{@currentuser.id}" %>
+<% result = ActiveRecord::Base.connection.raw_connection.prepare(@sql1) %>
+<% result.execute() %>
+<% result2 = ActiveRecord::Base.connection.raw_connection.prepare(@sql2) %>
+<% result2.execute() %>
+<% @filter_course_array = result %>
+<% @second = result2 %>
+
+<% @ccc =  Courselist.all%>
+
+
+
+
+
+
+
+
+</script>
+<table class="table table-striped table-bordered table-condensed">
+	<div id="listb">
+	<%= form_tag("/getcourse", :method => "post", :id => "courseupdate") do %>
+	<%= select_tag "list", options_for_select(@filter_course_array), :multiple=>true %>
+	</br>
+	<div><%= submit_tag "Send Courses", :class => "btn btn-default btn-block" %></div>
+	<% end %>
+	</div>
+	<br>
+	
+	<%= form_tag("/contactf", :method => "post", :id => "contactForm") do %>
+	<div>
+		<%= label_tag "Appoitment Start"%>
+		<br>
+		<div class='col-md-5'>
+            <div class="form-group">
+                <div class='input-group date' id='appts'>
+                    <input type='text' id='start' class="form-control"  />
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+             </div>
+         </div>
+		<br> 
+		<br>
+		<br>
+		<%= label_tag "Appoitment End"%>
+		<br>
+		<div class='col-md-5'>
+            <div class="form-group">
+                <div class='input-group date' id='appte'>
+                    <input type='text' id='end' class="form-control" />
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+	</div>
+	<br>
+	<br>
+	<br>
+	
+	
+	
+	
+	<div>
+		<%= label_tag "Message"%>
+		<br>
+		<%= text_area_tag "Message" %>
+	</div>
+	<div><%= submit_tag "Send Contact Information", :class => "btn btn-default btn-block"%></div>
+	<% end %>
+	
+	
+	
+
+	
+	
+<tr>
+	<%if @currentuser.message != ""%>
+	 <label>Submitted message:</label>
+	 <br>
+	 <textarea readonly><%= @currentuser.message%></textarea>
+	 <%end%>
+	 <br>
+	 <br>
+	 <%if @currentuser.appts != nil && @currentuser.appte != nil%>
+	 <label>Your appointment times are: </label>
+	 <br>
+	 <label>From: <%= @currentuser.appts%></label>
+	 <br>
+	 <label>To: <%= @currentuser.appte%></label>
+	 <%end%>
+</tr>
+</table>
+
+    <script type="text/javascript">
+        $(function () {
+            $('#appts').datetimepicker({
+            	minuteStepping:0,
+            	daysOfWeekDisabled:[0,6]
+            	});
+            
+            $('#appte').datetimepicker({
+            	minuteStepping:0,
+            	daysOfWeekDisabled:[0,6],
+            	 pickDate: false,
+            	});
+            $("#appts").on("dp.change",function (e) {
+               $('#appte').data("DateTimePicker").setMinDate(e.date);
+            });
+            $("#appt").on("dp.change",function (e) {
+               $('#appts').data("DateTimePicker").setMaxDate(e.date);
+            });
+        });
+    </script>
+
+<script>
+
+
+
+
+
+	$("#contactForm").submit(function(event) {
+	/* stop form from submitting normally */
+	event.preventDefault();
+	/* clear result div */
+	/* get values from elements on the page: */
+	var message = document.getElementById('Message').value;
+	var endtime = document.getElementById('appts').value;
+	var starttime = document.getElementById('appte').value;
+	
+	/* Send the data using post and put the results in a div */
+	$.ajax({
+	url:"/contactf",
+	type:"post",
+	data: {message:message, starttime:starttime, endtime:endtime},
+	success: function(data,textStatus,xhr) {
+		alert("Contact updated successfully");
+		history.go(0);   			
+	},error: function() {
+		alert("Something went wrong...");
+	}
+	
+	});
+	
+	});
+</script>
+<script>
+
+
+
+
+	function loop() {
+		var list=document.getElementById('bootstrap-duallistbox-selected-list_list[]');
+		var array=new Array();
+	for(var i=0;i<list.options.length;++i) {
+	//if(list.options[i].selected)
+	array[i]=list.options[i].text;
+	}//end for
+	//window.open("localhost:3000//controller/courses."+
+	return array;
+	}
+	
+	$("#courseupdate").submit(function(event) {
+	/* stop form from submitting normally */
+	event.preventDefault();
+	/* clear result div */
+	/* get values from elements on the page: */
+	var values=loop();
+	/* Send the data using post and put the results in a div */
+	$.ajax({
+	url:"/getcourse",type:"post",
+	data: {param1:values},
+	success: function(data,textStatus,xhr) {
+			alert("Courses update successfully");
+			history.go(0);   
+	},error: function() {
+				alert("Something went wrong...");
+	}
+	});
+	});
+	
+		
+</script>
+
+
+
+<script>
+	$(function() {
+	$('#list').bootstrapDualListbox({
+	bootstrap2Compatible:false,moveAllLabel:'MOVE ALL',removeAllLabel:'REMOVE ALL',moveSelectedLabel:'MOVE SELECTED',removeSelectedLabel:'REMOVE SELECTED',filterPlaceHolder:'FILTER',filterSelected:'2',filterNonSelected:'1',moveOnSelect:false,preserveSelectionOnMove:'all',helperSelectNamePostfix:'_myhelper',selectedListLabel:'Your Choices',nonSelectedListLabel:'Available Classes'
+	}).bootstrapDualListbox('setRemoveAllLabel','Reset choices').bootstrapDualListbox('setSelectedFilter',undefined).bootstrapDualListbox('setNonSelectedFilter',undefined).bootstrapDualListbox('refresh')
+	});
+</script>
+
+<br>
+</body>
