@@ -3,7 +3,7 @@
 <% @currentuser = User.find_by_id(session[:user_id]) %>
 
 <% if (@currentuser.classification == "Admin") %>
-	<%= render :partial => 'user_modal' %>
+	<%= render 'form' %>
 <% else%>
 	<%= render 'formstudent' %>
 <%end%>
