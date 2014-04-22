@@ -4,18 +4,13 @@
 </p>
 <% end %>
 <% @currentuser = User.find_by_id(session[:user_id]) %>
-
 <h1>Welcome <%= @currentuser.name%></h1>
-
 <table>
-
 	<tbody>
-		
 		<% if @currentuser.classification == 'Advisor'%>
 		<th>Students with Submissions</th>
 		<td>
 		<% @users.each do |user| %>
-		
 		<% if (user.advisor == @currentuser.name && user.flag == 'true') %>
 		<tr>
 			<td><%= user.name %></td>
@@ -91,9 +86,6 @@
 		<% end %>
 	</tbody>
 </table>
-
-
-
 <br>
 <a href="#modal-form" class="btn btn-outline-inverse btn-block"data-toggle="modal">New User</a>
 <%= render :partial => 'user_modal' %>

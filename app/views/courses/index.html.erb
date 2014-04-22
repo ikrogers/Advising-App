@@ -7,12 +7,10 @@
 
 
 <h1>Listing courses for <%= @currentuser.name %> </h1>
-<% if @currentuser.classification == 'Student' %>
 <br>
 	<%= render 'sendcoursesform' %>
 
 <br>
-<% end %>
 
 
 <div style="height: 300px; overflow: scroll;">
@@ -66,10 +64,7 @@
 
 <%case @currentuser.classification%>
 <%      when "Admin"%>
-<p id="action" class="lead">
-	<a href="#modal-form" class="btn btn-outline-inverse btn-block"data-toggle="modal">Add a course</a>
-</p>
-<%= render :partial => 'new_course_modal' %>
+<%= link_to 'New Course', new_course_path %>
 <%= link_to 'Add to Courselist', new_courselist_path %>
 <%= link_to 'Back', admin_path() %>
 <%      when "Advisor"%>
