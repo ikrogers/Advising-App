@@ -8,11 +8,6 @@
 <h1>Welcome <%= @currentuser.name%></h1>
 
 <table>
-	<thead>
-		<tr>
-			<th>Name</th>
-		</tr>
-	</thead>
 
 	<tbody>
 		
@@ -25,7 +20,7 @@
 		<tr>
 			<td><%= user.name %></td>
 			<td><%= link_to 'APPROVE', liftFlag_path(user, :id => user.id), method: :get%></td>
-			<td><%= link_to 'DENY', denyFlag_path(user, :id => user.id), method: :get%></td>
+			<td><%= link_to 'DENY', denyFlag_path(user, :id => user.id), method: :get, data: { confirm: 'Are you sure?' }%></td>
 			<td><%= link_to 'Show', user,:class => 'btn btn-default btn-md btn-block' %></td>
 			<td><%= link_to 'Edit', edit_user_path(user),:class => 'btn btn-default btn-md btn-block' %></td>
 			<td><%= link_to 'Destroy', user,:class => 'btn btn-default btn-md btn-block', method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -97,16 +92,14 @@
 	</tbody>
 </table>
 
+
+
 <br>
-<%= link_to 'New User', new_user_path %>
+<a href="#modal-form" class="btn btn-outline-inverse btn-block"data-toggle="modal">New User</a>
+<%= render :partial => 'user_modal' %>
 <% if (@currentuser.classification == "Admin") %>
 <%= link_to 'Back', admin_path() %>
 <% else %>
 <%= link_to 'Back', advisor_path()  %>
 <% end%>
-
-
-
-
-
 

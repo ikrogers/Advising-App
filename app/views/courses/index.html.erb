@@ -1,11 +1,21 @@
-<%= button_to "test", { :action => "testajaxjs" }, :remote => true %>
+
+<%= button_to "test", courses_path(), :remote => true %>
 <div id="ajaxdiv">
 	This should be changed after you press the above button.
 </div>
 <% @currentuser = User.find_by_id(session[:user_id]) %>
 
+
 <h1>Listing courses for <%= @currentuser.name %> </h1>
-<div>
+<% if @currentuser.classification == 'Student' %>
+<br>
+	<%= render 'sendcoursesform' %>
+
+<br>
+<% end %>
+
+
+<div style="height: 300px; overflow: scroll;">
 	<table>
 		<thead>
 			<tr>
@@ -41,34 +51,34 @@
 				<td><%= course.prereq %></td>
 				<td><%= link_to 'Show', course, :class => "btn btn-default btn-md btn-block" %> </td>
 					
-				<td><%= link_to 'Edit', edit_course_path(course) %></td>
-				<td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+				<td><%= link_to 'Edit(Delete this using IF for student TO DO)', edit_course_path(course), :class => "btn btn-default btn-md btn-block" %></td>
+				<td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-default btn-md btn-block" %></td>
 			</tr>
 			<%end%>			
 			<%end%>
 		</tbody>
 </div>
 <div>
-	<br>
+	
 	<%= render 'sendcoursesform' %>
-</div>
-
-<br>
-
+	
+	
 
 <%case @currentuser.classification%>
 <%      when "Admin"%>
-<%= link_to 'New Course', new_course_path %>
+<p id="action" class="lead">
+	<a href="#modal-form" class="btn btn-outline-inverse btn-block"data-toggle="modal">Add a course</a>
+</p>
+<%= render :partial => 'new_course_modal' %>
+<%= link_to 'Add to Courselist', new_courselist_path %>
 <%= link_to 'Back', admin_path() %>
 <%      when "Advisor"%>
-<%= link_to 'Back', advisor_path() %>
+<%= link_to 'Back', advisor_path(),:class => "btn btn-outline-inverse btn-block" %>
 <%     else%>
-<%= link_to 'Back', student_path() %>
+<%= link_to 'Back', student_path(),:class => "btn btn-outline-inverse btn-block" %>
 <%     end%>
-
-
+</div>
 
 <div>
 	<br>
-	<%= render 'calendar' %>
 </div>

@@ -1,4 +1,5 @@
 class CoursesController < ApplicationController
+  layout 'functionalitylayout'
   before_action :set_course, only: [:show, :edit, :update, :destroy]
   # GET /courses
   # GET /courses.json
@@ -29,8 +30,6 @@ class CoursesController < ApplicationController
 #sets the appointment time
   def setAppt
     @currentuser = User.find_by_id(session[:user_id])
-    
-    
     @appts = params[:param1]
     @appte = params[:param2]
     
@@ -49,7 +48,7 @@ class CoursesController < ApplicationController
     
     @name = params[:param1]
     if @currentuser.classification == 'Student'
-    @currentuser.update_attribute(:flag , 'true')
+    @currentuser.update_attribute(:flag , 'submitted')
     end
     #consider adding else for setting flag to false, indicating advisor/admin made change to allow re-registration?
 
@@ -134,7 +133,7 @@ class CoursesController < ApplicationController
   
   def testajaxjs
     respond_to do |format|
-      format.json
+      format.js {render(partial: 'courses/testajax')}
     end
   end
 
