@@ -92,16 +92,14 @@
 	</tbody>
 </table>
 
+
+
 <br>
-<%= link_to 'New User', new_user_path %>
+<a href="#modal-form" class="btn btn-outline-inverse btn-block"data-toggle="modal">New User</a>
+<%= render :partial => 'user_modal' %>
 <% if (@currentuser.classification == "Admin") %>
 <%= link_to 'Back', admin_path() %>
 <% else %>
 <%= link_to 'Back', advisor_path()  %>
 <% end%>
-
-
-
-
-
 
