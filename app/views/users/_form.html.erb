@@ -1,54 +1,48 @@
 <% @currentuser = User.find_by_id(session[:user_id]) %>
 
-<%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<div class="form-horizontal">
 
-      <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :classification %><br>
-    <%= f.select :classification, User::USER_TYPES, prompt: 'Select type of user' %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br>
-    <%= f.password_field :password %>
-  </div>
-  <div>
-    <%= f.label :password_confirmation %><br>
-    <%= f.password_field :password_confirmation %>
-  </div>
-  <br>
-  
-  <% if @currentuser.classification = 'Admin' %>
-  <div>
-  <%= f.label :advisor %>
- <select name="Advisors" >
-			<% @advisor = User.all %>
-			<% @advisor.each do |list| %>
-			<% @match = 0 %>
-			<% if list.classification == 'Advisor'%>
-			<% @match = 1 %>
-			<% end %>
-			<% if @match == 1 %>
-			<option><%= list.name %></option>
-			<% end %>
-			<% end %>
-	</select>
+	<%= form_tag(:class=>"form-horizontal", :role=>"form") do %>
+	<div class="form-group">
+		<div class="col-sm-12">
+			<%= text_field_tag :name, params[:name], :class=>"form-control", :placeholder=>"Username" %>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-12">
+			<%= text_field_tag :fname,params[:fname], :class=>"form-control",:placeholder=>"First Name" %>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-12">
+			<%= text_field_tag :lname,params[:lname], :class=>"form-control",:placeholder=>"Last Name" %>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-12">
+			<%= text_field_tag :mi,params[:mi], :class=>"form-control",:placeholder=>"Middle Initial" %>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-12">
+			<%= select_tag :classification, User::USER_TYPES, :class=>"dropdown-menu"%>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-12">
+			<%= password_field_tag :password,params[:password], :class=>"form-control",:placeholder=>"Password" %>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-12">
+			<%= password_field_tag :password_confirmation,params[:password_confirmation], :class=>"form-control",:placeholder=>"Confirm Password" %>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-offset-1 col-sm-10">
+			<%= submit_tag "Submit",:class=>"btn btn-default" %>
+		</div>
+	</div>
+	<% end %>
+</div>
 
-  </div>
-  <% end %>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
