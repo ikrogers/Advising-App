@@ -6,33 +6,44 @@
   <tbody>
   	<%if(@currentuser.classification == 'Student')%>
     <% @messages.each do |message| %>
-      <%if(message.stuID == @currentuser.id)%>
+      <%if(message.to== @currentuser.id)%>
+      <div>
       <tr>
-        <td><%= "To: #{@currentuser.advisor}  "%></td>
+        <td><%= "From: #{@currentuser.advisor}  "%></td>
       </tr>
       <tr>
         <td><%= message.content %></td>
       </tr>
-      <%elsif(message.advID == "#{User.find_by_name(@currentuser.advisor).id}")%>
+      </div>
+      <%elsif(message.from == User.find_by_name(@currentuser.advisor).id)%>
+      <div>
       <tr>
-      	
-        <td><%= "From: #{@currentuser.name}  "%></td>
+        <td><%= "To: #{@currentuser.name}  "%></td>
       </tr>
       <tr>
         <td><%= message.content %></td>
       </tr>
+      </div>
     <% end %>
     <% end %>
     <%else%>
-
     <% @messages.each do |message| %>
-      <%if(message.advID == @currentuser.id)%>
+      <%if(message.to == @currentuser.id)%>
       <tr>
-        <td><%= "To: #{@currentuser.advisor}  "%></td>
+        <td><%= "From: #{@currentuser.advisor}  "%></td>
       </tr>
       <tr>
         <td><%= message.content %></td>
       </tr>
+      <%elsif(message.from == @currentuser.id && message.to == @fromuser)%>
+      <div>
+      <tr>
+        <td><%= "To: #{@currentuser.name}  "%></td>
+      </tr>
+      <tr>
+        <td><%= message.content %></td>
+      </tr>
+      </div>
     <% end %>
     <% end %>
     <% end %>

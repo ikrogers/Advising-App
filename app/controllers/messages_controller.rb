@@ -6,6 +6,7 @@ class MessagesController < ApplicationController
   # GET /messages.json
   def index
     @currentuser = User.find_by_id(session[:user_id])
+    @user = User.find_by_id(params[:id])
     @messages = Message.all
   end
 
