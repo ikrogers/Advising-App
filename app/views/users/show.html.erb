@@ -6,7 +6,7 @@
 <% @currentuser =  User.find_by_id(session[:user_id]) %>
 
 <% if @user.classification == 'Student' %>
-<h1>Courses for: <%= @user.name%></h1>
+<h1>Courses for: <%= @user.name%>git </h1>
 
 <table>
 	<th>Name</th>
@@ -82,4 +82,5 @@ COURSES REQUESTED:
 	</table>
 </div>
 <%end%>
+
 
