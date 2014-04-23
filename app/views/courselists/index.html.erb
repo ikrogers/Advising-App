@@ -57,27 +57,31 @@
 
 <% if @currentuser.classification == "Admin" %>
 <h1>Manage course catalog</h1>
-<table class="table table-hover table-bordered">
-	<thead style="background-color: #5e63ff">
+<div style="border:solid; border-color: white; scroll; height:57%; overflow-x:hidden;background: rgba(255,255,255,0.1);">
+<table  class="table table-bordered">
+	<thead style="height:50px">
 		<tr>
 			<th>Name</th>
 			<th>Prerequisites</th>
 			<th>Description</th>
+			<th>Edit</th>
+			<th>Delete</th>
 		</tr>
 	</thead>
 
 	<tbody>
 		<% @courselists.each do |courselist| %>
-		<tr style = "background-color: #51ff4f;">
+		<tr >
 			<td><%= courselist.name %></td>
 			<td><%= courselist.prereq %></td>
 			<td><%= courselist.description %></td>
+			
 		</tr>
 		<% end %>
 	</tbody>
 </table>
-
-<%= link_to 'New Courselist', new_courselist_path %>
+</div>
+<%= link_to 'new ', new_courselist_path %>
 
 <%end%>
 
