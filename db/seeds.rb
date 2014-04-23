@@ -9,7 +9,7 @@ User.create!(name: 'admin', password: 'admin', password_confirmation: 'admin', c
 User.create!(name: 'dgibson', password: 'dgibson', password_confirmation: 'dgibson', classification: "Advisor")
 User.create!(name: 'sgoel', password: 'sgoel', password_confirmation: 'sgoel', classification: "Advisor")
 User.create!(name: 'irogers', password: 'irogers', password_confirmation: 'irogers', classification: "Student", advisor: "sgoel", flag: "false")
-User.create!(name: 'ddemerrit', password: 'ddemerrit', password_confirmation: 'ddemerrit', classification: "Student", advisor: "sgoel", flag: "false")
+User.create!(name: 'ddemeritt', password: 'ddemeritt', password_confirmation: 'ddemeritt', classification: "Student", advisor: "sgoel", flag: "false")
 User.create!(name: 'wcassady', password: 'wcassady', password_confirmation: 'wcassady', classification: "Student", advisor: "dgibson", flag: "true")
 User.create!(name: 'rjenkins', password: 'rjenkins', password_confirmation: 'rjenkins', classification: "Student", advisor: "dgibson", flag: "false")
 
@@ -42,7 +42,7 @@ Course.create!(name: "CS1301", hours: 4, studentid: 7)
 Course.create!(name: "CS1302", hours: 4, studentid: 7)
 Course.create!(name: "CS2800", hours: 4, studentid: 6)
 
-Message.create!(to: 2, from: 4, content: "test message from stud1" )
+Message.create!(to: 3, from: 4, content: "test message from rogers!" )
 
 Courselist.create!(name: "CS1010", description: "Algorithmic Problem Solving", hours: 4)
 Courselist.create!(name: "CS1301", description: "Principles of Programming 1", hours: 4)
