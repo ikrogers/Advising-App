@@ -6,6 +6,8 @@
 <% @currentuser =  User.find_by_id(session[:user_id]) %>
 
 <% if @user.classification == 'Student' %>
+<h1>Courses for: <%= @user.name%></h1>
+
 <table>
 	<th>Name</th>
 	<th>Hours</th>
@@ -67,7 +69,7 @@ COURSES REQUESTED:
 				<td><%= user.name %></td>
 				<td><%= button_to 'Approve', denyFlag_path(@user, :id => @user.id),:class => 'btn btn-default btn-md btn-block', method: :get%></td>
 				<td><%= button_to 'Deny', denyFlag_path(@user, :id => @user.id),:class => 'btn btn-default btn-md btn-block', method: :get%></td>
-				<td><%= button_to 'Show', user, :class => 'btn btn-default btn-md btn-block' %></td>
+				<td><%= button_to 'Show', user, :class => 'btn btn-default btn-md btn-block', method: :get %></td>
 				<td><%= button_to 'Edit', edit_user_path(user), :class => 'btn btn-default btn-md btn-block' %></td>
 				<td><%= button_to 'Destroy', user, :class => 'btn btn-default btn-md btn-block', method: :delete, data: { confirm: 'Are you sure?' } %></td>
 				
@@ -80,5 +82,4 @@ COURSES REQUESTED:
 	</table>
 </div>
 <%end%>
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+
