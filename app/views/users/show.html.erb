@@ -12,9 +12,12 @@
 	<strong>Type:</strong>
 	<%= @user.classification %>
 </p>
+<% if @currentuser.classification == 'Advisor' %>
 <td><%= link_to 'APPROVE', denyFlag_path(@user, :id => @user.id),:class => 'btn btn-default btn-md btn-block', method: :get%></td>
 		<td><%= link_to 'DENY', denyFlag_path(@user, :id => @user.id),:class => 'btn btn-default btn-md btn-block', method: :get%></td>
 		</br>
+		<% end %>
+
 <% if @user.classification == 'Student' %>
 COURSES TAKEN/COMPLETE
 <table>

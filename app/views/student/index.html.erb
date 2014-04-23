@@ -1,11 +1,10 @@
 
 <div >
-<h1>STUDENT TESTING PAGE</h1>
+<h1>Advising Center</h1>
 <% @user = User.find_by_id(session[:user_id]) %>
 
-<h1>Welcome <%= @user.name%></h1>
+<h2 style="color: white">Welcome <%= @user.name%>!</h2>
 
-<%= button_to 'Logout',  logout_path, :class => "btn btn-outline-inverse btn-block", method: :delete %>
 </p>
 <%if (@user.flag == 'false')%>
 <p>
@@ -32,6 +31,9 @@
 </p>
 <p>
 
-	<%= button_to 'Progress', courselists_path,:class => "btn btn-outline-inverse btn-block", method: :get %>
+	<%= button_to 'Course Catalog', courselists_path,:class => "btn btn-outline-inverse btn-block", method: :get %>
+</p>
+<p>
+<%= button_to 'Logout',  logout_path, :class => "btn btn-outline-inverse btn-block", method: :delete %>
 </p>
 </div>

@@ -1,2 +1,22 @@
-<%# add navigation links to this file %>
-<li><%= link_to 'Log In', sessions_new_path() %></li>
+<% @currentuser = User.find_by_id(session[:user_id]) %>
+
+<%case @currentuser.classification%>
+<%      when "Admin"%>
+<p><%= button_to 'Manage Course Catalog', courselists_path,:class => "btn btn-outline-inverse btn-block",method: :get %></p>
+<p><%= button_to 'Manage Users', users_path,:class => "btn btn-outline-inverse btn-block",method: :get %></p>
+<p><%= button_to 'Back', admin_path(),:class => "btn btn-outline-inverse btn-block" ,method: :get %></p>
+
+
+
+
+<%      when "Advisor"%>
+<p><%= button_to 'Manage Users', users_path(),:class => "btn btn-outline-inverse btn-block",method: :get  %></p>
+<p><%= button_to 'View Appointments', appointments_path(),:class => "btn btn-outline-inverse btn-block",method: :get  %></p>
+<p><%= button_to 'View Messages', messages_path(),:class => "btn btn-outline-inverse btn-block",method: :get  %></p>
+<p><%= button_to 'Back', advisor_path(),:class => "btn btn-outline-inverse btn-block",method: :get  %></p>
+
+
+<%     else%>
+<p><%= button_to 'Back', student_path(),:class => "btn btn-outline-inverse btn-block",method: :get  %></p>
+<%     end%>
+<p><%= button_to 'Logout',  logout_path,:class => "btn btn-outline-inverse btn-block",  method: :delete %></p>

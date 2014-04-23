@@ -1,5 +1,5 @@
 class AppointmentsController < ApplicationController
-  layout 'menu'
+  layout 'functionalitylayout'
   before_action :set_appointment, only: [:show, :edit, :update, :destroy]
   
   # GET /appointments

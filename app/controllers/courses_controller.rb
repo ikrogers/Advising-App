@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-  layout 'menu'
+  layout 'functionalitylayout'
   before_action :set_course, only: [:show, :edit, :update, :destroy]
   # GET /courses
   # GET /courses.json
@@ -133,7 +133,7 @@ class CoursesController < ApplicationController
   
   def testajaxjs
     respond_to do |format|
-      format.json
+      format.js {render(partial: 'courses/testajax')}
     end
   end
 

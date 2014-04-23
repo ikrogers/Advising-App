@@ -1,5 +1,5 @@
 class CourselistsController < ApplicationController
-  layout 'menu'
+  layout 'functionalitylayout'
   before_action :set_courselist, only: [:show, :edit, :update, :destroy]
 
   # GET /courselists
