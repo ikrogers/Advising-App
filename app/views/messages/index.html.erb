@@ -5,34 +5,47 @@
 
   <tbody>
   	<%if(@currentuser.classification == 'Student')%>
-    <% @messages.each do |message| %>
-      <%if(message.stuID == @currentuser.id)%>
+    <% (Message.all).each do |message| %>
+      <%if(message.from== @currentuser.id)%>
+      <div class="modal-content">
       <tr>
-        <td><%= "To: #{@currentuser.advisor}  "%></td>
+        <td><%= "From: #{@currentuser.advisor}  "%></td>
       </tr>
       <tr>
         <td><%= message.content %></td>
       </tr>
-      <%elsif(message.advID == "#{User.find_by_name(@currentuser.advisor).id}")%>
+      </div>
+      <%elsif(message.to == @currentuser.id && message.from == User.find_by_name(@currentuser.advisor).id)%>
+      <div class="modal-content">
       <tr>
-      	
-        <td><%= "From: #{@currentuser.name}  "%></td>
+        <td><%= "To: #{@currentuser.name}  "%></td>
       </tr>
       <tr>
         <td><%= message.content %></td>
       </tr>
+      </div>
     <% end %>
     <% end %>
     <%else%>
-
     <% @messages.each do |message| %>
-      <%if(message.advID == @currentuser.id)%>
+      <%if(message.to == @currentuser.id)%>
+      <div class="modal-content">
       <tr>
-        <td><%= "To: #{@currentuser.advisor}  "%></td>
+        <td><%= "From: #{@currentuser.advisor}  "%></td>
       </tr>
       <tr>
         <td><%= message.content %></td>
       </tr>
+      </div>
+      <%elsif(message.from == @currentuser.id && message.to == @user.id)%>
+      <div class="modal-content">
+      <tr>
+        <td><%= "To: #{@currentuser.name}  "%></td>
+      </tr>
+      <tr>
+        <td><%= message.content %></td>
+      </tr>
+      </div>
     <% end %>
     <% end %>
     <% end %>
@@ -40,6 +53,19 @@
 </table>
 
 <br>
-
-<%= link_to 'New Message', new_message_path %>
+<div class="btn btn-outline-inverse btn-block">
+<%= link_to 'New Message', new_message_path(@user, :id => @user.id) %>
+</div>
+<%if(@currentuser.classification == 'Student')%>
+<div class="btn btn-outline-inverse btn-block">
 <%= link_to 'Back', student_path %>
+</div>
+<%elsif(@currentuser.classification == 'Advisor')%>
+<div class="btn btn-outline-inverse btn-block">
+<%= link_to 'Back', advisor_path %>
+</div>
+<%else%>
+<div class="btn btn-outline-inverse btn-block">
+<%= link_to 'Back', admin_path %>
+</div>
+<%end%>

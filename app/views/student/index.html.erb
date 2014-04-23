@@ -24,7 +24,11 @@
 </p>
 <%end%>
 <p>
-	<%= button_to 'Send/View Messages', messages_path(@user.id),:class => "btn btn-outline-inverse btn-block", method: :get %>
+	<%if @user.message == 'unread'%>
+	<%= link_to "View unread messages", messagee_path(@user.id,:to => @user.id,:action => 'index'),:class => "btn btn-outline-inverse btn-block"%>
+	<%else%>
+	<%= link_to "View/send messages", messagee_path(@user.id,:to => @user.id,:action => 'index'),:class => "btn btn-outline-inverse btn-block"%>
+	<%end%>
 </p>
 <p>
 	<%= button_to 'Make/View appointment', appointments_path(@user.id),:class => "btn btn-outline-inverse btn-block", method: :get %>
