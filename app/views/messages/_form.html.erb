@@ -14,13 +14,13 @@
 
   <div class="field">
   	<%if(@currentuser.classification == 'Student')%>
-  	<%=  f.hidden_field :from, :value => @currentuser.id %>
-  	<%= f.hidden_field :to, :value => User.find_by_name(@currentuser.advisor).id %>
+  	<%=  f.hidden_field :stuID, :value => "#{@currentuser.id}" %>
+  	<%= f.hidden_field :advID, :value => "#{User.find_by_name(@currentuser.advisor).id}" %>
   	<%else%>
   	
-    <%= f.label :to %><br>
-    <%= f.hidden_field :to, :value => @user.id %>
-  	<%= f.hidden_field :from, :value => @currentuser.id %>
+    <%= f.label :stuId %><br>
+    <%= f.text_field :stuID %>
+  	<%= f.hidden_field :advID, :value => "#{@currentuser.id}" %>
   	<%end%>
   </div>
   <div class="field">

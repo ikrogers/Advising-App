@@ -1,8 +1,8 @@
 class CreateMessages < ActiveRecord::Migration
   def change
     create_table :messages do |t|
-      t.integer :to
-      t.integer :from
+      t.integer :stuID
+      t.integer :advID
       t.text :content
       t.string :status
 

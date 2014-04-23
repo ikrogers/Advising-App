@@ -5,7 +5,9 @@
 <h1>Listing courses for <%= @currentuser.name %> </h1>
 <br>
 	<%= render 'sendcoursesform' %>
+
 <br>
+
 
 <div style="height: 300px; overflow: scroll;">
 	<table>
@@ -30,7 +32,6 @@
 				<td><%= course.hours %></td>
 				<td><%= course.prereq %></td>
 				<td><%= link_to 'Show', course, :class => ('btn btn-success btn-md') %></td>
-				<%= render :partial => 'show_course_modal' %>
 				<td><%= link_to 'Destroy', course,:class => ('btn btn-danger btn-md') , method: :delete, data: { confirm: 'Are you sure?' } %></td>
 			</tr>
 						<%end%>
@@ -42,11 +43,10 @@
 				<td><%= course.name %></td>
 				<td><%= course.hours %></td>
 				<td><%= course.prereq %></td>
-				<td><%= link_to 'Show', course_path %></td>
-				<a href="#show-course" class="btn btn-outline-inverse btn-block"data-toggle="modal">show course</a>
-				<%= render :partial => 'show' %>
-				<td><%= link_to 'Edit', edit_course_path(course), :class => "btn btn-outline-inverse btn-block" %></td>
-				<td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-outline-inverse btn-block" %></td>
+				<td><%= link_to 'Show', course, :class => "btn btn-default btn-md btn-block" %> </td>
+					
+				<td><%= link_to 'Edit(Delete this using IF for student TO DO)', edit_course_path(course), :class => "btn btn-default btn-md btn-block" %></td>
+				<td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-default btn-md btn-block" %></td>
 			</tr>
 			<%end%>			
 			<%end%>
@@ -60,14 +60,16 @@
 
 <%case @currentuser.classification%>
 <%      when "Admin"%>
-<a href="#course-form" class="btn btn-outline-inverse btn-block"data-toggle="modal">Add new course</a>
-<%= render :partial => 'new_course_modal' %>
-<a href="#courselist-form" class="btn btn-outline-inverse btn-block"data-toggle="modal">Add new courselist</a>
-<%= render :partial => 'new_courselist_modal' %>
-<a href="admin/index" class="btn btn-outline-inverse btn-block"data-toggle="modal">Back</a>
+<%= link_to 'New Course', new_course_path %>
+<%= link_to 'Add to Courselist', new_courselist_path %>
+<%= link_to 'Back', admin_path() %>
 <%      when "Advisor"%>
-<a href="advisor/index" class="btn btn-outline-inverse btn-block"data-toggle="modal">Back</a>
+<%= link_to 'Back', advisor_path(),:class => "btn btn-outline-inverse btn-block" %>
 <%     else%>
-<a href="student/index" class="btn btn-outline-inverse btn-block"data-toggle="modal">Back</a>
+<%= link_to 'Back', student_path(),:class => "btn btn-outline-inverse btn-block" %>
 <%     end%>
+</div>
+
+<div>
+	<br>
 </div>

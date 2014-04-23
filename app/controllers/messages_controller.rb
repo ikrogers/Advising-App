@@ -1,16 +1,12 @@
 class MessagesController < ApplicationController
   layout 'functionalitylayout'
-  before_action :set_messages, only: [:show, :edit, :update, :destroy]
+  before_action :set_message, only: [:show, :edit, :update, :destroy]
 
   # GET /messages    <%= f.select :email_provider, options_for_select => Student.find_all(:advisor => @currentuser.name) %>
   # GET /messages.json
   def index
     @currentuser = User.find_by_id(session[:user_id])
-    @user = User.find_by_id(params[:to])
-    @user.message = 'read'
-    @user.save
-    #@allMessages = Message.all
-    @messages = Message.find_all_by_to_and_from(params[:to],params[:from])
+    @messages = Message.all
   end
 
   # GET /messages/1
@@ -20,7 +16,6 @@ class MessagesController < ApplicationController
 
   # GET /messages/new
   def new
-    @user = User.find_by_id(params[:to])
     @message = Message.new
   end
 
@@ -32,48 +27,24 @@ class MessagesController < ApplicationController
   # POST /messages.json
   def create
     @message = Message.new(message_params)
-    @currentuser = User.find_by_id(session[:user_id])
-    if @currentuser.classification == 'Advisor'
+
     respond_to do |format|
       if @message.save
-        format.html { redirect_to advisor_url, notice: 'Message was successfully created.' }
+        format.html { redirect_to @message, notice: 'Message was successfully created.' }
         format.json { render action: 'show', status: :created, location: @message }
       else
         format.html { render action: 'new' }
         format.json { render json: @message.errors, status: :unprocessable_entity }
       end
     end
-    elsif @currentuser.classification == 'Student'
-      respond_to do |format|
-      if @message.save
-        format.html { redirect_to student_url, notice: 'Message was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @message }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @message.errors, status: :unprocessable_entity }
-      end
-      end
-    elsif @currentuser.classification == 'Admin'
-      respond_to do |format|
-      if @message.save
-        format.html { redirect_to admin_url, notice: 'Message was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @message }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @message.errors, status: :unprocessable_entity }
-      end
-      end
-    end
-    
   end
 
   # PATCH/PUT /messages/1
   # PATCH/PUT /messages/1.json
   def update
-    @currentuser = User.find_by_id(session[:user_id])
     respond_to do |format|
       if @message.update(message_params)
-        format.html { redirect_to @currentuser, notice: 'Message was successfully updated.' }
+        format.html { redirect_to @message, notice: 'Message was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -94,8 +65,8 @@ class MessagesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_messages
-      @messages = Message.find_by_to_and_from(params[:to],params[:from])
+    def set_message
+      @message = Message.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
