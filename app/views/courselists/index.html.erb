@@ -75,13 +75,29 @@
 			<td><%= courselist.name %></td>
 			<td><%= courselist.prereq %></td>
 			<td><%= courselist.description %></td>
-			
+			<td><%= link_to 'Edit',  '#', 'data-target' => "#myModal_#{courselist.id}", 'data-toggle' => 'modal',:class => 'btn btn-default btn-md btn-block'  %>
+	          <div class="modal fade" id='<%= "myModal_#{courselist.id}" %>' tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	            <div class="modal-dialog">
+	              <div class="modal-content">
+	                <div class="modal-header">
+	                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	                  <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+	                </div>
+	                <div class="modal-body">
+	                  <%= render 'courselists/form', courselist: courselist %>
+	                </div>
+	              </div><!-- /.modal-content -->
+	            </div><!-- /.modal-dialog -->
+	          </div><!-- /.modal -->
+	        </td>
+
+			<td><%= link_to 'Delete', courselist,:class => 'btn btn-default btn-md btn-block', method: :delete, data: { confirm: 'Are you sure?' } %></td>
 		</tr>
 		<% end %>
 	</tbody>
 </table>
 </div>
-<%= link_to 'new ', new_courselist_path %>
-
+<a href="#new-courselist" class="btn btn-outline-inverse btn-block"data-toggle="modal">New Course</a>
+<%= render :partial => 'new_courselist_modal' %>
 <%end%>
 
