@@ -1,8 +1,4 @@
 
-<%= button_to "test", courses_path(), :remote => true %>
-<div id="ajaxdiv">
-	This should be changed after you press the above button.
-</div>
 <% @currentuser = User.find_by_id(session[:user_id]) %>
 
 
@@ -32,7 +28,7 @@
 			<% if @currentuser.classification == "Student" %>
 
 			<% @courses.each do |course| %>
-			<%if course.studentid == @currentuser.id %>
+						<%if course.studentid == @currentuser.id %>
 			<tr>
 				<td><%= course.name %></td>
 				<td><%= course.hours %></td>
@@ -40,7 +36,7 @@
 				<td><%= link_to 'Show', course, :class => ('btn btn-success btn-md') %></td>
 				<td><%= link_to 'Destroy', course,:class => ('btn btn-danger btn-md') , method: :delete, data: { confirm: 'Are you sure?' } %></td>
 			</tr>
-			<%end%>
+						<%end%>
 			<% end %>
 			
 			<%else%>
