@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Cassady::Application.load_tasks
+Advising::Application.load_tasks

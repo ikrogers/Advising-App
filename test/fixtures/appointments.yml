@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  appts: 2014-04-16 20:25:09
+  appte: 2014-04-16 20:25:09
+  advID: 1
+  stuID: 1
+  approved: MyString
+  notes: MyString
+
+two:
+  appts: 2014-04-16 20:25:09
+  appte: 2014-04-16 20:25:09
+  advID: 1
+  stuID: 1
+  approved: MyString
+  notes: MyString

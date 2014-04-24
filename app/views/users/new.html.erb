@@ -1,0 +1,11 @@
+w<h1>New user</h1>
+
+<% @currentuser = User.find_by_id(session[:user_id]) %>
+
+<% if (@currentuser.classification == "Admin") %>
+	<%= render :partial => 'user_modal' %>
+<% else%>
+	<%= render 'formstudent' %>
+<%end%>
+
+<%= link_to 'Back', users_path %>
