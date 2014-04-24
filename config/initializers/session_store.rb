@@ -1,3 +1,3 @@
 # Be sure to restart your server when you modify this file.
 
-Advising::Application.config.session_store :cookie_store, key: '_advising_session'
+Cassady::Application.config.session_store :cookie_store, key: '_cassady_session'

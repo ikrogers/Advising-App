@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Advising::Application.config.secret_key_base = 'e9d71feba4baaead7694cebf88b9160cee54fe247acaf7e936c8a72f6f8a02e97678aeba6779df02d69ad1aa41d1be417e2941afd9002f0c4c62db125ed652d2'
+Cassady::Application.config.secret_key_base = '99ed91964cfc63b29c0f22c28af31f63b287e48f45b97b1e2aeeda52a3c8801ad2876d68744dce71e4c7f13d2908bd8581d73f3a80a0b0f9522b25ec2599db52'
