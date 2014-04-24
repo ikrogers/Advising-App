@@ -59,7 +59,7 @@ COURSES REQUESTED:
 <% if user.classification == 'Advisor' %>
 <table>
 	<th>Name</th>
-	<% user.each do |user| %>
+	<% @user.each do |user| %>
 	<% if (user.advisor == user.name) %>
 	<tr>
 		<td><%= user.name %></td>
