@@ -23,7 +23,6 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
         @users = User.all
-
   end
   
   def setAppt

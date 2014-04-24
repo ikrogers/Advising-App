@@ -5,87 +5,142 @@
 <% end %>
 <% @currentuser = User.find_by_id(session[:user_id]) %>
 <h1>Welcome <%= @currentuser.name%></h1>
+
+<% if @currentuser.classification == 'Advisor'%>
 <table>
 	<tbody>
-		<% if @currentuser.classification == 'Advisor'%>
 		<th>Students with Submissions</th>
-		<td>
-		<% @users.each do |user| %>
+		<td> <% @users.each do |user| %> 
 		<% if (user.advisor == @currentuser.name && user.flag == 'true') %>
 		<tr>
 			<td><%= user.name %></td>
 			<td><%= link_to 'APPROVE', liftFlag_path(user, :id => user.id), method: :get%></td>
 			<td><%= link_to 'DENY', denyFlag_path(user, :id => user.id), method: :get, data: { confirm: 'Are you sure?' }%></td>
-			<td><%= link_to 'Show', user,:class => 'btn btn-default btn-md btn-block' %></td>
-			<td><%= link_to 'Edit', edit_user_path(user),:class => 'btn btn-default btn-md btn-block' %></td>
+			<td><%= link_to 'Show', 'data-target' => "#myShowModal_#{user.id}", 'data-toggle' => 'modal',:class => 'btn btn-default btn-md btn-block' %></td>
+			<%= render 'show_user_modal', user: user %>
+			<td><%= link_to 'Edit',  '#', 'data-target' => "#myModal_#{user.id}", 'data-toggle' => 'modal',:class => 'btn btn-default btn-md btn-block'  %></td>
+			<%= render 'edit_user_modal', user: user %>
 			<td><%= link_to 'Destroy', user,:class => 'btn btn-default btn-md btn-block', method: :delete, data: { confirm: 'Are you sure?' } %></td>
-		</tr>
-		<% end %>
-		<% end %>
-		</td>
-		</tbody>
-		<tbody>
+		</tr> <% end %>
+		<% end %> </td>
+	</tbody>
+</table>
+<table>
+	<tbody>
 		<th>Unadvised Students</th>
-		<td>
-		<% @users.each do |user| %>
-		
+		<td> <% @users.each do |user| %>
+
 		<% if (user.advisor == @currentuser.name && user.flag == 'false') %>
 		<tr>
 			<td><%= user.name %></td>
-			
-			<td><%= link_to 'Show', user,:class => 'btn btn-default btn-md btn-block' %></td>
+
+			<td><%= link_to 'Show',  '#', 'data-target' => "#myShowModal_#{user.id}", 'data-toggle' => 'modal',:class => 'btn btn-default btn-md btn-block' %></td>
+			<%= render 'show_user_modal', user: user %>
 			<td><%= link_to 'Edit', edit_user_path(user),:class => 'btn btn-default btn-md btn-block' %></td>
 			<td><%= link_to 'Destroy', user,:class => 'btn btn-default btn-md btn-block', method: :delete, data: { confirm: 'Are you sure?' } %></td>
-		</tr>
-		<% end %>
-		<% end %>
-		</td>
-		</tbody>
-		<th>Denied Students</th>
-		<td>
-		<% @users.each do |user| %>
-		<% if (user.advisor == @currentuser.name && user.flag == 'denied') %>
-		<tr>
-			<td><%= user.name %></td>
-			<td><%= link_to 'APPROVE', liftFlag_path(user, :id => user.id), method: :get%></td>
-			<td><%= link_to 'Show', user,:class => 'btn btn-default btn-md btn-block' %></td>
-			<td><%= link_to 'Edit', edit_user_path(user),:class => 'btn btn-default btn-md btn-block' %></td>
-			<td><%= link_to 'Destroy', user,:class => 'btn btn-default btn-md btn-block', method: :delete, data: { confirm: 'Are you sure?' } %></td>
-		</tr>
-		<% end %>
-		<% end %>
-		</td>
-		</tbody>
-		<tbody>
+		</tr> <% end %>
+		<% end %> </td>
+	</tbody>
+	<tbody>
+	<th>Denied Students</th>
+	<%= render :partial => 'user_modal' %>
+	<td> <% @users.each do |user| %>
+	<% if (user.advisor == @currentuser.name && user.flag == 'denied') %>
+	<tr>
+		<td><%= user.name %></td>
+		<td><%= link_to 'APPROVE', liftFlag_path(user, :id => user.id), method: :get%></td>
+		<td><%= link_to 'Show',  '#', 'data-target' => "#myShowModal_#{user.id}", 'data-toggle' => 'modal',:class => 'btn btn-default btn-md btn-block' %></td>
+		<%= render 'show_user_modal', user: user %>
+		<td><%= link_to 'Edit',  '#', 'data-target' => "#myModal_#{user.id}", 'data-toggle' => 'modal',:class => 'btn btn-default btn-md btn-block'  %>
+		<div class="modal fade" id='<%= "myModal_#{user.id}" %>' tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title" id="myModalLabel">Edit User</h4>
+					</div>
+					<div class="modal-body">
+						<%= render "users/formstudent", user: user %>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal --></td>
+		<td><%= link_to 'Destroy', user,:class => 'btn btn-default btn-md btn-block', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	</tr> <% end %>
+	<% end %> </td>
+	</tbody>
+	<tbody>
 		<th>Advised Students</th>
-		<td>
-		<% @users.each do |user| %>
+		<td> <% @users.each do |user| %>
 		<% if (user.advisor == @currentuser.name && user.flag == 'advised') %>
 		<tr>
 			<td><%= user.name %></td>
 			<td><%= link_to 'DENY', denyFlag_path(user, :id => user.id), method: :get%></td>
-			<td><%= link_to 'Show', user,:class => 'btn btn-default btn-md btn-block' %></td>
-			<td><%= link_to 'Edit', edit_user_path(user),:class => 'btn btn-default btn-md btn-block' %></td>
+			<td><%= link_to 'Show',  '#', 'data-target' => "#myShowModal_#{user.id}", 'data-toggle' => 'modal',:class => 'btn btn-default btn-md btn-block' %></td>
+			<%= render 'show_user_modal', user: user %>
+					<td><%= link_to 'Edit',  '#', 'data-target' => "#myModal_#{user.id}", 'data-toggle' => 'modal',:class => 'btn btn-default btn-md btn-block'  %>
+		<div class="modal fade" id='<%= "myModal_#{user.id}" %>' tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title" id="myModalLabel">Edit User</h4>
+					</div>
+					<div class="modal-body">
+						<%= render "users/formstudent", user: user %>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal --></td>
 			<td><%= link_to 'Destroy', user,:class => 'btn btn-default btn-md btn-block', method: :delete, data: { confirm: 'Are you sure?' } %></td>
-		</tr>
-		<% end %>
-		<% end %>
-		</td>
-		</tbody>
-		<% end %>
-		
-		<% if @currentuser.classification == "Admin"%>
-		<% @users.each do |user| %>
-		<tr>
-			<td><%= user.name %></td>
-			<td><%= link_to 'Show', user %></td>
-			<td><%= link_to 'Edit', edit_user_path(user) %></td>
-			<td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-		</tr>
-		<% end %>
-		<% end %>
+		</tr> <% end %>
+		<% end %> </td>
 	</tbody>
+	<% end %>
 </table>
+<% if @currentuser.classification == "Admin"%>
+<div style="border:solid; border-color: white; scroll; height:57%; overflow-x:hidden;background: rgba(255,255,255,0.1);">
+	<table  class="table table-bordered">
+		<thead style="height:50px">
+			<tr>
+				<th>Unsername</th>
+				<th>Classification</th>
+
+				<th>Advisor</th>
+				<th>Description</th>
+				<th>Edit</th>
+				<th>Delete</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @users.each do |user| %>
+			<tr>
+				<td><%= user.name %></td>
+				<td><%= user.classification %></td>
+
+				<td><%= user.advisor %></td>
+
+				<td><%= link_to 'Show',  '#', 'data-target' => "#myShowModal_#{user.id}", 'data-toggle' => 'modal',:class => 'btn btn-default btn-md btn-block' %></td>
+				<%= render 'show_user_modal', user: user %>
+				<td><%= link_to 'Edit',  '#', 'data-target' => "#myModal_#{user.id}", 'data-toggle' => 'modal',:class => 'btn btn-default btn-md btn-block'  %>
+				<div class="modal fade" id='<%= "myModal_#{user.id}" %>' tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h4 class="modal-title" id="myModalLabel">Edit User</h4>
+							</div>
+							<div class="modal-body">
+								<%= render "users/edit", user: user %>
+							</div>
+						</div><!-- /.modal-content -->
+					</div><!-- /.modal-dialog -->
+				</div><!-- /.modal --></td>
+				<td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			</tr>
+			<% end %>
+			<% end %>
+		</tbody>
+	</table>
+</div>
+
 <br>
 <a href="#modal-form" class="btn btn-outline-inverse btn-block"data-toggle="modal">New User</a>
 <%= render :partial => 'user_modal' %>

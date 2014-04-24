@@ -57,27 +57,46 @@
 
 <% if @currentuser.classification == "Admin" %>
 <h1>Manage course catalog</h1>
-<table class="table table-hover table-bordered">
-	<thead style="background-color: #5e63ff">
+<div style="border:solid; border-color: white; scroll; height:57%; overflow-x:hidden;background: rgba(255,255,255,0.1);">
+<table  class="table table-bordered">
+	<thead style="height:50px">
 		<tr>
 			<th>Name</th>
 			<th>Prerequisites</th>
 			<th>Description</th>
+			<th>Edit</th>
+			<th>Delete</th>
 		</tr>
 	</thead>
 
 	<tbody>
 		<% @courselists.each do |courselist| %>
-		<tr style = "background-color: #51ff4f;">
+		<tr >
 			<td><%= courselist.name %></td>
 			<td><%= courselist.prereq %></td>
 			<td><%= courselist.description %></td>
+			<td><%= link_to 'Edit',  '#', 'data-target' => "#myModal_#{courselist.id}", 'data-toggle' => 'modal',:class => 'btn btn-default btn-md btn-block'  %>
+	          <div class="modal fade" id='<%= "myModal_#{courselist.id}" %>' tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	            <div class="modal-dialog">
+	              <div class="modal-content">
+	                <div class="modal-header">
+	                  <h4 class="modal-title" id="myModalLabel" style="color: black">Modal title</h4>
+	                </div>
+	                <div class="modal-body">
+	                  <%= render 'courselists/form', courselist: courselist %>
+	                </div>
+	              </div><!-- /.modal-content -->
+	            </div><!-- /.modal-dialog -->
+	          </div><!-- /.modal -->
+	        </td>
+
+			<td><%= link_to 'Delete', courselist,:class => 'btn btn-default btn-md btn-block', method: :delete, data: { confirm: 'Are you sure?' } %></td>
 		</tr>
 		<% end %>
 	</tbody>
 </table>
-
-<%= link_to 'New Courselist', new_courselist_path %>
-
+</div>
+<a href="#new-courselist" class="btn btn-outline-inverse btn-block"data-toggle="modal">New Course</a>
+<%= render :partial => 'new_courselist_modal' %>
 <%end%>
 

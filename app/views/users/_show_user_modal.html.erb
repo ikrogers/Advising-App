@@ -1,0 +1,12 @@
+<div class="modal fade" id='<%= "myShowModal_#{user.id}" %>' tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title" id="myModalLabel">Edit User</h4>
+			</div>
+			<div class="modal-body">
+				<%= render "users/show", user: user %>
+			</div>
+		</div>
+	</div>
+</div>
