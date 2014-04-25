@@ -42,9 +42,7 @@
 				<td><%= course.name %></td>
 				<td><%= course.hours %></td>
 				<td><%= course.prereq %></td>
-				<td><%= link_to 'Show', course_path %></td>
-				<a href="#show-course" class="btn btn-outline-inverse btn-block"data-toggle="modal">show course</a>
-				<%= render :partial => 'show' %>
+				<td><%= link_to 'Show', course, :class => "btn btn-outline-inverse btn-block"%></td>
 				<td><%= link_to 'Edit', edit_course_path(course), :class => "btn btn-outline-inverse btn-block" %></td>
 				<td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-outline-inverse btn-block" %></td>
 			</tr>
@@ -60,10 +58,17 @@
 
 <%case @currentuser.classification%>
 <%      when "Admin"%>
+<<<<<<< HEAD
+<a href="#modal-form" class="btn btn-outline-inverse btn-block"data-toggle="modal">Add new course</a>
+<%= render :partial => 'new_course_modal' %>
+<a href="#modal-form" class="btn btn-outline-inverse btn-block"data-toggle="modal">Add new courselist</a>
+<%= render :partial => 'edit_course_modal' %>
+=======
 <a href="#course-form" class="btn btn-outline-inverse btn-block"data-toggle="modal">Add new course</a>
 <%= render :partial => 'new_course_modal' %>
 <a href="#courselist-form" class="btn btn-outline-inverse btn-block"data-toggle="modal">Add new courselist</a>
 <%= render :partial => 'new_courselist_modal' %>
+>>>>>>> 65180d6005c0fb574e79ab79405267ae8664a8e5
 <a href="admin/index" class="btn btn-outline-inverse btn-block"data-toggle="modal">Back</a>
 <%      when "Advisor"%>
 <a href="advisor/index" class="btn btn-outline-inverse btn-block"data-toggle="modal">Back</a>
