@@ -16,7 +16,7 @@
 		<td> 
 		<% @users.each do |user| %>
 
-		<% if (user.advisor == @currentuser.name && user.flag == 'true') %>
+		<% if (user.advisor == @currentuser.name && user.flag == 'submitted') %>
 		<tr>
 			<td><%= user.name %></td>
 			<td><%= link_to 'APPROVE', liftFlag_path(user, :id => user.id), method: :get,:class => 'btn btn-default btn-md btn-block'%></td>

@@ -15,7 +15,7 @@
 </p>
 <%elsif (@user.flag == 'approved')%>
 <p>
-<%= button_to 'View Approved Schedule', courses_path(@user.id),:class => "btn btn-outline-inverse btn-block", method: :get %>
+<%= button_to 'View Approved Schedule', @user,:class => "btn btn-outline-inverse btn-block", method: :get %>
 </p>
 <%elsif (@user.flag == 'submitted')%>
 <p>
