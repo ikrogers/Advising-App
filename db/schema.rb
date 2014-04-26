@@ -47,8 +47,8 @@ ActiveRecord::Schema.define(version: 20140418011245) do
   end
 
   create_table "messages", force: true do |t|
-    t.integer  "to"
-    t.integer  "from"
+    t.integer  "stuID"
+    t.integer  "advID"
     t.text     "content"
     t.string   "status"
     t.datetime "created_at"

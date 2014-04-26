@@ -8,6 +8,40 @@ class CoursesController < ApplicationController
 
   end
       
+  def contactf
+    @currentuser = User.find_by_id(session[:user_id])
+    @message = params[:message]
+    @appte  = params[:endtime]
+    @appts = params[:starttime]
+    
+    @currentuser.update_attribute(:message, @message)
+    
+    @currentuser.update_attribute(:appts, @appts)
+    @currentuser.update_attribute(:appte, @appte)
+     respond_to do |format|
+      flash[:notice] = "kashgdkashgdlfashgflkasdf"
+
+      format.html { redirect_to courses_path(@currentuser.id), notice: "Appointment information has been submitted successfully"}
+      format.json { render :json => { :redirect => courses_url(@currentuser.id),:message => @message, :starttime => @appts, :endtime => @appte }, notice: "Appointment information has been submitted successfully"}
+
+    end #end of format
+    
+  end
+#sets the appointment time
+  def setAppt
+    @currentuser = User.find_by_id(session[:user_id])
+    @appts = params[:param1]
+    @appte = params[:param2]
+    
+    @currentuser.update_attribute(:appts, @appts)
+    @currentuser.update_attribute(:appte, @appte)
+    respond_to do |format|
+
+      format.html { redirect_to courses_path(@currentuser.id), notice: "Appointment set!" }
+      format.json { render :json => { :name => @name }}
+    end
+  end
+
   def getcourse
     @currentuser = User.find_by_id(session[:user_id])
     
@@ -64,7 +98,7 @@ class CoursesController < ApplicationController
 
     respond_to do |format|
       if @course.save
-        format.html { redirect_to student_path, notice: 'Course was successfully created.' }
+        format.html { redirect_to @course, notice: 'Course was successfully created.' }
         format.json { render action: 'show', status: :created, location: @course }
       else
         format.html { render action: 'new' }

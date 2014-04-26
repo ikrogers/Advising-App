@@ -29,7 +29,7 @@ class CourselistsController < ApplicationController
 
     respond_to do |format|
       if @courselist.save
-        format.html { redirect_to courselist }
+        format.html { redirect_to @courselist, notice: 'Courselist was successfully created.' }
         format.json { render action: 'show', status: :created, location: @courselist }
       else
         format.html { render action: 'new' }
