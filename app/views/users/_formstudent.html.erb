@@ -1,4 +1,3 @@
-<div class="form-horizontal">
 <%= form_for(user) do |f| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
@@ -9,46 +8,34 @@
         <li><%= msg %></li>
       <% end %>
       </ul>
-  		</div>
-	</div>
+    </div>
   <% end %>
 
-	<div class="form-group">
-		<div class="col-sm-offset-1 col-sm-10">
-    <%= text_field_tag :name, params[:name],:class=>"form-control",:placeholder=> user.name %>
-		</div>
-	</div>
-
-	<div class="form-group">
-		<div class="col-sm-offset-1 col-sm-10">
-    <%= text_field_tag :password, params[:password],:class=>"form-control",:placeholder=> user.password %>
-		</div>
-	</div>
-	<div class="form-group">
-		<div class="col-sm-offset-1 col-sm-10">
-    <%= text_field_tag :password_confirmation, params[:password_confirmation],:class=>"form-control",:placeholder=> user.password_confirmation %>
-		</div>
-	</div><br /> 
-	<div class="form-group">
-		<div class="col-sm-offset-1 col-sm-10">
-  	<%= text_field_tag :fname, params[:fname],:class=>"form-control",:placeholder=> user.fname %>
-		</div>
-	</div>
-	<div class="form-group">
-		<div class="col-sm-offset-1 col-sm-10">
-  	<%= text_field_tag :mi, params[:mi],:class=>"form-control",:placeholder=> user.mi %>
-		</div>
-	</div>
-	<div class="form-group">
-		<div class="col-sm-offset-1 col-sm-10">
-  	  	<%= text_field_tag :lname, params[:lname],:class=>"form-control",:placeholder=> user.lname %>
-
-		</div>
-	</div>
-	<div class="form-group">
-		<div class="col-sm-offset-1 col-sm-10">
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :fname %><br>
+    <%= f.text_field :fname %>
+  </div>
+  <div class="field">
+    <%= f.label :mi %><br>
+    <%= f.text_field :mi %>
+  </div>
+    <div class="field">
+    <%= f.label :lname %><br>
+    <%= f.text_field :lname %>
+  </div>
+    <div class="field">
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
+  </div>
+    <div class="field">
+    <%= f.label :password_confirmation %><br>
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <div class="actions">
     <%= f.submit %>
-		</div>
-	</div>
+  </div>
 <% end %>
-</div>
