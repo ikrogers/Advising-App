@@ -23,7 +23,6 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
         @users = User.all
-
   end
   
   def setAppt
@@ -111,7 +110,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to users_url,notice: "User #{@user.name} was successfully updated." }
+        format.html { redirect_to users_url}
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
