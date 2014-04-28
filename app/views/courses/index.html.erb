@@ -1,4 +1,3 @@
-
 <% @currentuser = User.find_by_id(session[:user_id]) %>
 
 
@@ -7,7 +6,27 @@
 	<%= render 'sendcoursesform' %>
 <br>
 
-<div style="height: 300px; overflow: scroll;">
+
+<div>
+	<%if @currentuser.flag != 'submitted' && @currentuser.flag != 'approved'%>
+		<h1>Registration options for <%= @currentuser.name %> </h1>
+		<br>
+		<%= render 'bootstrap_dual_list' %>
+	</div>>
+	<%else%>
+		<h1>Submitted registrion package for <%= @currentuser.name %> </h1>
+		<br>
+		
+		<%@regcourses = Course.find_all_by_studentid(@currentuser.id)%> 
+		<% @regcourses.each do |c| %>
+      		<%if(c.choice == 'completed')%>
+      	<%end%>
+      	<% @regcourses.each do |c| %>
+      		<%if(c.choice == 'registered')%>
+      		
+      	<%end%>
+      	
+      	<div style="height: 300px; overflow: scroll;">
 	<table>
 		<thead>
 			<tr>
@@ -50,29 +69,26 @@
 			<%end%>
 		</tbody>
 </div>
+	<%end%>
+	
+	
+<br>	
 <div>
-	
-	<%= render 'sendcoursesform' %>
-	
-	
 
 <%case @currentuser.classification%>
 <%      when "Admin"%>
-<<<<<<< HEAD
 <a href="#modal-form" class="btn btn-outline-inverse btn-block"data-toggle="modal">Add new course</a>
 <%= render :partial => 'new_course_modal' %>
-<a href="#modal-form" class="btn btn-outline-inverse btn-block"data-toggle="modal">Add new courselist</a>
+<a href="#modal-form" class="btn btn-outline-inverse btn-block"data-toggle="modal">Edit new courselist</a>
 <%= render :partial => 'edit_course_modal' %>
-=======
-<a href="#course-form" class="btn btn-outline-inverse btn-block"data-toggle="modal">Add new course</a>
-<%= render :partial => 'new_course_modal' %>
 <a href="#courselist-form" class="btn btn-outline-inverse btn-block"data-toggle="modal">Add new courselist</a>
 <%= render :partial => 'new_courselist_modal' %>
->>>>>>> 65180d6005c0fb574e79ab79405267ae8664a8e5
 <a href="admin/index" class="btn btn-outline-inverse btn-block"data-toggle="modal">Back</a>
 <%      when "Advisor"%>
 <a href="advisor/index" class="btn btn-outline-inverse btn-block"data-toggle="modal">Back</a>
 <%     else%>
-<a href="student/index" class="btn btn-outline-inverse btn-block"data-toggle="modal">Back</a>
-<%     end%>
+<%= link_to 'Back', student_path(),:class => "btn btn-outline-inverse btn-block" %>
+<%    end%>
+<%    end%>
+<%    end%>
 </div>

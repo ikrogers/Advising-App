@@ -1,20 +1,30 @@
-<% @currentuser = User.find_by_id(session[:user_id]) %>
-<h1>Welcome <%= @currentuser.name%></h1>
+<% if notice %>
+<p id="notice">
+	<%= notice %>
+</p>
+<% end %>
 
+
+<% @currentuser = User.find_by_id(session[:user_id]) %>
 <% if @currentuser.classification == 'Advisor'%>
+<%if(!(session[:current_path] =~ /value/))%>
+
+<h1>View Registration Packages</h1>
 <table>
 	<tbody>
-		<th>Students with Submissions</th>
-		<td> <% @users.each do |user| %>
-		<% if (user.advisor == @currentuser.name && user.flag == 'true') %>
+		<th>Students with Submissions </th>
+		<td> 
+		<% @users.each do |user| %>
+
+		<% if (user.advisor == @currentuser.name && user.flag == 'submitted') %>
 		<tr>
 			<td><%= user.name %></td>
-			<td><%= link_to 'APPROVE', liftFlag_path(user, :id => user.id), method: :get%></td>
-			<td><%= link_to 'DENY', denyFlag_path(user, :id => user.id), method: :get, data: { confirm: 'Are you sure?' }%></td>
+			<td><%= link_to 'APPROVE', liftFlag_path(user, :id => user.id), method: :get,:class => 'btn btn-default btn-md btn-block'%></td>
+			<td><%= link_to 'DENY', denyFlag_path(user, :id => user.id), method: :get, data: { confirm: 'Are you sure?' },:class => 'btn btn-default btn-md btn-block'%></td>
 			<td><%= link_to 'Show', user,:class => 'btn btn-default btn-md btn-block' %></td>
-			<td><%= link_to 'Edit', edit_user_path(user),:class => 'btn btn-default btn-md btn-block' %></td>
-			<td><%= link_to 'Destroy', user,:class => 'btn btn-default btn-md btn-block', method: :delete, data: { confirm: 'Are you sure?' } %></td>
-		</tr> <% end %>
+
+		</tr> 
+		<% end %>
 		<% end %> </td>
 	</tbody>
 	<tbody>
@@ -26,83 +36,107 @@
 			<td><%= user.name %></td>
 
 			<td><%= link_to 'Show', user,:class => 'btn btn-default btn-md btn-block' %></td>
-			<td><%= link_to 'Edit', edit_user_path(user),:class => 'btn btn-default btn-md btn-block' %></td>
-			<td><%= link_to 'Destroy', user,:class => 'btn btn-default btn-md btn-block', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
 		</tr> <% end %>
 		<% end %> </td>
 	</tbody>
-	<br>
 	<th>Denied Students</th>
-	<br>
 	<td> <% @users.each do |user| %>
 	<% if (user.advisor == @currentuser.name && user.flag == 'denied') %>
 	<tr>
 		<td><%= user.name %></td>
-		<td><%= link_to 'APPROVE', liftFlag_path(user, :id => user.id), method: :get%></td>
+		<td><%= link_to 'APPROVE', liftFlag_path(user, :id => user.id), method: :get,:class => 'btn btn-default btn-md btn-block'%></td>
 		<td><%= link_to 'Show', user,:class => 'btn btn-default btn-md btn-block' %></td>
-		<td><%= link_to 'Edit', edit_user_path(user),:class => 'btn btn-default btn-md btn-block' %></td>
-		<td><%= link_to 'Destroy', user,:class => 'btn btn-default btn-md btn-block', method: :delete, data: { confirm: 'Are you sure?' } %></td>
 	</tr> <% end %>
 	<% end %> </td>
 	</tbody>
-	<br>
 	<tbody>
 		<th>Advised Students</th>
 		<td> <% @users.each do |user| %>
 		<% if (user.advisor == @currentuser.name && user.flag == 'advised') %>
 		<tr>
 			<td><%= user.name %></td>
-			<td><%= link_to 'DENY', denyFlag_path(user, :id => user.id), method: :get%></td>
+			<td><%= link_to 'DENY', denyFlag_path(user, :id => user.id), method: :get,:class => 'btn btn-default btn-md btn-block'%></td>
 			<td><%= link_to 'Show', user,:class => 'btn btn-default btn-md btn-block' %></td>
-			<td><%= link_to 'Edit', edit_user_path(user),:class => 'btn btn-default btn-md btn-block' %></td>
-			<td><%= link_to 'Destroy', user,:class => 'btn btn-default btn-md btn-block', method: :delete, data: { confirm: 'Are you sure?' } %></td>
 		</tr> <% end %>
 		<% end %> </td>
 	</tbody>
-	<% end %>
-</table>
-<% if @currentuser.classification == "Admin"%>
-<div style="border:solid; border-color: white; scroll; height:57%; overflow-x:hidden;background: rgba(255,255,255,0.1);">
-	<table  class="table table-bordered">
-		<thead style="height:50px">
-		<tr>
-			<th>Unsername</th>
-			<th>Classification</th>
-			<th>Advisor</th>
-			<th>Show</th>
-			<th>Edit</th>
-			<th>Destroy</th>
-		</tr>
-	</thead>
+	<%else%>
+	<h1>Messages for <%= @currentuser.name%></h1>
+	<table>
+
 		<tbody>
-			<% @users.each do |user| %>
-			<tr>
-				<td><%= user.name %></td>
-				<td><%= user.classification %></td>
-				<td><%= user.advisor %></td>
-				<%if user.classification == "Admin"%>
-				<td></td>
-				<td></td>
-				<td></td>
-				
-				<%else%>
-				
-				<td><%= link_to 'Show', user,:class => 'btn btn-default btn-md btn-block' %></td>
-				<td><%= link_to 'Edit',  '#', 'data-target' => "#myModal_#{user.id}", 'data-toggle' => 'modal',:class => 'btn btn-default btn-md btn-block'  %>
-				<%= render 'users/edit_user_modal', user: user %></td>
-				<td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-				<%end%>
-			</tr>
+			<th>Messages</th>
+			<div class="btn btn-outline-inverse btn-block">
+			<%= link_to 'New Message', new_message_path(),:class => 'btn btn-default btn-md btn-block' %>
+			</div>
+			<td> <% @users.each do |user| %>
+			<% if (user.advisor == @currentuser.name) %>
+				<tr>
+					<td><%= user.name %></td>
+					<td><%= link_to 'View new message', messagee_path(user.id,:to => user.id, :from => @currentuser.id,:action => 'index'),:class => 'btn btn-default btn-md btn-block' %></td>
+				</tr> 
 			<% end %>
-			
-			
-		</tbody>
-	</table>
-</div>
+<% end %> 
+			</td>
+</tbody>
+<% end %>
 <% end %>
 
-<br>
-<a href="#modal-form" class="btn btn-outline-inverse btn-block"data-toggle="modal">New User</a>
-<%= render :partial => 'user_modal' %>
+	<% if @currentuser.classification == "Admin"%>
+	</br>
+	</br>
+	</br>
+	</br>
+	<h3> Welcome, <%= @currentuser.name %></h3>
+	<div style="border:solid; border-color: white; scroll; height:57%; overflow-x:hidden;background: rgba(255,255,255,0.1);">
+		<table  class="table table-bordered">
+			<thead style="height:50px">
+				<tr>
+					<th>Unsername</th>
+					<th>Classification</th>
+					<th>Advisor</th>
+					<th>Show</th>
+					<th>Edit</th>
+					<th>Destroy</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @users.each do |user| %>
+				<tr>
+					<td><%= user.name %></td>
+					<td><%= user.classification %></td>
+					<td><%= user.advisor %></td>
+					<%if user.classification == "Admin"%>
+					<td></td>
+					<td></td>
+					<td></td>
+
+					<%else%>
+
+					<td><%= link_to 'Show', user,:class => 'btn btn-default btn-md btn-block' %></td>
+					<td><%= link_to 'Edit',  '#', 'data-target' => "#myModal_#{user.id}", 'data-toggle' => 'modal',:class => 'btn btn-default btn-md btn-block'  %>
+					<div class="modal fade" id='<%= "myModal_#{user.id}" %>' tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h4 class="modal-title" id="myModalLabel" style="color: black">Edit User</h4>
+								</div>
+								<div class="modal-body">
+									<%= render 'users/formstudent', user: user %>
+								</div>
+							</div>
+						</div>
+					</div></td>
+					<td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+					<%end%>
+				</tr>
+				<% end %>
+
+			</tbody>
+		</table>
+	</div>
+	<% end %>
+
 
 
