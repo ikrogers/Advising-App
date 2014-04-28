@@ -23,6 +23,10 @@
         float: none!important;
         margin: 7.5px 4px;
     }
+    
+    .navbar-collapse {
+  max-height: none;
+}
     .navbar-nav>li {
         float: none;
     }
