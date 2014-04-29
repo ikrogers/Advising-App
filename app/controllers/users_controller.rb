@@ -76,7 +76,6 @@ class UsersController < ApplicationController
     #if @user.save
     #  respond_with(@currentuser, :location => users_url);
     #end
-    
       if @user.save
         redirect_to users_url
         
