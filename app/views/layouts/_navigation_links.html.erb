@@ -30,9 +30,9 @@
 <%end%>
 <p>
 <%if @cuser.message == 'unread'%>
-<%= link_to "View unread messages", messagee_path(@cuser.id,:to => @cuser.id,:action => 'index'),:class => "btn btn-outline-inverse btn-block"%>
+<%= link_to "View unread messages", messagee_path(@cuser.id,:to => @cuser.id,:action => 'index'),:class => "btn btn-outline-inverse btn-block", :style => 'color:white'%>
 <%else%>
-<%= link_to "View/send messages", messagee_path(@cuser.id,:to => @cuser.id,:action => 'index'),:class => "btn btn-outline-inverse btn-block"%>
+<%= link_to "View/send messages", messagee_path(@cuser.id,:to => @cuser.id,:action => 'index'),:class => "btn btn-outline-inverse btn-block", :style => 'color:white'%>
 <%end%>
 </p>
 <p>

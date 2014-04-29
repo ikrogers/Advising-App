@@ -24,9 +24,9 @@
 <%end%>
 <p>
 <%if @user.message == 'unread'%>
-<%= link_to "View unread messages", messagee_path(@user.id,:to => @user.id,:action => 'index'),:class => "btn btn-outline-inverse btn-block"%>
+<%= link_to "View unread messages", messagee_path(@user.id,:to => @user.id,:action => 'index'),:class => "btn btn-outline-inverse btn-block", :style => 'color:white'%>
 <%else%>
-<%= link_to "View/send messages", messagee_path(@user.id,:to => @user.id,:action => 'index'),:class => "btn btn-outline-inverse btn-block"%>
+<%= link_to "View/send messages", messagee_path(@user.id,:to => @user.id,:action => 'index'),:class => "btn btn-outline-inverse btn-block", :style => 'color:white'%>
 <%end%>
 </p>
 <p>
