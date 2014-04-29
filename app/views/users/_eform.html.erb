@@ -3,7 +3,7 @@
 
 <div class="form-horizontal">
 
-	<%= form_for(@user, :class=>"form-horizontal")  do |f| %>
+	<%= form_for(user, :class=>"form-horizontal")  do |f| %>
 	<div class="form-group">
 		<div class="col-sm-12">
 			<%= f.text_field :name, {:class=>"form-control", :placeholder=>"Username"} %>
@@ -65,4 +65,3 @@
 	</div>
 	<% end %>
 </div>
-
