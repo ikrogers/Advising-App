@@ -89,7 +89,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @currentuser = User.find_by_id(session[:user_id])
-    if @currentuser.classification == "Advisor"
+    if @currentuser.classification != "Student"
       @user.classification = "Student"
       @user.advisor = @currentuser.name
       @user.flag = "false"
