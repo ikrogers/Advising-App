@@ -1,18 +1,11 @@
 <% @currentuser = User.find_by_id(session[:user_id]) %>
 
-
-<h1>Listing courses for <%= @currentuser.name %> </h1>
-<br>
-	<%= render 'sendcoursesform' %>
-<br>
-
-
 <div>
 	<%if @currentuser.flag != 'submitted' && @currentuser.flag != 'approved'%>
-		<h1>Registration options for <%= @currentuser.name %> </h1>
+		<h1>Registration Options for <%= @currentuser.name %> </h1>
 		<br>
 		<%= render 'bootstrap_dual_list' %>
-	</div>>
+	</div>
 	<%else%>
 		<h1>Submitted registrion package for <%= @currentuser.name %> </h1>
 		<br>
