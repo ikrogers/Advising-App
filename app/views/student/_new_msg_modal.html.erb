@@ -1,0 +1,54 @@
+<div class="modal fade" id='<%= "newmsgModal_#{user.id}" %>' tabindex="-1" role="dialog" aria-labelledby="newmsgModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h2 class="modal-title" id="newmsgModalLabel" style="color: black">New message</h2>
+			</div>
+			<div class="modal-body">
+				<% @currentuser = User.find_by_id(session[:user_id])
+        @user = User.find_by_id(params[:id])
+        @message = Message.new
+%>
+				<%= form_for(@message) do |f| %>
+				<% if @message.errors.any? %>
+				<div id="error_explanation">
+					<h2><%= pluralize(@message.errors.count, "error") %> prohibited this message from being saved:</h2>
+
+					<ul>
+						<% @message.errors.full_messages.each do |msg| %>
+						<li>
+							<%= msg %>
+						</li>
+						<% end %>
+					</ul>
+				</div>
+				<% end %>
+
+				<div class="field">
+					<%if(@currentuser.classification == 'Student')%>
+					<%= f.hidden_field :from, :value => @currentuser.id %>
+					<%= f.hidden_field :to, :value => User.find_by_name(@currentuser.advisor).id %>
+					<%else%>
+					<%if !@user.nil? && !@user.new_record?%>
+					<%= f.hidden_field :to, :value => @user.id %>
+					<%= f.hidden_field :from, :value => @currentuser.id %>
+					<%else%>
+					<% @students = User.find_all_by_advisor(@currentuser.name) %>
+					<%= select_tag("to", options_from_collection_for_select(@students, :id, :name)) %>
+
+					<%= f.hidden_field :from, :value => @currentuser.id %>
+
+					<%end%>
+					<%end%>
+				</div>
+				<div class="field">
+					<%= f.text_area :content, {:class=>"form-control",:placeholder=>"Content"} %>
+				</div>
+				<div class="field">
+					<%= f.submit "Submit",:class=>"btn btn-default" %>
+				</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
