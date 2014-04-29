@@ -1,12 +1,11 @@
-<% @currentuser = User.find_by_id(session[:user_id]) 
-	@user = User.find_by_id(params[:id])
+<% @currentuser = User.find_by_id(session[:user_id])
+
 %>
 
-
-	<%if @currentuser.flag != 'submitted' && @currentuser.flag != 'approved'%>
-	<h1>Registration Options for <%= @currentuser.name %> </h1>
-	<br>
-	<%= render 'bootstrap_dual_list' %>
+<%if @currentuser.flag != 'submitted' && @currentuser.flag != 'approved'%>
+<h1>Registration Options for <%= @currentuser.name %> </h1>
+<br>
+<%= render 'bootstrap_dual_list' %>
 
 <%else%>
 <h1>Submitted Package for <%= @currentuser.name %> </h1>
@@ -35,10 +34,8 @@
 			<%end%>
 		</tbody>
 	</table>
-	
 </div>
 <%end%>
-
 
 <% if @currentuser.classification != "Student" %>
 <div style="border:solid; border-color: white; scroll; height:57%; overflow-x:hidden;background: rgba(255,255,255,0.1);">
@@ -53,6 +50,7 @@
 		</thead>
 		<tbody>
 			<% @courses.each do |course| %>
+			<%if course.choice == @user.id %>
 			<tr>
 				<td><%= course.name %></td>
 				<td><%= course.hours %></td>
@@ -61,6 +59,7 @@
 				<td><%= link_to 'Edit', edit_course_path(course), :class => "btn btn-outline-inverse btn-block" %></td>
 				<td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-outline-inverse btn-block" %></td>
 			</tr>
+			<%end%>
 			<%end%>
 		</tbody>
 </div>
