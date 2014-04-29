@@ -80,7 +80,7 @@
 	            <div class="modal-dialog">
 	              <div class="modal-content">
 	                <div class="modal-header">
-	                  <h4 class="modal-title" id="myModalLabel" style="color: black">Modal title</h4>
+	                  <h2 class="modal-title" id="myModalLabel" style="color: black">Edit course</h2>
 	                </div>
 	                <div class="modal-body">
 	                  <%= render 'courselists/form', courselist: courselist %>
@@ -96,6 +96,7 @@
 	</tbody>
 </table>
 </div>
+</br>
 <a href="#new-courselist" class="btn btn-outline-inverse btn-block"data-toggle="modal">New Course</a>
 <%= render :partial => 'new_courselist_modal' %>
 <%end%>

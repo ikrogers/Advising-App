@@ -12,18 +12,15 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name, :style=>"color : #000000" %><br>
-    <%= f.text_field :name, :style=>"color : #000000" %>
+    <%= f.text_field :name, {:class=>"form-control", :placeholder=>"Name"} %>
   </div>
   <div class="field">
-    <%= f.label :prereq, :style=>"color : #000000" %><br>
-    <%= f.text_field :prereq, :style=>"color : #000000" %>
+    <%= f.text_field :prereq, {:class=>"form-control", :placeholder=>"Prereq"} %>
   </div>
   <div class="field">
-    <%= f.label :description, :style=>"color : #000000" %><br>
-    <%= f.text_field :description, :style=>"color : #000000" %>
+    <%= f.text_field :description, {:class=>"form-control", :placeholder=>"Description"} %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit",:class=>"btn btn-default" %>
   </div>
 <% end %>
