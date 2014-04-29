@@ -20,8 +20,15 @@
 			</tr>
 			<%end%>
 			<%end%>
+			
+			
 		</tbody>
 	</table>
+		<%if @user.flag == 'advised' %>
+		<%= link_to 'Deny', denyFlag_path(@user, :id => @user.id), method: :get,:class => 'btn btn-default btn-md btn-block'%>
+		<%elsif @user.flag == 'denied' %>
+		<%= link_to 'Approve', liftFlag_path(@user, :id => @user.id), method: :get,:class => 'btn btn-default btn-md btn-block'%>
+		<%end%>
 </div>
 <%end%>
 

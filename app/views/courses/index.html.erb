@@ -1,4 +1,6 @@
-<% @currentuser = User.find_by_id(session[:user_id]) %>
+<% @currentuser = User.find_by_id(session[:user_id]) 
+	@user = User.find_by_id(params[:id])
+%>
 
 
 	<%if @currentuser.flag != 'submitted' && @currentuser.flag != 'approved'%>
@@ -33,9 +35,10 @@
 			<%end%>
 		</tbody>
 	</table>
-
+	
 </div>
 <%end%>
+
 
 <% if @currentuser.classification != "Student" %>
 <div style="border:solid; border-color: white; scroll; height:57%; overflow-x:hidden;background: rgba(255,255,255,0.1);">

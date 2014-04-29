@@ -10,7 +10,7 @@ User.create!(name: 'dgibson', password: 'dgibson', password_confirmation: 'dgibs
 User.create!(name: 'sgoel', password: 'sgoel', password_confirmation: 'sgoel', classification: "Advisor")
 User.create!(name: 'irogers', password: 'irogers', password_confirmation: 'irogers', classification: "Student", advisor: "sgoel", flag: "false")
 User.create!(name: 'ddemeritt', password: 'ddemeritt', password_confirmation: 'ddemeritt', classification: "Student", advisor: "sgoel", flag: "false")
-User.create!(name: 'wcassady', password: 'wcassady', password_confirmation: 'wcassady', classification: "Student", advisor: "dgibson", flag: "true")
+User.create!(name: 'wcassady', password: 'wcassady', password_confirmation: 'wcassady', classification: "Student", advisor: "dgibson", flag: "false")
 User.create!(name: 'rjenkins', password: 'rjenkins', password_confirmation: 'rjenkins', classification: "Student", advisor: "dgibson", flag: "false")
 
 #default course.  DO NOT REMOVE!
