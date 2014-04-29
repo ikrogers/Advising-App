@@ -126,7 +126,10 @@ class UsersController < ApplicationController
     (Course.find_all_by_studentid(@user.id)).each do |course|
       course.destroy
     end
-    (Message.find_all_by_to_and_from(@user.id,@user.id)).each do |message|
+    (Message.find_all_by_to(@user.id)).each do |message|
+      message.destroy
+    end
+    (Message.find_all_by_from(@user.id)).each do |message|
       message.destroy
     end
     (Appointment.find_all_by_stuID(@user.id)).each do |message|

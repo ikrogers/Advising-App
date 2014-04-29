@@ -4,7 +4,9 @@
 
 <table>
   <tbody>
-	    <% @appointments.each do |appointment| %>
+  		
+	    <%	if @currentuser.classification == 'Admin' %>
+	    	<%@appointments.each do |appointment| %>
 	      <tr>
 	      	
 	        <td><%= appointment.appts %></td>
@@ -17,8 +19,58 @@
 	        <td><%= link_to 'Deny', denyApt_path(appointment, :id => appointment.id), method: :get, data: { confirm: 'Are you sure?' }%></td>
 	        <td><%= link_to 'Delete', deleteApt_path(appointment, :id => appointment.id),method: :get, data: { confirm: 'Are you sure?' } %></td>
 	      </tr>
-	    <% end %>
-    
+	      <%end%>
+	    <% elsif @currentuser.classification == 'Student' %>
+	    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
+	    	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+	    	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	    	<%@appointment = Appointment.find_by_stuID(@currentuser.id)%>
+	    	<%if !@appointment.nil? && !@appointment.new_record?%>
+	    	<td><%= @appointment.appts %></td>
+	        <td><%= @appointment.appte %></td>
+	        <td><%= (User.find_by_id(appointment.stuID)).name %></td>
+	        <td><%= @appointment.approved %></td>
+	        <td><%= @appointment.notes %></td>
+	        <%end%>
+	        <div class="container">
+    <div class="col-sm-6" style="height:75px;">
+       <div class='col-md-5'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker8'>
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class='col-md-5'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker9'>
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker8').datetimepicker();
+            $('#datetimepicker9').datetimepicker();
+            $("#datetimepicker8").on("dp.change",function (e) {
+               $('#datetimepicker9').data("DateTimePicker").setMinDate(e.date);
+            });
+            $("#datetimepicker9").on("dp.change",function (e) {
+               $('#datetimepicker8').data("DateTimePicker").setMaxDate(e.date);
+            });
+        });
+    </script>
+</div>
+	        
+	    <%elsif @currentuser.classification == 'Advivisor'%>
+	    
+	    <%end%>
+    	
   </tbody>
 </table>
 
