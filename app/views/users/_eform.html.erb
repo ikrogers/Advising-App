@@ -3,7 +3,7 @@
 
 <div class="form-horizontal">
 
-	<%= form_for(@user, :class=>"form-horizontal")  do |f| %>
+	<%= form_for(user, :class=>"form-horizontal")  do |f| %>
 	<div class="form-group">
 		<div class="col-sm-12">
 			<%= f.text_field :name, {:class=>"form-control", :placeholder=>"Username"} %>
@@ -26,8 +26,8 @@
 	</div>
 	<div class="form-group">
 		<div class="col-sm-12">
-	<select id="user_advisor" name="user[advisor]" class="form-control">	
-		<option value="     ">Advisor</option>
+	<select id="user_advisor" name="user[advisor]" class="form-control">
+				<option value="     ">Advisor</option>	
 		<% @advisor = User.all %>
 			<% @advisor.each do |list| %>
 			<% @match = 0 %>
@@ -66,4 +66,3 @@
 	</div>
 	<% end %>
 </div>
-

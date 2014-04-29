@@ -107,15 +107,17 @@
 							<div class="modal-dialog">
 								<div class="modal-content">
 									<div class="modal-header">
-										<h4 class="modal-title" id="myModalLabel" style="color: black">Edit User</h4>
+										<h2 class="modal-title" id="myModalLabel" style="color: black">Edit User</h2>
 									</div>
 									<div class="modal-body">
-										<%= render 'users/formstudent', user: user %>
+										<%= render 'users/eform', user: user %>
 									</div>
 								</div>
 							</div>
 						</div></td>
-						<td><%= button_to 'Destroy', destroy_path(user, :id => user.id,:action => :destroy), data: { confirm: 'Are you sure?' }, :class => 'btn btn-default btn-md btn-block', :style => "color:black"  %></td>
+
+						<td><%= button_to 'Destroy', destroy_path(:id => user.id,:action => :destroy), data: { confirm: 'Are you sure?' }, :class => 'btn btn-default btn-md btn-block', :style => "color:black"  %></td>
+
 						<%end%>
 					</tr>
 					<% end %>
