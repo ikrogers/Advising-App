@@ -123,6 +123,16 @@ class UsersController < ApplicationController
   # DELETE /users/1.json
   def destroy
     @user = User.find(params[:id])
+    (Course.find_all_by_studentid(@user.id)).each do |course|
+      course.destroy
+    end
+    (Message.find_all_by_to_and_from(@user.id,@user.id)).each do |message|
+      message.destroy
+    end
+    (Appointment.find_all_by_stuID(@user.id)).each do |message|
+      message.destroy
+    end
+    #messagee_path(@user.id,:to => @user.id,:action => 'index')
     @user.destroy
     respond_to do |format|
       format.html { redirect_to users_url }

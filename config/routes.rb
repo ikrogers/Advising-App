@@ -46,6 +46,7 @@ Advising::Application.routes.draw do
   resources :users
   post 'liftFlag' => 'users#liftFlag'
   get 'liftFlag' => 'users#liftFlag'
+  post 'destroy' => 'users#destroy'
   post 'denyFlag' => 'users#denyFlag'
   get 'denyFlag' => 'users#denyFlag'
   get  'messagee' => 'messages#index'#hitting this one
