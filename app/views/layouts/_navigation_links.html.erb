@@ -1,22 +1,46 @@
-<% @currentuser = User.find_by_id(session[:user_id]) %>
+<% @cuser = User.find_by_id(session[:user_id]) %>
 
-<%case @currentuser.classification%>
+<%case @cuser.classification%>
 <%      when "Admin"%>
-<p><%= button_to 'Manage Course Catalog', courselists_path,:class => "btn btn-outline-inverse btn-block",method: :get %></p>
-<p><%= button_to 'Manage Users', users_path,:class => "btn btn-outline-inverse btn-block",method: :get %></p>
-<p><%= button_to 'Back', admin_path(),:class => "btn btn-outline-inverse btn-block" ,method: :get %></p>
-
-
-
-
+<p><%= button_to 'Home', admin_path(),:class => "btn btn-outline-inverse btn-block" ,method: :get %></p>
+<p><%= button_to 'Manage Users', users_path(),:class => "btn btn-outline-inverse btn-block" ,method: :get %></p>
+<p><%= button_to 'Manage Courses', courselists_path(),:class => "btn btn-outline-inverse btn-block" ,method: :get %></p>
 <%      when "Advisor"%>
-<p><%= button_to 'Manage Users', users_path(),:class => "btn btn-outline-inverse btn-block",method: :get  %></p>
-<p><%= button_to 'View Appointments', appointments_path(),:class => "btn btn-outline-inverse btn-block",method: :get  %></p>
-<p><%= button_to 'View Messages', messages_path(),:class => "btn btn-outline-inverse btn-block",method: :get  %></p>
-<p><%= button_to 'Back', advisor_path(),:class => "btn btn-outline-inverse btn-block",method: :get  %></p>
-
-
+<p><%= button_to 'Home', advisor_path(),:class => "btn btn-outline-inverse btn-block",method: :get  %></p>
 <%     else%>
-<p><%= button_to 'Back', student_path(),:class => "btn btn-outline-inverse btn-block",method: :get  %></p>
+<p><%= button_to 'Home', student_path(),:class => "btn btn-outline-inverse btn-block",method: :get  %></p>
+
+</p>
+<%if (@cuser.flag == 'false')%>
+<p>
+<%= button_to 'Submit Schedule', courses_path(@cuser.id),:class => "btn btn-outline-inverse btn-block", method: :get %>
+</p>
+<%elsif (@cuser.flag == 'denied')%>
+<p>
+<%= button_to 'Resubmit Schedule', courses_path(@cuser.id),:class => "btn btn-outline-inverse btn-block", method: :get %>
+</p>
+<%elsif (@cuser.flag == 'approved')%>
+<p>
+<%= button_to 'View Approved Schedule', @cuser,:class => "btn btn-outline-inverse btn-block", method: :get %>
+</p>
+<%elsif (@cuser.flag == 'submitted')%>
+<p>
+<%= button_to 'View Submitted Schedule', @cuser,:class => "btn btn-outline-inverse btn-block", method: :get %>
+</p>
+<%end%>
+<p>
+<%if @cuser.message == 'unread'%>
+<%= link_to "View unread messages", messagee_path(@cuser.id,:to => @cuser.id,:action => 'index'),:class => "btn btn-outline-inverse btn-block"%>
+<%else%>
+<%= link_to "View/send messages", messagee_path(@cuser.id,:to => @cuser.id,:action => 'index'),:class => "btn btn-outline-inverse btn-block"%>
+<%end%>
+</p>
+<p>
+<%= button_to 'Make/View appointment', appointments_path(@cuser.id),:class => "btn btn-outline-inverse btn-block", method: :get %>
+</p>
+<p>
+
+<%= button_to 'Course Catalog', courselists_path,:class => "btn btn-outline-inverse btn-block", method: :get %>
+</p>
 <%     end%>
 <p><%= button_to 'Logout',  logout_path,:class => "btn btn-outline-inverse btn-block",  method: :delete %></p>

@@ -23,7 +23,6 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
         @users = User.all
-
   end
   
   def setAppt
@@ -77,7 +76,6 @@ class UsersController < ApplicationController
     #if @user.save
     #  respond_with(@currentuser, :location => users_url);
     #end
-    
       if @user.save
         redirect_to users_url
         
@@ -90,14 +88,14 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @currentuser = User.find_by_id(session[:user_id])
-    if @currentuser.classification == "Advisor"
+    if @currentuser.classification != "Student"
       @user.classification = "Student"
       @user.advisor = @currentuser.name
       @user.flag = "false"
     end
     respond_to do |format|
       if @user.save
-        format.html { redirect_to users_url, notice: "User #{@user.name} was successfully created." }
+        format.html { redirect_to users_url }
         format.json { render action: 'show', status: :created, location: @user }
       else
         format.html { render action: 'new' }
@@ -111,7 +109,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to users_url,notice: "User #{@user.name} was successfully updated." }
+        format.html { redirect_to users_url}
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -123,6 +121,20 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+    @user = User.find(params[:id])
+    (Course.find_all_by_studentid(@user.id)).each do |course|
+      course.destroy
+    end
+    (Message.find_all_by_to(@user.id)).each do |message|
+      message.destroy
+    end
+    (Message.find_all_by_from(@user.id)).each do |message|
+      message.destroy
+    end
+    (Appointment.find_all_by_stuID(@user.id)).each do |message|
+      message.destroy
+    end
+    #messagee_path(@user.id,:to => @user.id,:action => 'index')
     @user.destroy
     respond_to do |format|
       format.html { redirect_to users_url }
@@ -139,7 +151,6 @@ class UsersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
-
-    params.require(:user).permit(:name, :classification, :password, :password_confirmation, :fname, :mi, :lname)
+    params.require(:user).permit(:name, :classification, :password, :password_confirmation, :advisor, :fname, :mi, :lname)
   end
 end

@@ -1,7 +1,13 @@
 Advising::Application.routes.draw do
   resources :messages
-  get 'viewMsgs' => 'users#viewMsgs'
+  get  'message' => 'messages#index'
+  post 'message' => 'messages#index'
   
+  controller :messages do
+    get 'message' => :index
+    get  'message' => 'messages#index'
+    post 'message' => 'messages#index'
+  end
 
   resources :appointments
   get 'viewAppts' => 'users#viewAppts'
@@ -40,8 +46,10 @@ Advising::Application.routes.draw do
   resources :users
   post 'liftFlag' => 'users#liftFlag'
   get 'liftFlag' => 'users#liftFlag'
+  post 'destroy' => 'users#destroy'
   post 'denyFlag' => 'users#denyFlag'
   get 'denyFlag' => 'users#denyFlag'
+  get  'messagee' => 'messages#index'#hitting this one
 
   controller :users do
     post 'liftFlag' => :liftFlag
@@ -56,6 +64,7 @@ Advising::Application.routes.draw do
   
 
   root 'sessions#new', as: 'advising'
+  root :to =>'sessions#new'
   
   
   
