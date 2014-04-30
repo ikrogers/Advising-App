@@ -34,7 +34,7 @@ class MessagesController < ApplicationController
     if @currentuser.classification == 'Advisor'
     respond_to do |format|
       if @message.save
-        format.html { redirect_to advisor_url, notice: 'Message was successfully created.' }
+        format.html { redirect_to advisor_url }
         format.json { render action: 'show', status: :created, location: @message }
       else
         format.html { render action: 'new' }
@@ -44,7 +44,7 @@ class MessagesController < ApplicationController
     elsif @currentuser.classification == 'Student'
       respond_to do |format|
       if @message.save
-        format.html { redirect_to student_url, notice: 'Message was successfully created.' }
+        format.html { redirect_to student_url, confirm: 'Message was successfully created.' }
         format.json { render action: 'show', status: :created, location: @message }
       else
         format.html { render action: 'new' }
