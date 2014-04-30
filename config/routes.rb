@@ -27,7 +27,9 @@ Advising::Application.routes.draw do
   post 'testajaxjs' => 'courses#testajaxjs'
 
 
-  
+  resource :appointments
+  get 'createappt' => 'appointments#createAppt'
+  post 'createappt' => 'appointments#createAppt'
 
   resources :courses
   get "student/index"
