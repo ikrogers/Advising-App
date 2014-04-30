@@ -53,7 +53,7 @@
 		<% if (user.advisor == @currentuser.name && user.flag == 'advised') %>
 		<tr>
 			<td><%= user.name %></td>
-			<td><%= link_to 'Deny', denyFlag_path(user, :id => user.id), method: :get,:class => 'btn btn-default btn-md btn-block'%></td>
+			<td><%= link_to 'Deny', denyFlag_path(user, :id => user.id), data: { confirm: 'Are you sure?' }, method: :get,:class => 'btn btn-default btn-md btn-block'%></td>
 			<td><%= link_to 'Show', user,:class => 'btn btn-default btn-md btn-block' %></td>
 		</tr> <% end %>
 		<% end %> </td>
