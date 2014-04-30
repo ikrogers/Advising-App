@@ -77,12 +77,16 @@ GEM
     jquery-turbolinks (2.0.2)
       railties (>= 3.1.0)
       turbolinks
+    jquery_mobile_rails (1.4.1)
+      railties (>= 3.1.0)
     json (1.8.1)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.25.1)
     minitest (4.7.5)
+    mobylette (3.5)
+      actionpack (>= 3.0)
     momentjs-rails (2.5.1)
       railties (>= 3.1)
     multi_json (1.9.2)
@@ -169,6 +173,8 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   jquery-turbolinks
+  jquery_mobile_rails
+  mobylette
   momentjs-rails (~> 2.5.0)
   pg (= 0.15.1)
   quiet_assets

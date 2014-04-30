@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
+  include Mobylette::RespondToMobileRequests
   before_filter :store_path
   protect_from_forgery with: :exception
   
@@ -11,4 +12,5 @@ class ApplicationController < ActionController::Base
     # And then update the current_path to the uri for the current request
     session[:current_path] = request.url
   end
+  
 end
