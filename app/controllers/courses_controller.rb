@@ -1,48 +1,16 @@
 class CoursesController < ApplicationController
-  layout 'functionalitylayout'
   before_action :set_course, only: [:show, :edit, :update, :destroy]
   # GET /courses
   # GET /courses.json
   def index
     @courses = Course.all
-
   end
-      
-  def getcourse
-    @currentuser = User.find_by_id(session[:user_id])
-    
-    
-    @name = params[:param1]
-    if @currentuser.classification == 'Student'
-    @currentuser.update_attribute(:flag , 'submitted')
-    end
-    #consider adding else for setting flag to false, indicating advisor/admin made change to allow re-registration?
-
-    
-    @allcourses = Courselist.all
-    if @name != nil
-    @allcourses.each do |all|
-      @name.each do |c|
-        if all.name == c
-          @student = Course.create(name: all.name, prereq: all.prereq, hours: all.hours, choice: @currentuser.id)
-        end
-      end
-    end #end of allcourses loop
-    end #end if
-
-    respond_to do |format|
-
-      format.html { redirect_to courses_path(@currentuser.id), notice: "Courses updated" }
-      format.json { render :json => { :name => @name }}
-
-    end #end of format
-  end #end of method
 
   # GET /courses/1
   # GET /courses/1.json
   def show
-    
   end
+  
 
   # GET /courses/new
   def new
@@ -59,12 +27,12 @@ class CoursesController < ApplicationController
     @course = Course.new(course_params)
     @currentuser = User.find_by_id(session[:user_id])
     if @currentuser.classification == "Student"
-    @course.studentid = @currentuser.id
+      @course.studentid = @currentuser.id
     end
 
     respond_to do |format|
       if @course.save
-        format.html { redirect_to student_path, notice: 'Course was successfully created.' }
+        format.html { redirect_to @course, notice: 'Course was successfully created.' }
         format.json { render action: 'show', status: :created, location: @course }
       else
         format.html { render action: 'new' }
@@ -96,22 +64,16 @@ class CoursesController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
-  def testajaxjs
-    respond_to do |format|
-      format.js {render(partial: 'courses/testajax')}
-    end
-  end
+
 
   private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_course
+      @course = Course.find(params[:id])
+    end
 
-  # Use callbacks to share common setup or constraints between actions.
-  def set_course
-    @course = Course.find(params[:id])
-  end
-
-  # Never trust parameters from the scary internet, only allow the white list through.
-  def course_params
-    #params.require(:course).permit(:name, :hours, :prereq)
-  end
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def course_params
+      params.require(:course).permit(:name, :hours, :prereq)
+    end
 end

@@ -1,13 +1,6 @@
 class SessionsController < ApplicationController
-  skip_before_action :authorize
-   layout 'front'
   def new
-
   end
-
-def post
-  @post = Post.new
-end
 
   def create
     user = User.find_by(name: params[:name])
@@ -28,6 +21,6 @@ end
 
   def destroy
     session[:user_id] = nil
-    redirect_to advising_url
+ redirect_to advising_url, notice: "Logged out"
   end
 end

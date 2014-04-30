@@ -1,40 +1,30 @@
-<%= form_for(user) do |f| %>
-  <% if user.errors.any? %>
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
       <ul>
-      <% user.errors.full_messages.each do |msg| %>
+      <% @user.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
+  
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
 
-  <div class="field" >
-    <%= f.label :name, :style=>"color : #000000" %><br>
-    <%= f.text_field :name, :style=>"color : #000000" %>
-  </div>
   <div class="field">
-    <%= f.label :fname, :style=>"color : #000000" %><br>
-    <%= f.text_field :fname, :style=>"color : #000000" %>
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
   </div>
-  <div class="field">
-    <%= f.label :mi, :style=>"color : #000000" %><br>
-    <%= f.text_field :mi, :style=>"color : #000000" %>
-  </div>
-    <div class="field">
-    <%= f.label :lname, :style=>"color : #000000" %><br>
-    <%= f.text_field :lname, :style=>"color : #000000" %>
-  </div>
-    <div class="field">
-    <%= f.label :password, :style=>"color : #000000" %><br>
-    <%= f.password_field :password, :style=>"color : #000000" %>
-  </div>
-    <div class="field">
-    <%= f.label :password_confirmation, :style=>"color : #000000" %><br>
-    <%= f.password_field :password_confirmation, :style=>"color : #000000" %>
-  </div>
+  <div>
+    <%= f.label :password_confirmation %><br>
+    <%= f.password_field :password_confirmation %>
+  </div><br /> 
+     
   <div class="actions">
     <%= f.submit %>
   </div>

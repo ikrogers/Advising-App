@@ -1,35 +1,8 @@
 Advising::Application.routes.draw do
-  resources :messages
-  get  'message' => 'messages#index'
-  post 'message' => 'messages#index'
-  
-  controller :messages do
-    get 'message' => :index
-    get  'message' => 'messages#index'
-    post 'message' => 'messages#index'
-  end
-
-  resources :appointments
-  get 'viewAppts' => 'users#viewAppts'
-  post 'setAppt' => 'appointments#setAppt'
-  get 'denyApt' => 'appointments#deny'
-  get 'approveApt' => 'appointments#approve'
-  get 'deleteApt' => 'appointments#destroy'
-  
   resources :courselists
-  post 'getcourse' => 'courses#getcourse'
-  post 'setAppt' => 'courses#setAppt'
-  get 'getcourse' => 'courses#getcourse'
-  post 'contactf' => 'courses#contactf'
-  get 'contactf' => 'courses#contactf'
-
-
-  post 'testajaxjs' => 'courses#testajaxjs'
-
-
-  
 
   resources :courses
+
   get "student/index"
   get 'admin' => 'admin#index'
   get 'advisor' => 'advisor#index'
@@ -44,32 +17,15 @@ Advising::Application.routes.draw do
   get "sessions/create"
   get "sessions/destroy"
   resources :users
-  post 'liftFlag' => 'users#liftFlag'
-  get 'liftFlag' => 'users#liftFlag'
-  post 'destroy' => 'users#destroy'
-  post 'denyFlag' => 'users#denyFlag'
-  get 'denyFlag' => 'users#denyFlag'
-  get  'messagee' => 'messages#index'#hitting this one
 
-  controller :users do
-    post 'liftFlag' => :liftFlag
-    get  'liftFlag' => :liftFlag
-    post 'denyFlag' => :denyFlag
-    get  'denyFlag' => :denyFlag
-  end
+get 'courses/sendcourses'
   
   resources :users do
     resources :courses
   end
   
 
-  root 'sessions#new', as: 'advising'
-  root :to =>'sessions#new'
-  
-  
-  
-  
-
+  root 'advising#index', as: 'advising'
 # The priority is based upon order of creation: first created -> highest priority.
 # See how all your routes lay out with "rake routes".
 

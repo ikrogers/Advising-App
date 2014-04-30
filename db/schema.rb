@@ -11,29 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140429002647) do
-
-  create_table "appointments", force: true do |t|
-    t.datetime "appts"
-    t.datetime "appte"
-    t.integer  "advID"
-    t.integer  "stuID"
-    t.string   "approved"
-    t.string   "notes"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "title"
-    t.string   "url"
-    t.string   "class"
-    t.string   "start"
-    t.string   "end"
-  end
+ActiveRecord::Schema.define(version: 20140325211829) do
 
   create_table "courselists", force: true do |t|
-    t.string  "name"
-    t.string  "prereq"
-    t.string  "description"
-    t.integer "hours"
+    t.string "name"
+    t.string "prereq"
+    t.string "description"
   end
 
   create_table "courses", force: true do |t|
@@ -43,17 +26,8 @@ ActiveRecord::Schema.define(version: 20140429002647) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "studentid"
-    t.integer  "choice"
-    t.integer  "user_id"
-  end
-
-  create_table "messages", force: true do |t|
-    t.integer  "to"
-    t.integer  "from"
-    t.text     "content"
-    t.string   "status"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "choices"
+    t.string   "message"
   end
 
   create_table "users", force: true do |t|
@@ -67,10 +41,7 @@ ActiveRecord::Schema.define(version: 20140429002647) do
     t.string   "lname"
     t.decimal  "gpa"
     t.string   "advisor"
-    t.string   "message"
-    t.string   "flag"
-    t.datetime "appts"
-    t.datetime "appte"
+    t.datetime "appointmentDate"
   end
 
 end

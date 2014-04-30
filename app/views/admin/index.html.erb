@@ -1,17 +1,19 @@
-<h1>Advising Center</h1>
-<% @user = User.find_by_id(session[:user_id])
-%>
-
-<h2 style="color: white">Welcome <%= @user.name%>!</h2>
-
+<h1>ADMIN TEST PAGE</h1>
 <p>
-	<%= button_to "Manage Users", users_path(), :class => "btn btn-outline-inverse btn-block", method: :get %>
+	Find me in app/views/admin/index.html.erb
 </p>
+<div class="item">
+	<%= button_to "Manage Users", users_path(), method: :get %>
+</div>
+<div>
+	<%= button_to "Manage Courses", courses_path(), method: :get %>
+</div>
 <p>
-	<%= button_to "Manage Courses", courselists_path(), :class => "btn btn-outline-inverse btn-block", method: :get %>
-</p>
-<p>
-	<%= button_to 'Logout', logout_path, :class => "btn btn-outline-inverse btn-block", method: :delete %>
+	<%= button_to 'Logout', logout_path, method: :delete %>
+
 </p>
 
+<div class="item">
+	<%= image_tag("cat5.jpg", :size => "500x500") %>
+</div>
 

@@ -1,69 +1,32 @@
-<% @currentuser = User.find_by_id(session[:user_id]) %>
-<% @user = User.new %>
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-<div class="form-horizontal">
-
-	<%= form_for(@user, :class=>"form-horizontal")  do |f| %>
-	<div class="form-group">
-		<div class="col-sm-12">
-			<%= f.text_field :name, {:class=>"form-control", :placeholder=>"Username"} %>
-		</div>
-	</div>
-	<div class="form-group">
-		<div class="col-sm-12">
-			<%= f.text_field :fname, {:class=>"form-control",:placeholder=>"First Name"} %>
-		</div>
-	</div>
-	<div class="form-group">
-		<div class="col-sm-12">
-			<%= f.text_field :lname, {:class=>"form-control",:placeholder=>"Last Name"} %>
-		</div>
-	</div>
-	<div class="form-group">
-		<div class="col-sm-12">
-			<%= f.text_field :mi, {:class=>"form-control",:placeholder=>"Middle Initial"} %>
-		</div>
-	</div>
-	<div class="form-group">
-		<div class="col-sm-12">
-	<select id="user_advisor" name="user[advisor]" class="form-control">	
-		<option value="">Advisor</option>
-		<% @advisor = User.all %>
-			<% @advisor.each do |list| %>
-			<% @match = 0 %>
-			<% if list.classification == 'Advisor'%>
-			<% @match = 1 %>
-			<% end %>
-			<% if @match == 1 %>
-			<option value="<%= list.name %>"> <%= list.name %> </option>
-			<% end %>
-			<% end %>
-			</select>
-	</div>
-	</div>
-	<div class="form-group">
-		<div class="col-sm-12">
-			<select id="user_classification" name="user[classification]" class="form-control">
-				<option value="Student">Student</option>
-				<option value="Advisor">Advisor</option>
-			</select>
-		</div>
-	</div>
-	<div class="form-group">
-		<div class="col-sm-12">
-			<%= f.password_field :password, {:class=>"form-control",:placeholder=>"Password"} %>
-		</div>
-	</div>
-	<div class="form-group">
-		<div class="col-sm-12">
-			<%= f.password_field :password_confirmation, {:class=>"form-control",:placeholder=>"Confirm Password"} %>
-		</div>
-	</div>
-	<div class="form-group">
-		<div class="col-sm-offset-1 col-sm-10">
-			<%= f.submit "Submit",:class=>"btn btn-default" %>
-		</div>
-	</div>
-	<% end %>
-</div>
-
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :classification %><br>
+    <%= f.select :classification, User::USER_TYPES, prompt: 'Select type of user' %>
+  </div>
+  <div class="field">
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
+  </div>
+  <div>
+    <%= f.label :password_confirmation %><br>
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

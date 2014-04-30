@@ -10,11 +10,11 @@
   </head>
   <body>
     <header>
+      <%= render 'layouts/navigation' %>
     </header>
-    <mainn role="main">
-    	
+    <main role="main">
        <%= render 'layouts/messages' %>
        <%= yield %>
-    </mainn>
+    </main>
   </body>
 </html>

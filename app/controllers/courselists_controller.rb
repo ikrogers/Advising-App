@@ -1,5 +1,4 @@
 class CourselistsController < ApplicationController
-  layout 'functionalitylayout'
   before_action :set_courselist, only: [:show, :edit, :update, :destroy]
 
   # GET /courselists
@@ -29,7 +28,7 @@ class CourselistsController < ApplicationController
 
     respond_to do |format|
       if @courselist.save
-        format.html { redirect_to courselists_url }
+        format.html { redirect_to @courselist, notice: 'Courselist was successfully created.' }
         format.json { render action: 'show', status: :created, location: @courselist }
       else
         format.html { render action: 'new' }
@@ -43,7 +42,7 @@ class CourselistsController < ApplicationController
   def update
     respond_to do |format|
       if @courselist.update(courselist_params)
-        format.html { redirect_to courselists_url }
+        format.html { redirect_to @courselist, notice: 'Courselist was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
