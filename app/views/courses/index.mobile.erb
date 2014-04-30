@@ -5,14 +5,13 @@
 <%if @currentuser.flag != 'submitted' && @currentuser.flag != 'approved'%>
 <h1>Registration Options for <%= @currentuser.name %> </h1>
 <br>
-<%= render 'bootstrap_dual_list' %>
-
 <%else%>
 <h1>Submitted Package for <%= @currentuser.name %> </h1>
 <br>
 
 <% if @currentuser.classification == "Student" %>
 
+<div data-role="content">
 <div style="border:solid; border-color: white; scroll; height:57%; overflow-x:hidden;background: rgba(255,255,255,0.1);">
 	<table  class="table table-bordered">
 		<thead style="height:50px">
@@ -49,6 +48,7 @@
 			</tr>
 		</thead>
 		<tbody>
+			
 			<% @courses.each do |course| %>
 			<%if course.choice == @user.id %>
 			<tr>
@@ -65,4 +65,5 @@
 </div>
 <%end%>
 <%end%>
+</div>
 <br>

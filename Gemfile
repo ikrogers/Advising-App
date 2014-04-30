@@ -66,6 +66,9 @@ gem 'bootstrap-sass'
 gem 'high_voltage'
 gem 'simple_form', github: 'wtfiwtz/simple_form_bootstrap3'
 
+gem 'mobylette'
+gem 'jquery_mobile_rails'
+
 
 group :production do
 gem 'pg', '0.15.1'

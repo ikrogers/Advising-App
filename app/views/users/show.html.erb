@@ -4,7 +4,7 @@
 
 <% if @user.classification == 'Student' %>
 <h1>Courses requested by: <%= @user.name%></h1>
-<div style="border:solid; border-color: white; scroll; height:57%; overflow-x:hidden;background: rgba(255,255,255,0.1);">
+<div style="border:solid; border-color: white; scroll; height:51%; overflow-x:hidden;background: rgba(255,255,255,0.1);">
 	<table  class="table table-bordered">
 		<thead style="height:50px">
 		<tbody>
@@ -20,19 +20,21 @@
 			</tr>
 			<%end%>
 			<%end%>
-			
-			
 		</tbody>
 	</table>
-		<%if @user.flag == 'advised' %>
-		<%= link_to 'Deny', denyFlag_path(@user, :id => @user.id), data: { confirm: 'Are you sure?' }, method: :get,:class => 'btn btn-default btn-md btn-block'%>
-		<%elsif @user.flag == 'denied' %>
-		<%= link_to 'Approve', liftFlag_path(@user, :id => @user.id), method: :get,:class => 'btn btn-default btn-md btn-block'%>
-		<%end%>
 </div>
+<br>
+<%if @user.flag == 'denied'%>
+<%= link_to 'Approve', liftFlag_path(@user, :id => @user.id), method: :get, :class => "btn btn-outline-inverse btn-block", style: "color:white"%>
+<%elsif @user.flag == 'advised'%>
+<%= link_to 'Deny', denyFlag_path(@user, :id => @user.id), method: :get, :class => "btn btn-outline-inverse btn-block", style: "color:white" %>
+<%elsif @user.flag == 'submitted'%>
+<%= link_to 'Approve', liftFlag_path(@user, :id => @user.id), method: :get, :class => "btn btn-outline-inverse btn-block", style: "color:white"%>
+<%= link_to 'Deny', denyFlag_path(@user, :id => @user.id), method: :get, :class => "btn btn-outline-inverse btn-block", style: "color:white" %>
+<%end%>
 <%end%>
 
-<% if @user.classification == 'Advisor' %>
+<% if @user.classification != 'Student' %>
 <h1>Student List</h1>
 
 <div style="border:solid; border-color: white; scroll; height:57%; overflow-x:hidden;background: rgba(255,255,255,0.1);">

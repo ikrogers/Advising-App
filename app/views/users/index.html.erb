@@ -9,48 +9,52 @@
 <%if(!(session[:current_path] =~ /value/))%>
 
 <h1>View Registration Packages</h1>
+<div style="border:solid; border-color: white; scroll; height:57%; overflow-x:hidden;background: rgba(255,255,255,0.1);">
+	<table  class="table table-bordered">
+		<thead style="height:50px">
+			<tr>
+				<th>Username</th>
+				<th>Status</th>
+				<th>Show</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @users.each do |user| %>
+			<tr>
+				<% if (user.advisor == @currentuser.name) %>
+				<td><%= user.name %></td>
+				<% if (user.advisor == @currentuser.name && user.flag == 'submitted') %>
+				<td>Submission Pending</td>
+				<%end%>
+				<% if (user.advisor == @currentuser.name && user.flag == 'false') %>
+				<td>Unadvised</td>
+				<%end%>
+				<% if (user.advisor == @currentuser.name && user.flag == 'denied') %>
+				<td>Denied</td>
+				<%end%>
+				<% if (user.advisor == @currentuser.name && user.flag == 'advised') %>
+				<td>Advised</td>
+				<%end%>
+				<td><%= link_to 'Show', user,:class => 'btn btn-default btn-md btn-block' %></td>
+				<%end%>
+				<% end %>
+
+				<tbody>
+
+	</table>
+</div>
+
+<%else%>
+
+<h1>Messages for <%= @currentuser.name%></h1>
 <table>
 	<tbody>
-		<th>Students with Submissions </th>
+		<th>Messages</th>
+		<div class="btn btn-outline-inverse btn-block">
+			<%= link_to 'New Message', new_message_path(),:class => 'btn btn-default btn-md btn-block' %>
+		</div>
 		<td> <% @users.each do |user| %>
-		<% if (user.advisor == @currentuser.name && user.flag == 'submitted') %>
-		<tr>
-			<td><%= user.name %></td>
-			<td><%= link_to 'Approve', liftFlag_path(user, :id => user.id), method: :get,:class => 'btn btn-default btn-md btn-block'%></td>
-			<td><%= link_to 'Deny', denyFlag_path(user, :id => user.id), method: :get, data: { confirm: 'Are you sure?' },:class => 'btn btn-default btn-md btn-block'%></td>
-			<td><%= link_to 'Show', user,:class => 'btn btn-default btn-md btn-block' %></td>
-		</tr> 
-		<% end %>
-		<% end %> 
-		</td>
-	</tbody>
-	<tbody>
-		<th>Unadvised Students</th>
-		<td> <% @users.each do |user| %>
-
-		<% if (user.advisor == @currentuser.name && user.flag == 'false') %>
-		<tr>
-			<td><%= user.name %></td>
-
-			<td><%= link_to 'Show', user,:class => 'btn btn-default btn-md btn-block' %></td>
-
-		</tr> <% end %>
-		<% end %> </td>
-	</tbody>
-	<th>Denied Students</th>
-	<td> <% @users.each do |user| %>
-	<% if (user.advisor == @currentuser.name && user.flag == 'denied') %>
-	<tr>
-		<td><%= user.name %></td>
-		<td><%= link_to 'Approve', liftFlag_path(user, :id => user.id), method: :get,:class => 'btn btn-default btn-md btn-block'%></td>
-		<td><%= link_to 'Show', user,:class => 'btn btn-default btn-md btn-block' %></td>
-	</tr> <% end %>
-	<% end %> </td>
-	</tbody>
-	<tbody>
-		<th>Advised Students</th>
-		<td> <% @users.each do |user| %>
-		<% if (user.advisor == @currentuser.name && user.flag == 'advised') %>
+		<% if (user.advisor == @currentuser.name) %>
 		<tr>
 			<td><%= user.name %></td>
 			<td><%= link_to 'Deny', denyFlag_path(user, :id => user.id), data: { confirm: 'Are you sure?' }, method: :get,:class => 'btn btn-default btn-md btn-block'%></td>

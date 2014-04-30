@@ -1,0 +1,107 @@
+<% @currentuser = User.find_by_id(session[:user_id]) %>
+<% @courses =  Course.all%>
+<% @total = 0%>
+<% @takencourse = 0%>
+<% @flag = 0%>
+<div data-role="header">
+<% if @currentuser.classification == "Student" %>
+<h1 >Courses Catalog</h1>
+</div>
+<div data-role="content">
+<br>
+<div style="border:solid; border-color: white; scroll; height:57%; overflow-x:hidden;background: rgba(255,255,255,0.1);">
+	<table class="table table-bordered">
+		<thead >
+			<tr style="height:50px">
+				<th>Name</th>
+				<th>Prereq</th>
+				<th>Hours</th>
+				<th>Description</th>
+				<th>Completion</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @courselists.each do |courselist| %>
+			<% @total = @total+1%>
+			<% @courses.each do |course|%>
+			<%if course.studentid == @currentuser.id && courselist.name==course.name%>
+			<% @takencourse = @takencourse+1%>
+			<% @flag = 1%>
+			<tr   style="background: rgba(255,255,255,0.3);">
+				<td><%= courselist.name %></td>
+				<td><%= courselist.prereq %></td>
+				<td><%= courselist.hours %></td>
+				<td><%= courselist.description %></td>
+				<td>Yes</td>
+			</tr>
+			<% end %>
+			<% end %>
+			<%if @flag !=1 %>
+			<tr  >
+				<td><%= courselist.name %></td>
+				<td><%= courselist.prereq %></td>
+				<td><%= courselist.hours %></td>
+				<td><%= courselist.description %></td>
+				<td>No</td>
+
+			</tr>
+			<%end%>
+			<% @flag = 0%>
+			<% end %>
+		</tbody>
+	</table>
+</div>
+<p class='lead'>
+	You are <%= (@takencourse*100)/@total%>% complete with your degree!
+</p>
+<br>
+<%end%>
+
+<% if @currentuser.classification == "Admin" %>
+<h1>Manage Course Catalog</h1>
+<div style="border:solid; border-color: white; scroll; height:57%; overflow-x:hidden;background: rgba(255,255,255,0.1);">
+<table  class="table table-bordered">
+	<thead style="height:50px">
+		<tr>
+			<th>Name</th>
+			<th>Prerequisites</th>
+			<th>Description</th>
+			<th>Edit</th>
+			<th>Delete</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @courselists.each do |courselist| %>
+		<tr >
+			<td><%= courselist.name %></td>
+			<td><%= courselist.prereq %></td>
+			<td><%= courselist.description %></td>
+			<td><%= link_to 'Edit',  '#', 'data-target' => "#myModal_#{courselist.id}", 'data-toggle' => 'modal',:class => 'btn btn-default btn-md btn-block'  %>
+	          <div class="modal fade" id='<%= "myModal_#{courselist.id}" %>' tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	            <div class="modal-dialog">
+	              <div class="modal-content">
+	                <div class="modal-header">
+	                  <h2 class="modal-title" id="myModalLabel" style="color: black">Edit course</h2>
+	                </div>
+	                <div class="modal-body">
+	                  <%= render 'courselists/form', courselist: courselist %>
+	                </div>
+	              </div><!-- /.modal-content -->
+	            </div><!-- /.modal-dialog -->
+	          </div><!-- /.modal -->
+	        </td>
+
+			<td><%= link_to 'Delete', courselist,:class => 'btn btn-default btn-md btn-block', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+</div>
+</div>
+</br>
+<div data-role="footer">
+<a href="#new-courselist" class="btn btn-outline-inverse btn-block"data-toggle="modal">New Course</a>
+<%= render :partial => 'new_courselist_modal' %>
+<%end%>
+</div>
