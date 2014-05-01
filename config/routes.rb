@@ -10,7 +10,9 @@ Advising::Application.routes.draw do
   end
 
   resources :appointments
-  get 'schdappt' => 'appointments#schdappt'
+  post 'delappt' => 'appointments#destroy'
+  post 'schdappt' => 'appointments#schdappt'
+  post 'cancappt' => 'appointments#cancappt'
   get 'viewAppts' => 'users#viewAppts'
   post 'setAppt' => 'appointments#setAppt'
   get 'denyApt' => 'appointments#deny'
@@ -26,9 +28,6 @@ Advising::Application.routes.draw do
 
 
   post 'testajaxjs' => 'courses#testajaxjs'
-
-
-  resource :appointments
 
   resources :courses
   get "student/index"

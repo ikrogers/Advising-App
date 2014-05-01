@@ -42,6 +42,7 @@ class AppointmentsController < ApplicationController
   end
   
   def schdappt
+    @currentuser = User.find_by_id(session[:user_id])
     @appointment = Appointment.find_by_id(params[:id])
     @appointment.update_attribute(:stuID, @currentuser.id)
     @appointment.update_attribute(:flag, 'taken')
@@ -49,6 +50,25 @@ class AppointmentsController < ApplicationController
     if(@appointment.save)
         respond_to do |format|
         format.html { redirect_to :back, notice: 'Appointment scheduled!' }
+        
+        end
+    else
+        respond_to do |format|
+        format.html { redirect_to :back, notice: 'Error in inputs.' }
+        
+        end
+    end
+  end
+  
+  def cancappt
+    @currentuser = User.find_by_id(session[:user_id])
+    @appointment = Appointment.find_by_stuID(params[:id])
+    @appointment.update_attribute(:stuID, -1)
+    @appointment.update_attribute(:flag, 'open')
+    @currentuser.update_attribute(:message, '')
+    if(@appointment.save)
+        respond_to do |format|
+        format.html { redirect_to :back, notice: 'Appointment cancelled!!' }
         
         end
     else
@@ -93,7 +113,7 @@ class AppointmentsController < ApplicationController
     end
     
     for i in 0..@weeks-1
-      Appointment.create(start: @date + i.weeks, end: @date + i.weeks + 30.minutes, advID: @currentuser.id, flag: 'open', notes: @ampm)
+      Appointment.create(start: @date + i.weeks,stuID: (-1), end: @date + i.weeks + 30.minutes, advID: @currentuser.id, flag: 'open', notes: @ampm)
     end
     redirect_to :back
   end

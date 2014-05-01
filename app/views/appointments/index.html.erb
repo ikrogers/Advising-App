@@ -34,12 +34,13 @@
 			<td><%= appointment.end %></td>
 			<td><%= appointment.flag %></td>
 			<td><%= appointment.notes %></td>
-			<td><%= button_to 'Schedule Appointment', schdappt_path, :class => 'btn btn-outline-inverse btn-block' %></td>
+			<td><%= button_to 'Schedule Appointment', :action => :schdappt, :id => appointment.id, method: :schdappt, :class => 'btn btn-outline-inverse btn-block' %></td>
 		</tr>
 		<%end end else
 			@appointment = Appointment.find_by_stuID(@currentuser.id)
 		%>
 			<table>
+				<%= button_to 'Cancel Appointment', :action => :cancappt,:id => @currentuser.id, method: :cancappt, :class => 'btn btn-outline-inverse btn-block' %>
 			</tbody>
 			<tr>
 			<td><%= @appointment.start %></td>
@@ -50,7 +51,7 @@
 			</tbody>
 			</table>
 		<%end%>
-		<%= button_to 'Schedule Appointment', new_appointment_path, :class => 'btn btn-outline-inverse btn-block' %>
+		
 		<%elsif @currentuser.classification == 'Advisor'%>
 		<%
 
@@ -69,9 +70,14 @@
 					<td><%= appointment.start %></td>
 					<td><%= appointment.end %></td>
 					<td><%= appointment.flag %></td>
-					<td><%= appointment.notes %></td>
+					<%if !User.find_by_id(appointment.stuID).nil? && !User.find_by_id(appointment.stuID).new_record?%>
+					<td><%= User.find_by_id(appointment.stuID).name%></td>
+					<%else%>
+						<td></td>
+					<% end%>
+					<td><%= link_to 'Delete Block', appointment, :class => 'btn btn-outline-inverse btn-block',method: :delete, data: { confirm: 'Are you sure?' } %></td>
 				</tr>
-				<%end%>
+				<% end%>
 				<% end%>
 			</tbody>
 		</table>
