@@ -144,6 +144,16 @@ border-color: white;
   color: #fff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
+
+.bootstrap-datetimepicker-widget td{
+  font-size: 14px;
+  
+}
+
+.bootstrap-datetimepicker-widget th{
+  font-size: 20px;
+  
+}
 .bootstrap-datetimepicker-widget td.active.today:before {
   border-bottom-color: #fff;
 }
