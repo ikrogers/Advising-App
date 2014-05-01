@@ -1,6 +1,7 @@
-<% @currentuser =  User.find_by_id(session[:user_id])%>
-<table>
-	<tbody>
+<% @currentuser =  User.find_by_id(session[:user_id])%> <h1>Appointments</h1>
+
+<div style="border:solid; border-color: white; scroll; height:57%; overflow-x:hidden;background: rgba(255,255,255,0.1);">
+	<table  class="table table-bordered">
 
 		<%	if @currentuser.classification == 'Admin'
 		@appointments.each do |appointment| %>
@@ -24,8 +25,6 @@
 		<%
 			if @currentuser.message != 'scheduled'
 		%>
-
-
 		<h1>Available times  for <%= @currentuser.name%></h1>
 		<% (Appointment.all).each do |appointment| %>
 		<% if (appointment.advID == User.find_by_name(@currentuser.advisor).id) %>
@@ -52,6 +51,7 @@
 			</table>
 		<%end%>
 		
+
 		<%elsif @currentuser.classification == 'Advisor'%>
 		<%
 
@@ -81,6 +81,29 @@
 				<% end%>
 			</tbody>
 		</table>
+<%
+=begin
+		<tr>
+			<th>Start</th>
+			<th>End</th>
+			<th>Reserved by</th>
+			<th>Availability</th>
+			<th>Notes</th>
+		</tr>
+
+		<% (Appointment.all).each do |appointment| %>
+		<% if (appointment.advID == @currentuser.id) %>
+		<tr>
+			<td><%= (appointment.start).to_datetime.to_formatted_s(:long) %></td>
+			<td><%= (appointment.end).to_datetime.to_formatted_s(:long) %></td>
+			<td><%= appointment.stuID %></td>
+			<td><%= appointment.flag %></td>
+			<td><%= appointment.notes %></td>
+		</tr>
+		<%end%>
+		<% end%>
+
+=end%>
 		<% if notice %>
 		<p id='notice'>
 			<%= notice %>
@@ -89,16 +112,22 @@
 
 		<% end %>
 
+		</tbody>
+	</table>
+
+	<br>
+
+	<%if(@currentuser.classification == 'Advisor' || @currentuser.classification == 'Admin')%>
+	<%end%>
+
 	</tbody>
-</table>
-
-<br>
-
-<%if(@currentuser.classification == 'Advisor' || @currentuser.classification == 'Admin')%>
-<%end%>
-
-</tbody>
-</table>
+	</table>
+</div>
+<br />
+<p>
+	<a href="#modal-form" class="btn btn-outline-inverse btn-block"data-toggle="modal">Appointment Set-Up</a>
+</p>
+<%= render 'newapptmodal' %>
 <script type="text/javascript">
 	$(function() {
 		$('#startDate').datetimepicker({
@@ -132,11 +161,9 @@
 				param2 : weeks
 			},
 			success : function(data, textStatus, xhr) {
-				alert("Appointment created!");
 				history.go(0);
 			},
 			error : function() {
-				alert("Something went wrong...");
 			}
 		});
 	}); 
