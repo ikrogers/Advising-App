@@ -46,10 +46,37 @@ class AppointmentsController < ApplicationController
     @day = params[:param1][3..5]
     @year = params[:param1][6..10]
     @hour = params[:param1][11..13]
-    @minute = params[:param1][14..16]
+    @minute = params[:param1][13..15]
+    @weeks = params[:param2].to_i
+    @ampm = params[:param1][16...17]
+ if(params[:param1].length >18)
+      @month = params[:param1][0..2]
+      @day = params[:param1][3..5]
+      @year = params[:param1][6..10]
+      @hour = params[:param1][11..13]
+      @minute = params[:param1][14..16]
+      @weeks = params[:param2].to_i
+      @ampm = params[:param1][17...18]
+    end
     @currentuser = User.find_by_id(session[:user_id])
     @date = DateTime.new(@year.to_i,@month.to_i,@day.to_i,@hour.to_i,@minute.to_i)
-    @appt = Appointment.create(start: @date, end: @date + 30.minutes, advID: @currentuser.id, flag: 'open' )
+    if @ampm =='PM'
+      @date = @date + 12.hours
+    end
+    
+    (Appointment.all).each do |appt|
+      if DateTime.parse(appt.start) <= @date && DateTime.parse(appt.end) > @date
+        respond_to do |format|
+        format.html { redirect_to :back, notice: 'Appointments cannot be set to the same time!' }
+        
+        end
+      return
+      end
+    end
+    
+    for i in 0..@weeks-1
+      Appointment.create(start: @date + i.weeks, end: @date + i.weeks + 30.minutes, advID: @currentuser.id, flag: 'open', notes: @ampm)
+    end
     redirect_to :back
   end
   # GET /appointments/1

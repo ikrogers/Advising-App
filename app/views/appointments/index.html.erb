@@ -59,6 +59,11 @@
 				
 			</tbody>
 		</table>
+		<% if notice %>
+<p id='notice'>
+	<%= notice %>
+</p>
+<% end %>
 		<div><%= submit_tag 'Create Appointment Timeblock', :class => "btn btn-outline-inverse btn-block", :action => 'createAppt' %></div>
 		
 		<% end %>
@@ -79,7 +84,7 @@
 </table>
 <script type="text/javascript">
 			            $(function () {
-			                $('#startDate').datetimepicker({dateFormat: "dd-M-yy hh:mm",minuteStepping:15, useHours: true, useMinutes: true, useSeconds:false, showtoday: true, sideBySide: true});
+			                $('#startDate').datetimepicker({dateFormat: "dd-M-yy HH:mm",minuteStepping:15, useHours: true, useMinutes: true, useSeconds:false, showtoday: true, sideBySide: true});
 			                
 			                
 			            });
