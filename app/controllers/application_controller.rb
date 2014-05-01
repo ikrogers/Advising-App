@@ -1,7 +1,9 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-  include Mobylette::RespondToMobileRequests
+  
+  #this line is broken.  removing until fixed
+  #include Mobylette::RespondToMobileRequests
   before_filter :store_path
   protect_from_forgery with: :exception
   before_action :authorize

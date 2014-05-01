@@ -1,78 +1,106 @@
-<%@currentuser =  User.find_by_id(session[:user_id])%>
-
-<h1>Appointments for <%= @currentuser.name%></h1>
-
-
+<% @currentuser =  User.find_by_id(session[:user_id])%>
 <table>
-  <tbody>
-  		
-	    <%	if @currentuser.classification == 'Admin' 
-	    	@appointments.each do |appointment| %>
-<%
-=begin <-- Comment blocks have to be at the beginning of the line. just FYI
+	<tbody>
 
-=end
+		<%	if @currentuser.classification == 'Admin'
+		@appointments.each do |appointment| %>
+<%
+=begin <-- Comment blocks have to be at the beginning of the line, like touching the edge of the black thingy. just FYI
+IF THEY'RE NOT, EVERYTHING FUCKS UP, SO MAKE SURE YOU DON'T FORMAT THEM!!!!
+
+Same goes for this one.  make sure it touches the edge
+V
+=end 
 %>
-	      <tr>
-	      	
-	        <td><%= appointment.appts %></td>
-	        <td><%= appointment.appte %></td>
-	        <td><%= (User.find_by_id(appointment.stuID)).name %></td>
-	        <td><%= appointment.approved %></td>
-	        <td><%= appointment.notes %></td>
-	        <td><%= link_to 'Show', appointment %></td>
-	        <td><%= link_to 'Approve', approveApt_path(appointment, :id => appointment.id), method: :get%></td>
-	        <td><%= link_to 'Deny', denyApt_path(appointment, :id => appointment.id), method: :get, data: { confirm: 'Are you sure?' }%></td>
-	        <td><%= link_to 'Delete', deleteApt_path(appointment, :id => appointment.id),method: :get, data: { confirm: 'Are you sure?' } %></td>
-	      </tr>
-	      <%end%>
-	    <% elsif @currentuser.classification == 'Student' %>
+		<tr>
+
+			<td><%= appointment.appts %></td>
+			<td><%= appointment.appte %></td>
+			<td><%= (User.find_by_id(appointment.stuID)).name %></td>
+			<td><%= appointment.approved %></td>
+			<td><%= appointment.notes %></td>
+			<td><%= link_to 'Show', appointment %></td>
+			<td><%= link_to 'Approve', approveApt_path(appointment, :id => appointment.id), method: :get%></td>
+			<td><%= link_to 'Deny', denyApt_path(appointment, :id => appointment.id), method: :get, data: { confirm: 'Are you sure?' }%></td>
+			<td><%= link_to 'Delete', deleteApt_path(appointment, :id => appointment.id),method: :get, data: { confirm: 'Are you sure?' } %></td>
+		</tr>
+		<%end%>
+		<% elsif @currentuser.classification == 'Student' %>
 <%
 =begin
-%>
+		%>
 
-<%
+		<%
 =end
 %>
-			
-			<%= button_to 'Schedule Appointment', new_appointment_path, :class => 'btn btn-outline-inverse btn-block' %>
-	    <%elsif @currentuser.classification == 'Advisor'%>
+		
+		<h1>Available times  for <%= @currentuser.name%></h1>
+			<% (Appointment.all).each do |appointment| %>
+				<% if (appointment.advID == User.find_by_name(@currentuser.advisor).id) %>
+				<tr>
+					<td><%= appointment.start %></td>
+					<td><%= appointment.end %></td>
+					<td><%= appointment.flag %></td>
+			<td><%= appointment.notes %></td>
+			</tr>
+				<%end end%>
+		<%= button_to 'Schedule Appointment', new_appointment_path, :class => 'btn btn-outline-inverse btn-block' %>
+		<%elsif @currentuser.classification == 'Advisor'%>
 <%
 =begin
 		Advisors create new appointment objects and shove them in DB.  students can claim an appointment.
 =end
 %>
-<h1>Create a New Appointment Block</h1>
-<%= form_tag("/createappt", :method => "post", :id => "apptUpdate") do %>
+		<h1>Create a New Appointment Block</h1>
+		<%= form_tag("/createappt", :method => "post", :id => "apptUpdate") do %>
 		<table>
-			<tbody><tr><tc>
-			<div class="container">
-			    <div class="row">
-			        <div class='col-sm-6'>
-			            <input type='text' class="form-control" id='startDate'/>
-			            
-			        </div>
-			    </div>
-			    </tc>
-			    <tc>
-			    <%= select_tag(:weeks, options_for_select([['one',1],['two',2],['three',3],['four',4],['five',5],['six',6],['seven',7],['eight',8],['nine',9],['ten',10],['eleven',11],['twelve',12],['thirteen',13],['fourteen',14],['fifteen',15]]))%>      																														
-			    
-			</div></tc></tr>
-				
+			<tbody>
+				<tr>
+					<td>
+						<div class="container">
+							<div class="row">
+								<div class='col-sm-6'>
+									<input type='text' class="form-control" id='startDate'/>
+
+								</div>
+							</div>
+					</td>
+					<td>
+						<%= select_tag(:weeks, options_for_select([['one',1],['two',2],['three',3],['four',4],['five',5],['six',6],['seven',7],['eight',8],['nine',9],['ten',10],['eleven',11],['twelve',12],['thirteen',13],['fourteen',14],['fifteen',15]]))%>
+
+						</div>
+					</td>
+				</tr>
+
+			</tbody>
+		</table>
+		<table>
+			<tbody>
+				<h1>Advising Blocks set by <%= @currentuser.name%></h1>
+			<% (Appointment.all).each do |appointment| %>
+				<% if (appointment.advID == @currentuser.id) %>
+				<tr>
+					<td><%= appointment.start %></td>
+					<td><%= appointment.end %></td>
+					<td><%= appointment.flag %></td>
+					<td><%= appointment.notes %></td>
+			</tr>
+				<%end end%>
 			</tbody>
 		</table>
 		<% if notice %>
-<p id='notice'>
-	<%= notice %>
-</p>
-<% end %>
-		<div><%= submit_tag 'Create Appointment Timeblock', :class => "btn btn-outline-inverse btn-block", :action => 'createAppt' %></div>
-		
+		<p id='notice'>
+			<%= notice %>
+		</p>
 		<% end %>
-	    <%end%>
-    	
-    	
-  </tbody>
+		<div>
+			<%= submit_tag 'Create Appointment Timeblock', :class => "btn btn-outline-inverse btn-block", :action => 'createAppt' %>
+		</div>
+
+		<% end %>
+		<%end%>
+
+	</tbody>
 </table>
 
 <br>
@@ -80,37 +108,47 @@
 <%if(@currentuser.classification == 'Advisor' || @currentuser.classification == 'Admin')%>
 <%end%>
 
-
-    	
-  </tbody>
+</tbody>
 </table>
 <script type="text/javascript">
-			            $(function () {
-			                $('#startDate').datetimepicker({dateFormat: "dd-M-yy HH:mm",minuteStepping:15, useHours: true, useMinutes: true, useSeconds:false, showtoday: true, sideBySide: true});
-			                
-			                
-			            });
-			            
-			            $("#apptUpdate").submit(function(event) {
-							/* stop form from submitting normally */
-							event.preventDefault();
-							/* clear result div */
-							/* get values from elements on the page: */
-							//var values=loop();
-							var starttime = $('#startDate').val();
-							var e = document.getElementById("weeks");
-							var weeks =e.options[e.selectedIndex].value;
-							
-							/* Send the data using post and put the results in a div */
-							$.ajax({
-							url:"/createappt",type:"post",
-							data: {param1:starttime,param2:weeks},
-							success: function(data,textStatus,xhr) {
-								alert("Appointment created!");
-								history.go(0);   
-							},error: function() {
-								alert("Something went wrong...");
-							}
-							});
-						});
-			        </script>
+	$(function() {
+		$('#startDate').datetimepicker({
+			dateFormat : "dd-M-yy HH:mm",
+			minuteStepping : 15,
+			useHours : true,
+			useMinutes : true,
+			useSeconds : false,
+			showtoday : true,
+			sideBySide : true
+		});
+
+	});
+
+	$("#apptUpdate").submit(function(event) {
+		/* stop form from submitting normally */
+		event.preventDefault();
+		/* clear result div */
+		/* get values from elements on the page: */
+		//var values=loop();
+		var starttime = $('#startDate').val();
+		var e = document.getElementById("weeks");
+		var weeks = e.options[e.selectedIndex].value;
+
+		/* Send the data using post and put the results in a div */
+		$.ajax({
+			url : "/createappt",
+			type : "post",
+			data : {
+				param1 : starttime,
+				param2 : weeks
+			},
+			success : function(data, textStatus, xhr) {
+				alert("Appointment created!");
+				history.go(0);
+			},
+			error : function() {
+				alert("Something went wrong...");
+			}
+		});
+	}); 
+</script>

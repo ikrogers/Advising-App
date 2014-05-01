@@ -60,7 +60,7 @@ class AppointmentsController < ApplicationController
     end
     @currentuser = User.find_by_id(session[:user_id])
     @date = DateTime.new(@year.to_i,@month.to_i,@day.to_i,@hour.to_i,@minute.to_i)
-    if @ampm =='PM'
+    if @ampm =='P'
       @date = @date + 12.hours
     end
     
