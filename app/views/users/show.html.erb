@@ -1,48 +1,30 @@
 <% @courses = Course.all %>
 
 <% @currentuser =  User.find_by_id(session[:user_id]) %>
-<p>
-	<strong>Name:</strong>
-	<%= @user.name %>
-</p>
-<p>
-	<strong>Type:</strong>
-	<%= @user.classification %>
-</p>
-
-<% if @currentuser.classification == 'Advisor' %>
-<td><%= link_to 'APPROVE', denyFlag_path(@user, :id => @user.id),:class => 'btn btn-default btn-md btn-block', method: :get%></td>
-<td><%= link_to 'DENY', denyFlag_path(@user, :id => @user.id),:class => 'btn btn-default btn-md btn-block', method: :get%></td>
-</br>
-<% end %>
 
 <% if @user.classification == 'Student' %>
 <h1>Courses requested by: <%= @user.name%></h1>
 <div style="border:solid; border-color: white; scroll; height:51%; overflow-x:hidden;background: rgba(255,255,255,0.1);">
 	<table  class="table table-bordered">
 		<thead style="height:50px">
-			<tbody>
-				<th>Name</th>
-				<th>Hours</th>
-				<th>Prereq</th>
-				<% @courses.each do |course| %>
-				<%if course.choice == @user.id %>
-				<tr>
-					<td><%= course.name %></td>
-					<td><%= course.hours %></td>
-					<td><%= course.prereq %></td>
-				</tr>
-				<%end%>
-				<%end%>
-			</tbody>
+		<tbody>
+			<th>Name</th>
+			<th>Hours</th>
+			<th>Prereq</th>
+			<% @courses.each do |course| %>
+			<%if course.choice == @user.id %>
+			<tr>
+				<td><%= course.name %></td>
+				<td><%= course.hours %></td>
+				<td><%= course.prereq %></td>
+			</tr>
+			<%end%>
+			<%end%>
+		</tbody>
 	</table>
-
-	<%end%>
 
 </div>
 <br>
-<% if @currentuser.classification != 'Student' %>
-
 <%if @user.flag == 'denied'%>
 <%= link_to 'Approve', liftFlag_path(@user, :id => @user.id), method: :get, :class => "btn btn-outline-inverse btn-block", style: "color:white"%>
 <%elsif @user.flag == 'advised'%>
@@ -74,7 +56,7 @@
 			<tr>
 				<td><%= user.name %></td>
 				<td><%= button_to 'Approve', denyFlag_path(@user, :id => @user.id),:class => 'btn btn-default btn-md btn-block', method: :get%></td>
-				<td><%= button_to 'Deny', denyFlag_path(@user, :id => @user.id), data: { confirm: 'Are you sure?' },:class => 'btn btn-default btn-md btn-block', method: :get%></td>
+				<td><%= button_to 'Deny', denyFlag_path(@user, :id => @user.id),:class => 'btn btn-default btn-md btn-block', method: :get%></td>
 				<td><%= button_to 'Show', user, :class => 'btn btn-default btn-md btn-block', method: :get %></td>
 				<td><%= link_to 'Edit',  '#', 'data-target' => "#myModal_#{user.id}", 'data-toggle' => 'modal',:class => 'btn btn-default btn-md btn-block'  %>
 				<div class="modal fade" id='<%= "myModal_#{user.id}" %>' tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -97,4 +79,3 @@
 	</table>
 </div>
 <%end%>
-
