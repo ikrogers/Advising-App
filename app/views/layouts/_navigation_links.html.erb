@@ -5,9 +5,25 @@
 <p><%= button_to 'Home', admin_path(),:class => "btn btn-outline-inverse btn-block" ,method: :get %></p>
 <p><%= button_to 'Manage Users', users_path(),:class => "btn btn-outline-inverse btn-block" ,method: :get %></p>
 <p><%= button_to 'Manage Courses', courselists_path(),:class => "btn btn-outline-inverse btn-block" ,method: :get %></p>
-<%      when "Advisor"%>
+
+
+<%    when "Advisor"%>
 <p><%= button_to 'Home', advisor_path(),:class => "btn btn-outline-inverse btn-block",method: :get  %></p>
+<p>
+<%= button_to 'Manage Users', users_path(), :class => "btn btn-outline-inverse btn-block", method: :get %>
+</p>
+<%= button_to 'Appointments', appointments_path(), :class => "btn btn-outline-inverse btn-block", method: :get %>
+</p>
+<p>
+<%= button_to 'View Messages', users_path("value", :value => true), :class => "btn btn-outline-inverse btn-block", :style => 'color:white', method: :get %>
+</p>
+<p>
+
+
 <%     else%>
+
+
+
 <p><%= button_to 'Home', student_path(),:class => "btn btn-outline-inverse btn-block",method: :get  %></p>
 
 </p>
@@ -29,11 +45,7 @@
 </p>
 <%end%>
 <p>
-<%if @cuser.message == 'unread'%>
-<%= link_to "View unread messages", messagee_path(@cuser.id,:to => @cuser.id,:action => 'index'),:class => "btn btn-outline-inverse btn-block", :style => 'color:white'%>
-<%else%>
-<%= link_to "View/send messages", messagee_path(@cuser.id,:to => @cuser.id,:action => 'index'),:class => "btn btn-outline-inverse btn-block", :style => 'color:white'%>
-<%end%>
+
 </p>
 <p>
 <%= button_to 'Make/View appointment', appointments_path(@cuser.id),:class => "btn btn-outline-inverse btn-block", method: :get %>

@@ -39,8 +39,6 @@
 <p>
 <% @user = User.find_by_id(session[:user_id]) %>
 <%= button_to 'Course Catalog', courselists_path,:class => "btn btn-outline-inverse btn-block", method: :get %>
-<%= link_to 'Test course catalog modal',  '#', 'data-target' => "#courselistModal_#{@user.id}", 'data-toggle' => 'modal',:class => "btn btn-outline-inverse btn-block" %>
-<%= render 'courselist_modal', user: @user %>
 </p>
 <p>
 <%= button_to 'Logout', logout_path, :class => 'btn btn-outline-inverse btn-block', method: :delete %>
