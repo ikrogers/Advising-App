@@ -23,18 +23,22 @@
 </p>
 <%end%>
 <p>
+<% @currentuser = User.find_by_id(session[:user_id]) %>
 <%if @user.message == 'unread'%>
-<%= link_to 'View unread messages', messagee_path(@user.id,:to => @user.id,:action => 'index'),:class => 'btn btn-outline-inverse btn-block'%>
+
+<%= link_to 'View unread messages',  '#', 'data-target' => "#newmsgModal_#{@user.id}", 'data-toggle' => 'modal',:class => "btn btn-outline-inverse btn-block" %>
+<%= render 'new_msg_modal', user: @user %>
 <%else%>
-<%= link_to 'View/send messages', messagee_path(@user.id,:to => @user.id,:action => 'index'),:class => 'btn btn-outline-inverse btn-block'%>
+<%= link_to 'View/Send messages',  '#', 'data-target' => "#newmsgModal_#{@user.id}", 'data-toggle' => 'modal',:class => "btn btn-outline-inverse btn-block" %>
+<%= render 'new_msg_modal', user: @user %>
 <%end%>
 </p>
 <p>
-<%= button_to 'Make/View appointment', appointments_path(@user.id),:class => 'btn btn-outline-inverse btn-block', method: :get %>
+<%= button_to 'Make/View appointment', appointments_path(user: @user),:class => "btn btn-outline-inverse btn-block", method: :get %>
 </p>
 <p>
-
-<%= button_to 'Course Catalog', courselists_path,:class => 'btn btn-outline-inverse btn-block', method: :get %>
+<% @user = User.find_by_id(session[:user_id]) %>
+<%= button_to 'Course Catalog', courselists_path,:class => "btn btn-outline-inverse btn-block", method: :get %>
 </p>
 <p>
 <%= button_to 'Logout', logout_path, :class => 'btn btn-outline-inverse btn-block', method: :delete %>

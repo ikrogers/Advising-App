@@ -1,0 +1,84 @@
+<div id="modal-form" class="modal fade" tabindex="-1" role="dialog"
+aria-labelledby="mymsgModalLabel" aria-hidden="true" >
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h2 class="modal-title" id="mymsgModalLabel" style="color: black">Hello!</h2>
+			</div>
+			<div class="modal-body">
+				<div class="form-horizontal">
+					<table>
+						<tbody>
+							<%if(@currentuser.classification == 'Student')%>
+							<% (Message.all).each do |message| %>
+							<%if(message.from == @currentuser.id)%>
+							<div class="modal-content">
+								<tr>
+									<td><%= "To: #{User.find_by_id(message.to).name}  From: #{@currentuser.name}"%></td>
+								</tr>
+								<tr>
+									<td><%= message.content %></td>
+								</tr>
+							</div>
+							<br>
+							<%elsif(message.to == @currentuser.id && message.from == User.find_by_name(@currentuser.advisor).id)%>
+							<div class="modal-content">
+								<tr>
+									<td><%= "To: #{@currentuser.name}  From: #{User.find_by_id(message.from).name}"%></td>
+								</tr>
+								<tr>
+									<td><%= message.content %></td>
+								</tr>
+							</div>
+							<br>
+							<% end %>
+
+							<% end %>
+							<%else%>
+							<% (Message.all).each do |message| %>
+							<%if(message.to == @currentuser.id && message.from == user.id)%>
+							<div class="modal-content">
+								<tr>
+									<td><%= "To: #{@currentuser.name}  From: #{User.find_by_id(message.from).name}" %></td>
+								</tr>
+								<tr>
+									<td><%= message.content %></td>
+								</tr>
+							</div>
+							<br>
+							<%elsif(message.from == @currentuser.id && message.to == user.id)%>
+							<div class="modal-content">
+								<tr>
+									<td><%= "To: #{User.find_by_id(message.to).name}  From: #{@currentuser.name}"%></td>
+								</tr>
+								<tr>
+									<td><%= message.content %></td>
+								</tr>
+							</div>
+							<br>
+							<% end %>
+
+							<% end %>
+							<% end %>
+						</tbody>
+					</table>
+				</div>
+				<div class="form-horizontal">
+					<%= form_tag(:class=>"form-horizontal", :role=>"form") do %>
+					<div class="form-group">
+						<div class="col-sm-12">
+							<%= text_field_tag :content, params[:content],:class=>"form-control",:placeholder=>"Content" %>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-1 col-sm-10">
+							<%= submit_tag "Submit",:class=>"btn btn-default" %>
+						</div>
+					</div>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

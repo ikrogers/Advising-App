@@ -1,5 +1,7 @@
 <%@currentuser =  User.find_by_id(session[:user_id])%>
 
+<h1>Appointments for <%= @currentuser.name%></h1>
+
 
 <table>
   <tbody>
