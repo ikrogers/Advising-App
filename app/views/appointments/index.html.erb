@@ -25,6 +25,8 @@
 		<%
 			if @currentuser.message != 'scheduled'
 		%>
+
+
 		<h1>Available times  for <%= @currentuser.name%></h1>
 		<% (Appointment.all).each do |appointment| %>
 		<% if (appointment.advID == User.find_by_name(@currentuser.advisor).id) %>
@@ -51,44 +53,17 @@
 			</table>
 		<%end%>
 		
-
 		<%elsif @currentuser.classification == 'Advisor'%>
 		<%
 
  %>
-		<h1>Appointments</h1>
-		<p id="action" class="lead">
-			<a href="#modal-form" class="btn btn-outline-inverse btn-block"data-toggle="modal">Appointment Set-Up</a>
-		</p>
-		<%= render 'newapptmodal' %>
-		<table>
-			<tbody>
-				<h1>Advising Blocks set by <%= @currentuser.name%></h1>
-				<% (Appointment.all).each do |appointment| %>
-				<% if (appointment.advID == @currentuser.id) %>
-				<tr>
-					<td><%= appointment.start %></td>
-					<td><%= appointment.end %></td>
-					<td><%= appointment.flag %></td>
-					<%if !User.find_by_id(appointment.stuID).nil? && !User.find_by_id(appointment.stuID).new_record?%>
-					<td><%= User.find_by_id(appointment.stuID).name%></td>
-					<%else%>
-						<td></td>
-					<% end%>
-					<td><%= link_to 'Delete Block', appointment, :class => 'btn btn-outline-inverse btn-block',method: :delete, data: { confirm: 'Are you sure?' } %></td>
-				</tr>
-				<% end%>
-				<% end%>
-			</tbody>
-		</table>
-<%
-=begin
+
 		<tr>
 			<th>Start</th>
 			<th>End</th>
 			<th>Reserved by</th>
 			<th>Availability</th>
-			<th>Notes</th>
+			<th>Deletes</th>
 		</tr>
 
 		<% (Appointment.all).each do |appointment| %>
@@ -96,14 +71,17 @@
 		<tr>
 			<td><%= (appointment.start).to_datetime.to_formatted_s(:long) %></td>
 			<td><%= (appointment.end).to_datetime.to_formatted_s(:long) %></td>
-			<td><%= appointment.stuID %></td>
+			<%if !User.find_by_id(appointment.stuID).nil? && !User.find_by_id(appointment.stuID).new_record?%>
+				<td><%= User.find_by_id(appointment.stuID).name%></td>
+			<%else%>
+				<td></td>
+			<% end%>
 			<td><%= appointment.flag %></td>
-			<td><%= appointment.notes %></td>
+			<td><%= link_to 'Delete Block', appointment, :class => 'btn btn-outline-inverse btn-block',method: :delete, data: { confirm: 'Are you sure?' } %></td>
 		</tr>
 		<%end%>
 		<% end%>
 
-=end%>
 		<% if notice %>
 		<p id='notice'>
 			<%= notice %>
@@ -161,9 +139,11 @@
 				param2 : weeks
 			},
 			success : function(data, textStatus, xhr) {
+				alert("Appointment created!");
 				history.go(0);
 			},
 			error : function() {
+				alert("Something went wrong...");
 			}
 		});
 	}); 

@@ -10,6 +10,7 @@ Advising::Application.routes.draw do
   end
 
   resources :appointments
+  post '/createappt' => 'appointments#createAppt'
   post 'delappt' => 'appointments#destroy'
   post 'schdappt' => 'appointments#schdappt'
   post 'cancappt' => 'appointments#cancappt'
