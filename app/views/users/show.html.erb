@@ -22,9 +22,11 @@
 			<%end%>
 		</tbody>
 	</table>
-		
+		<%end%>
 </div>
 <br>
+<% if @currentuser.classification != 'Student' %>
+
 <%if @user.flag == 'denied'%>
 <%= link_to 'Approve', liftFlag_path(@user, :id => @user.id), method: :get, :class => "btn btn-outline-inverse btn-block", style: "color:white"%>
 <%elsif @user.flag == 'advised'%>
