@@ -41,6 +41,24 @@ class AppointmentsController < ApplicationController
     end
   end
   
+  def schdappt
+    @appointment = Appointment.find_by_id(params[:id])
+    @appointment.update_attribute(:stuID, @currentuser.id)
+    @appointment.update_attribute(:flag, 'taken')
+    @currentuser.update_attribute(:message, 'scheduled');
+    if(@appointment.save)
+        respond_to do |format|
+        format.html { redirect_to :back, notice: 'Appointment scheduled!' }
+        
+        end
+    else
+        respond_to do |format|
+        format.html { redirect_to :back, notice: 'Error in inputs.' }
+        
+        end
+    end
+  end
+  
   def createAppt
     @month = params[:param1][0..2]
     @day = params[:param1][3..5]

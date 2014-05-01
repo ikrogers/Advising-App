@@ -22,7 +22,7 @@
 		<%end%>
 		<% elsif @currentuser.classification == 'Student' %>
 		<%
-
+			if @currentuser.message != 'scheduled'
 		%>
 
 		<h1>Available times  for <%= @currentuser.name%></h1>
@@ -33,8 +33,22 @@
 			<td><%= appointment.end %></td>
 			<td><%= appointment.flag %></td>
 			<td><%= appointment.notes %></td>
+			<td><%= button_to 'Schedule Appointment', schdappt_path, :class => 'btn btn-outline-inverse btn-block' %></td>
 		</tr>
-		<%end end%>
+		<%end end else
+			@appointment = Appointment.find_by_stuID(@currentuser.id)
+		%>
+			<table>
+			</tbody>
+			<tr>
+			<td><%= @appointment.start %></td>
+			<td><%= @appointment.end %></td>
+			<td><%= @appointment.flag %></td>
+			<td><%= @appointment.notes %></td>
+			</tr>
+			</tbody>
+			</table>
+		<%end%>
 		<%= button_to 'Schedule Appointment', new_appointment_path, :class => 'btn btn-outline-inverse btn-block' %>
 		<%elsif @currentuser.classification == 'Advisor'%>
 		<%
