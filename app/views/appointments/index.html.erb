@@ -4,14 +4,9 @@
 
 		<%	if @currentuser.classification == 'Admin'
 		@appointments.each do |appointment| %>
-<%
-=begin <-- Comment blocks have to be at the beginning of the line, like touching the edge of the black thingy. just FYI
-IF THEY'RE NOT, EVERYTHING FUCKS UP, SO MAKE SURE YOU DON'T FORMAT THEM!!!!
-
-Same goes for this one.  make sure it touches the edge
-V
-=end 
-%>
+		<%
+	
+		%>
 		<tr>
 
 			<td><%= appointment.appts %></td>
@@ -26,50 +21,44 @@ V
 		</tr>
 		<%end%>
 		<% elsif @currentuser.classification == 'Student' %>
-<%
-=begin
+		<%
+
 		%>
 
-		<%
-=end
-%>
-		
 		<h1>Available times  for <%= @currentuser.name%></h1>
-			<% (Appointment.all).each do |appointment| %>
-				<% if (appointment.advID == User.find_by_name(@currentuser.advisor).id) %>
-				<tr>
-					<td><%= appointment.start %></td>
-					<td><%= appointment.end %></td>
-					<td><%= appointment.flag %></td>
+		<% (Appointment.all).each do |appointment| %>
+		<% if (appointment.advID == User.find_by_name(@currentuser.advisor).id) %>
+		<tr>
+			<td><%= appointment.start %></td>
+			<td><%= appointment.end %></td>
+			<td><%= appointment.flag %></td>
 			<td><%= appointment.notes %></td>
-			</tr>
-				<%end end%>
+		</tr>
+		<%end end%>
 		<%= button_to 'Schedule Appointment', new_appointment_path, :class => 'btn btn-outline-inverse btn-block' %>
 		<%elsif @currentuser.classification == 'Advisor'%>
-<%
-=begin
-		Advisors create new appointment objects and shove them in DB.  students can claim an appointment.
-=end
-%>
+		<%
+  
+  
+  
+  
+		%>
 		<h1>Create a New Appointment Block</h1>
 		<%= form_tag("/createappt", :method => "post", :id => "apptUpdate") do %>
 		<table>
 			<tbody>
 				<tr>
 					<td>
-						<div class="container">
-							<div class="row">
-								<div class='col-sm-6'>
-									<input type='text' class="form-control" id='startDate'/>
+					<div class="container">
+						<div class="row">
+							<div class='col-sm-6'>
+								<input type='text' class="form-control" id='startDate'/>
+								<%= select_tag :weeks,  options_for_select([['For one week',1],['For two weeks',2],['For three weeks',3],['For four weeks',4],['For five weeks',5],['For six weeks',6],['For seven weeks',7],['For eight weeks',8],['For nine weeks',9],['For ten weeks',10],['For eleven weeks',11],['For twelve weeks',12],['For thirteen weeks',13], ['For fourteen weeks',14],['For fifteen weeks',15]]), :class => "form-control" %>
 
-								</div>
 							</div>
-					</td>
-					<td>
-						<%= select_tag(:weeks, options_for_select([['one',1],['two',2],['three',3],['four',4],['five',5],['six',6],['seven',7],['eight',8],['nine',9],['ten',10],['eleven',11],['twelve',12],['thirteen',13],['fourteen',14],['fifteen',15]]))%>
-
 						</div>
 					</td>
+					<td> </div> </td>
 				</tr>
 
 			</tbody>
@@ -77,14 +66,14 @@ V
 		<table>
 			<tbody>
 				<h1>Advising Blocks set by <%= @currentuser.name%></h1>
-			<% (Appointment.all).each do |appointment| %>
+				<% (Appointment.all).each do |appointment| %>
 				<% if (appointment.advID == @currentuser.id) %>
 				<tr>
 					<td><%= appointment.start %></td>
 					<td><%= appointment.end %></td>
 					<td><%= appointment.flag %></td>
 					<td><%= appointment.notes %></td>
-			</tr>
+				</tr>
 				<%end end%>
 			</tbody>
 		</table>
