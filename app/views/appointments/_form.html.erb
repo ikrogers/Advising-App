@@ -1,7 +1,7 @@
 <%= form_for(@appointment) do |f| %>
   <% if @appointment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
+    <div id='error_explanation'>
+      <h2><%= pluralize(@appointment.errors.count, 'error') %> prohibited this appointment from being saved:</h2>
 
       <ul>
       <% @appointment.errors.full_messages.each do |msg| %>
@@ -11,31 +11,31 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class='field'>
     <%= f.label :appts %><br>
     <%= f.datetime_select :appts %>
   </div>
-  <div class="field">
+  <div class='field'>
     <%= f.label :appte %><br>
     <%= f.datetime_select :appte %>
   </div>
-  <div class="field">
+  <div class='field'>
     <%= f.label :advID %><br>
     <%= f.number_field :advID %>
   </div>
-  <div class="field">
+  <div class='field'>
     <%= f.label :stuID %><br>
     <%= f.number_field :stuID %>
   </div>
-  <div class="field">
+  <div class='field'>
     <%= f.label :approved %><br>
     <%= f.text_field :approved %>
   </div>
-  <div class="field">
+  <div class='field'>
     <%= f.label :notes %><br>
     <%= f.text_field :notes %>
   </div>
-  <div class="actions">
+  <div class='actions'>
     <%= f.submit %>
   </div>
 <% end %>

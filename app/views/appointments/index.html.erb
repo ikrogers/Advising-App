@@ -1,12 +1,16 @@
 <%@currentuser =  User.find_by_id(session[:user_id])%>
-<h1>Appointments for <%= @currentuser.name%></h1>
 
 
 <table>
   <tbody>
   		
-	    <%	if @currentuser.classification == 'Admin' %>
-	    	<%@appointments.each do |appointment| %>
+	    <%	if @currentuser.classification == 'Admin' 
+	    	@appointments.each do |appointment| %>
+<%
+=begin <-- Comment blocks have to be at the beginning of the line. just FYI
+
+=end
+%>
 	      <tr>
 	      	
 	        <td><%= appointment.appts %></td>
@@ -21,55 +25,47 @@
 	      </tr>
 	      <%end%>
 	    <% elsif @currentuser.classification == 'Student' %>
-	    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
-	    	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
-	    	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	    	<%@appointment = Appointment.find_by_stuID(@currentuser.id)%>
-	    	<%if !@appointment.nil? && !@appointment.new_record?%>
-	    	<td><%= @appointment.appts %></td>
-	        <td><%= @appointment.appte %></td>
-	        <td><%= (User.find_by_id(appointment.stuID)).name %></td>
-	        <td><%= @appointment.approved %></td>
-	        <td><%= @appointment.notes %></td>
-	        <%end%>
-	        <div class="container">
-    <div class="col-sm-6" style="height:75px;">
-       <div class='col-md-5'>
-            <div class="form-group">
-                <div class='input-group date' id='datetimepicker8'>
-                    <input type='text' class="form-control" />
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
-            </div>
-        </div>
-        <div class='col-md-5'>
-            <div class="form-group">
-                <div class='input-group date' id='datetimepicker9'>
-                    <input type='text' class="form-control" />
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script type="text/javascript">
-        $(function () {
-            $('#datetimepicker8').datetimepicker();
-            $('#datetimepicker9').datetimepicker();
-            $("#datetimepicker8").on("dp.change",function (e) {
-               $('#datetimepicker9').data("DateTimePicker").setMinDate(e.date);
-            });
-            $("#datetimepicker9").on("dp.change",function (e) {
-               $('#datetimepicker8').data("DateTimePicker").setMaxDate(e.date);
-            });
-        });
-    </script>
-</div>
-	        
-	    <%elsif @currentuser.classification == 'Advivisor'%>
-	    
+<%
+=begin
+%>
+
+<%
+=end
+%>
+			
+			<%= button_to 'Schedule Appointment', new_appointment_path, :class => 'btn btn-outline-inverse btn-block' %>
+	    <%elsif @currentuser.classification == 'Advisor'%>
+<%
+=begin
+		Advisors create new appointment objects and shove them in DB.  students can claim an appointment.
+=end
+%>
+<h1>Create a New Appointment Block</h1>
+<%= form_tag("/createappt", :method => "post", :id => "apptUpdate") do %>
+		<table>
+			<tbody><tr>
+			<div class="container">
+			    <div class="row">
+			        <div class='col-sm-6'>
+			            <input type='text' class="form-control" id='startDate'/>
+			        </div>
+			    </div>
+			</div></tr>
+			<tr>
+				<div class="container">
+			    <div class="row">
+			        <div class='col-sm-6'>
+			            From: <input type='text' class="form-control" id='endDate'/>
+			        </div>
+			    </div>
+			</div>
+			</tr>	
+			</tbody>
+		</table>
+		<div><%= submit_tag "Create Appointment Timeblock", :class => "btn btn-outline-inverse btn-block", :action => 'createAppt' %></div>
+		<% end %>
 	    <%end%>
+    	
     	
   </tbody>
 </table>
@@ -77,10 +73,44 @@
 <br>
 
 <%if(@currentuser.classification == 'Advisor' || @currentuser.classification == 'Admin')%>
-<%= render 'calendar'%>
 <%end%>
 
 
     	
   </tbody>
 </table>
+<script type="text/javascript">
+			            $(function () {
+			                $('#startDate').datetimepicker({dateFormat: "dd-M-yy hh:mm",minuteStepping:15, useHours: true, useMinutes: true, useSeconds:false, showtoday: true, sideBySide: true});
+			                
+			                $('#endDate').datetimepicker({dateFormat: "dd-M-yy hh:mm",minuteStepping:15,useHours: true, useMinutes: true, useSeconds:false, showtoday: true, sideBySide: true});
+			               
+				            $("#startDate").on("dp.change",function (e) {
+				               $('#endDate').data("DateTimePicker").setDate(e.date)
+				               $('#endDate').data("DateTimePicker").setMaxDate(e.date)
+				               $('#endDate').data("DateTimePicker").setMinDate(e.date)
+				            });
+				            
+			            });
+			            
+			            $("#apptUpdate").submit(function(event) {
+							/* stop form from submitting normally */
+							event.preventDefault();
+							/* clear result div */
+							/* get values from elements on the page: */
+							//var values=loop();
+							var starttime = $('#startDate').val();
+							var endtime = $('#endDate').val();
+							/* Send the data using post and put the results in a div */
+							$.ajax({
+							url:"/createappt",type:"post",
+							data: {param1:starttime,param2:endtime},
+							success: function(data,textStatus,xhr) {
+								alert("Appointment created!");
+								history.go(0);   
+							},error: function() {
+								alert("Something went wrong...");
+							}
+							});
+						});
+			        </script>

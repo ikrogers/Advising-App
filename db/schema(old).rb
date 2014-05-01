@@ -14,14 +14,19 @@
 ActiveRecord::Schema.define(version: 20140429002647) do
 
   create_table "appointments", force: true do |t|
-    t.string   "start"
-    t.string   "end"
+    t.datetime "appts"
+    t.datetime "appte"
     t.integer  "advID"
     t.integer  "stuID"
-    t.string   "flag"
+    t.string   "approved"
     t.string   "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "title"
+    t.string   "url"
+    t.string   "class"
+    t.string   "start"
+    t.string   "end"
   end
 
   create_table "courselists", force: true do |t|
@@ -64,6 +69,8 @@ ActiveRecord::Schema.define(version: 20140429002647) do
     t.string   "advisor"
     t.string   "message"
     t.string   "flag"
+    t.datetime "appts"
+    t.datetime "appte"
   end
 
 end

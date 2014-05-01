@@ -40,6 +40,10 @@ class AppointmentsController < ApplicationController
       
     end
   end
+  
+  def createAppt
+    redirect_to :back
+  end
   # GET /appointments/1
   # GET /appointments/1.json
   def show

@@ -1,6 +1,5 @@
 <h1>Advising Center</h1>
-<% @user = User.find_by_id(session[:user_id])
-%>
+<% @user = User.find_by_id(session[:user_id])%>
 
 <h2 style="color: white">Welcome <%= @user.name%>!</h2>
 
@@ -8,7 +7,7 @@
 <%= button_to 'Manage Users', users_path(), :class => "btn btn-outline-inverse btn-block", method: :get %>
 </p>
 
-<%= button_to 'View Appointments', appointments_path(), :class => "btn btn-outline-inverse btn-block", method: :get %>
+<%= button_to 'Appointments', appointments_path(), :class => "btn btn-outline-inverse btn-block", method: :get %>
 </p>
 <p>
 <%= button_to 'View Messages', users_path("value", :value => true), :class => "btn btn-outline-inverse btn-block", :style => 'color:white', method: :get %>
