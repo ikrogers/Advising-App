@@ -1,77 +1,78 @@
-<%@currentuser = User.find_by_id(session[:user_id])%>
-<h1><%=@currentuser.name%>'s Messages</h1>
+<% @currentuser = User.find_by_id(session[:user_id])%>
+<h1><%= @currentuser.name%>'s Messages</h1>
 <table>
 
+	<tbody>
+		<%if(@currentuser.classification == 'Student')%>
+		<% (Message.all).each do |message| %>
+		<%if(message.from == @currentuser.id)%>
+		<div class="modal-content">
+			<tr>
+				<td><%= "To: #{User.find_by_id(message.to).name}  From: #{@currentuser.name}"%></td>
+			</tr>
+			<tr>
+				<td><%= message.content %></td>
+			</tr>
+		</div>
+		<br>
+		<%elsif(message.to == @currentuser.id && message.from == User.find_by_name(@currentuser.advisor).id)%>
+		<div class="modal-content">
+			<tr>
+				<td><%= "To: #{@currentuser.name}  From: #{User.find_by_id(message.from).name}"%></td>
+			</tr>
+			<tr>
+				<td><%= message.content %></td>
+			</tr>
+		</div>
+		<br>
+		<% end %>
 
-  <tbody>
-  	<%if(@currentuser.classification == 'Student')%>
-    <% (Message.all).each do |message| %>
-      <%if(message.from == @currentuser.id)%>
-      <div class='modal-content'>
-      <tr>
-        <td><%= "To: #{User.find_by_id(message.to).name}  From: #{@currentuser.name}"%></td>
-      </tr>
-      <tr>
-        <td><%= message.content %></td>
-      </tr>
-      </div>
-      <br>
-      <%elsif(message.to == @currentuser.id && message.from == User.find_by_name(@currentuser.advisor).id)%>
-      <div class='modal-content'>
-      <tr>
-        <td><%= "To: #{@currentuser.name}  From: #{User.find_by_id(message.from).name}"%></td>
-      </tr>
-      <tr>
-        <td><%= message.content %></td>
-      </tr>
-      </div>
-      <br>
-    <% end %>
-    
-    <% end %>
-    <%else%>
-    <% (Message.all).each do |message| %>
-      <%if(message.to == @currentuser.id && message.from == @user.id)%>
-      <div class='modal-content'>
-      <tr>
-        <td><%= "To: #{@currentuser.name}  From: #{User.find_by_id(message.from).name}"%></td>
-      </tr>
-      <tr>
-        <td><%= message.content %></td>
-      </tr>
-      </div>
-      <br>
-      <%elsif(message.from == @currentuser.id && message.to == @user.id)%>
-      <div class='modal-content'>
-      <tr>
-        <td><%= "To: #{User.find_by_id(message.to).name}  From: #{@currentuser.name}"%></td>
-      </tr>
-      <tr>
-        <td><%= message.content %></td>
-      </tr>
-      </div>
-      <br>
-    <% end %>
-    
-    <% end %>
-    <% end %>
-  </tbody>
+
+		<% end %>
+		<%else%>
+		<% (Message.all).each do |message| %>
+		<%if(message.to == @currentuser.id && message.from == @user.id)%>
+		<div class="modal-content">
+			<tr>
+				<td><%= link_to 'View messages',  '#', 'data-target' => "#msgModal_#{user.id}", 'data-toggle' => 'modal',:class => 'btn btn-default btn-md btn-block', :style => "color:black"  %>
+					<%= render 'msg_modal', user: user %></td>
+			</tr>
+			<tr>
+				<td><%= message.content %></td>
+			</tr>
+		</div>
+		<br>
+		<%elsif(message.from == @currentuser.id && message.to == @user.id)%>
+		<div class="modal-content">
+			<tr>
+				<td><%= "To: #{User.find_by_id(message.to).name}  From: #{@currentuser.name}"%></td>
+			</tr>
+			<tr>
+				<td><%= message.content %></td>
+			</tr>
+		</div>
+		<br>
+		<% end %>
+
+		<% end %>
+		<% end %>
+	</tbody>
 </table>
 
 <br>
-<div class='btn btn-outline-inverse btn-block'>
-<%= link_to 'New Message', new_message_path(@user, :id => @user.id) %>
+<div class="btn btn-outline-inverse btn-block">
+	<%= link_to 'New Message', new_message_path(@user, :id => @user.id) %>
 </div>
 <%if(@currentuser.classification == 'Student')%>
-<div class='btn btn-outline-inverse btn-block'>
-<%= link_to 'Back', student_path %>
+<div class="btn btn-outline-inverse btn-block">
+	<%= link_to 'Back', student_path %>
 </div>
 <%elsif(@currentuser.classification == 'Advisor')%>
-<div class='btn btn-outline-inverse btn-block'>
-<%= link_to 'Back', :back %>
+<div class="btn btn-outline-inverse btn-block">
+	<%= link_to 'Back', :back %>
 </div>
 <%else%>
-<div class='btn btn-outline-inverse btn-block'>
-<%= link_to 'Back', :back %>
+<div class="btn btn-outline-inverse btn-block">
+	<%= link_to 'Back', :back %>
 </div>
 <%end%>

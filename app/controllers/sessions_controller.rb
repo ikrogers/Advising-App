@@ -1,6 +1,8 @@
 class SessionsController < ApplicationController
+  skip_before_action :authorize
    layout 'front'
   def new
+
   end
 
 def post

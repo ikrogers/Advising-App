@@ -1,0 +1,101 @@
+<div class="modal fade" id='<%= "newmsgModal_#{user.id}" %>' tabindex="-1" role="dialog" aria-labelledby="newmsgModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h2 class="modal-title" id="newmsgModalLabel" style="color: black">New message</h2>
+			</div>
+			<div class="modal-body">
+				<% @currentuser = User.find_by_id(session[:user_id])
+        @user = User.find_by_id(params[:id])
+        @message = Message.new
+%>
+				<div class="form-horizontal">
+					<table>
+						<tbody>
+							<%if(@currentuser.classification == 'Student')%>
+							<% (Message.all).each do |message| %>
+							<%if(message.from == @currentuser.id)%>
+							<div class="modal-content">
+								<tr>
+									<td style="color:gray; padding:5px"><%= "To: #{User.find_by_id(message.to).name}  From: #{@currentuser.name}"%></td>
+									<td style="color:gray; padding:5px"><%= message.content %></td>
+								</tr>
+							</div>
+							<br>
+							<%elsif(message.to == @currentuser.id && message.from == User.find_by_name(@currentuser.advisor).id)%>
+							<div class="modal-content">
+								<tr>
+									<td style="color:black; padding:5px"><%= "To: #{@currentuser.name}  From: #{User.find_by_id(message.from).name}"%></td>
+									<td style="color:black; padding:5px"><%= message.content %></td>
+								</tr>
+							</div>
+							<br>
+							<% end %>
+
+							<% end %>
+							<%else%>
+							<% (Message.all).each do |message| %>
+							<%if(message.to == @currentuser.id && message.from == user.id)%>
+							<div class="modal-content">
+								<tr>
+									<td style="color:gray; padding:5px"><%= "To: #{@currentuser.name}  From: #{User.find_by_id(message.from).name}" %></td>
+									<td style="color:gray; padding:5px"><%= message.content %></td>
+								</tr>
+							</div>
+							<br>
+							<%elsif(message.from == @currentuser.id && message.to == user.id)%>
+							<div class="modal-content">
+								<tr>
+									<td style="color:black; padding:5px"><%= "To: #{User.find_by_id(message.to).name}  From: #{@currentuser.name}"%></td>
+									<td style="color:black; padding:5px"><%= message.content %></td>
+								</tr>
+							</div>
+							<br>
+							<% end %>
+
+							<% end %>
+							<% end %>
+						</tbody>
+					</table>
+				</div>
+				<%= form_for(@message) do |f| %>
+				<% if @message.errors.any? %>
+				<div id="error_explanation">
+					<h2><%= pluralize(@message.errors.count, "error") %> prohibited this message from being saved:</h2>
+
+					<ul>
+						<% @message.errors.full_messages.each do |msg| %>
+						<li>
+							<%= msg %>
+						</li>
+						<% end %>
+					</ul>
+				</div>
+				<% end %>
+
+				<div class="field">
+					<%if(@currentuser.classification == 'Student')%>
+					<%= f.hidden_field :from, :value => @currentuser.id %>
+					<%= f.hidden_field :to, :value => User.find_by_name(@currentuser.advisor).id %>
+					<%else%>
+					<%if !@user.nil? && !@user.new_record?%>
+					<%= f.hidden_field :to, :value => user.id %>
+					<%= f.hidden_field :from, :value => @currentuser.id %>
+					<%else%>
+					<%= f.hidden_field :to, :value => user.id %>
+					<%= f.hidden_field :from, :value => @currentuser.id %>
+
+					<%end%>
+					<%end%>
+				</div>
+				<div class="field">
+					<%= f.text_area :content, {:class=>"form-control",:placeholder=>"Content"} %>
+				</div>
+				<div class="field">
+					<%= f.submit "Submit",:class=>"btn btn-default" %>
+				</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,69 @@
+<% @currentuser = User.find_by_id(session[:user_id])
+
+%>
+
+<%if @currentuser.flag != 'submitted' && @currentuser.flag != 'approved'%>
+<h1>Registration Options for <%= @currentuser.name %> </h1>
+<br>
+<%else%>
+<h1>Submitted Package for <%= @currentuser.name %> </h1>
+<br>
+
+<% if @currentuser.classification == "Student" %>
+
+<div data-role="content">
+<div style="border:solid; border-color: white; scroll; height:57%; overflow-x:hidden;background: rgba(255,255,255,0.1);">
+	<table  class="table table-bordered">
+		<thead style="height:50px">
+			<tr>
+				<th>Name</th>
+				<th>Hours</th>
+				<th>Prereq</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @courses.each do |course| %>
+			<%if course.choice == @currentuser.id %>
+			<tr>
+				<td><%= course.name %></td>
+				<td><%= course.hours %></td>
+				<td><%= course.prereq %></td>
+			</tr>
+			<%end%>
+			<%end%>
+		</tbody>
+	</table>
+</div>
+<%end%>
+
+<% if @currentuser.classification != "Student" %>
+<div style="border:solid; border-color: white; scroll; height:57%; overflow-x:hidden;background: rgba(255,255,255,0.1);">
+	<table class="table table-bordered">
+		<thead style="height:50px">
+			<tr>
+				<th>Name</th>
+				<th>Hours</th>
+				<th>Prereq</th>
+				<th>Destroy</th>
+			</tr>
+		</thead>
+		<tbody>
+			
+			<% @courses.each do |course| %>
+			<%if course.choice == @user.id %>
+			<tr>
+				<td><%= course.name %></td>
+				<td><%= course.hours %></td>
+				<td><%= course.prereq %></td>
+				<td><%= link_to 'Show', course, :class => "btn btn-outline-inverse btn-block"%></td>
+				<td><%= link_to 'Edit', edit_course_path(course), :class => "btn btn-outline-inverse btn-block" %></td>
+				<td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-outline-inverse btn-block" %></td>
+			</tr>
+			<%end%>
+			<%end%>
+		</tbody>
+</div>
+<%end%>
+<%end%>
+</div>
+<br>

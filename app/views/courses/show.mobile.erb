@@ -1,0 +1,35 @@
+<div data-role="header">
+<p id="notice"><%= notice %></p>
+</div>
+
+<div data-role="content">
+<% @currentuser = User.find_by_id(session[:user_id]) %>
+
+
+<p>
+  <strong>Name:</strong>
+  <%= @course.name %>
+</p>
+
+<p>
+  <strong>Hours:</strong>
+  <%= @course.hours %>
+</p>
+
+<p>
+  <strong>Prereq:</strong>
+  <%= @course.prereq %>
+</p>
+</div>
+
+<div data-role="footer">
+<%= link_to 'Edit', edit_course_path(@course) %> |
+<%case @currentuser.classification%>
+<%      when "Admin"%>
+<%= link_to 'Back', admin_path() %>
+<%      when "Advisor"%>
+<%= link_to 'Back', advisor_path() %>
+<%     else%>
+<%= link_to 'Back', courses_path(@currentuser.id) %>
+<%     end%>
+</div>
