@@ -5,8 +5,8 @@
 		<%	if @currentuser.classification == 'Admin'
 		@appointments.each do |appointment| %>
 		<%
-	
-		%>
+
+ %>
 		<tr>
 
 			<td><%= appointment.appts %></td>
@@ -24,6 +24,7 @@
 		<%
 			if @currentuser.message != 'scheduled'
 		%>
+
 
 		<h1>Available times  for <%= @currentuser.name%></h1>
 		<% (Appointment.all).each do |appointment| %>
@@ -52,31 +53,13 @@
 		<%= button_to 'Schedule Appointment', new_appointment_path, :class => 'btn btn-outline-inverse btn-block' %>
 		<%elsif @currentuser.classification == 'Advisor'%>
 		<%
-  
-  
-  
-  
-		%>
-		<h1>Create a New Appointment Block</h1>
-		<%= form_tag("/createappt", :method => "post", :id => "apptUpdate") do %>
-		<table>
-			<tbody>
-				<tr>
-					<td>
-					<div class="container">
-						<div class="row">
-							<div class='col-sm-6'>
-								<input type='text' class="form-control" id='startDate'/>
-								<%= select_tag :weeks,  options_for_select([['For one week',1],['For two weeks',2],['For three weeks',3],['For four weeks',4],['For five weeks',5],['For six weeks',6],['For seven weeks',7],['For eight weeks',8],['For nine weeks',9],['For ten weeks',10],['For eleven weeks',11],['For twelve weeks',12],['For thirteen weeks',13], ['For fourteen weeks',14],['For fifteen weeks',15]]), :class => "form-control" %>
 
-							</div>
-						</div>
-					</td>
-					<td> </div> </td>
-				</tr>
-
-			</tbody>
-		</table>
+ %>
+		<h1>Appointments</h1>
+		<p id="action" class="lead">
+			<a href="#modal-form" class="btn btn-outline-inverse btn-block"data-toggle="modal">Appointment Set-Up</a>
+		</p>
+		<%= render 'newapptmodal' %>
 		<table>
 			<tbody>
 				<h1>Advising Blocks set by <%= @currentuser.name%></h1>
@@ -88,7 +71,8 @@
 					<td><%= appointment.flag %></td>
 					<td><%= appointment.notes %></td>
 				</tr>
-				<%end end%>
+				<%end%>
+				<% end%>
 			</tbody>
 		</table>
 		<% if notice %>
@@ -96,12 +80,8 @@
 			<%= notice %>
 		</p>
 		<% end %>
-		<div>
-			<%= submit_tag 'Create Appointment Timeblock', :class => "btn btn-outline-inverse btn-block", :action => 'createAppt' %>
-		</div>
 
 		<% end %>
-		<%end%>
 
 	</tbody>
 </table>

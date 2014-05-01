@@ -1,0 +1,68 @@
+<div class="form-horizontal">
+
+	<%= form_tag("/createappt", :method => "post", :id => "apptUpdate") do %>
+
+	<div class="form-group">
+
+		<div class='col-sm-12'>
+			<div class="form-group">
+				<div class='input-group date' id='datetimepicker1'>
+					<input disabled type='text' class="form-control" id="time" />
+					<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span> </span>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-sm-12">
+				<%= select_tag :weeks,  options_for_select([['For one week',1],['For two weeks',2],['For three weeks',3],['For four weeks',4],['For five weeks',5],['For six weeks',6],['For seven weeks',7],['For eight weeks',8],['For nine weeks',9],['For ten weeks',10],['For eleven weeks',11],['For twelve weeks',12],['For thirteen weeks',13], ['For fourteen weeks',14],['For fifteen weeks',15]]), :class => "form-control" %>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-12">
+				<%= submit_tag 'Create', :class=>"btn btn-default" , :action => 'createAppt' %>
+			</div>
+		</div>
+
+		<% end %>
+	</div>
+	<script type="text/javascript">
+		$(function() {
+			$('#datetimepicker1').datetimepicker({
+				dateFormat : "dd-M-yy HH:mm",
+				minuteStepping : 15,
+				useHours : true,
+				useMinutes : true,
+				useSeconds : false,
+				showtoday : true,
+				sideBySide : false
+			});
+
+		});
+
+		$("#apptUpdate").submit(function(event) {
+			/* stop form from submitting normally */
+			event.preventDefault();
+			/* clear result div */
+			/* get values from elements on the page: */
+			//var values=loop();
+			var starttime = document.getElementById('time').value;
+			var e = document.getElementById("weeks");
+			var weeks = e.options[e.selectedIndex].value;
+
+			/* Send the data using post and put the results in a div */
+			$.ajax({
+				url : "/createappt",
+				type : "post",
+				data : {
+					param1 : starttime,
+					param2 : weeks
+				},
+				success : function(data, textStatus, xhr) {
+					history.go(0);
+				},
+				error : function() {
+				}
+			});
+		});
+	</script>
