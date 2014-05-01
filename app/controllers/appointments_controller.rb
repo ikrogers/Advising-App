@@ -42,6 +42,14 @@ class AppointmentsController < ApplicationController
   end
   
   def createAppt
+    @month = params[:param1][0..2]
+    @day = params[:param1][3..5]
+    @year = params[:param1][6..10]
+    @hour = params[:param1][11..13]
+    @minute = params[:param1][14..16]
+    @currentuser = User.find_by_id(session[:user_id])
+    @date = DateTime.new(@year.to_i,@month.to_i,@day.to_i,@hour.to_i,@minute.to_i)
+    @appt = Appointment.create(start: @date, end: @date + 30.minutes, advID: @currentuser.id, flag: 'open' )
     redirect_to :back
   end
   # GET /appointments/1
@@ -62,7 +70,7 @@ class AppointmentsController < ApplicationController
     @appte = params[:param2]
     
     if(Appointment.count(@currentuser.id) < 1)
-      Appointment.create(appts: params[:param1], appte: params[:param2], stuID: @currentuser.id, advID: User.find_by_name(@currentuser.advisor).id, approved: 'pending' )
+      Appointment.create(start: params[:param1], end: params[:param2], stuID: @currentuser.id, advID: User.find_by_name(@currentuser.advisor).id, approved: 'pending' )
       
       respond_to do |format|
         format.html { redirect_to :back, notice: 'Appointment set!' }

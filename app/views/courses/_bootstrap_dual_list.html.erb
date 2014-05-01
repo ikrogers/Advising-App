@@ -17,7 +17,7 @@
 	<%= form_tag("/getcourse", :method => "post", :id => "courseupdate") do %>
 	<%= select_tag "list", options_for_select(@filter_course_array), :multiple=>true %>
 	</br>
-	<div><%= submit_tag "Send Courses", :class => "btn btn-outline-inverse btn-block" %></div>
+	<div><%= submit_tag "Send Courses", :class => "btn btn-outline-inverse btn-block", :week => "edit[#{skt.id}]" %></div>
 	<% end %>
 	</div>
 	<br>
@@ -63,11 +63,4 @@
 
 
 
-<script>
-	$(function() {
-	$('#list').bootstrapDualListbox({
-	bootstrap2Compatible:false,moveAllLabel:'MOVE ALL',removeAllLabel:'REMOVE ALL',moveSelectedLabel:'MOVE SELECTED',removeSelectedLabel:'REMOVE SELECTED',filterPlaceHolder:'FILTER',filterSelected:'2',filterNonSelected:'1',moveOnSelect:false,preserveSelectionOnMove:'all',helperSelectNamePostfix:'_myhelper',selectedListLabel:'Your Choices',nonSelectedListLabel:'Available Classes'
-	}).bootstrapDualListbox('setRemoveAllLabel','Reset choices').bootstrapDualListbox('setSelectedFilter',undefined).bootstrapDualListbox('setNonSelectedFilter',undefined).bootstrapDualListbox('refresh')
-	});
-</script>
 
