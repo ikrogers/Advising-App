@@ -24,8 +24,14 @@
 <%end%>
 <p>
 <% @currentuser = User.find_by_id(session[:user_id]) %>
-
 </p>
+<%if @currentuser.message == 'unread'%>
+<%= button_to 'View unread messages',  '#', 'data-target' => "#newmsgModal_#{@currentuser.id}", 'data-toggle' => 'modal', :method => :get, :class => "btn btn-outline-inverse btn-block", :style => "foreground-color:white" %>
+<%= render 'users/new_msg_modal', user: @currentuser %>
+<%else%>
+<%= button_to 'View/Send messages',  '#', 'data-target' => "#newmsgModal_#{@currentuser.id}", 'data-toggle' => 'modal',:method => :get,:class => "btn btn-outline-inverse btn-block", :style => "foreground-color:white"  %>
+<%= render 'users/new_msg_modal', user: @currentuser %>
+<%end%>
 <p>
 <%= button_to 'Appoint-Messaging', appointments_path(user: @user),:class => "btn btn-outline-inverse btn-block", method: :get %>
 </p>

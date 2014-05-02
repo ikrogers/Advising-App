@@ -44,7 +44,7 @@ class MessagesController < ApplicationController
     elsif @currentuser.classification == 'Student'
       respond_to do |format|
       if @message.save
-        format.html { redirect_to student_url }
+        format.html { redirect_to student_path }
         format.json { render action: 'show', status: :created, location: @message }
       else
         format.html { render action: 'new' }

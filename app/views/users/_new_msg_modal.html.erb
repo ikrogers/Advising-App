@@ -1,79 +1,19 @@
+<% @currentuser = User.find_by_id(session[:user_id])
+@user = User.find_by_id(params[:id])
+@message = Message.new
+%>
 <div class="modal fade" id='<%= "newmsgModal_#{user.id}" %>' tabindex="-1" role="dialog" aria-labelledby="newmsgModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h2 class="modal-title" id="newmsgModalLabel" style="color: black">Converstation</h2>
+				<h2 class="modal-title" id="newmsgModalLabel" style="color: black">Conversation</h2>
 			</div>
 			<div class="modal-body">
-				<% @currentuser = User.find_by_id(session[:user_id])
-        @user = User.find_by_id(params[:id])
-        @message = Message.new
-%>
+
 				<div class="form-horizontal">
-					<table>
-						<tbody>
-							<%if(@currentuser.classification == 'Student')%>
-							<% (Message.all).each do |message| %>
-							<%if(message.from == @currentuser.id)%>
-							<div class="modal-content">
-								<tr>
-									<td style="color:gray; padding:5px"><%= "To: #{User.find_by_id(message.to).name}  From: #{@currentuser.name}"%></td>
-									<td style="color:gray; padding:5px"><%= message.content %></td>
-								</tr>
-							</div>
-							<br>
-							<%elsif(message.to == @currentuser.id && message.from == User.find_by_name(@currentuser.advisor).id)%>
-							<div class="modal-content">
-								<tr>
-									<td style="color:black; padding:5px"><%= "To: #{@currentuser.name}  From: #{User.find_by_id(message.from).name}"%></td>
-									<td style="color:black; padding:5px"><%= message.content %></td>
-								</tr>
-							</div>
-							<br>
-							<% end %>
 
-							<% end %>
-							<%else%>
-							<% (Message.all).each do |message| %>
-							<%if(message.to == @currentuser.id && message.from == user.id)%>
-							<div class="modal-content">
-								<tr>
-									<td style="color:gray; padding:5px"><%= "To: #{@currentuser.name}  From: #{User.find_by_id(message.from).name}" %></td>
-									<td style="color:gray; padding:5px"><%= message.content %></td>
-								</tr>
-							</div>
-							<br>
-							<%elsif(message.from == @currentuser.id && message.to == user.id)%>
-							<div class="modal-content">
-								<tr>
-									<td style="color:black; padding:5px"><%= "To: #{User.find_by_id(message.to).name}  From: #{@currentuser.name}"%></td>
-									<td style="color:black; padding:5px"><%= message.content %></td>
-								</tr>
-							</div>
-							<br>
-							<% end %>
+					<%= form_for(@message) do |f| %>
 
-							<% end %>
-							<% end %>
-						</tbody>
-					</table>
-				</div>
-				<%= form_for(@message) do |f| %>
-				<% if @message.errors.any? %>
-				<div id="error_explanation">
-					<h2><%= pluralize(@message.errors.count, "error") %> prohibited this message from being saved:</h2>
-
-					<ul>
-						<% @message.errors.full_messages.each do |msg| %>
-						<li>
-							<%= msg %>
-						</li>
-						<% end %>
-					</ul>
-				</div>
-				<% end %>
-
-				<div class="field">
 					<%if(@currentuser.classification == 'Student')%>
 					<%= f.hidden_field :from, :value => @currentuser.id %>
 					<%= f.hidden_field :to, :value => User.find_by_name(@currentuser.advisor).id %>
@@ -87,15 +27,64 @@
 
 					<%end%>
 					<%end%>
+
+					<div class="form-group">
+						<div class="col-sm-12">
+
+							<div id="textdiv" class="form-control" style="overflow-y:scroll; height:250px;">
+								<%if(@currentuser.classification == 'Student')%>
+								<% (Message.all).each do |message| %>
+								<%if(message.from == @currentuser.id)%>
+								<br>
+								<b><%= "To: #{User.find_by_id(message.to).name}  From: #{@currentuser.name}"%>:</b>
+								<br>
+								<%= message.content %>
+								<br>
+								<%elsif(message.to == @currentuser.id && message.from == User.find_by_name(@currentuser.advisor).id)%>
+								<br>
+								<b><%= "To: #{@currentuser.name}  From: #{User.find_by_id(message.from).name}"%>:</b>
+								<br>
+								<%= message.content %>
+								<br>
+								<% end %>
+								<% end %>
+								<%else%>
+								<% (Message.all).each do |message| %>
+								<%if(message.to == @currentuser.id && message.from == user.id)%>
+								<br>
+								<b><%= "To: #{@currentuser.name}  From: #{User.find_by_id(message.from).name}"%>:</b>
+								<br>
+								<%= message.content %>
+								<br>
+								<%elsif(message.from == @currentuser.id && message.to == user.id)%>
+								<br>
+								<b> <%= "To: #{User.find_by_id(message.to).name}  From: #{@currentuser.name}"%>:</b>
+								<br>
+								<%= message.content %>
+								<br>
+								<% end %>
+								<% end %>
+								<% end %>
+
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-sm-12">
+							<%= f.text_area :content, {:class=>"form-control",:placeholder=>"Content"} %>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-12">
+							<%= f.submit "Submit",:class=>"btn btn-default" %>
+						</div>
+					</div>
+					<% end %>
 				</div>
-				<div class="field">
-					<%= f.text_area :content, {:class=>"form-control",:placeholder=>"Content"} %>
-				</div>
-				<div class="field">
-					<%= f.submit "Submit",:class=>"btn btn-default" %>
-				</div>
-				<% end %>
 			</div>
 		</div>
 	</div>
 </div>
+
+
