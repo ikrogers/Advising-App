@@ -1,4 +1,4 @@
-<% @currentuser =  User.find_by_id(session[:user_id])%> <h1>Appointments</h1>
+<% @currentuser =  User.find_by_id(session[:user_id])%> <h1>Appoint-Messaging</h1>
 
 <%	if @currentuser.classification == 'Admin'%>
 <%@appointments.each do |appointment| %>
@@ -20,6 +20,8 @@
 		</tr>
 	</table>
 </div>
+<br>
+
 <%end%>
 <% elsif @currentuser.classification == 'Student' %>
 <%
@@ -46,6 +48,15 @@ if @currentuser.message != 'scheduled'
 		<%end%>
 	</table>
 </div>
+<br>
+<%if @currentuser.message == 'unread'%>
+
+<%= link_to 'View unread messages',  '#', 'data-target' => "#newmsgModal_#{@currentuser.id}", 'data-toggle' => 'modal',:class => "btn btn-outline-inverse btn-block" %>
+<%= render 'users/new_msg_modal', user: @currentuser %>
+<%else%>
+<%= link_to 'View/Send messages',  '#', 'data-target' => "#newmsgModal_#{@currentuser.id}", 'data-toggle' => 'modal',:class => "btn btn-outline-inverse btn-block" %>
+<%= render 'users/new_msg_modal', user: @currentuser %>
+<%end%>
 
 <%else%>
 <div style="border:solid; border-color: white; scroll; height:57%; overflow-x:hidden;background: rgba(255,255,255,0.1);">
@@ -53,7 +64,7 @@ if @currentuser.message != 'scheduled'
 	<table  class="table table-bordered">
 		<% @appointment = Appointment.find_by_stuID(@currentuser.id)%>
 		<tr>
-			
+
 			<th>Start</th>
 			<th>End</th>
 			<th>Advisor</th>
@@ -69,6 +80,15 @@ if @currentuser.message != 'scheduled'
 		</tr>
 	</table>
 </div>
+<br>
+<%if @currentuser.message == 'unread'%>
+
+<%= link_to 'View unread messages',  '#', 'data-target' => "#newmsgModal_#{@currentuser.id}", 'data-toggle' => 'modal',:class => "btn btn-outline-inverse btn-block" %>
+<%= render 'users/new_msg_modal', user: @currentuser %>
+<%else%>
+<%= link_to 'View/Send messages',  '#', 'data-target' => "#newmsgModal_#{@currentuser.id}", 'data-toggle' => 'modal',:class => "btn btn-outline-inverse btn-block" %>
+<%= render 'users/new_msg_modal', user: @currentuser %>
+<%end%>
 <%end%>
 
 <%elsif @currentuser.classification == 'Advisor'%>
@@ -86,11 +106,15 @@ if @currentuser.message != 'scheduled'
 
 		<% (Appointment.all).each do |appointment| %>
 		<% if (appointment.advID == @currentuser.id) %>
+		<%if !User.find_by_id(appointment.stuID).nil? && !User.find_by_id(appointment.stuID).new_record?%>
+		<tr style="background: rgba(255,255,255,0.3);">
+			<%else%>
 		<tr>
+			<%end%>
 			<td><%= (appointment.start).to_datetime.to_formatted_s(:long) %></td>
 			<td><%= (appointment.end).to_datetime.to_formatted_s(:long) %></td>
 			<%if !User.find_by_id(appointment.stuID).nil? && !User.find_by_id(appointment.stuID).new_record?%>
-			<td><%= User.find_by_id(appointment.stuID).name%></td>
+			<td ><%= User.find_by_id(appointment.stuID).name%></td>
 			<%else%>
 			<td></td>
 			<% end%>
