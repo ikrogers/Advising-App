@@ -1,8 +1,9 @@
 <% @currentuser =  User.find_by_id(session[:user_id])%> <h1>Appointments</h1>
 
 <div style="border:solid; border-color: white; scroll; height:57%; overflow-x:hidden;background: rgba(255,255,255,0.1);">
-	<table  class="table table-bordered">
 
+	<table  class="table table-bordered">
+	
 		<%	if @currentuser.classification == 'Admin'
 		@appointments.each do |appointment| %>
 		<%
@@ -54,10 +55,11 @@
 		<%end%>
 		
 		<%elsif @currentuser.classification == 'Advisor'%>
-		<%
-
- %>
-
+		
+		<p>
+	<a href="#modal-form" class="btn btn-outline-inverse btn-block"data-toggle="modal">Appointment Set-Up</a>
+</p>
+<%= render 'newapptmodal' %>
 		<tr>
 			<th>Start</th>
 			<th>End</th>
@@ -82,11 +84,7 @@
 		<%end%>
 		<% end%>
 
-		<% if notice %>
-		<p id='notice'>
-			<%= notice %>
-		</p>
-		<% end %>
+		
 
 		<% end %>
 
@@ -100,12 +98,10 @@
 
 	</tbody>
 	</table>
+	
 </div>
 <br />
-<p>
-	<a href="#modal-form" class="btn btn-outline-inverse btn-block"data-toggle="modal">Appointment Set-Up</a>
-</p>
-<%= render 'newapptmodal' %>
+
 <script type="text/javascript">
 	$(function() {
 		$('#startDate').datetimepicker({
