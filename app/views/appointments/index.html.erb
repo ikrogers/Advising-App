@@ -1,6 +1,8 @@
-<% @currentuser =  User.find_by_id(session[:user_id])%> <h1>Appoint-Messaging</h1>
+<% @currentuser =  User.find_by_id(session[:user_id])%> 
+
 
 <%	if @currentuser.classification == 'Admin'%>
+<h1>Appointments</h1>
 <%@appointments.each do |appointment| %>
 
 <div style="border:solid; border-color: white; scroll; height:57%; overflow-x:hidden;background: rgba(255,255,255,0.1);">
@@ -24,6 +26,7 @@
 
 <%end%>
 <% elsif @currentuser.classification == 'Student' %>
+<h1>Appoint-Messaging</h1>
 <%
 if @currentuser.message != 'scheduled'
 %>
@@ -51,10 +54,10 @@ if @currentuser.message != 'scheduled'
 <br>
 <%if @currentuser.message == 'unread'%>
 
-<%= link_to 'View unread messages',  '#', 'data-target' => "#newmsgModal_#{@currentuser.id}", 'data-toggle' => 'modal',:class => "btn btn-outline-inverse btn-block" %>
+<%= button_to 'View unread messages',  '#', 'data-target' => "#newmsgModal_#{@currentuser.id}", 'data-toggle' => 'modal',:class => "btn btn-outline-inverse btn-block", :style => "foreground-color:white" %>
 <%= render 'users/new_msg_modal', user: @currentuser %>
 <%else%>
-<%= link_to 'View/Send messages',  '#', 'data-target' => "#newmsgModal_#{@currentuser.id}", 'data-toggle' => 'modal',:class => "btn btn-outline-inverse btn-block" %>
+<%= button_to 'View/Send messages',  '#', 'data-target' => "#newmsgModal_#{@currentuser.id}", 'data-toggle' => 'modal',:class => "btn btn-outline-inverse btn-block", :style => "foreground-color:white"  %>
 <%= render 'users/new_msg_modal', user: @currentuser %>
 <%end%>
 
@@ -83,15 +86,16 @@ if @currentuser.message != 'scheduled'
 <br>
 <%if @currentuser.message == 'unread'%>
 
-<%= link_to 'View unread messages',  '#', 'data-target' => "#newmsgModal_#{@currentuser.id}", 'data-toggle' => 'modal',:class => "btn btn-outline-inverse btn-block" %>
+<%= button_to 'View unread messages',  '#', 'data-target' => "#newmsgModal_#{@currentuser.id}", 'data-toggle' => 'modal',:class => "btn btn-outline-inverse btn-block", :style => "foreground-color:white"  %>
 <%= render 'users/new_msg_modal', user: @currentuser %>
 <%else%>
-<%= link_to 'View/Send messages',  '#', 'data-target' => "#newmsgModal_#{@currentuser.id}", 'data-toggle' => 'modal',:class => "btn btn-outline-inverse btn-block" %>
+<%= button_to 'View/Send messages',  '#', 'data-target' => "#newmsgModal_#{@currentuser.id}", 'data-toggle' => 'modal',:class => "btn btn-outline-inverse btn-block", :style => "foreground-color:white"  %>
 <%= render 'users/new_msg_modal', user: @currentuser %>
 <%end%>
 <%end%>
 
 <%elsif @currentuser.classification == 'Advisor'%>
+<h1>Appointments</h1>
 <div style="border:solid; border-color: white; scroll; height:57%; overflow-x:hidden;background: rgba(255,255,255,0.1);">
 
 	<table  class="table table-bordered">
