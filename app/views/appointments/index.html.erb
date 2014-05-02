@@ -1,14 +1,11 @@
 <% @currentuser =  User.find_by_id(session[:user_id])%> <h1>Appointments</h1>
 
+<%	if @currentuser.classification == 'Admin'%>
+<%@appointments.each do |appointment| %>
+
 <div style="border:solid; border-color: white; scroll; height:57%; overflow-x:hidden;background: rgba(255,255,255,0.1);">
 
 	<table  class="table table-bordered">
-	
-		<%	if @currentuser.classification == 'Admin'
-		@appointments.each do |appointment| %>
-		<%
-
- %>
 		<tr>
 
 			<td><%= appointment.appts %></td>
@@ -21,45 +18,64 @@
 			<td><%= link_to 'Deny', denyApt_path(appointment, :id => appointment.id), method: :get, data: { confirm: 'Are you sure?' }%></td>
 			<td><%= link_to 'Delete', deleteApt_path(appointment, :id => appointment.id),method: :get, data: { confirm: 'Are you sure?' } %></td>
 		</tr>
-		<%end%>
-		<% elsif @currentuser.classification == 'Student' %>
-		<%
-			if @currentuser.message != 'scheduled'
-		%>
+	</table>
+</div>
+<%end%>
+<% elsif @currentuser.classification == 'Student' %>
+<%
+if @currentuser.message != 'scheduled'
+%>
+<div style="border:solid; border-color: white; scroll; height:57%; overflow-x:hidden;background: rgba(255,255,255,0.1);">
 
+	<table  class="table table-bordered">
 
-		<h1>Available times  for <%= @currentuser.name%></h1>
+		<th>Start</th>
+		<th>End</th>
+		<th>Availability</th>
+		<th>Selection</th>
+
 		<% (Appointment.all).each do |appointment| %>
 		<% if (appointment.advID == User.find_by_name(@currentuser.advisor).id) %>
 		<tr>
-			<td><%= appointment.start %></td>
-			<td><%= appointment.end %></td>
+			<td><%= (appointment.start).to_datetime.to_formatted_s(:long) %></td>
+			<td><%= (appointment.end).to_datetime.to_formatted_s(:long) %></td>
 			<td><%= appointment.flag %></td>
-			<td><%= appointment.notes %></td>
-			<td><%= button_to 'Schedule Appointment', :action => :schdappt, :id => appointment.id, method: :schdappt, :class => 'btn btn-outline-inverse btn-block' %></td>
+			<td><%= button_to 'Schedule Appointment', {:action => :schdappt, :id => appointment.id, :method => :schdappt}, {:class => 'btn btn-default btn-md btn-block', :style => "color:black"} %></td>
 		</tr>
-		<%end end else
-			@appointment = Appointment.find_by_stuID(@currentuser.id)
-		%>
-			<table>
-				<%= button_to 'Cancel Appointment', :action => :cancappt,:id => @currentuser.id, method: :cancappt, :class => 'btn btn-outline-inverse btn-block' %>
-			</tbody>
-			<tr>
-			<td><%= @appointment.start %></td>
-			<td><%= @appointment.end %></td>
-			<td><%= @appointment.flag %></td>
-			<td><%= @appointment.notes %></td>
-			</tr>
-			</tbody>
-			</table>
 		<%end%>
-		
-		<%elsif @currentuser.classification == 'Advisor'%>
-		
-		<p>
-	<a href="#modal-form" class="btn btn-outline-inverse btn-block"data-toggle="modal">Appointment Set-Up</a>
-</p>
-<%= render 'newapptmodal' %>
+		<%end%>
+	</table>
+</div>
+
+<%else%>
+<div style="border:solid; border-color: white; scroll; height:57%; overflow-x:hidden;background: rgba(255,255,255,0.1);">
+
+	<table  class="table table-bordered">
+		<% @appointment = Appointment.find_by_stuID(@currentuser.id)%>
+		<tr>
+			
+			<th>Start</th>
+			<th>End</th>
+			<th>Advisor</th>
+			<th>Selection</th>
+		</tr>
+		<tr>
+
+			<td VALIGN=CENTER ALIGN=CENTER><%= (@appointment.start).to_datetime.to_formatted_s(:long) %></td>
+			<td><%= (@appointment.end).to_datetime.to_formatted_s(:long) %></td>
+			<td><%= @currentuser.advisor %></td>
+			<td><%= button_to 'Cancel Appointment', {:action => :cancappt,:id => @currentuser.id, method: :cancappt}, {:class => 'btn btn-default btn-md btn-block', :style => "color:black"} %></td>
+
+		</tr>
+	</table>
+</div>
+<%end%>
+
+<%elsif @currentuser.classification == 'Advisor'%>
+<div style="border:solid; border-color: white; scroll; height:57%; overflow-x:hidden;background: rgba(255,255,255,0.1);">
+
+	<table  class="table table-bordered">
+
 		<tr>
 			<th>Start</th>
 			<th>End</th>
@@ -74,17 +90,15 @@
 			<td><%= (appointment.start).to_datetime.to_formatted_s(:long) %></td>
 			<td><%= (appointment.end).to_datetime.to_formatted_s(:long) %></td>
 			<%if !User.find_by_id(appointment.stuID).nil? && !User.find_by_id(appointment.stuID).new_record?%>
-				<td><%= User.find_by_id(appointment.stuID).name%></td>
+			<td><%= User.find_by_id(appointment.stuID).name%></td>
 			<%else%>
-				<td></td>
+			<td></td>
 			<% end%>
 			<td><%= appointment.flag %></td>
-			<td><%= link_to 'Delete Block', appointment, :class => 'btn btn-outline-inverse btn-block',method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			<td><%= link_to 'Delete Block', appointment, :class => 'btn btn-default btn-md btn-block', :style => "color:black",method: :delete, data: { confirm: 'Are you sure?' } %></td>
 		</tr>
 		<%end%>
 		<% end%>
-
-		
 
 		<% end %>
 
@@ -96,12 +110,14 @@
 	<%if(@currentuser.classification == 'Advisor' || @currentuser.classification == 'Admin')%>
 	<%end%>
 
-	</tbody>
-	</table>
-	
 </div>
 <br />
-
+<%if @currentuser.classification != 'Student'%>
+<p>
+	<a href="#modal-form" class="btn btn-outline-inverse btn-block"data-toggle="modal">Appointment Set-Up</a>
+</p>
+<%= render 'newapptmodal' %>
+<%end%>
 <script type="text/javascript">
 	$(function() {
 		$('#startDate').datetimepicker({
