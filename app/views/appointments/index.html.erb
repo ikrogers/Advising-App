@@ -45,7 +45,11 @@ if @currentuser.message != 'scheduled'
 			<td><%= (appointment.start).to_datetime.to_formatted_s(:long) %></td>
 			<td><%= (appointment.end).to_datetime.to_formatted_s(:long) %></td>
 			<td><%= appointment.flag %></td>
+			<%if appointment.flag == "taken"%>
+			<td><%= button_to 'Schedule Appointment', {:action => :schdappt, :id => appointment.id, :method => :schdappt}, {:disabled => true, :class => 'btn btn-default btn-md btn-block', :style => "color:black"} %></td>
+			<%else%>
 			<td><%= button_to 'Schedule Appointment', {:action => :schdappt, :id => appointment.id, :method => :schdappt}, {:class => 'btn btn-default btn-md btn-block', :style => "color:black"} %></td>
+			<%end%>
 		</tr>
 		<%end%>
 		<%end%>
@@ -53,11 +57,10 @@ if @currentuser.message != 'scheduled'
 </div>
 <br>
 <%if @currentuser.message == 'unread'%>
-
-<%= button_to 'View unread messages',  '#', 'data-target' => "#newmsgModal_#{@currentuser.id}", 'data-toggle' => 'modal', :method => :get, :class => "btn btn-outline-inverse btn-block", :style => "foreground-color:white" %>
+<%= link_to 'View unread messages',  '#', 'data-target' => "#newmsgModal_#{@currentuser.id}", 'data-toggle' => 'modal',  :class => "btn btn-outline-inverse btn-block" %>
 <%= render 'users/new_msg_modal', user: @currentuser %>
 <%else%>
-<%= button_to 'View/Send messages',  '#', 'data-target' => "#newmsgModal_#{@currentuser.id}", 'data-toggle' => 'modal',:method => :get,:class => "btn btn-outline-inverse btn-block", :style => "foreground-color:white"  %>
+<%= link_to 'View/Send messages',  '#', 'data-target' => "#newmsgModal_#{@currentuser.id}", 'data-toggle' => 'modal',:class => "btn btn-outline-inverse btn-block" %>
 <%= render 'users/new_msg_modal', user: @currentuser %>
 <%end%>
 
@@ -85,11 +88,10 @@ if @currentuser.message != 'scheduled'
 </div>
 <br>
 <%if @currentuser.message == 'unread'%>
-
-<%= button_to 'View unread messages',  '#', 'data-target' => "#newmsgModal_#{@currentuser.id}", 'data-toggle' => 'modal',:method => :get,:class => "btn btn-outline-inverse btn-block", :style => "foreground-color:white"  %>
+<%= link_to 'View unread messages',  '#', 'data-target' => "#newmsgModal_#{@currentuser.id}", 'data-toggle' => 'modal',  :class => "btn btn-outline-inverse btn-block" %>
 <%= render 'users/new_msg_modal', user: @currentuser %>
 <%else%>
-<%= button_to 'View/Send messages',  '#', 'data-target' => "#newmsgModal_#{@currentuser.id}", 'data-toggle' => 'modal',:method => :get,:class => "btn btn-outline-inverse btn-block", :style => "foreground-color:white"  %>
+<%= link_to 'View/Send messages',  '#', 'data-target' => "#newmsgModal_#{@currentuser.id}", 'data-toggle' => 'modal',:class => "btn btn-outline-inverse btn-block" %>
 <%= render 'users/new_msg_modal', user: @currentuser %>
 <%end%>
 <%end%>
@@ -179,11 +181,9 @@ if @currentuser.message != 'scheduled'
 				param2 : weeks
 			},
 			success : function(data, textStatus, xhr) {
-				alert("Appointment created!");
 				history.go(0);
 			},
 			error : function() {
-				alert("Something went wrong...");
 			}
 		});
 	}); 
