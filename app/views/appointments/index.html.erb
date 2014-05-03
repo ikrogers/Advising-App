@@ -181,11 +181,9 @@ if @currentuser.message != 'scheduled'
 				param2 : weeks
 			},
 			success : function(data, textStatus, xhr) {
-				alert("Appointment created!");
 				history.go(0);
 			},
 			error : function() {
-				alert("Something went wrong...");
 			}
 		});
 	}); 
