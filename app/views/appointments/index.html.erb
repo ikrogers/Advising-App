@@ -46,6 +46,7 @@ if @currentuser.message != 'scheduled'
 			<td><%= (appointment.end).to_datetime.to_formatted_s(:long) %></td>
 			<td><%= appointment.flag %></td>
 			<td><%= button_to 'Schedule Appointment', {:action => :schdappt, :id => appointment.id, :method => :schdappt}, {:class => 'btn btn-default btn-md btn-block', :style => "color:black"} %></td>
+			
 		</tr>
 		<%end%>
 		<%end%>
@@ -54,10 +55,10 @@ if @currentuser.message != 'scheduled'
 <br>
 <%if @currentuser.message == 'unread'%>
 
-<%= button_to 'View unread messages',  '#', 'data-target' => "#newmsgModal_#{@currentuser.id}", 'data-toggle' => 'modal', :method => :get, :class => "btn btn-outline-inverse btn-block", :style => "foreground-color:white" %>
+<%= link_to 'View unread messages',  'data-target' => "#newmsgModal_#{@currentuser.id}", 'data-toggle' => 'modal', :method => :get, :class => "btn btn-outline-inverse btn-block", :style => "foreground-color:white" %>
 <%= render 'users/new_msg_modal', user: @currentuser %>
 <%else%>
-<%= button_to 'View/Send messages',  '#', 'data-target' => "#newmsgModal_#{@currentuser.id}", 'data-toggle' => 'modal',:method => :get,:class => "btn btn-outline-inverse btn-block", :style => "foreground-color:white"  %>
+<%= link_to 'View/Send messages',  'data-target' => "#newmsgModal_#{@currentuser.id}", 'data-toggle' => 'modal',:method => :get,:class => "btn btn-outline-inverse btn-block", :style => "foreground-color:white"  %>
 <%= render 'users/new_msg_modal', user: @currentuser %>
 <%end%>
 
@@ -86,10 +87,10 @@ if @currentuser.message != 'scheduled'
 <br>
 <%if @currentuser.message == 'unread'%>
 
-<%= button_to 'View unread messages',  '#', 'data-target' => "#newmsgModal_#{@currentuser.id}", 'data-toggle' => 'modal',:method => :get,:class => "btn btn-outline-inverse btn-block", :style => "foreground-color:white"  %>
+<%= link_to 'View unread messages',  '#', 'data-target' => "#newmsgModal_#{@currentuser.id}", 'data-toggle' => 'modal',:method => :get,:class => "btn btn-outline-inverse btn-block", :style => "foreground-color:white"  %>
 <%= render 'users/new_msg_modal', user: @currentuser %>
 <%else%>
-<%= button_to 'View/Send messages',  '#', 'data-target' => "#newmsgModal_#{@currentuser.id}", 'data-toggle' => 'modal',:method => :get,:class => "btn btn-outline-inverse btn-block", :style => "foreground-color:white"  %>
+<%= link_to 'View/Send messages',  '#', 'data-target' => "#newmsgModal_#{@currentuser.id}", 'data-toggle' => 'modal',:method => :get,:class => "btn btn-outline-inverse btn-block", :style => "foreground-color:white"  %>
 <%= render 'users/new_msg_modal', user: @currentuser %>
 <%end%>
 <%end%>
