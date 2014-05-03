@@ -49,7 +49,7 @@ class AppointmentsController < ApplicationController
     @currentuser.update_attribute(:message, 'scheduled');
     if(@appointment.save)
         respond_to do |format|
-        format.html { redirect_to :back, notice: 'Appointment scheduled!' }
+        format.html { redirect_to :back }
         
         end
     else
@@ -68,7 +68,7 @@ class AppointmentsController < ApplicationController
     @currentuser.update_attribute(:message, '')
     if(@appointment.save)
         respond_to do |format|
-        format.html { redirect_to :back, notice: 'Appointment cancelled!!' }
+        format.html { redirect_to :back }
         
         end
     else
@@ -193,7 +193,7 @@ class AppointmentsController < ApplicationController
   def destroy
     @appointment.destroy
     respond_to do |format|
-      format.html { redirect_to appointments_url, notice: 'Delete Successful' }
+      format.html { redirect_to appointments_url }
       format.json { head :no_content }
     end
   end
