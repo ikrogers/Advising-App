@@ -26,8 +26,10 @@
 		</div>
 		<br>
 		<% end %>
-
 		<% end %>
+		
+		
+		
 		<%else%>
 		<% (Message.all).each do |message| %>
 		<%if(message.to == @currentuser.id && message.from == @user.id)%>

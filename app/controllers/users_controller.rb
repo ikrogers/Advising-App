@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
+  layout 'functionalitylayout'
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  respond_to :json
   # GET /users
   # GET /users.json
   def index
@@ -21,7 +23,64 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
         @users = User.all
+  end
+  
+  def setAppt
+    @currentuser = User.find_by_id(session[:user_id])
+    
+    
+    @appts = params[:param1]
+    @appte = params[:param2]
+    
+    if(Appointment.count(@currentuser.id) < 1)
+      Appointment.create(appts: params[:param1], appte: params[:param2], stuID: @currentuser.id, advID: User.find_by_name(@currentuser.advisor).id, approved: 'pending' )
+      @appt.save
+      respond_to do |format|
+        format.html { redirect_to courses_path(@currentuser.id), notice: 'Appointment set!' }
+        format.json { render :json => { :name => @name }}
+      end
+    else
+      @appt = Appointment.find_by_userID(@currentuser.id)
+      @appt.update_attribute(:appts,@appts)
+      @appt.update_attribute(:appte,@appte)
+      @appt.update_attribute(:approved,'pending')
+      @appt.save
+      respond_to do |format|
+        format.html { redirect_to courses_path(@currentuser.id), notice: 'Appointment updated!' }
+        format.json { render :json => { :name => @name }}
+      end
+    end
+  end
+  
+  def liftFlag
+    @currentuser = User.find_by_id(session[:user_id])
+    @user = User.find_by_id(params[:id])
+    @user.flag = 'advised'
+    
+    #if @user.save
+    #  respond_with(@currentuser, :location => users_url);
+    #end
+    
+      if @user.save
+        redirect_to users_url
+        
+      end
+    
+  end
 
+  def denyFlag
+    @currentuser = User.find_by_id(session[:user_id])
+    @user = User.find_by_id(params[:id])
+    @user.flag = 'denied'
+    
+    #if @user.save
+    #  respond_with(@currentuser, :location => users_url);
+    #end
+      if @user.save
+        redirect_to users_url
+        
+      end
+    
   end
 
   # POST /users
@@ -29,13 +88,14 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @currentuser = User.find_by_id(session[:user_id])
-    if @currentuser.classification == "Advisor"
+    if @currentuser.classification != "Student"
       @user.classification = "Student"
       @user.advisor = @currentuser.name
+      @user.flag = "false"
     end
     respond_to do |format|
       if @user.save
-        format.html { redirect_to users_url, notice: "User #{@user.name} was successfully created." }
+        format.html { redirect_to users_url }
         format.json { render action: 'show', status: :created, location: @user }
       else
         format.html { render action: 'new' }
@@ -49,7 +109,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to users_url,notice: "User #{@user.name} was successfully updated." }
+        format.html { redirect_to users_url}
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -61,6 +121,20 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+    @user = User.find(params[:id])
+    (Course.find_all_by_studentid(@user.id)).each do |course|
+      course.destroy
+    end
+    (Message.find_all_by_to(@user.id)).each do |message|
+      message.destroy
+    end
+    (Message.find_all_by_from(@user.id)).each do |message|
+      message.destroy
+    end
+    (Appointment.find_all_by_stuID(@user.id)).each do |message|
+      message.destroy
+    end
+    #messagee_path(@user.id,:to => @user.id,:action => 'index')
     @user.destroy
     respond_to do |format|
       format.html { redirect_to users_url }
@@ -77,6 +151,6 @@ class UsersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
-    params.require(:user).permit(:name, :classification, :password, :password_confirmation)
+    params.require(:user).permit(:name, :classification, :password, :password_confirmation, :advisor, :fname, :mi, :lname)
   end
 end

@@ -40,6 +40,83 @@ class AppointmentsController < ApplicationController
       
     end
   end
+  
+  def schdappt
+    @currentuser = User.find_by_id(session[:user_id])
+    @appointment = Appointment.find_by_id(params[:id])
+    @appointment.update_attribute(:stuID, @currentuser.id)
+    @appointment.update_attribute(:flag, 'taken')
+    @currentuser.update_attribute(:message, 'scheduled');
+    if(@appointment.save)
+        respond_to do |format|
+        format.html { redirect_to :back, notice: 'Appointment scheduled!' }
+        
+        end
+    else
+        respond_to do |format|
+        format.html { redirect_to :back, notice: 'Error in inputs.' }
+        
+        end
+    end
+  end
+  
+  def cancappt
+    @currentuser = User.find_by_id(session[:user_id])
+    @appointment = Appointment.find_by_stuID(params[:id])
+    @appointment.update_attribute(:stuID, -1)
+    @appointment.update_attribute(:flag, 'open')
+    @currentuser.update_attribute(:message, '')
+    if(@appointment.save)
+        respond_to do |format|
+        format.html { redirect_to :back, notice: 'Appointment cancelled!!' }
+        
+        end
+    else
+        respond_to do |format|
+        format.html { redirect_to :back, notice: 'Error in inputs.' }
+        
+        end
+    end
+  end
+  
+  def createAppt
+    @month = params[:param1][0..2]
+    @day = params[:param1][3..5]
+    @year = params[:param1][6..10]
+    @hour = params[:param1][11..13]
+    @minute = params[:param1][13..15]
+    @weeks = params[:param2].to_i
+    @ampm = params[:param1][16...17]
+ if(params[:param1].length >18)
+      @month = params[:param1][0..2]
+      @day = params[:param1][3..5]
+      @year = params[:param1][6..10]
+      @hour = params[:param1][11..13]
+      @minute = params[:param1][14..16]
+      @weeks = params[:param2].to_i
+      @ampm = params[:param1][17...18]
+    end
+    @currentuser = User.find_by_id(session[:user_id])
+    @date = DateTime.new(@year.to_i,@month.to_i,@day.to_i,@hour.to_i,@minute.to_i)
+    if @ampm =='P'
+      @date = @date + 12.hours
+    end
+    
+    (Appointment.all).each do |appt|
+      if DateTime.parse(appt.start) <= @date && DateTime.parse(appt.end) > @date
+        respond_to do |format|
+        format.html { redirect_to :back, notice: 'Appointments cannot be set to the same time!' }
+        
+        end
+      return
+      end
+    end
+    
+    for i in 0..@weeks-1
+      Appointment.create(start: @date + i.weeks,stuID: (-1), end: @date + i.weeks + 30.minutes, advID: @currentuser.id, flag: 'open', notes: @ampm)
+    end
+    redirect_to :back
+  end
   # GET /appointments/1
   # GET /appointments/1.json
   def show
@@ -58,7 +135,7 @@ class AppointmentsController < ApplicationController
     @appte = params[:param2]
     
     if(Appointment.count(@currentuser.id) < 1)
-      Appointment.create(appts: params[:param1], appte: params[:param2], stuID: @currentuser.id, advID: User.find_by_name(@currentuser.advisor).id, approved: 'pending' )
+      Appointment.create(start: params[:param1], end: params[:param2], stuID: @currentuser.id, advID: User.find_by_name(@currentuser.advisor).id, approved: 'pending' )
       
       respond_to do |format|
         format.html { redirect_to :back, notice: 'Appointment set!' }
@@ -116,7 +193,7 @@ class AppointmentsController < ApplicationController
   def destroy
     @appointment.destroy
     respond_to do |format|
-      format.html { redirect_to appointments_url }
+      format.html { redirect_to appointments_url, notice: 'Delete Successful' }
       format.json { head :no_content }
     end
   end

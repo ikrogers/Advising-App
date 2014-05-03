@@ -1,85 +1,190 @@
-<h1>Appointments for <%= @currentuser.name%></h1>
+<% @currentuser =  User.find_by_id(session[:user_id])%> 
 
 
-<table>
-  <tbody>
-  		
-	    <%	if @currentuser.classification == 'Admin' %>
-	    	<%@appointments.each do |appointment| %>
-	      <tr>
-	      	
-	        <td><%= appointment.appts %></td>
-	        <td><%= appointment.appte %></td>
-	        <td><%= (User.find_by_id(appointment.stuID)).name %></td>
-	        <td><%= appointment.approved %></td>
-	        <td><%= appointment.notes %></td>
-	        <td><%= link_to 'Show', appointment %></td>
-	        <td><%= link_to 'Approve', approveApt_path(appointment, :id => appointment.id), method: :get%></td>
-	        <td><%= link_to 'Deny', denyApt_path(appointment, :id => appointment.id), method: :get, data: { confirm: 'Are you sure?' }%></td>
-	        <td><%= link_to 'Delete', deleteApt_path(appointment, :id => appointment.id),method: :get, data: { confirm: 'Are you sure?' } %></td>
-	      </tr>
-	      <%end%>
-	    <% elsif @currentuser.classification == 'Student' %>
-	    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
-	    	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
-	    	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	    	<%@appointment = Appointment.find_by_stuID(@currentuser.id)%>
-	    	<%if !@appointment.nil? && !@appointment.new_record?%>
-	    	<td><%= @appointment.appts %></td>
-	        <td><%= @appointment.appte %></td>
-	        <td><%= (User.find_by_id(appointment.stuID)).name %></td>
-	        <td><%= @appointment.approved %></td>
-	        <td><%= @appointment.notes %></td>
-	        <%end%>
-	        <div class="container">
-    <div class="col-sm-6" style="height:75px;">
-       <div class='col-md-5'>
-            <div class="form-group">
-                <div class='input-group date' id='datetimepicker8'>
-                    <input type='text' class="form-control" />
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
-            </div>
-        </div>
-        <div class='col-md-5'>
-            <div class="form-group">
-                <div class='input-group date' id='datetimepicker9'>
-                    <input type='text' class="form-control" />
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script type="text/javascript">
-        $(function () {
-            $('#datetimepicker8').datetimepicker();
-            $('#datetimepicker9').datetimepicker();
-            $("#datetimepicker8").on("dp.change",function (e) {
-               $('#datetimepicker9').data("DateTimePicker").setMinDate(e.date);
-            });
-            $("#datetimepicker9").on("dp.change",function (e) {
-               $('#datetimepicker8').data("DateTimePicker").setMaxDate(e.date);
-            });
-        });
-    </script>
+<%	if @currentuser.classification == 'Admin'%>
+<h1>Appointments</h1>
+<%@appointments.each do |appointment| %>
+
+<div style="border:solid; border-color: white; scroll; height:57%; overflow-x:hidden;background: rgba(255,255,255,0.1);">
+
+	<table  class="table table-bordered">
+		<tr>
+
+			<td><%= appointment.appts %></td>
+			<td><%= appointment.appte %></td>
+			<td><%= (User.find_by_id(appointment.stuID)).name %></td>
+			<td><%= appointment.approved %></td>
+			<td><%= appointment.notes %></td>
+			<td><%= link_to 'Show', appointment %></td>
+			<td><%= link_to 'Approve', approveApt_path(appointment, :id => appointment.id), method: :get%></td>
+			<td><%= link_to 'Deny', denyApt_path(appointment, :id => appointment.id), method: :get, data: { confirm: 'Are you sure?' }%></td>
+			<td><%= link_to 'Delete', deleteApt_path(appointment, :id => appointment.id),method: :get, data: { confirm: 'Are you sure?' } %></td>
+		</tr>
+	</table>
 </div>
-	        
-	    <%elsif @currentuser.classification == 'Advivisor'%>
-	    
-	    <%end%>
-    	
-  </tbody>
-</table>
-
 <br>
 
-<%if(@currentuser.classification == 'Advisor' || @currentuser.classification == 'Admin')%>
-<%= render 'calendar'%>
+<%end%>
+<% elsif @currentuser.classification == 'Student' %>
+<h1>Appoint-Messaging</h1>
+<%
+if @currentuser.message != 'scheduled'
+%>
+<div style="border:solid; border-color: white; scroll; height:57%; overflow-x:hidden;background: rgba(255,255,255,0.1);">
+
+	<table  class="table table-bordered">
+
+		<th>Start</th>
+		<th>End</th>
+		<th>Availability</th>
+		<th>Selection</th>
+
+		<% (Appointment.all).each do |appointment| %>
+		<% if (appointment.advID == User.find_by_name(@currentuser.advisor).id) %>
+		<tr>
+			<td><%= (appointment.start).to_datetime.to_formatted_s(:long) %></td>
+			<td><%= (appointment.end).to_datetime.to_formatted_s(:long) %></td>
+			<td><%= appointment.flag %></td>
+			<%if appointment.flag == "taken"%>
+			<td><%= button_to 'Schedule Appointment', {:action => :schdappt, :id => appointment.id, :method => :schdappt}, {:disabled => true, :class => 'btn btn-default btn-md btn-block', :style => "color:black"} %></td>
+			<%else%>
+			<td><%= button_to 'Schedule Appointment', {:action => :schdappt, :id => appointment.id, :method => :schdappt}, {:class => 'btn btn-default btn-md btn-block', :style => "color:black"} %></td>
+			<%end%>
+		</tr>
+		<%end%>
+		<%end%>
+	</table>
+</div>
+<br>
+<%if @currentuser.message == 'unread'%>
+<%= link_to 'View unread messages',  '#', 'data-target' => "#newmsgModal_#{@currentuser.id}", 'data-toggle' => 'modal',  :class => "btn btn-outline-inverse btn-block" %>
+<%= render 'users/new_msg_modal', user: @currentuser %>
+<%else%>
+<%= link_to 'View/Send messages',  '#', 'data-target' => "#newmsgModal_#{@currentuser.id}", 'data-toggle' => 'modal',:class => "btn btn-outline-inverse btn-block" %>
+<%= render 'users/new_msg_modal', user: @currentuser %>
 <%end%>
 
+<%else%>
+<div style="border:solid; border-color: white; scroll; height:57%; overflow-x:hidden;background: rgba(255,255,255,0.1);">
 
-    	
-  </tbody>
-</table>
+	<table  class="table table-bordered">
+		<% @appointment = Appointment.find_by_stuID(@currentuser.id)%>
+		<tr>
+
+			<th>Start</th>
+			<th>End</th>
+			<th>Advisor</th>
+			<th>Selection</th>
+		</tr>
+		<tr>
+
+			<td VALIGN=CENTER ALIGN=CENTER><%= (@appointment.start).to_datetime.to_formatted_s(:long) %></td>
+			<td><%= (@appointment.end).to_datetime.to_formatted_s(:long) %></td>
+			<td><%= @currentuser.advisor %></td>
+			<td><%= button_to 'Cancel Appointment', {:action => :cancappt,:id => @currentuser.id, method: :cancappt}, {:class => 'btn btn-default btn-md btn-block', :style => "color:black"} %></td>
+
+		</tr>
+	</table>
+</div>
+<br>
+<%if @currentuser.message == 'unread'%>
+<%= link_to 'View unread messages',  '#', 'data-target' => "#newmsgModal_#{@currentuser.id}", 'data-toggle' => 'modal',  :class => "btn btn-outline-inverse btn-block" %>
+<%= render 'users/new_msg_modal', user: @currentuser %>
+<%else%>
+<%= link_to 'View/Send messages',  '#', 'data-target' => "#newmsgModal_#{@currentuser.id}", 'data-toggle' => 'modal',:class => "btn btn-outline-inverse btn-block" %>
+<%= render 'users/new_msg_modal', user: @currentuser %>
+<%end%>
+<%end%>
+
+<%elsif @currentuser.classification == 'Advisor'%>
+<h1>Appointments</h1>
+<div style="border:solid; border-color: white; scroll; height:57%; overflow-x:hidden;background: rgba(255,255,255,0.1);">
+
+	<table  class="table table-bordered">
+
+		<tr>
+			<th>Start</th>
+			<th>End</th>
+			<th>Reserved by</th>
+			<th>Availability</th>
+			<th>Deletes</th>
+		</tr>
+
+		<% (Appointment.all).each do |appointment| %>
+		<% if (appointment.advID == @currentuser.id) %>
+		<%if !User.find_by_id(appointment.stuID).nil? && !User.find_by_id(appointment.stuID).new_record?%>
+		<tr style="background: rgba(255,255,255,0.3);">
+			<%else%>
+		<tr>
+			<%end%>
+			<td><%= (appointment.start).to_datetime.to_formatted_s(:long) %></td>
+			<td><%= (appointment.end).to_datetime.to_formatted_s(:long) %></td>
+			<%if !User.find_by_id(appointment.stuID).nil? && !User.find_by_id(appointment.stuID).new_record?%>
+			<td ><%= User.find_by_id(appointment.stuID).name%></td>
+			<%else%>
+			<td></td>
+			<% end%>
+			<td><%= appointment.flag %></td>
+			<td><%= link_to 'Delete Block', appointment, :class => 'btn btn-default btn-md btn-block', :style => "color:black",method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		</tr>
+		<%end%>
+		<% end%>
+
+		<% end %>
+
+		</tbody>
+	</table>
+
+	<br>
+
+	<%if(@currentuser.classification == 'Advisor' || @currentuser.classification == 'Admin')%>
+	<%end%>
+
+</div>
+<br />
+<%if @currentuser.classification != 'Student'%>
+<p>
+	<a href="#modal-form" class="btn btn-outline-inverse btn-block"data-toggle="modal">Appointment Set-Up</a>
+</p>
+<%= render 'newapptmodal' %>
+<%end%>
+<script type="text/javascript">
+	$(function() {
+		$('#startDate').datetimepicker({
+			dateFormat : "dd-M-yy HH:mm",
+			minuteStepping : 15,
+			useHours : true,
+			useMinutes : true,
+			useSeconds : false,
+			showtoday : true,
+			sideBySide : false
+		});
+
+	});
+
+	$("#apptUpdate").submit(function(event) {
+		/* stop form from submitting normally */
+		event.preventDefault();
+		/* clear result div */
+		/* get values from elements on the page: */
+		//var values=loop();
+		var starttime = $('#startDate').val();
+		var e = document.getElementById("weeks");
+		var weeks = e.options[e.selectedIndex].value;
+
+		/* Send the data using post and put the results in a div */
+		$.ajax({
+			url : "/createappt",
+			type : "post",
+			data : {
+				param1 : starttime,
+				param2 : weeks
+			},
+			success : function(data, textStatus, xhr) {
+				history.go(0);
+			},
+			error : function() {
+			}
+		});
+	}); 
+</script>

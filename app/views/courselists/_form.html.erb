@@ -1,10 +1,10 @@
-<%= form_for(@courselist) do |f| %>
-  <% if @courselist.errors.any? %>
+<%= form_for(courselist) do |f| %>
+  <% if courselist.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@courselist.errors.count, "error") %> prohibited this courselist from being saved:</h2>
+      <h2><%= pluralize(courselist.errors.count, "error") %> prohibited this courselist from being saved:</h2>
 
       <ul>
-      <% @courselist.errors.full_messages.each do |msg| %>
+      <% courselist.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -12,18 +12,15 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, {:class=>"form-control", :placeholder=>"Name"} %>
   </div>
   <div class="field">
-    <%= f.label :prereq %><br>
-    <%= f.text_field :prereq %>
+    <%= f.text_field :prereq, {:class=>"form-control", :placeholder=>"Prereq"} %>
   </div>
   <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
+    <%= f.text_field :description, {:class=>"form-control", :placeholder=>"Description"} %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit",:class=>"btn btn-default" %>
   </div>
 <% end %>

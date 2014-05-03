@@ -1,13 +1,51 @@
-<h1>STUDENT TESTING PAGE</h1>
+<div >
+<h1>Advising Center</h1>
 <% @user = User.find_by_id(session[:user_id]) %>
 
-<h1>Welcome <%= @user.name%></h1>
+<h2 style="color: white">Welcome <%= @user.name%>!</h2>
 
-    <%= button_to 'Logout', logout_path, method: :delete %>
+</p>
+<%if (@user.flag == 'false')%>
+<p>
+<%= button_to 'Submit Schedule', courses_path(@user.id),:class => 'btn btn-outline-inverse btn-block', method: :get %>
+</p>
+<%elsif (@user.flag == 'denied')%>
+<p>
+<%= button_to 'Resubmit Schedule', courses_path(@user.id),:class => 'btn btn-outline-inverse btn-block', method: :get %>
+</p>
+<%elsif (@user.flag == 'approved')%>
+<p>
+<%= button_to 'View Approved Schedule', @user,:class => 'btn btn-outline-inverse btn-block', method: :get %>
+</p>
+<%elsif (@user.flag == 'submitted')%>
+<p>
+<%= button_to 'View Submitted Schedule', @user,:class => 'btn btn-outline-inverse btn-block', method: :get %>
+</p>
+<%end%>
+<p>
+<% @currentuser = User.find_by_id(session[:user_id]) %>
+</p>
+
+
+<%if @currentuser.message == 'unread'%>
+<%= link_to 'View unread messages',  '#', 'data-target' => "#newmsgModal_#{@currentuser.id}", 'data-toggle' => 'modal',  :class => "btn btn-outline-inverse btn-block" %>
+<%= render 'users/new_msg_modal', user: @currentuser %>
+<%else%>
+<%= link_to 'View/Send messages',  '#', 'data-target' => "#newmsgModal_#{@currentuser.id}", 'data-toggle' => 'modal',:class => "btn btn-outline-inverse btn-block" %>
+<%= render 'users/new_msg_modal', user: @currentuser %>
+<%end%>
+
+
+
+<p>
+<%= button_to 'Appoint-Messaging', appointments_path(user: @user),:class => "btn btn-outline-inverse btn-block", method: :get %>
 </p>
 <p>
-    <%= button_to 'View/Add/Drop', courses_path(@user.id), method: :get %>
+<% @user = User.find_by_id(session[:user_id]) %>
+<%= button_to 'Course Catalog', courselists_path,:class => "btn btn-outline-inverse btn-block", method: :get %>
 </p>
-<div class="item">
-	<%= image_tag("cat6.jpg", :size => "500x500") %>
+<p>
+<%= button_to 'Logout', logout_path, :class => 'btn btn-outline-inverse btn-block', method: :delete %>
+</p>
 </div>
+

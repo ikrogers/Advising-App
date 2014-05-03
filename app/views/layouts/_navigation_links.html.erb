@@ -1,2 +1,55 @@
-<%# add navigation links to this file %>
-<li><%= link_to 'Log In', sessions_new_path() %></li>
+<% @cuser = User.find_by_id(session[:user_id]) %>
+
+<%case @cuser.classification%>
+<%      when "Admin"%>
+<p><%= button_to 'Home', admin_path(),:class => "btn btn-outline-inverse btn-block" ,method: :get %></p>
+<p><%= button_to 'Manage Users', users_path(),:class => "btn btn-outline-inverse btn-block" ,method: :get %></p>
+<p><%= button_to 'Manage Courses', courselists_path(),:class => "btn btn-outline-inverse btn-block" ,method: :get %></p>
+
+
+<%    when "Advisor"%>
+<p><%= button_to 'Home', advisor_path(),:class => "btn btn-outline-inverse btn-block",method: :get  %></p>
+<p>
+<%= button_to 'Manage Users', users_path(), :class => "btn btn-outline-inverse btn-block", method: :get %>
+</p>
+<%= button_to 'Appointments', appointments_path(), :class => "btn btn-outline-inverse btn-block", method: :get %>
+</p>
+<p>
+<%= button_to 'View Messages', users_path("value", :value => true), :class => "btn btn-outline-inverse btn-block", method: :get %>
+</p>
+<p>
+
+
+<%     else%>
+
+
+
+<p><%= button_to 'Home', student_path(),:class => "btn btn-outline-inverse btn-block",method: :get  %></p>
+
+</p>
+<%if (@cuser.flag == 'false')%>
+<p>
+<%= button_to 'Submit Schedule', courses_path(@cuser.id),:class => "btn btn-outline-inverse btn-block", method: :get %>
+</p>
+<%elsif (@cuser.flag == 'denied')%>
+<p>
+<%= button_to 'Resubmit Schedule', courses_path(@cuser.id),:class => "btn btn-outline-inverse btn-block", method: :get %>
+</p>
+<%elsif (@cuser.flag == 'approved')%>
+<p>
+<%= button_to 'View Approved Schedule', @cuser,:class => "btn btn-outline-inverse btn-block", method: :get %>
+</p>
+<%elsif (@cuser.flag == 'submitted')%>
+<p>
+<%= button_to 'View Submitted Schedule', @cuser,:class => "btn btn-outline-inverse btn-block", method: :get %>
+</p>
+<%end%>
+<p>
+<%= button_to 'Appoint-Messaging', appointments_path(@cuser.id),:class => "btn btn-outline-inverse btn-block", method: :get %>
+</p>
+<p>
+
+<%= button_to 'Course Catalog', courselists_path,:class => "btn btn-outline-inverse btn-block", method: :get %>
+</p>
+<%     end%>
+<p><%= button_to 'Logout',  logout_path,:class => "btn btn-outline-inverse btn-block",  method: :delete %></p>
