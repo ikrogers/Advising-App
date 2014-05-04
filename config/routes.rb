@@ -8,6 +8,8 @@ Advising::Application.routes.draw do
     get  'message' => 'messages#index'
     post 'message' => 'messages#index'
   end
+  
+    post 'admin' => 'admin#regstudent'
 
   resources :appointments
   post '/createappt' => 'appointments#createAppt'
