@@ -13,7 +13,6 @@
 %>
 
 
-<% @coursesnottaken = @courselist.find_by_sql("SELECT CL.name, CL.hours FROM courselists CL EXCEPT SELECT C.name, C.hours FROM courses C WHERE (C.studentid = #{@currentuser.id} OR C.studentid = -1) EXCEPT SELECT DISTINCT X.name, X.hours FROM courselists X, courses C WHERE  X.prereq NOT IN(SELECT  CC.name FROM courses CC WHERE (CC.studentid = #{@currentuser.id} OR CC.studentid = -1))") %>
 
 </script>
 <table class="table table-striped table-bordered table-condensed">
