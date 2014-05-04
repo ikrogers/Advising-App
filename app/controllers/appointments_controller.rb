@@ -108,7 +108,7 @@ class AppointmentsController < ApplicationController
     (Appointment.all).each do |appt|
       if DateTime.parse(appt.start) <= @date && DateTime.parse(appt.end) > @date
         respond_to do |format|
-        format.html { redirect_to :back, notice: 'Appointments cannot be set to the same time!' }
+        format.html { redirect_to :back }
         
         end
       return
@@ -151,7 +151,7 @@ class AppointmentsController < ApplicationController
       @appointment.update_attribute(:approved,'pending')
       @appointment.save
       respond_to do |format|
-        format.html { redirect_to :back, notice: 'Appointment updated!' }
+        format.html { redirect_to :back }
         format.json { render :json => { :name => @name }}
       end
     end

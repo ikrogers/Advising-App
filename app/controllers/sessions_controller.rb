@@ -22,7 +22,7 @@ end
         redirect_to student_url
       end
     else
-      redirect_to login_url, alert: "Invalid user/password combination"
+      redirect_to login_url
     end
    end
 

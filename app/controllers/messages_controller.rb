@@ -72,7 +72,7 @@ class MessagesController < ApplicationController
     respond_to do |format|
       
       if @message.update(message_params)
-        format.html { redirect_to @message, notice: 'Message was successfully updated.' }
+        format.html { redirect_to @message }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

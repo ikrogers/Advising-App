@@ -36,7 +36,7 @@ class UsersController < ApplicationController
       Appointment.create(appts: params[:param1], appte: params[:param2], stuID: @currentuser.id, advID: User.find_by_name(@currentuser.advisor).id, approved: 'pending' )
       @appt.save
       respond_to do |format|
-        format.html { redirect_to courses_path(@currentuser.id), notice: 'Appointment set!' }
+        format.html { redirect_to courses_path(@currentuser.id) }
         format.json { render :json => { :name => @name }}
       end
     else
@@ -46,7 +46,7 @@ class UsersController < ApplicationController
       @appt.update_attribute(:approved,'pending')
       @appt.save
       respond_to do |format|
-        format.html { redirect_to courses_path(@currentuser.id), notice: 'Appointment updated!' }
+        format.html { redirect_to courses_path(@currentuser.id) }
         format.json { render :json => { :name => @name }}
       end
     end
