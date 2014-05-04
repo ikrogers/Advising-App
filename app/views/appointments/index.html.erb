@@ -40,7 +40,7 @@ if @currentuser.message != 'scheduled'
 		<th>Selection</th>
 
 		<% (Appointment.all).each do |appointment| %>
-		<% if (appointment.advID == User.find_by_name(@currentuser.advisor).id) %>
+		<% if (appointment.advID == User.find_by_name(@currentuser.advisor).id) && appointment.flag == 'open'%>
 		<tr>
 			<td><%= (appointment.start).to_datetime.to_formatted_s(:long) %></td>
 			<td><%= (appointment.end).to_datetime.to_formatted_s(:long) %></td>
