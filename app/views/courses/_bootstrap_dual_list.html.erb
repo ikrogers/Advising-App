@@ -9,13 +9,21 @@
 <% @filter_course_array = result %>
 <% @second = result2 %>
 
-<% @ccc =  Courselist.all%>
+<% @ccc =  Courselist.all
+
+#
+#@r = Courselist.where(active: true).pluck(:id)
+@r = Course.connection.select_all("SELECT CL.name, CL.hours FROM courselists CL EXCEPT SELECT C.name, C.hours FROM courses C WHERE (C.studentid = #{@currentuser.id} OR C.studentid = -1) EXCEPT SELECT DISTINCT X.name, X.hours FROM courselists X, courses C WHERE  X.prereq NOT IN(SELECT  CC.name FROM courses CC WHERE (CC.studentid = #{@currentuser.id} OR CC.studentid = -1))").map { [name, hours] }
+@f = Array.new()
+
+%>
+<%=@r%>
 
 </script>
 <table class="table table-striped table-bordered table-condensed">
 	<div id="listb">
 	<%= form_tag("/getcourse", :method => "post", :id => "courseupdate") do %>
-	<%= select_tag "list", options_for_select(@filter_course_array), :multiple=>true %>
+	<%= select_tag "list", options_for_select(@f), :multiple=>true %>
 	</br>
 	<div><%= submit_tag "Send Courses", :class => "btn btn-outline-inverse btn-block" %></div>
 	<% end %>

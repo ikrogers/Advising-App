@@ -3,7 +3,7 @@
 <%if @currentuser.flag != 'submitted' && @currentuser.flag != 'approved'%>
 <h1>Registration Options for <%= @currentuser.name %> </h1>
 <br>
-<%= render 'bootstrap_dual_list' %>
+<%= render "bootstrap_dual_list" %>
 
 <%else%>
 <h1>Submitted Package for <%= @currentuser.name %> </h1>
