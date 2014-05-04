@@ -14,7 +14,7 @@ gem 'rails_layout'
 end
 gem 'thin'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -71,6 +71,7 @@ gem 'jquery_mobile_rails'
 
 
 group :production do
+gem 'sass-rails', '~> 4.0.0'
 gem 'pg', '0.15.1'
 gem 'rails_12factor', '0.0.2'
 end
