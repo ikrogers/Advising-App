@@ -4,15 +4,7 @@
 
 <h2 style="color: white">Welcome <%= @user.name%>!</h2>
 
-</p>
-<%if (@user.flag == 'false')%>
-<p>
-<%= button_to 'Submit Schedule', courses_path(@user.id),:class => 'btn btn-outline-inverse btn-block', method: :get %>
-</p>
-<%elsif (@user.flag == 'denied')%>
-<p>
-<%= button_to 'Resubmit Schedule', courses_path(@user.id),:class => 'btn btn-outline-inverse btn-block', method: :get %>
-</p>
+
 <%elsif (@user.flag == 'approved')%>
 <p>
 <%= button_to 'View Approved Schedule', @user,:class => 'btn btn-outline-inverse btn-block', method: :get %>
