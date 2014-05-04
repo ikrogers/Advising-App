@@ -16,22 +16,10 @@ User.create!(name: 'rjenkins', password: 'rjenkins', password_confirmation: 'rje
 #default course.  DO NOT REMOVE!
 Course.create!(name: "CS000", hours: 0, studentid: -1)
 
-#Course.create!(name: "CS1010", hours: 4, studentid: 4)
-#Course.create!(name: "CS1301", hours: 4, studentid: 4)
-#Course.create!(name: "CS1302", hours: 4, prereq: "CS1301", studentid: 4)
-#Course.create!(name: "CS12312", hours: 4, prereq: "CS1302", studentid: 5)
-#Course.create!(name: "CS123123", hours: 4, prereq: "CSasda1302", studentid: 5)
-#Course.create!(name: "CS1231231", hours: 4, prereq: "Czxc02", studentid: 5)
-#Course.create!(name: "CS2zxczxcz", hours: 4, prereq: "Czxc02", studentid: 6)
-#Course.create!(name: "CSzxczxczxczx", hours: 4, prereq: "CS1302", studentid: 6)
-#Course.create!(name: "CSzcxcz", hours: 4, prereq: "CS1302", studentid: 7)
-#Course.create!(name: "CS26zxczxczxc", hours: 4, prereq: "Cegsdf02", studentid: 7)
-#Course.create!(name: "CSzxczxc620", hours: 4, prereq: "CS1dfg02", studentid: 7)
-#Course.create!(name: "Czxc20", hours: 4, prereq: "CSdfg2", studentid: 6)
 
 Course.create!(name: "CS1301", hours: 4, studentid: 4)
 Course.create!(name: "CS1302", hours: 4, studentid: 4)
-Course.create!(name: "CS2800", hours: 4, studentid: 4, choice: 4)
+Course.create!(name: "CS2800", hours: 4, studentid: 4)
 Course.create!(name: "CS1301", hours: 4, studentid: 5)
 Course.create!(name: "CS1302", hours: 4, studentid: 5)
 Course.create!(name: "CS2800", hours: 4, studentid: 5)

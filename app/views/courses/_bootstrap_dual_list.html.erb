@@ -2,8 +2,8 @@
 <% @listBoxArray = Array.new 
    
 
-@f = Courselist.connection.select_all("SELECT CL.name, CL.hours, CL.description FROM courselists CL EXCEPT SELECT C.name, C.hours, C.prereq FROM courses C WHERE (C.studentid = #{@currentuser.id} OR C.studentid = -1) EXCEPT SELECT DISTINCT X.name, X.hours, X.description FROM courselists X, courses C WHERE  X.prereq NOT IN(SELECT  CC.name FROM courses CC WHERE (CC.studentid = #{@currentuser.id} OR CC.studentid = -1))")%>
-<%= @f.each do |i|
+@f = Courselist.connection.select_all("SELECT CL.name, CL.hours, CL.description FROM courselists CL EXCEPT SELECT C.name, C.hours, courselists.description FROM courses C INNER JOIN courselists ON C.name = courselists.name WHERE (C.studentid = #{@currentuser.id} OR C.studentid = -1) EXCEPT SELECT DISTINCT X.name, X.hours, X.description FROM courselists X, courses C WHERE  X.prereq NOT IN(SELECT  CC.name FROM courses CC WHERE (CC.studentid = #{@currentuser.id} OR CC.studentid = -1))")%>
+<% @f.each do |i|
 	@temp = Array.new
 	@fu= i.to_query
 	@str = @fu.split("=")
