@@ -3,9 +3,12 @@
 
 @f = Courselist.connection.select_all("SELECT CL.name, CL.hours FROM courselists CL EXCEPT SELECT C.name, C.hours FROM courses C WHERE (C.studentid = #{@currentuser.id} OR C.studentid = -1) EXCEPT SELECT DISTINCT X.name, X.hours FROM courselists X, courses C WHERE  X.prereq NOT IN(SELECT  CC.name FROM courses CC WHERE (CC.studentid = #{@currentuser.id} OR CC.studentid = -1))")%>
 <% @f.each do |i|
-	@fuck = i.to_query
-	@str = @fuck.split("=")
-	@a <<  @str[2]
+	@fu= i.to_query
+	@str = @fu.split("=")
+	@hours = @str[1]
+	@ff = @hours.split("")
+	@a <<   "Course ID: #{@str[2]}"+ ' - '+  "Hours: #{@ff[0]}"
+	
 	end
 %>
 
@@ -41,8 +44,10 @@
 		var array=new Array();
 	for(var i=0;i<list.options.length;++i) {
 	//if(list.options[i].selected)
+	var str  = list.options[i].text;
+	var x = str.split(" ");
 	
-	array[i] = list.options[i].text;
+	array[i] = x[2];
 	}//end for
 	//window.open("localhost:3000//controller/courses."+
 	return array;
