@@ -3,7 +3,7 @@
    
 
 @f = Courselist.connection.select_all("SELECT CL.name, CL.hours, CL.description FROM courselists CL EXCEPT SELECT C.name, C.hours, C.prereq FROM courses C WHERE (C.studentid = #{@currentuser.id} OR C.studentid = -1) EXCEPT SELECT DISTINCT X.name, X.hours, X.description FROM courselists X, courses C WHERE  X.prereq NOT IN(SELECT  CC.name FROM courses CC WHERE (CC.studentid = #{@currentuser.id} OR CC.studentid = -1))")%>
-<% @f.each do |i|
+<%= @f.each do |i|
 	@temp = Array.new
 	@fu= i.to_query
 	@str = @fu.split("=")
@@ -12,7 +12,7 @@
 	@desc = @desc.split("&")
 	@desc = @desc[0]
 	@ff = @hours.split("")
-	@temp << "Course: #{@str[3]}, #{@desc} - Hours: #{@ff[0]}"
+	@temp << "Course: #{@str[3]} -- #{@desc} -- Hours: #{@ff[0]}"
 	@temp << @ff[0]
 	@listBoxArray <<   @temp
 	#[{"CL.name"=>"CS1010", "CL.hours"=>4, "CL.description"=>"Algorithmic Problem Solving"}
@@ -58,7 +58,7 @@
 	var str  = list.options[i].text;
 	var x = str.split(" ");
 	
-	array[i] = x[2];
+	array[i] = x[1];
 	}//end for
 	//window.open("localhost:3000//controller/courses."+
 	return array;
