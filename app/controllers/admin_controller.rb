@@ -18,7 +18,7 @@ class AdminController < ApplicationController
         user.update_attributes({ :flag => 'false' })
     end
     respond_to do |format|
-      format.html { redirect_to admin_path, notice: 'Students registered!' }
+      format.html { redirect_to admin_path }
     end
   end
 end

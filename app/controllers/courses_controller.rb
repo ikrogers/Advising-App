@@ -32,7 +32,7 @@ class CoursesController < ApplicationController
 
     respond_to do |format|
 
-      format.html { redirect_to courses_path(@currentuser.id), notice: "Courses updated" }
+      format.html { redirect_to courses_path(@currentuser.id) }
       format.json { render :json => { :name => @name }}
 
     end #end of format
@@ -64,7 +64,7 @@ class CoursesController < ApplicationController
 
     respond_to do |format|
       if @course.save
-        format.html { redirect_to student_path, notice: 'Course was successfully created.' }
+        format.html { redirect_to student_path }
         format.json { render action: 'show', status: :created, location: @course }
       else
         format.html { render action: 'new' }
@@ -78,7 +78,7 @@ class CoursesController < ApplicationController
   def update
     respond_to do |format|
       if @course.update(course_params)
-        format.html { redirect_to @course, notice: 'Course was successfully updated.' }
+        format.html { redirect_to @course }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
