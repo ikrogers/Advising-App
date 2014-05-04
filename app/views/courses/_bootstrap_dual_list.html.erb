@@ -24,6 +24,20 @@
 </table>
 <script>
 
+	function checkHours(){
+		var list=document.getElementById('bootstrap-duallistbox-selected-list_list[]');
+		var total = 0;
+		for(var i=0;i<list.options.length;++i) {
+			total += list.options[i].value;
+		}//end for
+		if(total > 19)
+			return 1;
+		else if(total < 1)
+			return 2;
+		else
+			return 3;
+	}//end checkhours
+
 	function loop() {
 		var list=document.getElementById('bootstrap-duallistbox-selected-list_list[]');
 		var array=new Array();
@@ -41,6 +55,14 @@
 	/* clear result div */
 	/* get values from elements on the page: */
 	var values=loop();
+	if (checkHours() == 1){
+		alert("You cannot take more than 19 hours!");
+		return;
+	}
+	else if (checkHours() == 2) {
+		alert("You must submit a schedule containing at least one class");
+		return;
+	}
 	/* Send the data using post and put the results in a div */
 	$.ajax({
 	url:"/getcourse",type:"post",
