@@ -28,9 +28,8 @@
 		var array=new Array();
 	for(var i=0;i<list.options.length;++i) {
 	//if(list.options[i].selected)
-	var str = list.options[i].text;
-	var arr = str.split("\"");
-	array[i] = arr[3];
+	
+	array[i] = list.options[i].text;
 	}//end for
 	//window.open("localhost:3000//controller/courses."+
 	return array;
