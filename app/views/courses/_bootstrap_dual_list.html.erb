@@ -1,24 +1,30 @@
 <% @currentuser = User.find_by_id(session[:user_id]) %>
-<% @a = Array.new 
+<% @listBoxArray = Array.new 
+   
 
-@f = Courselist.connection.select_all("SELECT CL.name, CL.hours FROM courselists CL EXCEPT SELECT C.name, C.hours FROM courses C WHERE (C.studentid = #{@currentuser.id} OR C.studentid = -1) EXCEPT SELECT DISTINCT X.name, X.hours FROM courselists X, courses C WHERE  X.prereq NOT IN(SELECT  CC.name FROM courses CC WHERE (CC.studentid = #{@currentuser.id} OR CC.studentid = -1))")%>
+@f = Courselist.connection.select_all("SELECT CL.name, CL.hours, CL.description FROM courselists CL EXCEPT SELECT C.name, C.hours, C.prereq FROM courses C WHERE (C.studentid = #{@currentuser.id} OR C.studentid = -1) EXCEPT SELECT DISTINCT X.name, X.hours, X.description FROM courselists X, courses C WHERE  X.prereq NOT IN(SELECT  CC.name FROM courses CC WHERE (CC.studentid = #{@currentuser.id} OR CC.studentid = -1))")%>
 <% @f.each do |i|
+	@temp = Array.new
 	@fu= i.to_query
 	@str = @fu.split("=")
-	@hours = @str[1]
+	@hours = @str[2]
+	@desc = @str[1].tr("+", " ")
+	@desc = @desc.split("&")
+	@desc = @desc[0]
 	@ff = @hours.split("")
-	@a <<   "Course ID: #{@str[2]}"+ ' - '+  "Hours: #{@ff[0]}"
-	
+	@temp << "Course: #{@str[3]}, #{@desc} - Hours: #{@ff[0]}"
+	@temp << @ff[0]
+	@listBoxArray <<   @temp
+	#[{"CL.name"=>"CS1010", "CL.hours"=>4, "CL.description"=>"Algorithmic Problem Solving"}
 	end
 %>
-
-
 
 </script>
 <table class="table table-striped table-bordered table-condensed">
 	<div id="listb">
 	<%= form_tag("/getcourse", :method => "post", :id => "courseupdate") do %>
-	<%= select_tag "list", options_for_select(@a), :multiple=>true %>
+
+	<%= select_tag "list", options_for_select(@listBoxArray), :multiple=>true %>
 	</br>
 	<div><%= submit_tag "Send Courses", :class => "btn btn-outline-inverse btn-block" %></div>
 	<% end %>
@@ -31,7 +37,8 @@
 		var list=document.getElementById('bootstrap-duallistbox-selected-list_list[]');
 		var total = 0;
 		for(var i=0;i<list.options.length;++i) {
-			total += list.options[i].value;
+			total += parseInt(list.options[i].value);
+			
 		}//end for
 		if(total > 19)
 			return 1;
@@ -61,11 +68,12 @@
 	/* clear result div */
 	/* get values from elements on the page: */
 	var values=loop();
-	if (checkHours() == 1){
+	var check = checkHours();
+	if (check == 1){
 		alert("You cannot take more than 19 hours!");
 		return;
 	}
-	else if (checkHours() == 2) {
+	else if (check == 2) {
 		alert("You must submit a schedule containing at least one class");
 		return;
 	}
