@@ -6,6 +6,7 @@ class AppointmentsController < ApplicationController
   # GET /appointments.json
   def index
     @currentuser = User.find_by_id(session[:user_id])
+    
     if (@currentuser.classification == 'Advisor' )
       @appointments = Appointment.where("advID = ?",@currentuser.id)
       #@appointments = Appointment.find_by_advID(@currentuser.id)
@@ -16,6 +17,8 @@ class AppointmentsController < ApplicationController
       @appointments = Appointment.all
     end
   end
+  
+  
 
   def approve
     @appointment = Appointment.find_by_id(params[:id])
