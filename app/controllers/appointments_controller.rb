@@ -138,7 +138,7 @@ class AppointmentsController < ApplicationController
       Appointment.create(start: params[:param1], end: params[:param2], stuID: @currentuser.id, advID: User.find_by_name(@currentuser.advisor).id, approved: 'pending' )
       
       respond_to do |format|
-        format.html { redirect_to :back, notice: 'Appointment set!' }
+        format.html { redirect_to :back }
         format.json { render :json => { :name => @name }}
       end
     else
@@ -165,7 +165,7 @@ class AppointmentsController < ApplicationController
 
     respond_to do |format|
       if @appointment.save
-        format.html { redirect_to @appointment, notice: 'Appointment was successfully created.' }
+        format.html { redirect_to @appointment }
         format.json { render action: 'show', status: :created, location: @appointment }
       else
         format.html { render action: 'new' }
@@ -179,7 +179,7 @@ class AppointmentsController < ApplicationController
   def update
     respond_to do |format|
       if @appointment.update(appointment_params)
-        format.html { redirect_to @appointment, notice: 'Appointment was successfully updated.' }
+        format.html { redirect_to @appointment }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
