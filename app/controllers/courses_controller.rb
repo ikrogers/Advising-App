@@ -33,6 +33,7 @@ class CoursesController < ApplicationController
     respond_to do |format|
 
       format.html { redirect_to courses_path(@currentuser.id) }
+      format.mobile{ redirect_to courses_path(@currentuser.id) }
       format.json { render :json => { :name => @name }}
 
     end #end of format
@@ -65,9 +66,11 @@ class CoursesController < ApplicationController
     respond_to do |format|
       if @course.save
         format.html { redirect_to student_path }
+        format.mobile{ redirect_to student_path }
         format.json { render action: 'show', status: :created, location: @course }
       else
         format.html { render action: 'new' }
+        format.mobile { render action: 'new' }
         format.json { render json: @course.errors, status: :unprocessable_entity }
       end
     end
@@ -79,9 +82,11 @@ class CoursesController < ApplicationController
     respond_to do |format|
       if @course.update(course_params)
         format.html { redirect_to @course }
+        format.mobile { redirect_to @course }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
+        format.mobile { render action: 'edit' }
         format.json { render json: @course.errors, status: :unprocessable_entity }
       end
     end
@@ -93,15 +98,12 @@ class CoursesController < ApplicationController
     @course.destroy
     respond_to do |format|
       format.html { redirect_to courses_url }
+      format.mobile { redirect_to courses_url }
       format.json { head :no_content }
     end
   end
   
-  def testajaxjs
-    respond_to do |format|
-      format.js {render(partial: 'courses/testajax')}
-    end
-  end
+
 
   private
 

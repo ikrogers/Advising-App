@@ -35,9 +35,11 @@ class MessagesController < ApplicationController
     respond_to do |format|
       if @message.save
         format.html { redirect_to users_path("value", :value => true) }
+        format.mobile { redirect_to users_path("value", :value => true) }
         format.json { render action: 'show', status: :created, location: @message }
       else
         format.html { render action: 'new' }
+        format.mobile{ render action: 'new' }
         format.json { render json: @message.errors, status: :unprocessable_entity }
       end
     end
@@ -45,9 +47,11 @@ class MessagesController < ApplicationController
       respond_to do |format|
       if @message.save
         format.html { redirect_to student_path }
+        format.mobile { redirect_to student_path }
         format.json { render action: 'show', status: :created, location: @message }
       else
         format.html { render action: 'new' }
+        format.mobile { render action: 'new' }
         format.json { render json: @message.errors, status: :unprocessable_entity }
       end
       end
@@ -55,9 +59,11 @@ class MessagesController < ApplicationController
       respond_to do |format|
       if @message.save
         format.html { redirect_to admin_url }
+         format.mobile { redirect_to admin_url }
         format.json { render action: 'show', status: :created, location: @message }
       else
         format.html { render action: 'new' }
+         format.mobile { render action: 'new' }
         format.json { render json: @message.errors, status: :unprocessable_entity }
       end
       end
@@ -73,9 +79,11 @@ class MessagesController < ApplicationController
       
       if @message.update(message_params)
         format.html { redirect_to @message }
+        format.mobile{ redirect_to @message }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
+        format.mobile{ render action: 'edit' }
         format.json { render json: @message.errors, status: :unprocessable_entity }
       end
     end
@@ -87,6 +95,7 @@ class MessagesController < ApplicationController
     @message.destroy
     respond_to do |format|
       format.html { redirect_to messages_url }
+      format.mobile{ redirect_to messages_url }
       format.json { head :no_content }
     end
   end

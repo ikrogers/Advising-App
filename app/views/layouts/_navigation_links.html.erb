@@ -26,16 +26,7 @@
 
 <p><%= button_to 'Home', student_path(),:class => "btn btn-outline-inverse btn-block",method: :get  %></p>
 
-</p>
-<%if (@cuser.flag == 'false')%>
-<p>
-<%= button_to 'Submit Schedule', courses_path(@cuser.id),:class => "btn btn-outline-inverse btn-block", method: :get %>
-</p>
-<%elsif (@cuser.flag == 'denied')%>
-<p>
-<%= button_to 'Resubmit Schedule', courses_path(@cuser.id),:class => "btn btn-outline-inverse btn-block", method: :get %>
-</p>
-<%elsif (@cuser.flag == 'approved')%>
+<%if (@cuser.flag == 'approved')%>
 <p>
 <%= button_to 'View Approved Schedule', @cuser,:class => "btn btn-outline-inverse btn-block", method: :get %>
 </p>

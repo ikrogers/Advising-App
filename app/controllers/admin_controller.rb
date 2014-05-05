@@ -19,6 +19,7 @@ class AdminController < ApplicationController
     end
     respond_to do |format|
       format.html { redirect_to admin_path }
+      format.mobile { redirect_to admin_path }
     end
   end
 end

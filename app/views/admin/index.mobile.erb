@@ -1,0 +1,18 @@
+<h1>Advising Center Mobile</h1>
+<% @user = User.find_by_id(session[:user_id])
+%>
+
+<h2 style="color: white">Welcome <%= @user.name%>!</h2>
+
+<p>
+	<%= button_to "Manage Users", users_path(), :class => "btn btn-outline-inverse btn-block", method: :get %>
+</p>
+<p>
+	<%= button_to "Manage Courses", courselists_path(), :class => "btn btn-outline-inverse btn-block", method: :get %>
+</p>
+<p>
+	<%= button_to 'Register Students', admin_path, :class => "btn btn-outline-inverse btn-block", method: :post %>
+</p>
+<p>
+	<%= button_to 'Logout', logout_path, :class => "btn btn-outline-inverse btn-block", method: :delete %>
+</p>

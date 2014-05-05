@@ -1,5 +1,7 @@
 class AppointmentsController < ApplicationController
   layout 'functionalitylayout'
+  
+  
   before_action :set_appointment, only: [:show, :edit, :update, :destroy]
   
   # GET /appointments
@@ -53,12 +55,13 @@ class AppointmentsController < ApplicationController
     if(@appointment.save)
         respond_to do |format|
         format.html { redirect_to :back }
+        format.mobile { redirect_to :back }
         
         end
     else
         respond_to do |format|
         format.html { redirect_to :back, notice: 'Error in inputs.' }
-        
+        format.mobile{ redirect_to :back, notice: 'Error in inputs.' }
         end
     end
   end
@@ -72,12 +75,12 @@ class AppointmentsController < ApplicationController
     if(@appointment.save)
         respond_to do |format|
         format.html { redirect_to :back }
-        
+        format.mobile{ redirect_to :back }
         end
     else
         respond_to do |format|
         format.html { redirect_to :back, notice: 'Error in inputs.' }
-        
+        format.mobile{ redirect_to :back, notice: 'Error in inputs.' }
         end
     end
   end
@@ -109,7 +112,7 @@ class AppointmentsController < ApplicationController
       if DateTime.parse(appt.start) <= @date && DateTime.parse(appt.end) > @date
         respond_to do |format|
         format.html { redirect_to :back }
-        
+        format.mobile{ redirect_to :back }
         end
       return
       end
@@ -142,6 +145,7 @@ class AppointmentsController < ApplicationController
       
       respond_to do |format|
         format.html { redirect_to :back }
+        format.mobile{ redirect_to :back }
         format.json { render :json => { :name => @name }}
       end
     else
@@ -152,6 +156,7 @@ class AppointmentsController < ApplicationController
       @appointment.save
       respond_to do |format|
         format.html { redirect_to :back }
+        format.mobile{ redirect_to :back }
         format.json { render :json => { :name => @name }}
       end
     end
@@ -169,9 +174,11 @@ class AppointmentsController < ApplicationController
     respond_to do |format|
       if @appointment.save
         format.html { redirect_to @appointment }
+        format.mobile { redirect_to @appointment }
         format.json { render action: 'show', status: :created, location: @appointment }
       else
         format.html { render action: 'new' }
+        format.mobile{ render action: 'new' }
         format.json { render json: @appointment.errors, status: :unprocessable_entity }
       end
     end
@@ -183,9 +190,11 @@ class AppointmentsController < ApplicationController
     respond_to do |format|
       if @appointment.update(appointment_params)
         format.html { redirect_to @appointment }
+        format.mobile{ redirect_to @appointment }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
+        format.mobile{ render action: 'edit' }
         format.json { render json: @appointment.errors, status: :unprocessable_entity }
       end
     end
@@ -197,6 +206,7 @@ class AppointmentsController < ApplicationController
     @appointment.destroy
     respond_to do |format|
       format.html { redirect_to appointments_url }
+      format.mobile{ redirect_to appointments_url }
       format.json { head :no_content }
     end
   end

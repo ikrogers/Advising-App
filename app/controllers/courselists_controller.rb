@@ -30,9 +30,11 @@ class CourselistsController < ApplicationController
     respond_to do |format|
       if @courselist.save
         format.html { redirect_to courselists_url }
+        format.mobile{ redirect_to courselists_url }
         format.json { render action: 'show', status: :created, location: @courselist }
       else
         format.html { render action: 'new' }
+        format.mobile{ render action: 'new' }
         format.json { render json: @courselist.errors, status: :unprocessable_entity }
       end
     end
@@ -44,9 +46,11 @@ class CourselistsController < ApplicationController
     respond_to do |format|
       if @courselist.update(courselist_params)
         format.html { redirect_to courselists_url }
+        format.mobile{ redirect_to courselists_url }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
+        format.mobile{ render action: 'edit' }
         format.json { render json: @courselist.errors, status: :unprocessable_entity }
       end
     end
@@ -58,6 +62,7 @@ class CourselistsController < ApplicationController
     @courselist.destroy
     respond_to do |format|
       format.html { redirect_to courselists_url }
+      format.mobile{ redirect_to courselists_url }
       format.json { head :no_content }
     end
   end
