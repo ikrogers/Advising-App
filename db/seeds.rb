@@ -30,7 +30,6 @@ Course.create!(name: "CS1301", hours: 4, studentid: 7)
 Course.create!(name: "CS1302", hours: 4, studentid: 7)
 Course.create!(name: "CS2800", hours: 3, studentid: 6)
 
-Message.create!(to: 4, from: 3, content: "test message" )
 
 Courselist.create!(name: "CS1010", description: "Algorithmic Problem Solving", hours: 4)
 Courselist.create!(name: "CS1301", description: "Principles of Programming 1", hours: 4)

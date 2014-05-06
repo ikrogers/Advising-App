@@ -11110,9 +11110,9 @@ return jQuery;
     };
 
     ComponentUrl.prototype._parse = function() {
-      var _ref, _ref1;
-      ((_ref = this.link) != null ? _ref : this.link = document.createElement('a')).href = this.original;
-      _ref1 = this.link, this.href = _ref1.href, this.protocol = _ref1.protocol, this.host = _ref1.host, this.hostname = _ref1.hostname, this.port = _ref1.port, this.pathname = _ref1.pathname, this.search = _ref1.search, this.hash = _ref1.hash;
+      var _ref;
+      (this.link != null ? this.link : this.link = document.createElement('a')).href = this.original;
+      _ref = this.link, this.href = _ref.href, this.protocol = _ref.protocol, this.host = _ref.host, this.hostname = _ref.hostname, this.port = _ref.port, this.pathname = _ref.pathname, this.search = _ref.search, this.hash = _ref.hash;
       this.origin = [this.protocol, '//', this.hostname].join('');
       if (this.port.length !== 0) {
         this.origin += ":" + this.port;

@@ -11,6 +11,8 @@ class CoursesController < ApplicationController
   def getcourse
     @currentuser = User.find_by_id(session[:user_id])
     
+    Course.destroy_all(:choice => @currentuser.id)
+
     
     @name = params[:param1]
     if @currentuser.classification == 'Student'

@@ -15395,7 +15395,7 @@ button.close {
     display: none !important;
   }
 }
-/* line 10, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+/* line 10, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
 .bootstrap-datetimepicker-widget {
   top: 0;
   left: 0;
@@ -15406,26 +15406,26 @@ button.close {
   border-radius: 4px;
 }
 
-/* line 20, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+/* line 20, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
 .btn-primary {
   color: black;
   background-color: white;
   border-color: black;
 }
 
-/* line 26, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+/* line 26, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
 .btn-primary:hover {
   color: white;
   background-color: black;
   border-color: white;
 }
 
-/* line 32, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+/* line 32, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
 .bootstrap-datetimepicker-widget.timepicker-sbs {
   width: 600px;
 }
 
-/* line 35, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+/* line 35, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
 .bootstrap-datetimepicker-widget.bottom:before {
   content: '';
   display: inline-block;
@@ -15438,7 +15438,7 @@ button.close {
   left: 7px;
 }
 
-/* line 46, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+/* line 46, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
 .bootstrap-datetimepicker-widget.bottom:after {
   content: '';
   display: inline-block;
@@ -15450,7 +15450,7 @@ button.close {
   left: 8px;
 }
 
-/* line 56, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+/* line 56, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
 .bootstrap-datetimepicker-widget.top:before {
   content: '';
   display: inline-block;
@@ -15463,7 +15463,7 @@ button.close {
   left: 6px;
 }
 
-/* line 67, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+/* line 67, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
 .bootstrap-datetimepicker-widget.top:after {
   content: '';
   display: inline-block;
@@ -15475,30 +15475,30 @@ button.close {
   left: 7px;
 }
 
-/* line 77, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+/* line 77, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
 .bootstrap-datetimepicker-widget .dow {
   width: 14.2857%;
 }
 
-/* line 80, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+/* line 80, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
 .bootstrap-datetimepicker-widget.pull-right:before {
   left: auto;
   right: 6px;
 }
 
-/* line 84, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+/* line 84, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
 .bootstrap-datetimepicker-widget.pull-right:after {
   left: auto;
   right: 7px;
 }
 
-/* line 88, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+/* line 88, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
 .bootstrap-datetimepicker-widget > ul {
   list-style-type: none;
   margin: 0;
 }
 
-/* line 94, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+/* line 94, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
 .bootstrap-datetimepicker-widget .timepicker-hour,
 .bootstrap-datetimepicker-widget .timepicker-minute,
 .bootstrap-datetimepicker-widget .timepicker-second {
@@ -15507,30 +15507,30 @@ button.close {
   font-size: 1.2em;
 }
 
-/* line 99, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+/* line 99, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
 .bootstrap-datetimepicker-widget table[data-hour-format="12"] .separator {
   width: 4px;
   padding: 0;
   margin: 0;
 }
 
-/* line 104, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+/* line 104, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
 .bootstrap-datetimepicker-widget .datepicker > div {
   display: none;
 }
 
-/* line 107, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+/* line 107, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
 .bootstrap-datetimepicker-widget .picker-switch {
   text-align: center;
 }
 
-/* line 110, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+/* line 110, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
 .bootstrap-datetimepicker-widget table {
   width: 100%;
   margin: 0;
 }
 
-/* line 115, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+/* line 115, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
 .bootstrap-datetimepicker-widget td,
 .bootstrap-datetimepicker-widget th {
   text-align: center;
@@ -15540,7 +15540,7 @@ button.close {
   color: black;
 }
 
-/* line 125, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+/* line 125, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
 .bootstrap-datetimepicker-widget td.day:hover,
 .bootstrap-datetimepicker-widget td.hour:hover,
 .bootstrap-datetimepicker-widget td.minute:hover,
@@ -15549,18 +15549,18 @@ button.close {
   cursor: pointer;
 }
 
-/* line 130, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+/* line 130, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
 .bootstrap-datetimepicker-widget td.old,
 .bootstrap-datetimepicker-widget td.new {
   color: #999999;
 }
 
-/* line 133, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+/* line 133, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
 .bootstrap-datetimepicker-widget td.today {
   position: relative;
 }
 
-/* line 136, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+/* line 136, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
 .bootstrap-datetimepicker-widget td.today:before {
   content: '';
   display: inline-block;
@@ -15572,7 +15572,7 @@ button.close {
   right: 4px;
 }
 
-/* line 147, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+/* line 147, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
 .bootstrap-datetimepicker-widget td.active,
 .bootstrap-datetimepicker-widget td.active:hover {
   background-color: black;
@@ -15580,22 +15580,22 @@ button.close {
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
 
-/* line 153, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+/* line 153, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
 .bootstrap-datetimepicker-widget td {
   font-size: 14px;
 }
 
-/* line 158, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+/* line 158, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
 .bootstrap-datetimepicker-widget th {
   font-size: 20px;
 }
 
-/* line 162, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+/* line 162, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
 .bootstrap-datetimepicker-widget td.active.today:before {
   border-bottom-color: #fff;
 }
 
-/* line 166, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+/* line 166, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
 .bootstrap-datetimepicker-widget td.disabled,
 .bootstrap-datetimepicker-widget td.disabled:hover {
   background: none;
@@ -15603,7 +15603,7 @@ button.close {
   cursor: not-allowed;
 }
 
-/* line 171, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+/* line 171, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
 .bootstrap-datetimepicker-widget td span {
   display: block;
   width: 47px;
@@ -15615,24 +15615,24 @@ button.close {
   border-radius: 4px;
 }
 
-/* line 181, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+/* line 181, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
 .bootstrap-datetimepicker-widget td span:hover {
   background: #eeeeee;
 }
 
-/* line 184, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+/* line 184, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
 .bootstrap-datetimepicker-widget td span.active {
   background-color: #428bca;
   color: #fff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
 
-/* line 189, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+/* line 189, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
 .bootstrap-datetimepicker-widget td span.old {
   color: #999999;
 }
 
-/* line 193, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+/* line 193, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
 .bootstrap-datetimepicker-widget td span.disabled,
 .bootstrap-datetimepicker-widget td span.disabled:hover {
   background: none;
@@ -15640,18 +15640,18 @@ button.close {
   cursor: not-allowed;
 }
 
-/* line 198, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+/* line 198, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
 .bootstrap-datetimepicker-widget th.switch {
   width: 145px;
 }
 
-/* line 202, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+/* line 202, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
 .bootstrap-datetimepicker-widget th.next,
 .bootstrap-datetimepicker-widget th.prev {
   font-size: 21px;
 }
 
-/* line 206, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+/* line 206, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
 .bootstrap-datetimepicker-widget th.disabled,
 .bootstrap-datetimepicker-widget th.disabled:hover {
   background: none;
@@ -15659,17 +15659,17 @@ button.close {
   cursor: not-allowed;
 }
 
-/* line 211, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+/* line 211, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
 .bootstrap-datetimepicker-widget thead tr:first-child th {
   cursor: pointer;
 }
 
-/* line 214, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+/* line 214, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
 .bootstrap-datetimepicker-widget thead tr:first-child th:hover {
   background: #eeeeee;
 }
 
-/* line 217, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+/* line 217, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
 .input-group.date .input-group-addon span {
   display: block;
   cursor: pointer;
@@ -15677,73 +15677,73 @@ button.close {
   height: 16px;
 }
 
-/* line 223, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+/* line 223, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
 .bootstrap-datetimepicker-widget.left-oriented:before {
   left: auto;
   right: 6px;
 }
 
-/* line 227, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+/* line 227, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
 .bootstrap-datetimepicker-widget.left-oriented:after {
   left: auto;
   right: 7px;
 }
 
-/* line 231, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+/* line 231, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
 .bootstrap-datetimepicker-widget ul.list-unstyled li div.timepicker div.timepicker-picker table.table-condensed tbody > tr > td, .bootstrap-datetimepicker-widget ul.list-inline li div.timepicker div.timepicker-picker table.table-condensed tbody > tr > td {
   padding: 0px !important;
 }
 
 @media (max-width: 2500px) {
-  /* line 237, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+  /* line 237, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
   .navbar-header {
     float: none;
   }
 
-  /* line 240, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+  /* line 240, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
   .navbar-toggle {
     display: block;
   }
 
-  /* line 243, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+  /* line 243, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
   .navbar-collapse {
     border-top: 1px solid transparent;
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
 
-  /* line 247, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+  /* line 247, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
   .navbar-collapse.collapse {
     display: none !important;
   }
 
-  /* line 250, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+  /* line 250, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
   .navbar-collapse.collapse.in {
     display: block !important;
   }
 
-  /* line 253, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+  /* line 253, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
   .navbar-nav {
     float: none !important;
     margin: 7.5px 4px;
   }
 
-  /* line 258, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+  /* line 258, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
   .navbar-collapse {
     max-height: none;
   }
 
-  /* line 261, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+  /* line 261, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
   .navbar-nav > li {
     float: none;
   }
 
-  /* line 264, c:/Users/John/workspace/chris/app/assets/stylesheets/framework_and_overrides.css.scss */
+  /* line 264, C:/Users/IK/adv/app/assets/stylesheets/framework_and_overrides.css.scss */
   .navbar-nav > li > a {
     padding-top: 10px;
     padding-bottom: 10px;
   }
 }
-/* line 1, c:/Users/John/workspace/chris/app/assets/stylesheets/scaffolds.css.scss */
+/* line 1, C:/Users/IK/adv/app/assets/stylesheets/scaffolds.css.scss */
 body {
   background-color: #fff;
   color: #333;
@@ -15752,7 +15752,7 @@ body {
   line-height: 18px;
 }
 
-/* line 9, c:/Users/John/workspace/chris/app/assets/stylesheets/scaffolds.css.scss */
+/* line 9, C:/Users/IK/adv/app/assets/stylesheets/scaffolds.css.scss */
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 20px;
@@ -15760,45 +15760,45 @@ p, ol, ul, td {
   color: white;
 }
 
-/* line 16, c:/Users/John/workspace/chris/app/assets/stylesheets/scaffolds.css.scss */
+/* line 16, C:/Users/IK/adv/app/assets/stylesheets/scaffolds.css.scss */
 pre {
   background-color: #eee;
   padding: 10px;
   font-size: 11px;
 }
 
-/* line 22, c:/Users/John/workspace/chris/app/assets/stylesheets/scaffolds.css.scss */
+/* line 22, C:/Users/IK/adv/app/assets/stylesheets/scaffolds.css.scss */
 a {
   color: #000;
 }
-/* line 24, c:/Users/John/workspace/chris/app/assets/stylesheets/scaffolds.css.scss */
+/* line 24, C:/Users/IK/adv/app/assets/stylesheets/scaffolds.css.scss */
 a:visited {
   color: #fff;
 }
-/* line 27, c:/Users/John/workspace/chris/app/assets/stylesheets/scaffolds.css.scss */
+/* line 27, C:/Users/IK/adv/app/assets/stylesheets/scaffolds.css.scss */
 a:hover {
   color: #fff;
   background-color: #000;
 }
 
-/* line 34, c:/Users/John/workspace/chris/app/assets/stylesheets/scaffolds.css.scss */
+/* line 34, C:/Users/IK/adv/app/assets/stylesheets/scaffolds.css.scss */
 div.field, div.actions {
   margin-bottom: 10px;
 }
 
-/* line 39, c:/Users/John/workspace/chris/app/assets/stylesheets/scaffolds.css.scss */
+/* line 39, C:/Users/IK/adv/app/assets/stylesheets/scaffolds.css.scss */
 #notice {
   color: green;
 }
 
-/* line 43, c:/Users/John/workspace/chris/app/assets/stylesheets/scaffolds.css.scss */
+/* line 43, C:/Users/IK/adv/app/assets/stylesheets/scaffolds.css.scss */
 .field_with_errors {
   padding: 2px;
   background-color: red;
   display: table;
 }
 
-/* line 49, c:/Users/John/workspace/chris/app/assets/stylesheets/scaffolds.css.scss */
+/* line 49, C:/Users/IK/adv/app/assets/stylesheets/scaffolds.css.scss */
 #error_explanation {
   width: 450px;
   border: 2px solid red;
@@ -15807,7 +15807,7 @@ div.field, div.actions {
   margin-bottom: 20px;
   background-color: #f0f0f0;
 }
-/* line 56, c:/Users/John/workspace/chris/app/assets/stylesheets/scaffolds.css.scss */
+/* line 56, C:/Users/IK/adv/app/assets/stylesheets/scaffolds.css.scss */
 #error_explanation h2 {
   text-align: left;
   font-weight: bold;
@@ -15818,53 +15818,53 @@ div.field, div.actions {
   background-color: #c00;
   color: #fff;
 }
-/* line 66, c:/Users/John/workspace/chris/app/assets/stylesheets/scaffolds.css.scss */
+/* line 66, C:/Users/IK/adv/app/assets/stylesheets/scaffolds.css.scss */
 #error_explanation ul li {
   font-size: 12px;
   list-style: square;
 }
-/* line 7, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 7, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 #loading-indicator {
   position: absolute;
   left: 10px;
   top: 10px;
 }
 
-/* line 15, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 15, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 body, html {
   margin: 0;
   width: 100%;
   height: 100%;
 }
 
-/* line 21, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 21, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .table code {
   font-size: 13px;
   font-weight: 400;
 }
 
-/* line 25, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 25, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .btn-outline {
   color: #563d7c;
   background-color: transparent;
   border-color: #563d7c;
 }
 
-/* line 30, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 30, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .btn-outline:hover, .btn-outline:focus, .btn-outline:active {
   color: #fff;
   background-color: #563d7c;
   border-color: #563d7c;
 }
 
-/* line 35, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 35, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .btn-outline-inverse {
   color: #fff;
   background-color: transparent;
   border-color: #fff;
 }
 
-/* line 40, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 40, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .btn-outline-inverse:hover, .btn-outline-inverse:focus, .btn-outline-inverse:active {
   color: grey;
   text-shadow: none;
@@ -15872,7 +15872,7 @@ body, html {
   border-color: white;
 }
 
-/* line 46, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 46, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-booticon {
   display: block;
   font-weight: 500;
@@ -15883,7 +15883,7 @@ body, html {
   text-align: center;
 }
 
-/* line 55, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 55, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-booticon-sm {
   width: 30px;
   height: 30px;
@@ -15891,7 +15891,7 @@ body, html {
   line-height: 28px;
 }
 
-/* line 61, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 61, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-booticon-lg {
   width: 1000px;
   height: 144px;
@@ -15899,59 +15899,59 @@ body, html {
   line-height: 120px;
 }
 
-/* line 67, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 67, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-booticon-inverse {
   color: #3333FF;
   background-color: white;
 }
 
-/* line 71, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 71, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-booticon-outline {
   background-color: transparent;
   border: 5px solid #fff;
 }
 
-/* line 75, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 75, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-nav {
   margin-bottom: 0;
   background-color: #fff;
   border-bottom: 0;
 }
 
-/* line 80, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 80, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-home-nav .bs-nav-b {
   display: none;
 }
 
-/* line 83, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 83, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-nav .navbar-brand, .bs-docs-nav .navbar-nav > li > a {
   color: #563d7c;
   font-weight: 500;
 }
 
-/* line 87, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 87, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-nav .navbar-nav > li > a:hover, .bs-docs-nav .navbar-nav > .active > a, .bs-docs-nav .navbar-nav > .active > a:hover {
   color: #463265;
   background-color: #f9f9f9;
 }
 
-/* line 91, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 91, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-nav .navbar-toggle .icon-bar {
   background-color: #563d7c;
 }
 
-/* line 94, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 94, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-nav .navbar-header .navbar-toggle {
   border-color: white;
 }
 
-/* line 97, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 97, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-nav .navbar-header .navbar-toggle:hover, .bs-docs-nav .navbar-header .navbar-toggle:focus {
   background-color: #f9f9f9;
   border-color: #f9f9f9;
 }
 
-/* line 101, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 101, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-footer {
   padding-top: 40px;
   padding-bottom: 40px;
@@ -15961,37 +15961,37 @@ body, html {
   border-top: 1px solid #e5e5e5;
 }
 
-/* line 109, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 109, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-footer-links {
   margin-top: 20px;
   padding-left: 0;
   color: #999999;
 }
 
-/* line 114, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 114, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-footer-links li {
   display: inline;
   padding: 0 2px;
 }
 
-/* line 118, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 118, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-footer-links li:first-child {
   padding-left: 0;
 }
 
 @media (min-width: 768px) {
-  /* line 122, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+  /* line 122, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
   .bs-docs-footer p {
     margin-bottom: 0;
   }
 }
-/* line 126, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 126, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-social {
   margin-bottom: 20px;
   text-align: center;
 }
 
-/* line 130, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 130, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-social-buttons {
   display: inline-block;
   margin-bottom: 0;
@@ -15999,30 +15999,30 @@ body, html {
   list-style: none;
 }
 
-/* line 136, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 136, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-social-buttons li {
   display: inline-block;
   line-height: 1;
   padding: 5px 8px;
 }
 
-/* line 141, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 141, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-social-buttons .twitter-follow-button {
   width: 225px !important;
 }
 
-/* line 144, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 144, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-social-buttons .twitter-share-button {
   width: 98px !important;
 }
 
-/* line 147, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 147, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .github-btn {
   border: 0;
   overflow: hidden;
 }
 
-/* line 154, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 154, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-masthead, .bs-docs-header {
   position: relative;
   padding: 30px 15px;
@@ -16032,33 +16032,33 @@ body, html {
   background: url(/assets/img.jpg) no-repeat fixed 100% 100%;
 }
 
-/* line 166, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 166, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-masthead .bs-docs-booticon {
   margin: 0 auto 30px;
 }
 
-/* line 169, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 169, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-masthead h1 {
   font-weight: 300;
   line-height: 1;
   color: white;
 }
 
-/* line 174, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 174, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-masthead .lead {
   margin: 0 auto 30px;
   font-size: 20px;
   color: #E3E3E3;
 }
 
-/* line 179, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 179, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-masthead .version {
   margin-top: -15px;
   margin-bottom: 30px;
   color: #9783b9;
 }
 
-/* line 184, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 184, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-masthead .btn {
   width: 100%;
   padding: 15px 30px;
@@ -16066,61 +16066,61 @@ body, html {
 }
 
 @media (min-width: 480px) {
-  /* line 190, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+  /* line 190, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
   .bs-docs-masthead .btn {
     width: auto;
   }
 }
 @media (min-width: 768px) {
-  /* line 197, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+  /* line 197, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
   .bs-docs-masthead {
     padding-top: 80px;
     padding-bottom: 10%;
   }
 
-  /* line 201, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+  /* line 201, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
   .bs-docs-masthead h1 {
     font-size: 60px;
   }
 
-  /* line 204, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+  /* line 204, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
   .bs-docs-masthead .lead {
     font-size: 24px;
   }
 }
 @media (min-width: 992px) {
-  /* line 209, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+  /* line 209, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
   .bs-docs-masthead .lead {
     width: 80%;
     font-size: 30px;
   }
 }
-/* line 214, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 214, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-header {
   margin-bottom: 40px;
   font-size: 20px;
 }
 
-/* line 218, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 218, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-header h1 {
   margin-top: 0;
   color: white;
 }
 
-/* line 222, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 222, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-header p {
   margin-bottom: 0;
   font-weight: 300;
   line-height: 1.4;
 }
 
-/* line 227, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 227, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-header .container {
   position: relative;
 }
 
 @media (min-width: 768px) {
-  /* line 231, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+  /* line 231, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
   .bs-docs-header {
     padding-top: 60px;
     padding-bottom: 60px;
@@ -16128,19 +16128,19 @@ body, html {
     text-align: left;
   }
 
-  /* line 237, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+  /* line 237, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
   .bs-docs-header h1 {
     font-size: 60px;
     line-height: 1;
   }
 }
 @media (min-width: 992px) {
-  /* line 243, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+  /* line 243, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
   .bs-docs-header h1, .bs-docs-header p {
     margin-right: 380px;
   }
 }
-/* line 247, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 247, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-featurette {
   padding-top: 40px;
   padding-bottom: 40px;
@@ -16152,13 +16152,13 @@ body, html {
   border-bottom: 1px solid #e5e5e5;
 }
 
-/* line 257, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 257, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-featurette + .bs-docs-footer {
   margin-top: 0;
   border-top: 0;
 }
 
-/* line 261, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 261, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-featurette-title {
   font-size: 30px;
   font-weight: 400;
@@ -16166,110 +16166,110 @@ body, html {
   margin-bottom: 5px;
 }
 
-/* line 267, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 267, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .half-rule {
   width: 100px;
   margin: 40px auto;
 }
 
-/* line 271, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 271, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-featurette h3 {
   font-weight: 400;
   color: #333;
   margin-bottom: 5px;
 }
 
-/* line 276, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 276, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-featurette-img {
   display: block;
   margin-bottom: 20px;
   color: #333333;
 }
 
-/* line 281, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 281, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-featurette-img:hover {
   text-decoration: none;
   color: #428bca;
 }
 
-/* line 285, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 285, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-featurette-img img {
   display: block;
   margin-bottom: 15px;
 }
 
-/* line 289, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 289, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-featured-sites {
   margin-left: -1px;
   margin-right: -1px;
 }
 
-/* line 293, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 293, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-featured-sites .col-sm-3 {
   padding-left: 1px;
   padding-right: 1px;
 }
 
 @media (min-width: 480px) {
-  /* line 298, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+  /* line 298, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
   .bs-docs-featurette .img-responsive {
     margin-top: 30px;
   }
 }
 @media (min-width: 768px) {
-  /* line 303, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+  /* line 303, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
   .bs-docs-featurette {
     padding-top: 100px;
     padding-bottom: 100px;
   }
 
-  /* line 307, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+  /* line 307, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
   .bs-docs-featurette-title {
     font-size: 40px;
   }
 
-  /* line 310, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+  /* line 310, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
   .bs-docs-featurette .lead {
     margin-left: auto;
     margin-right: auto;
     max-width: 80%;
   }
 
-  /* line 315, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+  /* line 315, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
   .bs-docs-featured-sites .col-sm-3:first-child img {
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
   }
 
-  /* line 319, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+  /* line 319, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
   .bs-docs-featured-sites .col-sm-3:last-child img {
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
   }
 
-  /* line 323, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+  /* line 323, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
   .bs-docs-featurette .img-responsive {
     margin-top: 0;
   }
 }
-/* line 327, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 327, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-sidebar.affix {
   position: static;
 }
 
 @media (min-width: 768px) {
-  /* line 331, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+  /* line 331, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
   .bs-docs-sidebar {
     padding-left: 20px;
   }
 }
-/* line 335, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 335, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-sidenav {
   margin-top: 20px;
   margin-bottom: 20px;
 }
 
-/* line 339, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 339, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-sidebar .nav > li > a {
   display: block;
   font-size: 13px;
@@ -16278,7 +16278,7 @@ body, html {
   padding: 4px 20px;
 }
 
-/* line 346, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 346, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-sidebar .nav > li > a:hover, .bs-docs-sidebar .nav > li > a:focus {
   padding-left: 19px;
   color: #563d7c;
@@ -16287,7 +16287,7 @@ body, html {
   border-left: 1px solid #563d7c;
 }
 
-/* line 353, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 353, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-sidebar .nav > .active > a, .bs-docs-sidebar .nav > .active:hover > a, .bs-docs-sidebar .nav > .active:focus > a {
   padding-left: 18px;
   font-weight: 700;
@@ -16296,13 +16296,13 @@ body, html {
   border-left: 2px solid #563d7c;
 }
 
-/* line 360, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 360, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-sidebar .nav .nav {
   display: none;
   padding-bottom: 10px;
 }
 
-/* line 364, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 364, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-sidebar .nav .nav > li > a {
   padding-top: 1px;
   padding-bottom: 1px;
@@ -16311,18 +16311,18 @@ body, html {
   font-weight: 400;
 }
 
-/* line 371, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 371, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-sidebar .nav .nav > li > a:hover, .bs-docs-sidebar .nav .nav > li > a:focus {
   padding-left: 29px;
 }
 
-/* line 374, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 374, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-sidebar .nav .nav > .active > a, .bs-docs-sidebar .nav .nav > .active:hover > a, .bs-docs-sidebar .nav .nav > .active:focus > a {
   font-weight: 500;
   padding-left: 28px;
 }
 
-/* line 378, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 378, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .back-to-top {
   display: none;
   margin-top: 10px;
@@ -16333,132 +16333,132 @@ body, html {
   color: #999999;
 }
 
-/* line 387, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 387, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .back-to-top:hover {
   text-decoration: none;
   color: #563d7c;
 }
 
 @media (min-width: 768px) {
-  /* line 392, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+  /* line 392, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
   .back-to-top {
     display: block;
   }
 }
 @media (min-width: 992px) {
-  /* line 397, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+  /* line 397, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
   .bs-docs-sidebar .nav > .active > ul {
     display: block;
   }
 
-  /* line 400, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+  /* line 400, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
   .bs-docs-sidebar.affix, .bs-docs-sidebar.affix-bottom {
     width: 213px;
   }
 
-  /* line 403, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+  /* line 403, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
   .bs-docs-sidebar.affix {
     position: fixed;
     top: 20px;
   }
 
-  /* line 407, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+  /* line 407, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
   .bs-docs-sidebar.affix-bottom {
     position: absolute;
   }
 
-  /* line 410, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+  /* line 410, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
   .bs-docs-sidebar.affix-bottom .bs-docs-sidenav, .bs-docs-sidebar.affix .bs-docs-sidenav {
     margin-top: 0;
     margin-bottom: 0;
   }
 }
 @media (min-width: 1200px) {
-  /* line 416, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+  /* line 416, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
   .bs-docs-sidebar.affix-bottom, .bs-docs-sidebar.affix {
     width: 263px;
   }
 }
-/* line 420, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 420, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-section {
   margin-bottom: 60px;
 }
 
-/* line 423, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 423, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-docs-section:last-child {
   margin-bottom: 0;
 }
 
-/* line 426, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 426, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 h1[id] {
   margin-top: 0;
   padding-top: 20px;
 }
 
-/* line 430, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 430, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-callout {
   margin: 20px 0;
   padding: 20px;
   border-left: 3px solid #eeeeee;
 }
 
-/* line 435, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 435, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-callout h4 {
   margin-top: 0;
   margin-bottom: 5px;
 }
 
-/* line 439, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 439, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-callout p:last-child {
   margin-bottom: 0;
 }
 
-/* line 442, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 442, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-callout code {
   background-color: #fff;
   border-radius: 3px;
 }
 
-/* line 446, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 446, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-callout-danger {
   background-color: #fdf7f7;
   border-color: #d9534f;
 }
 
-/* line 450, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 450, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-callout-danger h4 {
   color: #d9534f;
 }
 
-/* line 453, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 453, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-callout-warning {
   background-color: #fcf8f2;
   border-color: #f0ad4e;
 }
 
-/* line 457, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 457, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-callout-warning h4 {
   color: #f0ad4e;
 }
 
-/* line 460, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 460, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-callout-info {
   background-color: #f4f8fa;
   border-color: #5bc0de;
 }
 
-/* line 464, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 464, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-callout-info h4 {
   color: #5bc0de;
 }
 
-/* line 467, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 467, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .color-swatches {
   margin: 0 -5px;
   overflow: hidden;
 }
 
-/* line 471, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 471, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .color-swatch {
   float: left;
   width: 60px;
@@ -16468,95 +16468,95 @@ h1[id] {
 }
 
 @media (min-width: 768px) {
-  /* line 479, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+  /* line 479, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
   .color-swatch {
     width: 100px;
     height: 100px;
   }
 }
-/* line 484, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 484, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .color-swatches .gray-darker {
   background-color: #222222;
 }
 
-/* line 487, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 487, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .color-swatches .gray-dark {
   background-color: #333333;
 }
 
-/* line 490, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 490, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .color-swatches .gray {
   background-color: #555555;
 }
 
-/* line 493, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 493, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .color-swatches .gray-light {
   background-color: #999999;
 }
 
-/* line 496, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 496, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .color-swatches .gray-lighter {
   background-color: #eeeeee;
 }
 
-/* line 499, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 499, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .color-swatches .brand-primary {
   background-color: #428bca;
 }
 
-/* line 502, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 502, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .color-swatches .brand-success {
   background-color: #5cb85c;
 }
 
-/* line 505, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 505, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .color-swatches .brand-warning {
   background-color: #f0ad4e;
 }
 
-/* line 508, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 508, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .color-swatches .brand-danger {
   background-color: #d9534f;
 }
 
-/* line 511, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 511, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .color-swatches .brand-info {
   background-color: #5bc0de;
 }
 
-/* line 514, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 514, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .color-swatches .bs-purple {
   background-color: #563d7c;
 }
 
-/* line 517, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 517, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .color-swatches .bs-purple-light {
   background-color: #c7bfd3;
 }
 
-/* line 520, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 520, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .color-swatches .bs-purple-lighter {
   background-color: #e5e1ea;
 }
 
-/* line 523, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 523, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .color-swatches .bs-gray {
   background-color: #f9f9f9;
 }
 
-/* line 526, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 526, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-team .team-member {
   color: #555;
   line-height: 32px;
 }
 
-/* line 530, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 530, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-team .team-member:hover {
   color: #333;
   text-decoration: none;
 }
 
-/* line 534, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 534, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-team .github-btn {
   float: right;
   margin-top: 6px;
@@ -16564,7 +16564,7 @@ h1[id] {
   height: 20px;
 }
 
-/* line 540, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 540, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-team img {
   float: left;
   width: 32px;
@@ -16572,12 +16572,12 @@ h1[id] {
   border-radius: 4px;
 }
 
-/* line 546, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 546, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .show-grid {
   margin-bottom: 15px;
 }
 
-/* line 549, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 549, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .show-grid [class^=col-] {
   padding-top: 10px;
   padding-bottom: 10px;
@@ -16587,7 +16587,7 @@ h1[id] {
   border: 1px solid rgba(86, 61, 124, 0.2);
 }
 
-/* line 557, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 557, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-example {
   position: relative;
   padding: 45px 15px 15px;
@@ -16599,7 +16599,7 @@ h1[id] {
   border-width: 1px 0;
 }
 
-/* line 567, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 567, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-example:after {
   content: "Example";
   position: absolute;
@@ -16612,7 +16612,7 @@ h1[id] {
   letter-spacing: 1px;
 }
 
-/* line 578, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 578, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-example + .highlight {
   margin: -15px -15px 15px;
   border-radius: 0;
@@ -16620,7 +16620,7 @@ h1[id] {
 }
 
 @media (min-width: 768px) {
-  /* line 584, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+  /* line 584, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
   .bs-example {
     margin-left: 0;
     margin-right: 0;
@@ -16631,7 +16631,7 @@ h1[id] {
     box-shadow: none;
   }
 
-  /* line 593, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+  /* line 593, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
   .bs-example + .highlight {
     margin-top: -16px;
     margin-left: 0;
@@ -16641,177 +16641,177 @@ h1[id] {
     border-bottom-right-radius: 4px;
   }
 }
-/* line 602, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 602, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-example .container {
   width: auto;
 }
 
-/* line 605, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 605, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-example > p:last-child, .bs-example > ul:last-child, .bs-example > ol:last-child, .bs-example > blockquote:last-child, .bs-example > .form-control:last-child, .bs-example > .table:last-child, .bs-example > .navbar:last-child, .bs-example > .jumbotron:last-child, .bs-example > .alert:last-child, .bs-example > .panel:last-child, .bs-example > .list-group:last-child, .bs-example > .well:last-child, .bs-example > .progress:last-child, .bs-example > .table-responsive:last-child > .table {
   margin-bottom: 0;
 }
 
-/* line 608, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 608, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-example > p > .close {
   float: none;
 }
 
-/* line 611, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 611, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-example-type .table .type-info {
   color: #999;
   vertical-align: middle;
 }
 
-/* line 615, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 615, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-example-type .table td {
   padding: 15px 0;
   border-color: #eeeeee;
 }
 
-/* line 619, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 619, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-example-type .table tr:first-child td {
   border-top: 0;
 }
 
-/* line 622, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 622, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-example-type h1, .bs-example-type h2, .bs-example-type h3, .bs-example-type h4, .bs-example-type h5, .bs-example-type h6 {
   margin: 0;
 }
 
-/* line 625, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 625, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-example-bg-classes p {
   padding: 15px;
 }
 
-/* line 628, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 628, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-example > .img-circle, .bs-example > .img-rounded, .bs-example > .img-thumbnail {
   margin: 5px;
 }
 
-/* line 631, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 631, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-example > .table-responsive > .table {
   background-color: white;
 }
 
-/* line 634, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 634, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-example > .btn, .bs-example > .btn-group {
   margin-top: 5px;
   margin-bottom: 5px;
 }
 
-/* line 638, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 638, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-example > .btn-toolbar + .btn-toolbar {
   margin-top: 10px;
 }
 
-/* line 641, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 641, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-example-control-sizing select, .bs-example-control-sizing input[type=text] + input[type=text] {
   margin-top: 10px;
 }
 
-/* line 644, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 644, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-example-form .input-group {
   margin-bottom: 10px;
 }
 
-/* line 647, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 647, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-example > textarea.form-control {
   resize: vertical;
 }
 
-/* line 650, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 650, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-example > .list-group {
   max-width: 400px;
 }
 
-/* line 653, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 653, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-example .navbar:last-child {
   margin-bottom: 0;
 }
 
-/* line 656, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 656, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-navbar-top-example, .bs-navbar-bottom-example {
   z-index: 1;
   padding: 0;
   overflow: hidden;
 }
 
-/* line 661, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 661, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-navbar-top-example .navbar-header, .bs-navbar-bottom-example .navbar-header {
   margin-left: 0;
 }
 
-/* line 664, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 664, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-navbar-top-example .navbar-fixed-top, .bs-navbar-bottom-example .navbar-fixed-bottom {
   position: relative;
   margin-left: 0;
   margin-right: 0;
 }
 
-/* line 669, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 669, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-navbar-top-example {
   padding-bottom: 45px;
 }
 
-/* line 672, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 672, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-navbar-top-example:after {
   top: auto;
   bottom: 15px;
 }
 
-/* line 676, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 676, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-navbar-top-example .navbar-fixed-top {
   top: -1px;
 }
 
-/* line 679, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 679, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-navbar-bottom-example {
   padding-top: 45px;
 }
 
-/* line 682, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 682, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-navbar-bottom-example .navbar-fixed-bottom {
   bottom: -1px;
 }
 
-/* line 685, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 685, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-navbar-bottom-example .navbar {
   margin-bottom: 0;
 }
 
 @media (min-width: 768px) {
-  /* line 689, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+  /* line 689, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
   .bs-navbar-top-example .navbar-fixed-top, .bs-navbar-bottom-example .navbar-fixed-bottom {
     position: absolute;
   }
 
-  /* line 692, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+  /* line 692, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
   .bs-navbar-top-example {
     border-radius: 0 0 4px 4px;
   }
 
-  /* line 695, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+  /* line 695, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
   .bs-navbar-bottom-example {
     border-radius: 4px 4px 0 0;
   }
 }
-/* line 699, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 699, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-example .pagination {
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-/* line 703, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 703, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-example > .pager {
   margin-top: 0;
 }
 
-/* line 706, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 706, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-example-modal {
   background-color: whitesmoke;
 }
 
-/* line 709, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 709, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-example-modal .modal {
   position: relative;
   top: auto;
@@ -16822,43 +16822,43 @@ h1[id] {
   display: block;
 }
 
-/* line 718, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 718, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-example-modal .modal-dialog {
   left: auto;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* line 723, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 723, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-example > .dropdown > .dropdown-menu {
   position: static;
   display: block;
   margin-bottom: 5px;
 }
 
-/* line 728, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 728, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-example-tabs .nav-tabs {
   margin-bottom: 15px;
 }
 
-/* line 731, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 731, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-example-tooltips {
   text-align: center;
 }
 
-/* line 734, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 734, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-example-tooltips > .btn {
   margin-top: 5px;
   margin-bottom: 5px;
 }
 
-/* line 738, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 738, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-example-popover {
   padding-bottom: 24px;
   background-color: #f9f9f9;
 }
 
-/* line 742, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 742, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-example-popover .popover {
   position: relative;
   display: block;
@@ -16867,7 +16867,7 @@ h1[id] {
   margin: 20px;
 }
 
-/* line 749, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 749, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .scrollspy-example {
   position: relative;
   height: 200px;
@@ -16875,7 +16875,7 @@ h1[id] {
   overflow: auto;
 }
 
-/* line 755, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 755, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .highlight {
   padding: 9px 14px;
   margin-bottom: 14px;
@@ -16884,7 +16884,7 @@ h1[id] {
   border-radius: 4px;
 }
 
-/* line 762, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 762, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .highlight pre {
   padding: 0;
   margin-top: 0;
@@ -16894,13 +16894,13 @@ h1[id] {
   white-space: nowrap;
 }
 
-/* line 770, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 770, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .highlight pre code {
   font-size: inherit;
   color: #333333;
 }
 
-/* line 774, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 774, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .highlight pre .lineno {
   display: inline-block;
   width: 22px;
@@ -16910,51 +16910,51 @@ h1[id] {
   color: #bebec5;
 }
 
-/* line 782, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 782, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .table-responsive .highlight pre {
   white-space: normal;
 }
 
-/* line 785, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 785, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-table th small, .responsive-utilities th small {
   display: block;
   font-weight: 400;
   color: #999999;
 }
 
-/* line 790, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 790, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .responsive-utilities tbody th {
   font-weight: 400;
 }
 
-/* line 793, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 793, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .responsive-utilities td {
   text-align: center;
 }
 
-/* line 796, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 796, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .responsive-utilities td.is-visible {
   color: #468847;
   background-color: #dff0d8 !important;
 }
 
-/* line 800, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 800, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .responsive-utilities td.is-hidden {
   color: #ccc;
   background-color: #f9f9f9 !important;
 }
 
-/* line 804, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 804, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .responsive-utilities-test {
   margin-top: 5px;
 }
 
-/* line 807, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 807, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .responsive-utilities-test .col-xs-6 {
   margin-bottom: 10px;
 }
 
-/* line 810, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 810, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .responsive-utilities-test span {
   display: block;
   padding: 15px 10px;
@@ -16965,32 +16965,32 @@ h1[id] {
   border-radius: 4px;
 }
 
-/* line 819, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 819, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .visible-on .col-xs-6 .hidden-xs, .visible-on .col-xs-6 .hidden-sm, .visible-on .col-xs-6 .hidden-md, .visible-on .col-xs-6 .hidden-lg, .hidden-on .col-xs-6 .hidden-xs, .hidden-on .col-xs-6 .hidden-sm, .hidden-on .col-xs-6 .hidden-md, .hidden-on .col-xs-6 .hidden-lg {
   color: #999;
   border: 1px solid #dddddd;
 }
 
-/* line 823, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 823, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .visible-on .col-xs-6 .visible-xs, .visible-on .col-xs-6 .visible-sm, .visible-on .col-xs-6 .visible-md, .visible-on .col-xs-6 .visible-lg, .hidden-on .col-xs-6 .visible-xs, .hidden-on .col-xs-6 .visible-sm, .hidden-on .col-xs-6 .visible-md, .hidden-on .col-xs-6 .visible-lg {
   color: #468847;
   background-color: #dff0d8;
   border: 1px solid #d6e9c6;
 }
 
-/* line 828, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 828, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-glyphicons {
   margin: 0 -19px 20px -16px;
   overflow: hidden;
 }
 
-/* line 832, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 832, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-glyphicons-list {
   padding-left: 0;
   list-style: none;
 }
 
-/* line 836, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 836, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-glyphicons li {
   float: left;
   width: 25%;
@@ -17003,94 +17003,94 @@ h1[id] {
   background-color: #f9f9f9;
 }
 
-/* line 847, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 847, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-glyphicons .glyphicon {
   margin-top: 5px;
   margin-bottom: 10px;
   font-size: 24px;
 }
 
-/* line 852, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 852, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-glyphicons .glyphicon-class {
   display: block;
   text-align: center;
   word-wrap: break-word;
 }
 
-/* line 857, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 857, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-glyphicons li:hover {
   color: #fff;
   background-color: #563d7c;
 }
 
 @media (min-width: 768px) {
-  /* line 862, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+  /* line 862, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
   .bs-glyphicons {
     margin-left: 0;
     margin-right: 0;
   }
 
-  /* line 866, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+  /* line 866, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
   .bs-glyphicons li {
     width: 12.5%;
     font-size: 12px;
   }
 }
-/* line 871, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 871, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-customizer .toggle {
   float: right;
   margin-top: 25px;
 }
 
-/* line 875, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 875, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-customizer label {
   margin-top: 10px;
   font-weight: 500;
   color: #555555;
 }
 
-/* line 880, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 880, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-customizer h2 {
   margin-top: 0;
   margin-bottom: 5px;
   padding-top: 30px;
 }
 
-/* line 885, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 885, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-customizer h3 {
   margin-bottom: 0;
 }
 
-/* line 888, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 888, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-customizer h4 {
   margin-top: 15px;
   margin-bottom: 0;
 }
 
-/* line 892, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 892, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-customizer .bs-callout h4 {
   margin-top: 0;
   margin-bottom: 5px;
 }
 
-/* line 896, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 896, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-customizer input[type=text] {
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
   background-color: #fafafa;
 }
 
-/* line 900, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 900, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-customizer .help-block {
   font-size: 12px;
   margin-bottom: 5px;
 }
 
-/* line 904, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 904, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 #less-section label {
   font-weight: 400;
 }
 
-/* line 907, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 907, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-customizer-input {
   float: left;
   width: 33.333333%;
@@ -17098,12 +17098,12 @@ h1[id] {
   padding-right: 15px;
 }
 
-/* line 913, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 913, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-customize-download .btn-outline {
   padding: 20px;
 }
 
-/* line 916, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 916, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-customizer-alert {
   position: fixed;
   top: 0;
@@ -17117,23 +17117,23 @@ h1[id] {
   border-bottom: 1px solid #b94441;
 }
 
-/* line 928, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 928, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-customizer-alert .close {
   margin-top: -4px;
   font-size: 24px;
 }
 
-/* line 932, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 932, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-customizer-alert p {
   margin-bottom: 0;
 }
 
-/* line 935, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 935, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-customizer-alert .glyphicon {
   margin-right: 5px;
 }
 
-/* line 938, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 938, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-customizer-alert pre {
   margin: 10px 0 0;
   color: #fff;
@@ -17142,7 +17142,7 @@ h1[id] {
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
-/* line 945, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 945, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-brand-logos {
   display: table;
   width: 100%;
@@ -17153,36 +17153,36 @@ h1[id] {
   border-radius: 4px;
 }
 
-/* line 954, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 954, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-brand-item {
   padding: 60px 0;
   text-align: center;
 }
 
-/* line 958, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 958, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-brand-item + .bs-brand-item {
   border-top: 1px solid white;
 }
 
-/* line 961, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 961, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-brand-logos .inverse {
   color: #fff;
   background-color: #563d7c;
 }
 
-/* line 965, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 965, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-brand-item h1, .bs-brand-item h3 {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-/* line 969, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 969, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-brand-item .bs-docs-booticon {
   margin-left: auto;
   margin-right: auto;
 }
 
-/* line 973, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 973, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-brand-item .glyphicon {
   width: 30px;
   height: 30px;
@@ -17192,50 +17192,50 @@ h1[id] {
   border-radius: 50%;
 }
 
-/* line 981, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 981, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-brand-item .glyphicon-ok {
   background-color: #5cb85c;
 }
 
-/* line 984, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 984, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-brand-item .glyphicon-remove {
   background-color: #d9534f;
 }
 
 @media (min-width: 768px) {
-  /* line 988, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+  /* line 988, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
   .bs-brand-item {
     display: table-cell;
     width: 1%;
   }
 
-  /* line 992, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+  /* line 992, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
   .bs-brand-item + .bs-brand-item {
     border-top: 0;
     border-left: 1px solid white;
   }
 
-  /* line 996, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+  /* line 996, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
   .bs-brand-item h1 {
     font-size: 60px;
   }
 }
-/* line 1000, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1000, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-examples .thumbnail {
   margin-bottom: 10px;
 }
 
-/* line 1003, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1003, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-examples h4 {
   margin-bottom: 5px;
 }
 
-/* line 1006, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1006, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bs-examples p {
   margin-bottom: 20px;
 }
 
-/* line 1009, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1009, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 #focusedInput {
   border-color: #ccc;
   border-color: rgba(82, 168, 236, 0.8);
@@ -17245,311 +17245,311 @@ h1[id] {
   box-shadow: 0 0 8px rgba(82, 168, 236, 0.6);
 }
 
-/* line 1017, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1017, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .hll {
   background-color: #ffffcc;
 }
 
-/* line 1020, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1020, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .c {
   color: #999999;
 }
 
-/* line 1023, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1023, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .err {
   color: #A00;
   background-color: #ffaaaa;
 }
 
-/* line 1027, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1027, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .k {
   color: #006699;
 }
 
-/* line 1030, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1030, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .o {
   color: #555555;
 }
 
-/* line 1033, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1033, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .cm {
   color: #999999;
 }
 
-/* line 1036, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1036, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .cp {
   color: #009999;
 }
 
-/* line 1039, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1039, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .c1 {
   color: #999999;
 }
 
-/* line 1042, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1042, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .cs {
   color: #999999;
 }
 
-/* line 1045, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1045, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .gd {
   background-color: #FCC;
   border: 1px solid #cc0000;
 }
 
-/* line 1049, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1049, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .ge {
   font-style: italic;
 }
 
-/* line 1052, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1052, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .gr {
   color: red;
 }
 
-/* line 1055, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1055, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .gh {
   color: #003300;
 }
 
-/* line 1058, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1058, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .gi {
   background-color: #CFC;
   border: 1px solid #00cc00;
 }
 
-/* line 1062, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1062, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .go {
   color: #aaaaaa;
 }
 
-/* line 1065, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1065, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .gp {
   color: #000099;
 }
 
-/* line 1068, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1068, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .gu {
   color: #003300;
 }
 
-/* line 1071, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1071, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .gt {
   color: #99cc66;
 }
 
-/* line 1074, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1074, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .kc {
   color: #006699;
 }
 
-/* line 1077, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1077, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .kd {
   color: #006699;
 }
 
-/* line 1080, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1080, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .kn {
   color: #006699;
 }
 
-/* line 1083, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1083, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .kp {
   color: #006699;
 }
 
-/* line 1086, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1086, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .kr {
   color: #006699;
 }
 
-/* line 1089, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1089, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .kt {
   color: #007788;
 }
 
-/* line 1092, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1092, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .m {
   color: #ff6600;
 }
 
-/* line 1095, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1095, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .s {
   color: #d44950;
 }
 
-/* line 1098, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1098, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .na {
   color: #4f9fcf;
 }
 
-/* line 1101, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1101, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .nb {
   color: #336666;
 }
 
-/* line 1104, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1104, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .nc {
   color: #00aa88;
 }
 
-/* line 1107, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1107, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .no {
   color: #336600;
 }
 
-/* line 1110, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1110, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .nd {
   color: #9999ff;
 }
 
-/* line 1113, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1113, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .ni {
   color: #999999;
 }
 
-/* line 1116, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1116, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .ne {
   color: #cc0000;
 }
 
-/* line 1119, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1119, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .nf {
   color: #cc00ff;
 }
 
-/* line 1122, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1122, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .nl {
   color: #9999ff;
 }
 
-/* line 1125, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1125, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .nn {
   color: #00ccff;
 }
 
-/* line 1128, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1128, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .nt {
   color: #2f6f9f;
 }
 
-/* line 1131, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1131, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .nv {
   color: #003333;
 }
 
-/* line 1134, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1134, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .ow {
   color: black;
 }
 
-/* line 1137, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1137, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .w {
   color: #bbbbbb;
 }
 
-/* line 1140, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1140, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .mf {
   color: #ff6600;
 }
 
-/* line 1143, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1143, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .mh {
   color: #ff6600;
 }
 
-/* line 1146, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1146, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .mi {
   color: #ff6600;
 }
 
-/* line 1149, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1149, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .mo {
   color: #ff6600;
 }
 
-/* line 1152, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1152, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .sb {
   color: #cc3300;
 }
 
-/* line 1155, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1155, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .sc {
   color: #cc3300;
 }
 
-/* line 1158, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1158, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .sd {
   color: #C30;
   font-style: italic;
 }
 
-/* line 1162, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1162, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .s2 {
   color: #cc3300;
 }
 
-/* line 1165, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1165, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .se {
   color: #cc3300;
 }
 
-/* line 1168, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1168, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .sh {
   color: #cc3300;
 }
 
-/* line 1171, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1171, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .si {
   color: #aa0000;
 }
 
-/* line 1174, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1174, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .sx {
   color: #cc3300;
 }
 
-/* line 1177, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1177, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .sr {
   color: #33aaaa;
 }
 
-/* line 1180, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1180, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .s1 {
   color: #cc3300;
 }
 
-/* line 1183, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1183, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .ss {
   color: #ffcc33;
 }
 
-/* line 1186, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1186, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .bp {
   color: #336666;
 }
 
-/* line 1189, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1189, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .vc {
   color: #003333;
 }
 
-/* line 1192, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1192, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .vg {
   color: #003333;
 }
 
-/* line 1195, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1195, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .vi {
   color: #003333;
 }
 
-/* line 1198, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1198, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .il {
   color: #ff6600;
 }
 
-/* line 1201, c:/Users/John/workspace/chris/app/assets/stylesheets/sessions.css.scss */
+/* line 1201, C:/Users/IK/adv/app/assets/stylesheets/sessions.css.scss */
 .css .o, .css .o + .nt, .css .nt + .nt {
   color: #999999;
 }
@@ -17574,19 +17574,19 @@ h1[id] {
  * Datetimepicker for Bootstrap v3
  * https://github.com/Eonasdan/bootstrap-datetimepicker/
  */
-/* line 36, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 36, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-event {
   background: #fff !important;
   color: #000 !important;
 }
 
 /* for vertical events */
-/* line 43, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 43, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-event-bg {
   display: none !important;
 }
 
-/* line 47, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 47, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-event .ui-resizable-handle {
   display: none !important;
 }
@@ -17596,25 +17596,25 @@ h1[id] {
  * Docs & License: http://arshaw.com/fullcalendar/
  * (c) 2013 Adam Shaw
  */
-/* line 60, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 60, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc {
   direction: ltr;
   text-align: left;
 }
 
-/* line 65, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 65, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 71, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 71, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 html .fc,
 .fc table {
   font-size: 1em;
 }
 
-/* line 76, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 76, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc td,
 .fc th {
   padding: 0;
@@ -17623,58 +17623,58 @@ html .fc,
 
 /* Header
 ------------------------------------------------------------------------*/
-/* line 86, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 86, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-header td {
   white-space: nowrap;
 }
 
-/* line 90, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 90, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-header-left {
   width: 25%;
   text-align: left;
 }
 
-/* line 95, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 95, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-header-center {
   text-align: center;
 }
 
-/* line 99, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 99, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-header-right {
   width: 25%;
   text-align: right;
 }
 
-/* line 104, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 104, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-header-title {
   display: inline-block;
   vertical-align: top;
 }
 
-/* line 109, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 109, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-header-title h2 {
   margin-top: 0;
   white-space: nowrap;
 }
 
-/* line 114, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 114, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc .fc-header-space {
   padding-left: 10px;
 }
 
-/* line 118, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 118, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-header .fc-button {
   margin-bottom: 1em;
   vertical-align: top;
 }
 
 /* buttons edges butting together */
-/* line 125, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 125, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-header .fc-button {
   margin-right: -1px;
 }
 
-/* line 130, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 130, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-header .fc-corner-right,
 .fc-header .ui-corner-right {
   /* theme */
@@ -17683,18 +17683,18 @@ html .fc,
 }
 
 /* button layering (for border precedence) */
-/* line 137, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 137, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-header .fc-state-hover,
 .fc-header .ui-state-hover {
   z-index: 2;
 }
 
-/* line 141, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 141, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-header .fc-state-down {
   z-index: 3;
 }
 
-/* line 146, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 146, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-header .fc-state-active,
 .fc-header .ui-state-active {
   z-index: 4;
@@ -17702,14 +17702,14 @@ html .fc,
 
 /* Content
 ------------------------------------------------------------------------*/
-/* line 155, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 155, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-content {
   clear: both;
   zoom: 1;
   /* for IE7, gives accurate coordinates for [un]freezeContentHeight */
 }
 
-/* line 160, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 160, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-view {
   width: 100%;
   overflow: hidden;
@@ -17717,21 +17717,21 @@ html .fc,
 
 /* Cell Styles
 ------------------------------------------------------------------------*/
-/* line 171, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 171, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-widget-header,
 .fc-widget-content {
   /* <td>, usually */
   border: 1px solid #ddd;
 }
 
-/* line 175, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 175, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-state-highlight {
   /* <td> today cell */
   /* TODO: add .fc-today to <th> */
   background: #fcf8e3;
 }
 
-/* line 179, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 179, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-cell-overlay {
   /* semi-transparent rectangle while dragging */
   background: #bce8f1;
@@ -17742,7 +17742,7 @@ html .fc,
 
 /* Buttons
 ------------------------------------------------------------------------*/
-/* line 190, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 190, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-button {
   position: relative;
   display: inline-block;
@@ -17754,20 +17754,20 @@ html .fc,
   cursor: pointer;
 }
 
-/* line 201, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 201, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-state-default {
   /* non-theme */
   border: 1px solid;
 }
 
-/* line 205, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 205, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-state-default.fc-corner-left {
   /* non-theme */
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
 }
 
-/* line 210, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 210, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-state-default.fc-corner-right {
   /* non-theme */
   border-top-right-radius: 4px;
@@ -17778,7 +17778,7 @@ html .fc,
   Our default prev/next buttons use HTML entities like &lsaquo; &rsaquo; &laquo; &raquo;
   and we'll try to make them look good cross-browser.
 */
-/* line 220, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 220, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-text-arrow {
   margin: 0 .1em;
   font-size: 2em;
@@ -17787,7 +17787,7 @@ html .fc,
   /* for IE7 */
 }
 
-/* line 228, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 228, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-button-prev .fc-text-arrow,
 .fc-button-next .fc-text-arrow {
   /* for &lsaquo; &rsaquo; */
@@ -17795,14 +17795,14 @@ html .fc,
 }
 
 /* icon (for jquery ui) */
-/* line 234, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 234, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-button .fc-icon-wrap {
   position: relative;
   float: left;
   top: 50%;
 }
 
-/* line 240, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 240, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-button .ui-icon {
   position: relative;
   float: left;
@@ -17815,7 +17815,7 @@ html .fc,
   button states
   borrowed from twitter bootstrap (http://twitter.github.com/bootstrap/)
 */
-/* line 253, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 253, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-state-default {
   background-color: #f5f5f5;
   background-image: -moz-linear-gradient(top, white, #e6e6e6);
@@ -17831,7 +17831,7 @@ html .fc,
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
-/* line 271, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 271, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-state-hover,
 .fc-state-down,
 .fc-state-active,
@@ -17840,7 +17840,7 @@ html .fc,
   background-color: #e6e6e6;
 }
 
-/* line 276, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 276, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-state-hover {
   color: #333333;
   text-decoration: none;
@@ -17851,7 +17851,7 @@ html .fc,
   transition: background-position 0.1s linear;
 }
 
-/* line 287, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 287, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-state-down,
 .fc-state-active {
   background-color: #cccccc;
@@ -17860,7 +17860,7 @@ html .fc,
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
-/* line 294, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 294, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-state-disabled {
   cursor: default;
   background-image: none;
@@ -17871,18 +17871,18 @@ html .fc,
 
 /* Global Event Styles
 ------------------------------------------------------------------------*/
-/* line 307, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 307, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-event-container > * {
   z-index: 8;
 }
 
-/* line 312, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 312, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-event-container > .ui-draggable-dragging,
 .fc-event-container > .ui-resizable-resizing {
   z-index: 9;
 }
 
-/* line 316, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 316, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-event {
   border: 1px solid #3a87ad;
   /* default BORDER color */
@@ -17894,36 +17894,36 @@ html .fc,
   cursor: default;
 }
 
-/* line 324, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 324, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 a.fc-event {
   text-decoration: none;
 }
 
-/* line 329, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 329, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 a.fc-event,
 .fc-event-draggable {
   cursor: pointer;
 }
 
-/* line 333, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 333, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-rtl .fc-event {
   text-align: right;
 }
 
-/* line 337, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 337, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-event-inner {
   width: 100%;
   height: 100%;
   overflow: hidden;
 }
 
-/* line 344, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 344, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-event-time,
 .fc-event-title {
   padding: 0 1px;
 }
 
-/* line 348, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 348, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc .ui-resizable-handle {
   display: block;
   position: absolute;
@@ -17938,13 +17938,13 @@ a.fc-event,
 
 /* Horizontal Events
 ------------------------------------------------------------------------*/
-/* line 362, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 362, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-event-hori {
   border-width: 1px 0;
   margin-bottom: 1px;
 }
 
-/* line 368, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 368, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-ltr .fc-event-hori.fc-event-start,
 .fc-rtl .fc-event-hori.fc-event-end {
   border-left-width: 1px;
@@ -17952,7 +17952,7 @@ a.fc-event,
   border-bottom-left-radius: 3px;
 }
 
-/* line 375, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 375, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-ltr .fc-event-hori.fc-event-end,
 .fc-rtl .fc-event-hori.fc-event-start {
   border-right-width: 1px;
@@ -17961,7 +17961,7 @@ a.fc-event,
 }
 
 /* resizable */
-/* line 383, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 383, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-event-hori .ui-resizable-e {
   top: 0           !important;
   /* importants override pre jquery ui 1.7 styles */
@@ -17971,7 +17971,7 @@ a.fc-event,
   cursor: e-resize;
 }
 
-/* line 391, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 391, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-event-hori .ui-resizable-w {
   top: 0           !important;
   left: -3px       !important;
@@ -17980,7 +17980,7 @@ a.fc-event,
   cursor: w-resize;
 }
 
-/* line 399, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 399, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-event-hori .ui-resizable-handle {
   _padding-bottom: 14px;
   /* IE6 had 0 height */
@@ -17988,30 +17988,30 @@ a.fc-event,
 
 /* Reusable Separate-border Table
 ------------------------------------------------------------*/
-/* line 408, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 408, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 table.fc-border-separate {
   border-collapse: separate;
 }
 
-/* line 413, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 413, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-border-separate th,
 .fc-border-separate td {
   border-width: 1px 0 0 1px;
 }
 
-/* line 418, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 418, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-border-separate th.fc-last,
 .fc-border-separate td.fc-last {
   border-right-width: 1px;
 }
 
-/* line 423, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 423, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-border-separate tr.fc-last th,
 .fc-border-separate tr.fc-last td {
   border-bottom-width: 1px;
 }
 
-/* line 428, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 428, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-border-separate tbody tr.fc-first td,
 .fc-border-separate tbody tr.fc-first th {
   border-top-width: 0;
@@ -18019,29 +18019,29 @@ table.fc-border-separate {
 
 /* Month View, Basic Week View, Basic Day View
 ------------------------------------------------------------------------*/
-/* line 437, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 437, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-grid th {
   text-align: center;
 }
 
-/* line 441, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 441, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc .fc-week-number {
   width: 22px;
   text-align: center;
 }
 
-/* line 446, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 446, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc .fc-week-number div {
   padding: 0 2px;
 }
 
-/* line 450, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 450, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-grid .fc-day-number {
   float: right;
   padding: 0 2px;
 }
 
-/* line 455, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 455, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-grid .fc-other-month .fc-day-number {
   opacity: 0.3;
   filter: alpha(opacity=30);
@@ -18051,7 +18051,7 @@ table.fc-border-separate {
      making day-numbers bold also fixes the problem */
 }
 
-/* line 463, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 463, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-grid .fc-day-content {
   clear: both;
   padding: 2px 2px 1px;
@@ -18059,35 +18059,35 @@ table.fc-border-separate {
 }
 
 /* event styles */
-/* line 470, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 470, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-grid .fc-event-time {
   font-weight: bold;
 }
 
 /* right-to-left */
-/* line 476, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 476, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-rtl .fc-grid .fc-day-number {
   float: left;
 }
 
-/* line 480, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 480, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-rtl .fc-grid .fc-event-time {
   float: right;
 }
 
 /* Agenda Week View, Agenda Day View
 ------------------------------------------------------------------------*/
-/* line 489, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 489, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-agenda table {
   border-collapse: separate;
 }
 
-/* line 493, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 493, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-agenda-days th {
   text-align: center;
 }
 
-/* line 497, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 497, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-agenda .fc-agenda-axis {
   width: 50px;
   padding: 0 4px;
@@ -18097,34 +18097,34 @@ table.fc-border-separate {
   font-weight: normal;
 }
 
-/* line 506, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 506, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-agenda .fc-week-number {
   font-weight: bold;
 }
 
-/* line 510, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 510, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-agenda .fc-day-content {
   padding: 2px 2px 1px;
 }
 
 /* make axis border take precedence */
-/* line 516, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 516, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-agenda-days .fc-agenda-axis {
   border-right-width: 1px;
 }
 
-/* line 520, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 520, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-agenda-days .fc-col0 {
   border-left-width: 0;
 }
 
 /* all-day area */
-/* line 526, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 526, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-agenda-allday th {
   border-width: 0 1px;
 }
 
-/* line 530, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 530, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-agenda-allday .fc-day-content {
   min-height: 34px;
   /* TODO: doesnt work well in quirksmode */
@@ -18132,47 +18132,47 @@ table.fc-border-separate {
 }
 
 /* divider (between all-day and slots) */
-/* line 537, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 537, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-agenda-divider-inner {
   height: 2px;
   overflow: hidden;
 }
 
-/* line 542, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 542, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-widget-header .fc-agenda-divider-inner {
   background: #eee;
 }
 
 /* slot rows */
-/* line 548, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 548, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-agenda-slots th {
   border-width: 1px 1px 0;
 }
 
-/* line 552, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 552, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-agenda-slots td {
   border-width: 1px 0 0;
   background: none;
 }
 
-/* line 557, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 557, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-agenda-slots td div {
   height: 20px;
 }
 
-/* line 562, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 562, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-agenda-slots tr.fc-slot0 th,
 .fc-agenda-slots tr.fc-slot0 td {
   border-top-width: 0;
 }
 
-/* line 567, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 567, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-agenda-slots tr.fc-minor th,
 .fc-agenda-slots tr.fc-minor td {
   border-top-style: dotted;
 }
 
-/* line 571, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 571, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-agenda-slots tr.fc-minor th.ui-widget-header {
   *border-top-style: solid;
   /* doesn't work with background in IE6/7 */
@@ -18180,38 +18180,38 @@ table.fc-border-separate {
 
 /* Vertical Events
 ------------------------------------------------------------------------*/
-/* line 580, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 580, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-event-vert {
   border-width: 0 1px;
 }
 
-/* line 584, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 584, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-event-vert.fc-event-start {
   border-top-width: 1px;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
 }
 
-/* line 590, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 590, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-event-vert.fc-event-end {
   border-bottom-width: 1px;
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
 }
 
-/* line 596, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 596, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-event-vert .fc-event-time {
   white-space: nowrap;
   font-size: 10px;
 }
 
-/* line 601, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 601, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-event-vert .fc-event-inner {
   position: relative;
   z-index: 2;
 }
 
-/* line 606, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 606, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-event-vert .fc-event-bg {
   /* makes the event lighter w/ a semi-transparent overlay  */
   position: absolute;
@@ -18225,7 +18225,7 @@ table.fc-border-separate {
   filter: alpha(opacity=25);
 }
 
-/* line 619, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 619, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc .ui-draggable-dragging .fc-event-bg,
 .fc-select-helper .fc-event-bg {
   display: none\9;
@@ -18233,7 +18233,7 @@ table.fc-border-separate {
 }
 
 /* resizable */
-/* line 625, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 625, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-event-vert .ui-resizable-s {
   bottom: 0        !important;
   /* importants override pre jquery ui 1.7 styles */
@@ -18247,76 +18247,76 @@ table.fc-border-separate {
   cursor: s-resize;
 }
 
-/* line 637, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 637, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .fc-agenda .ui-resizable-resizing {
   /* TODO: better selector */
   _overflow: hidden;
 }
 
-/* line 645, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 645, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .bootstrap-duallistbox-container .buttons {
   width: 100%;
   margin-bottom: -1px;
 }
 
-/* line 645, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 645, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .bootstrap-duallistbox-container label {
   display: block;
 }
 
-/* line 645, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 645, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .bootstrap-duallistbox-container .info {
   display: inline-block;
   margin-bottom: 5px;
   font-size: 11px;
 }
 
-/* line 645, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 645, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .bootstrap-duallistbox-container .clear1, .bootstrap-duallistbox-container .clear2 {
   display: none;
   font-size: 10px;
 }
 
-/* line 645, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 645, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .bootstrap-duallistbox-container .box1.filtered .clear1, .bootstrap-duallistbox-container .box2.filtered .clear2 {
   display: inline-block;
 }
 
-/* line 645, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 645, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .bootstrap-duallistbox-container .move, .bootstrap-duallistbox-container .remove {
   width: 60%;
 }
 
-/* line 645, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 645, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .bootstrap-duallistbox-container .btn-group .btn {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-/* line 645, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 645, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .bootstrap-duallistbox-container select {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
 
-/* line 645, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 645, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .bootstrap-duallistbox-container .moveall, .bootstrap-duallistbox-container .removeall {
   width: 40%;
 }
 
-/* line 645, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 645, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .bootstrap-duallistbox-container.bs2compatible .btn-group > .btn + .btn {
   margin-left: 0;
 }
 
-/* line 645, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 645, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .bootstrap-duallistbox-container select {
   width: 100%;
   height: 300px;
   padding: 0;
 }
 
-/* line 645, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 645, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .bootstrap-duallistbox-container .filter {
   display: inline-block;
   width: 100%;
@@ -18327,89 +18327,89 @@ table.fc-border-separate {
   box-sizing: border-box;
 }
 
-/* line 645, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 645, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .bootstrap-duallistbox-container .filter.placeholder {
   color: #aaa;
 }
 
-/* line 645, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 645, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .bootstrap-duallistbox-container.moveonselect .move, .bootstrap-duallistbox-container.moveonselect .remove {
   display: none;
 }
 
-/* line 645, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 645, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .bootstrap-duallistbox-container.moveonselect .moveall, .bootstrap-duallistbox-container.moveonselect .removeall {
   width: 100%;
 }
 
-/* line 646, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 646, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .bootstrap-duallistbox-container .buttons {
   width: 100%;
   margin-bottom: -1px;
 }
 
-/* line 651, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 651, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .bootstrap-duallistbox-container label {
   display: block;
 }
 
-/* line 655, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 655, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .bootstrap-duallistbox-container .info {
   display: inline-block;
   margin-bottom: 5px;
   font-size: 11px;
 }
 
-/* line 662, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 662, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .bootstrap-duallistbox-container .clear1,
 .bootstrap-duallistbox-container .clear2 {
   display: none;
   font-size: 10px;
 }
 
-/* line 668, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 668, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .bootstrap-duallistbox-container .box1.filtered .clear1,
 .bootstrap-duallistbox-container .box2.filtered .clear2 {
   display: inline-block;
 }
 
-/* line 673, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 673, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .bootstrap-duallistbox-container .move,
 .bootstrap-duallistbox-container .remove {
   width: 60%;
 }
 
-/* line 677, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 677, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .bootstrap-duallistbox-container .btn-group .btn {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-/* line 681, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 681, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .bootstrap-duallistbox-container select {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
 
-/* line 687, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 687, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .bootstrap-duallistbox-container .moveall,
 .bootstrap-duallistbox-container .removeall {
   width: 40%;
 }
 
-/* line 691, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 691, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .bootstrap-duallistbox-container.bs2compatible .btn-group > .btn + .btn {
   margin-left: 0;
 }
 
-/* line 695, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 695, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .bootstrap-duallistbox-container select {
   width: 100%;
   height: 300px;
   padding: 0;
 }
 
-/* line 701, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 701, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .bootstrap-duallistbox-container .filter {
   display: inline-block;
   width: 100%;
@@ -18420,37 +18420,37 @@ table.fc-border-separate {
   box-sizing: border-box;
 }
 
-/* line 711, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 711, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .bootstrap-duallistbox-container .filter.placeholder {
   color: #aaa;
 }
 
-/* line 716, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 716, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .bootstrap-duallistbox-container.moveonselect .move,
 .bootstrap-duallistbox-container.moveonselect .remove {
   display: none;
 }
 
-/* line 721, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 721, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .bootstrap-duallistbox-container.moveonselect .moveall,
 .bootstrap-duallistbox-container.moveonselect .removeall {
   width: 100%;
 }
 
-/* line 725, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 725, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .bootstrap-duallistbox-container .buttons {
   width: 100%;
   margin-bottom: -1px;
 }
 
-/* line 730, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 730, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .bootstrap-duallistbox-container label {
   display: block;
   color: white;
   font-size: 25px;
 }
 
-/* line 736, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 736, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .bootstrap-duallistbox-container .info {
   display: inline-block;
   margin-bottom: 10px;
@@ -18458,56 +18458,56 @@ table.fc-border-separate {
   color: white;
 }
 
-/* line 744, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 744, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .bootstrap-duallistbox-container .clear1,
 .bootstrap-duallistbox-container .clear2 {
   display: none;
   font-size: 10px;
 }
 
-/* line 750, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 750, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .bootstrap-duallistbox-container .box1.filtered .clear1,
 .bootstrap-duallistbox-container .box2.filtered .clear2 {
   display: inline-block;
 }
 
-/* line 755, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 755, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .bootstrap-duallistbox-container .move,
 .bootstrap-duallistbox-container .remove {
   width: 60%;
 }
 
-/* line 759, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 759, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .bootstrap-duallistbox-container .btn-group .btn {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-/* line 763, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 763, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .bootstrap-duallistbox-container select {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
 
-/* line 770, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 770, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .bootstrap-duallistbox-container .moveall,
 .bootstrap-duallistbox-container .removeall {
   width: 40%;
 }
 
-/* line 774, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 774, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .bootstrap-duallistbox-container.bs2compatible .btn-group > .btn + .btn {
   margin-left: 0;
 }
 
-/* line 778, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 778, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .bootstrap-duallistbox-container select {
   width: 100%;
   height: 600px;
   padding: 0;
 }
 
-/* line 784, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 784, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .bootstrap-duallistbox-container .filter {
   display: inline-block;
   width: 100%;
@@ -18518,18 +18518,18 @@ table.fc-border-separate {
   box-sizing: border-box;
 }
 
-/* line 794, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 794, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .bootstrap-duallistbox-container .filter.placeholder {
   color: #aaa;
 }
 
-/* line 799, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 799, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .bootstrap-duallistbox-container.moveonselect .move,
 .bootstrap-duallistbox-container.moveonselect .remove {
   display: none;
 }
 
-/* line 804, c:/Users/John/workspace/chris/app/assets/stylesheets/application.css.scss */
+/* line 804, C:/Users/IK/adv/app/assets/stylesheets/application.css.scss */
 .bootstrap-duallistbox-container.moveonselect .moveall,
 .bootstrap-duallistbox-container.moveonselect .removeall {
   width: 100%;

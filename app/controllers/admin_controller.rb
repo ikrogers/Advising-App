@@ -1,6 +1,16 @@
 class AdminController < ApplicationController
   layout 'menu'
   def index
+    @currentuser = User.find_by_id(session[:user_id])
+    user = User.find_by_id(session[:user_id])
+    if user != nil
+    case user.classification
+    when "Advisor"
+      redirect_to advisor_url
+    when "Student"
+      redirect_to student_url
+    end
+    end
   end
   
   def regstudent

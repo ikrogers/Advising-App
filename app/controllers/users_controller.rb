@@ -75,6 +75,7 @@ class UsersController < ApplicationController
     @user = User.find_by_id(params[:id])
     @user.flag = 'denied'
     
+    
     #if @user.save
     #  respond_with(@currentuser, :location => users_url);
     #end
@@ -101,8 +102,8 @@ class UsersController < ApplicationController
         format.mobile{ redirect_to users_url }
         format.json { render action: 'show', status: :created, location: @user }
       else
-        format.html { render action: 'new' }
-        format.mobile{ render action: 'new' }
+        format.html { redirect_to admin_url }
+        format.mobile{ redirect_to admin_url }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end

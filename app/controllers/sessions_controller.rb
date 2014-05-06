@@ -2,7 +2,17 @@ class SessionsController < ApplicationController
   skip_before_action :authorize
    layout 'front'
   def new
-
+    user = User.find_by_id(session[:user_id])
+    if user != nil
+    case user.classification
+    when "Admin"
+      redirect_to admin_url
+    when "Advisor"
+      redirect_to advisor_url
+    when "Student"
+      redirect_to student_url
+    end
+    end
   end
 
 def post

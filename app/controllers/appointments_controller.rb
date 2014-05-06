@@ -203,6 +203,10 @@ class AppointmentsController < ApplicationController
   # DELETE /appointments/1
   # DELETE /appointments/1.json
   def destroy
+    if @appointment.stuID != -1
+      @user = User.find_by_id(@appointment.stuID)
+      @user.update_attribute(:message, '')
+    end
     @appointment.destroy
     respond_to do |format|
       format.html { redirect_to appointments_url }
